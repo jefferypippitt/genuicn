@@ -1,69 +1,239 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+import { useState, useSyncExternalStore } from "react";
+import { useTheme } from "next-themes";
+import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select";
+import { CheckboxGroup, CheckboxItem } from "@/components/ui/checkbox-group";
+import { Button } from "@/components/ui/button";
+import { AppSidebar } from "@/components/sidebar-app/app-sidebar";
+import { SidebarInsetTopbar } from "@/components/sidebar-app/inset-topbar";
+import { useShapeContext } from "@/lib/shape-context";
+import { useSizeContext, typeClass } from "@/lib/size-context";
+import { SurfaceProvider } from "@/lib/surface-context";
+import { fontWeights } from "@/lib/font-weight";
+import { useIcons } from "@/lib/icon-context";
+import { cn } from "@/lib/utils";
+import type { SizeVariant } from "@/lib/size-context";
+import type { ShapeVariant } from "@/lib/shape-context";
+
+const THEMES = [
+  { value: "system", label: "System" },
+  { value: "light", label: "Light" },
+  { value: "dark", label: "Dark" },
+];
+const SHAPES: { value: ShapeVariant; label: string }[] = [
+  { value: "rounded", label: "Rounded" },
+  { value: "pill", label: "Pill" },
+];
+const SIZES: { value: SizeVariant; label: string }[] = [
+  { value: "default", label: "Default" },
+  { value: "compact", label: "Compact" },
+];
+const TOPICS = ["Mentions", "Replies", "Weekly digest", "Product news"];
+
+// The theme is only known in the browser (next-themes reads it after
+// hydration), so the server renders the control with "system".
+const subscribe = () => () => {};
+function useMounted() {
+  return useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false
   );
 }
+
+export default function Page() {
+  const { theme, setTheme } = useTheme();
+  const { shape, setShape } = useShapeContext();
+  const { size, setSize } = useSizeContext();
+  const mounted = useMounted();
+  const icons = useIcons();
+  const [topics, setTopics] = useState<Set<number>>(new Set([0, 1]));
+
+  const toggleTopic = (index: number) => {
+    return setTopics((prev) => {
+      const next = new Set(prev);
+      if (next.has(index)) next.delete(index);
+      else next.add(index);
+      return next;
+    });
+  };
+
+  return (
+    <SidebarProvider>
+      <AppSidebar />
+      <SidebarInset>
+        <SidebarInsetTopbar />
+        <main className="flex flex-1 justify-center p-6">
+          <div className="flex w-full max-w-xl flex-col gap-10 py-10">
+            <header className="flex flex-col gap-2">
+              <h1
+                className={cn(typeClass("display", size), "text-foreground")}
+                style={{ fontVariationSettings: fontWeights.semibold }}
+              >
+                Your app starts here
+              </h1>
+              <p
+                className={cn(typeClass("body", size), "text-muted-foreground")}
+              >
+                Every Fluid Functionalism component is in components/ui, set to
+                the choices you made on the site. Edit app/page.tsx to start
+                building, and components/providers.tsx to change the defaults.
+              </p>
+            </header>
+
+            <section className="flex flex-col gap-3">
+              <h2
+                className={cn(typeClass("subtitle", size), "text-foreground")}
+                style={{ fontVariationSettings: fontWeights.semibold }}
+              >
+                Make it yours
+              </h2>
+              {/* bg-muted is surface 2: popups opened in here lift above it */}
+              <SurfaceProvider value={2}>
+                <div className="bg-muted flex flex-col gap-1 rounded-xl p-3">
+                  <SettingRow
+                    label="Theme"
+                    hint="Press D to flip light and dark"
+                  >
+                    <Select
+                      value={mounted ? (theme ?? "system") : "system"}
+                      onValueChange={setTheme}
+                    >
+                      <SelectTrigger
+                        variant="borderless"
+                        className="w-auto min-w-0"
+                      />
+                      <SelectContent>
+                        {THEMES.map((o, index) => (
+                          <SelectItem
+                            key={o.value}
+                            value={o.value}
+                            index={index}
+                          >
+                            {o.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </SettingRow>
+                  <SettingRow label="Radius">
+                    <Select
+                      value={shape}
+                      onValueChange={(v) => setShape(v as ShapeVariant)}
+                    >
+                      <SelectTrigger
+                        variant="borderless"
+                        className="w-auto min-w-0"
+                      />
+                      <SelectContent>
+                        {SHAPES.map((o, index) => (
+                          <SelectItem
+                            key={o.value}
+                            value={o.value}
+                            index={index}
+                          >
+                            {o.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </SettingRow>
+                  <SettingRow label="Size">
+                    <Select
+                      value={size}
+                      onValueChange={(v) => setSize(v as SizeVariant)}
+                    >
+                      <SelectTrigger
+                        variant="borderless"
+                        className="w-auto min-w-0"
+                      />
+                      <SelectContent>
+                        {SIZES.map((o, index) => (
+                          <SelectItem
+                            key={o.value}
+                            value={o.value}
+                            index={index}
+                          >
+                            {o.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </SettingRow>
+                </div>
+              </SurfaceProvider>
+            </section>
+
+            <section className="flex flex-col gap-3">
+              <h2
+                className={cn(typeClass("subtitle", size), "text-foreground")}
+                style={{ fontVariationSettings: fontWeights.semibold }}
+              >
+                Notify me about
+              </h2>
+              {/* One hover highlight glides between rows; checked neighbours merge */}
+              <CheckboxGroup checkedIndices={topics}>
+                {TOPICS.map((label, index) => {
+                  return (
+                    <CheckboxItem
+                      key={label}
+                      index={index}
+                      label={label}
+                      checked={topics.has(index)}
+                      onToggle={() => toggleTopic(index)}
+                    />
+                  );
+                })}
+              </CheckboxGroup>
+            </section>
+
+            <div className="flex flex-wrap gap-2">
+              <Button variant="primary" leadingIcon={icons.check}>
+                Save
+              </Button>
+              <Button variant="tertiary" onClick={() => setTopics(new Set())}>
+                Clear
+              </Button>
+            </div>
+          </div>
+        </main>
+      </SidebarInset>
+    </SidebarProvider>
+  );
+}
+
+const SettingRow = ({
+  label,
+  hint,
+  children,
+}: {
+  readonly label: string;
+  readonly hint?: string;
+  readonly children: React.ReactNode;
+}) => {
+  const { size } = useSizeContext();
+  return (
+    <div className="flex items-center justify-between gap-4 pl-2">
+      <div className="flex flex-col">
+        <span className={cn(typeClass("body", size), "text-foreground")}>
+          {label}
+        </span>
+        {hint ? (
+          <span
+            className={cn(typeClass("caption", size), "text-muted-foreground")}
+          >
+            {hint}
+          </span>
+        ) : null}
+      </div>
+      {children}
+    </div>
+  );
+};
