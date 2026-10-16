@@ -626,8 +626,8 @@ export function useFluidHover<T extends HTMLElement>(
   }, [containerReference, scheduleMeasurement]);
 
   // Clean up rAF and the item observer on unmount
-  useEffect(() => {
-    return () => {
+  useEffect(
+    () => () => {
       if (rafIdReference.current !== null) {
         cancelAnimationFrame(rafIdReference.current);
       }
@@ -636,8 +636,9 @@ export function useFluidHover<T extends HTMLElement>(
       }
       itemRoReference.current?.disconnect();
       itemRoReference.current = null;
-    };
-  }, []);
+    },
+    []
+  );
 
   return {
     activeIndex,

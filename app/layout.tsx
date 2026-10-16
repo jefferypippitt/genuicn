@@ -1,6 +1,7 @@
 import { Geist_Mono, Inter } from "next/font/google";
 import { Providers } from "@/components/providers";
 import { SiteShell } from "@/components/site-shell";
+import { latestNewHrefs } from "@/lib/changelog/load";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -30,7 +31,7 @@ export default function RootLayout({
     >
       <body>
         <Providers>
-          <SiteShell>{children}</SiteShell>
+          <SiteShell newHrefs={latestNewHrefs()}>{children}</SiteShell>
         </Providers>
       </body>
     </html>

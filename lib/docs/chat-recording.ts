@@ -1,8 +1,13 @@
 import { DefaultChatTransport } from "ai";
+import { primeCrypto } from "@/features/crypto/crypto-requests";
+import { CRYPTO_RANGES } from "@/features/crypto/crypto-schema";
+import { primeBoardingPass } from "@/features/flights/flight-requests";
 import { primeQuote } from "@/features/quote/quote-requests";
 import { QUOTE_RANGES } from "@/features/quote/quote-schema";
 import { primeWeather } from "@/features/weather/weather-requests";
 import { WEATHER_UNITS } from "@/features/weather/weather-schema";
+import type { CryptoData } from "@/features/crypto/crypto-schema";
+import type { BoardingPassData } from "@/features/flights/flight-schema";
 import type { QuoteData } from "@/features/quote/quote-schema";
 import type { ChatTransport, UIMessage, UIMessageChunk } from "ai";
 import type { WeatherData } from "@/features/weather/weather-schema";
@@ -78,6 +83,12 @@ export function primeCardData({ responsesByUrl }: ChatRecording) {
       (value) => value === searchParams.get("range")
     );
     const location = searchParams.get("location");
+    const flight = searchParams.get("flight");
+    const date = searchParams.get("date");
+    const symbol = searchParams.get("symbol");
+    const cryptoRange =
+      CRYPTO_RANGES.find((value) => value === searchParams.get("range")) ??
+      "24h";
     const units = WEATHER_UNITS.find(
       (value) => value === searchParams.get("units")
     );
@@ -85,6 +96,10 @@ export function primeCardData({ responsesByUrl }: ChatRecording) {
       primeQuote(ticker, range, data as QuoteData);
     } else if (pathname === "/api/weather" && location) {
       primeWeather(location, units, data as WeatherData);
+    } else if (pathname === "/api/flights" && flight) {
+      primeBoardingPass(flight, date, data as BoardingPassData);
+    } else if (pathname === "/api/crypto" && symbol) {
+      primeCrypto(symbol, cryptoRange, data as CryptoData);
     }
   }
 }

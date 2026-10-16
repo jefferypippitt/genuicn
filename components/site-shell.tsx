@@ -7,15 +7,20 @@ import { usePageArrowKeys } from "@/components/docs/use-page-arrow-keys";
 import { RightRailProvider } from "@/lib/right-rail";
 
 export const SiteShell = ({
+  newHrefs,
   children,
 }: {
+  /**
+  The pages the latest release added, marked in the sidebar.
+  */
+  readonly newHrefs: readonly string[];
   readonly children: React.ReactNode;
 }) => {
   usePageArrowKeys();
   return (
     <RightRailProvider>
       <SidebarProvider>
-        <AppSidebar />
+        <AppSidebar newHrefs={newHrefs} />
         <SidebarInset>
           <SidebarInsetTopbar />
           {children}

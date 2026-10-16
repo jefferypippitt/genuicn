@@ -40,8 +40,14 @@ export interface ChangeGroup {
 }
 
 export interface Release {
+  /**
+  The release day as YYYY-MM-DD. It names the file and the page anchor.
+  */
+  released: string;
+  /**
+  The release month as YYYY-MM, from `released`.
+  */
   month: string;
-  released: string | null;
   title: string;
   intro: Inline[] | null;
   groups: ChangeGroup[];
@@ -54,7 +60,6 @@ export class ChangelogFormatError extends Error {
   }
 }
 
-const MONTH = /^\d{4}-(0[1-9]|1[0-2])$/;
 const DAY = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
 const REF = /^(#\d+|[0-9a-f]{7,12})$/;
 const REFS_TAIL = /\s*\(([^()]+)\)$/;
@@ -90,15 +95,20 @@ export function parseRelease(source: string, file = "release.md"): Release {
       fail(index + 2, `frontmatter line is not \`key: value\`: ${line}`);
     }
     const [, key, value] = match!;
-    if (!["month", "released", "title"].includes(key)) {
+    if (!["released", "title"].includes(key)) {
       fail(index + 2, `unknown frontmatter key \`${key}\``);
     }
     meta[key] = value.trim();
   }
 
-  const { month, released, title } = meta;
-  if (!month || !MONTH.test(month)) {
-    fail(2, "`month` must be YYYY-MM");
+  const { released, title } = meta;
+  // The pattern lets 2026-02-31 through; Date would roll it into March.
+  if (
+    !released ||
+    !DAY.test(released) ||
+    new Date(`${released}T00:00:00Z`).toISOString().slice(0, 10) !== released
+  ) {
+    fail(2, "`released` must be a real YYYY-MM-DD day");
   }
   if (!title) {
     fail(2, "`title` is required");
@@ -109,19 +119,6 @@ export function parseRelease(source: string, file = "release.md"): Release {
   if (title.endsWith(".")) {
     fail(2, "`title` ends with a period");
   }
-  if (released !== undefined) {
-    // The pattern lets 2026-02-31 through; Date would roll it into March.
-    if (
-      !DAY.test(released) ||
-      new Date(`${released}T00:00:00Z`).toISOString().slice(0, 10) !== released
-    ) {
-      fail(2, "`released` must be a real YYYY-MM-DD day");
-    }
-    if (released < `${month}-01`) {
-      fail(2, "`released` falls before the month started");
-    }
-  }
-
   const offset = front![0].split("\n").length - 1;
   const tree = fromMarkdown(source.slice(front![0].length));
   const lineOf: LineOf = (node) =>
@@ -194,7 +191,13 @@ export function parseRelease(source: string, file = "release.md"): Release {
     fail(undefined, "a release needs at least one section");
   }
 
-  return { month, released: released ?? null, title, intro, groups };
+  return {
+    groups,
+    intro,
+    month: released.slice(0, 7),
+    released,
+    title,
+  };
 }
 
 function parseEntry(

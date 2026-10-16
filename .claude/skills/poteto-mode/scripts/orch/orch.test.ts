@@ -37,10 +37,7 @@ async function makeDirectory(): Promise<string> {
   return directory;
 }
 
-function useStore(
-  directory: string,
-  options?: OpenStoreOptions
-): Store {
+function useStore(directory: string, options?: OpenStoreOptions): Store {
   const store = openStore(directory, options);
   handles.push(store);
   return store;
@@ -273,10 +270,7 @@ describe("Store", () => {
 
     expect(await store.init()).toEqual({ store: directory });
     const firstUnits = await readFile(join(directory, "units.tsv"), "utf8");
-    const firstLedger = await readFile(
-      join(directory, "ledger.tsv"),
-      "utf8"
-    );
+    const firstLedger = await readFile(join(directory, "ledger.tsv"), "utf8");
 
     expect(await store.init()).toEqual({ store: directory });
     expect(await readFile(join(directory, "units.tsv"), "utf8")).toBe(
@@ -330,13 +324,13 @@ describe("Store", () => {
       brief: "briefs/u1.md",
     });
     expect(await store.units.get("u1")).toEqual(updated);
-    expect(
-      await store.units.list({ state: "done", track: "build" })
-    ).toEqual([updated]);
+    expect(await store.units.list({ state: "done", track: "build" })).toEqual([
+      updated,
+    ]);
     expect(await store.units.counts()).toEqual({ done: 1, pending: 1 });
-    await expect(
-      store.units.add({ id: "u1", track: "build" })
-    ).rejects.toThrow("unit u1 already exists");
+    await expect(store.units.add({ id: "u1", track: "build" })).rejects.toThrow(
+      "unit u1 already exists"
+    );
     await expect(
       store.units.set({ id: "missing", state: "done" })
     ).rejects.toBeInstanceOf(NotFoundError);
@@ -451,9 +445,9 @@ describe("Store", () => {
       force: true,
       onLockStolen: (holder) => stolen.push(holder),
     });
-    expect(
-      await forced.units.add({ id: "u1", track: "build" })
-    ).toMatchObject({ id: "u1" });
+    expect(await forced.units.add({ id: "u1", track: "build" })).toMatchObject({
+      id: "u1",
+    });
     expect(stolen).toEqual([String(process.pid)]);
     await forced.close();
     expect(await readdir(directory)).not.toContain(".orch.lock");
@@ -470,9 +464,10 @@ describe("Store", () => {
         defaultAnswer: "wait",
       })
     ).toMatchObject({ kind: "open", id: "release" });
-    expect(
-      await store.standing.add({ line: "Never force push." })
-    ).toEqual({ number: 1, line: "Never force push." });
+    expect(await store.standing.add({ line: "Never force push." })).toEqual({
+      number: 1,
+      line: "Never force push.",
+    });
 
     const first = await store.status.render();
     expect(first.changed).toBe("first render");
@@ -708,16 +703,9 @@ describe("orch CLI", () => {
     const directory = await makeDirectory();
     expect(runCli(["--store", directory, "init"]).code).toBe(0);
 
-    const missingRepo = runCli([
-      "--store",
-      directory,
-      "frontier",
-      "set",
-    ]);
+    const missingRepo = runCli(["--store", directory, "frontier", "set"]);
     expect(missingRepo.code).toBe(1);
-    expect(missingRepo.stderr).toContain(
-      "set --repo <dir> or ORCH_REPO"
-    );
+    expect(missingRepo.stderr).toContain("set --repo <dir> or ORCH_REPO");
 
     const userError = runCli([
       "--store",

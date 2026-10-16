@@ -1,9 +1,9 @@
 import { DocPage } from "@/components/docs/doc-page";
 import { ChangelogView } from "@/components/changelog/changelog-view";
-import { loadReleases, monthLabel } from "@/lib/changelog/load";
+import { loadReleases, releaseLabel } from "@/lib/changelog/load";
 import type { Metadata } from "next";
 
-const DESCRIPTION = "Every change to genuicn, month by month.";
+const DESCRIPTION = "Every change to genuicn, release by release.";
 
 export const metadata: Metadata = {
   title: "Changelog · genuicn",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function ChangelogPage() {
   const releases = loadReleases().map((release) => ({
     ...release,
-    monthLabel: monthLabel(release.month),
+    label: releaseLabel(release.released),
   }));
   return (
     <DocPage title="Changelog" description={DESCRIPTION} href="/changelog">

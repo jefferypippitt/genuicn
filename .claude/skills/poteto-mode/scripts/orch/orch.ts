@@ -136,12 +136,7 @@ function pointerLine(pointer: InboxPointer): string {
 }
 
 function gateLine(gate: OpenGate): string {
-  return [
-    gate.id,
-    gate.question,
-    gate.options,
-    gate.defaultAnswer,
-  ].join("\t");
+  return [gate.id, gate.question, gate.options, gate.defaultAnswer].join("\t");
 }
 
 function compactRows<T>(
@@ -166,10 +161,7 @@ function frontierLine(value: Frontier): string {
     value.prs.length === 0
       ? "none"
       : value.prs
-          .map(
-            (row) =>
-              `${row.branches}#${row.pr}@${row.sha}:${row.state}`
-          )
+          .map((row) => `${row.branches}#${row.pr}@${row.sha}:${row.state}`)
           .join(",");
   return `generation=${value.generation} prs=${prs} lowest-unmerged=${value.lowestUnmerged ?? "none"}`;
 }
@@ -416,8 +408,7 @@ function createProgram(io: Io): Command {
       runStore(
         program,
         io,
-        (store) =>
-          options.peek ? store.inbox.peek() : store.inbox.drain(),
+        (store) => (options.peek ? store.inbox.peek() : store.inbox.drain()),
         (rows) => compactRows(rows, pointerLine, "(empty)", null)
       )
     );
@@ -482,21 +473,16 @@ function createProgram(io: Io): Command {
     "resolve the pull request base chain and set the frontier"
   )
     .addOption(
-      new Option(
-        "--repo <dir>",
-        "repository directory (or ORCH_REPO)"
-      ).env("ORCH_REPO")
+      new Option("--repo <dir>", "repository directory (or ORCH_REPO)").env(
+        "ORCH_REPO"
+      )
     )
     .addOption(
       new Option("--forge <forge>", "pull request forge")
         .choices(["gh", "origin"])
         .default("gh")
     )
-    .option(
-      "--prs <n,...>",
-      "optional expected pull request order pin",
-      prList
-    )
+    .option("--prs <n,...>", "optional expected pull request order pin", prList)
     .action((options: FrontierSetOptions) =>
       runStore(
         program,

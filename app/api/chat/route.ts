@@ -26,9 +26,11 @@ const instructions = catalog.prompt({
 
 export async function POST(request: Request) {
   const { messages }: { messages: UIMessage[] } = await request.json();
+  const now = new Date();
+  const today = now.toISOString().slice(0, 10);
 
   const result = streamText({
-    instructions,
+    instructions: `${instructions}\n\nToday is ${today} (UTC). Work out relative dates such as "tomorrow" from it.`,
     messages: await convertToModelMessages(messages, {
       convertDataPart: (part) =>
         part.type === "data-spec"

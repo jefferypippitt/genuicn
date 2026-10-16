@@ -38,7 +38,10 @@ const FOCUS_RING =
   "outline-none focus-visible:ring-1 focus-visible:ring-[color:var(--focus-ring,#6B97FF)]";
 
 export interface ReleaseView extends Release {
-  monthLabel: string;
+  /**
+  The release day for people, e.g. "October 16, 2026".
+  */
+  label: string;
 }
 
 const MONTH_PAD = "4rem";
@@ -51,11 +54,17 @@ export const ChangelogView = ({
 }) => {
   const sectionsReference = useRef(new Map<string, HTMLElement>());
   const activeMonth = useScrollSpy(releases, sectionsReference);
+  const [latest] = releases;
+  const latestNew =
+    latest?.groups.find((group) => group.kind === "new")?.entries ?? [];
   return (
     <>
+      {latest && latestNew.length > 0 ? (
+        <LatestNew release={latest} entries={latestNew} />
+      ) : null}
       <div className="flex flex-col">
         {releases.map((release, index) => (
-          <div key={release.month} className="relative pl-6">
+          <div key={release.released} className="relative pl-6">
             <TimelineMark first={index === 0} />
             {index > 0 && (
               <div aria-hidden style={{ paddingTop: MONTH_PAD }}>
@@ -70,9 +79,9 @@ export const ChangelogView = ({
               divided={index > 0}
               sectionRef={(element) => {
                 if (element) {
-                  sectionsReference.current.set(release.month, element);
+                  sectionsReference.current.set(release.released, element);
                 } else {
-                  sectionsReference.current.delete(release.month);
+                  sectionsReference.current.delete(release.released);
                 }
               }}
             />
@@ -81,6 +90,53 @@ export const ChangelogView = ({
       </div>
       <ReleaseIndex releases={releases} activeMonth={activeMonth} />
     </>
+  );
+};
+
+/**
+What the latest release added, above the history: the same entries the sidebar marks with a dot.
+*/
+const LatestNew = ({
+  release,
+  entries,
+}: {
+  readonly release: ReleaseView;
+  readonly entries: ChangeEntry[];
+}) => {
+  const { type } = useSize();
+  return (
+    <section aria-labelledby="latest-new-title" className="pb-16">
+      <h2
+        id="latest-new-title"
+        className={type.title}
+        style={{ fontVariationSettings: fontWeights.semibold }}
+      >
+        New
+      </h2>
+      <p className={cn(type.body, "text-muted-foreground mt-2")}>
+        Added in the{" "}
+        <a
+          href={`#${release.released}`}
+          className={cn(
+            "text-foreground underline-offset-2 hover:underline",
+            FOCUS_RING
+          )}
+        >
+          {release.label}
+        </a>{" "}
+        release.
+      </p>
+      <div className="mt-2 flex flex-col pl-6">
+        {entries.map((entry, index) => (
+          <Entry
+            key={entry.href ?? entry.name}
+            entry={entry}
+            first={index === 0}
+          />
+        ))}
+      </div>
+      <div aria-hidden className="border-border mt-16 border-t" />
+    </section>
   );
 };
 
@@ -122,8 +178,8 @@ const ReleaseSection = ({
   return (
     <section
       ref={sectionRef}
-      id={release.month}
-      aria-labelledby={`${release.month}-title`}
+      id={release.released}
+      aria-labelledby={`${release.released}-title`}
       className="scroll-mt-16"
       style={divided ? { paddingTop: MONTH_PAD } : undefined}
     >
@@ -153,16 +209,17 @@ const MonthHeading = ({ release }: { readonly release: ReleaseView }) => {
   const CheckIcon = icons.check;
   const [copied, setCopied] = useState(false);
   const timeoutReference = useRef<ReturnType<typeof setTimeout>>(null);
-  useEffect(() => {
-    return () => {
+  useEffect(
+    () => () => {
       if (timeoutReference.current) {
         clearTimeout(timeoutReference.current);
       }
-    };
-  }, []);
+    },
+    []
+  );
 
   const copy = async () => {
-    const url = `${window.location.origin}/changelog#${release.month}`;
+    const url = `${window.location.origin}/changelog#${release.released}`;
     try {
       await navigator.clipboard.writeText(url);
     } catch {
@@ -178,24 +235,24 @@ const MonthHeading = ({ release }: { readonly release: ReleaseView }) => {
   return (
     <div className="group/month flex items-center gap-2">
       <h2
-        id={`${release.month}-title`}
+        id={`${release.released}-title`}
         className={cn(type.title, "text-foreground")}
         style={{ fontVariationSettings: fontWeights.semibold }}
       >
-        <time dateTime={release.month}>{release.monthLabel}</time>
+        <time dateTime={release.released}>{release.label}</time>
       </h2>
       <a
-        href={`#${release.month}`}
+        href={`#${release.released}`}
         onClick={(event) => {
           event.preventDefault();
           window.history.replaceState(
             window.history.state,
             "",
-            `${window.location.search}#${release.month}`
+            `${window.location.search}#${release.released}`
           );
           copy();
         }}
-        aria-label={`Copy link to ${release.monthLabel}`}
+        aria-label={`Copy link to ${release.label}`}
         className={cn(
           "text-muted-foreground hover:text-foreground relative grid size-5 place-items-center rounded-md opacity-0 transition-opacity duration-80 group-hover/month:opacity-100 focus-visible:opacity-100 max-sm:opacity-100",
           FOCUS_RING
@@ -230,31 +287,9 @@ const MonthHeading = ({ release }: { readonly release: ReleaseView }) => {
           {copied ? "Link copied" : ""}
         </span>
       </a>
-      {release.released ? (
-        <span
-          className={cn(
-            type.caption,
-            "text-muted-foreground ml-auto tabular-nums"
-          )}
-        >
-          Released{" "}
-          <time dateTime={release.released}>
-            {releasedLabel(release.released)}
-          </time>
-        </span>
-      ) : null}
     </div>
   );
 };
-
-function releasedLabel(day: string) {
-  const [year, month, date] = day.split("-").map(Number);
-  return new Date(Date.UTC(year, month - 1, date)).toLocaleDateString("en-US", {
-    day: "numeric",
-    month: "short",
-    timeZone: "UTC",
-  });
-}
 
 const KindGroup = ({
   kind,
@@ -283,15 +318,13 @@ const KindGroup = ({
         </span>
       </h4>
       <div className="mt-2 flex flex-col">
-        {entries.map((entry, index) => {
-          return (
-            <Entry
-              key={`${entry.name}-${index}`}
-              entry={entry}
-              first={index === 0}
-            />
-          );
-        })}
+        {entries.map((entry, index) => (
+          <Entry
+            key={`${entry.name}-${index}`}
+            entry={entry}
+            first={index === 0}
+          />
+        ))}
       </div>
     </div>
   );
@@ -341,16 +374,12 @@ const Entry = ({
         </h5>
         {entry.refs.length > 0 && (
           <div className="-mr-1.5 flex items-center">
-            {entry.refs.map((reference) => {
-              return (
-                <RefChip
-                  key={
-                    reference.type === "pr" ? reference.number : reference.sha
-                  }
-                  gitRef={reference}
-                />
-              );
-            })}
+            {entry.refs.map((reference) => (
+              <RefChip
+                key={reference.type === "pr" ? reference.number : reference.sha}
+                gitRef={reference}
+              />
+            ))}
           </div>
         )}
       </div>
@@ -422,14 +451,14 @@ function useScrollSpy(
   sectionsReference: RefObject<Map<string, HTMLElement>>
 ) {
   const [active, setActive] = useState<string | null>(
-    releases[0]?.month ?? null
+    releases[0]?.released ?? null
   );
 
   useEffect(() => {
     let frame = 0;
     const update = () => {
       frame = 0;
-      const months = releases.map((release) => release.month);
+      const months = releases.map((release) => release.released);
       if (months.length === 0) {
         setActive(null);
         return;
@@ -503,7 +532,7 @@ const ReleaseIndexCard = ({
   const hover = useFluidHover(containerReference);
 
   const activeIndex = releases.findIndex(
-    (release) => release.month === activeMonth
+    (release) => release.released === activeMonth
   );
   const activeRect =
     activeIndex !== -1 && hover.isMeasured
@@ -544,17 +573,15 @@ const ReleaseIndexCard = ({
           />
         ) : null}
         <FluidHoverHighlight hover={hover} className={shape.bg} />
-        {releases.map((release, index) => {
-          return (
-            <IndexRow
-              key={release.month}
-              release={release}
-              index={index}
-              active={release.month === activeMonth}
-              registerItem={hover.registerItem}
-            />
-          );
-        })}
+        {releases.map((release, index) => (
+          <IndexRow
+            key={release.released}
+            release={release}
+            index={index}
+            active={release.released === activeMonth}
+            registerItem={hover.registerItem}
+          />
+        ))}
       </div>
     </section>
   );
@@ -580,18 +607,18 @@ const IndexRow = ({
   return (
     <a
       ref={reference}
-      href={`#${release.month}`}
+      href={`#${release.released}`}
       aria-current={active ? "location" : undefined}
       onClick={(event) => {
         event.preventDefault();
-        document.getElementById(release.month)?.scrollIntoView({
+        document.getElementById(release.released)?.scrollIntoView({
           behavior: reduceMotion ? "auto" : "smooth",
           block: "start",
         });
         window.history.replaceState(
           window.history.state,
           "",
-          `${window.location.search}#${release.month}`
+          `${window.location.search}#${release.released}`
         );
       }}
       className={cn(
@@ -608,7 +635,7 @@ const IndexRow = ({
           className="invisible col-start-1 row-start-1"
           style={{ fontVariationSettings: fontWeights.semibold }}
         >
-          {release.monthLabel}
+          {release.label}
         </span>
         <span
           className="col-start-1 row-start-1 transition-[font-variation-settings] duration-80"
@@ -618,7 +645,7 @@ const IndexRow = ({
               : fontWeights.normal,
           }}
         >
-          {release.monthLabel}
+          {release.label}
         </span>
       </span>
     </a>

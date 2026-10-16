@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
+import { GlassCard } from "@/components/glass-card";
 import { cn } from "@/lib/utils";
 import {
   QUOTE_RANGES,
@@ -73,25 +74,28 @@ export const QuoteCard = ({
       />
     );
   }
-  return (
-    <div className={cn(CARD_FRAME, className)}>
-      {state === "error" || !shown ? (
+  if (state === "error" || !shown) {
+    return (
+      <div className={cn(CARD_FRAME, className)}>
         <QuoteError ticker={ticker} message={error} />
-      ) : (
-        <QuoteReady
-          data={shown}
-          pendingRange={pendingRange}
-          rangeError={rangeError}
-          showAsOf={showAsOf}
-          onSelectRange={loadRange ? selectRange : undefined}
-        />
-      )}
-    </div>
+      </div>
+    );
+  }
+  return (
+    <GlassCard label={summarizeQuote(shown)} className={className}>
+      <QuoteReady
+        data={shown}
+        pendingRange={pendingRange}
+        rangeError={rangeError}
+        showAsOf={showAsOf}
+        onSelectRange={loadRange ? selectRange : undefined}
+      />
+    </GlassCard>
   );
 };
 
 const CARD_FRAME =
-  "bg-card text-card-foreground w-full max-w-sm rounded-xl border p-4";
+  "bg-card text-card-foreground w-full max-w-sm rounded-2xl border p-4";
 
 const QuoteReady = ({
   data,
@@ -211,12 +215,10 @@ const Sparkline = ({
   const min = Math.min(...prices);
   const max = Math.max(...prices);
   const span = max - min || 1;
-  const coords = prices.map((price, index) => {
-    return [
-      (index / (prices.length - 1)) * width,
-      height - 2 - ((price - min) / span) * (height - 4),
-    ];
-  });
+  const coords = prices.map((price, index) => [
+    (index / (prices.length - 1)) * width,
+    height - 2 - ((price - min) / span) * (height - 4),
+  ]);
   const line = coords
     .map(
       ([x, y], index) =>

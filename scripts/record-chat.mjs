@@ -13,69 +13,82 @@ if (!(name && /^[a-z0-9-]+$/.test(name) && prompt)) {
 
 const MAX_WAIT_MS = 1500;
 
-const response = await fetch(`${origin}/api/chat`, {
-  body: JSON.stringify({
-    messages: [
-      {
-        id: "recorded-user",
-        parts: [{ text: prompt, type: "text" }],
-        role: "user",
-      },
-    ],
-  }),
-  headers: { "Content-Type": "application/json" },
-  method: "POST",
-}).catch(() => null);
+/**
+Posts the conversation so far and returns the reply as timed stream chunks.
+*/
+async function recordReply(messages) {
+  const response = await fetch(`${origin}/api/chat`, {
+    body: JSON.stringify({ messages }),
+    headers: { "Content-Type": "application/json" },
+    method: "POST",
+  }).catch(() => null);
 
-if (!response?.ok || !response.body) {
-  console.error(
-    `Couldn't reach ${origin}/api/chat (${response?.status ?? "no response"}). Is pnpm dev running?`
-  );
-  process.exit(1);
-}
-
-const chunks = [];
-const decoder = new TextDecoder();
-let buffer = "";
-let last = Date.now();
-for await (const bytes of response.body) {
-  buffer += decoder.decode(bytes, { stream: true });
-  const lines = buffer.split("\n");
-  buffer = lines.pop() ?? "";
-  for (const line of lines) {
-    const data = line.startsWith("data: ") ? line.slice(6).trim() : "";
-    if (!data || data === "[DONE]") {
-      continue;
-    }
-    const now = Date.now();
-    chunks.push({
-      chunk: JSON.parse(data),
-      wait: Math.min(now - last, MAX_WAIT_MS),
-    });
-    last = now;
+  if (!response?.ok || !response.body) {
+    console.error(
+      `Couldn't reach ${origin}/api/chat (${response?.status ?? "no response"}). Is pnpm dev running?`
+    );
+    process.exit(1);
   }
+
+  const chunks = [];
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let last = Date.now();
+  for await (const bytes of response.body) {
+    buffer += decoder.decode(bytes, { stream: true });
+    const lines = buffer.split("\n");
+    buffer = lines.pop() ?? "";
+    for (const line of lines) {
+      const data = line.startsWith("data: ") ? line.slice(6).trim() : "";
+      if (!data || data === "[DONE]") {
+        continue;
+      }
+      const now = Date.now();
+      chunks.push({
+        chunk: JSON.parse(data),
+        wait: Math.min(now - last, MAX_WAIT_MS),
+      });
+      last = now;
+    }
+  }
+
+  const errors = chunks.filter(({ chunk }) => chunk.type === "error");
+  if (errors.length > 0) {
+    console.error(
+      "The reply had an error, so nothing was saved:",
+      errors[0].chunk
+    );
+    process.exit(1);
+  }
+  return chunks;
 }
 
-const errors = chunks.filter(({ chunk }) => chunk.type === "error");
-if (errors.length > 0) {
-  console.error(
-    "The reply had an error, so nothing was saved:",
-    errors[0].chunk
-  );
-  process.exit(1);
+function replyText(chunks) {
+  return chunks
+    .filter(({ chunk }) => chunk.type === "text-delta")
+    .map(({ chunk }) => chunk.delta)
+    .join("")
+    .trim();
 }
+
+const userMessage = (text, id) => ({
+  id,
+  parts: [{ text, type: "text" }],
+  role: "user",
+});
+
+const chunks = await recordReply([userMessage(prompt, "recorded-user")]);
+const turns = [{ chunks, prompt }];
 
 const dir = join(process.cwd(), "content", "recordings");
 await mkdir(dir, { recursive: true });
 const file = join(dir, `${name}.json`);
-const recording = { turns: [{ chunks, prompt }], version: 1 };
+const recording = { turns, version: 1 };
 recording.responsesByUrl = await fetchCardResponses(recording, origin);
 await writeFile(file, `${JSON.stringify(recording, null, 2)}\n`);
 
-const text = chunks
-  .filter(({ chunk }) => chunk.type === "text-delta")
-  .map(({ chunk }) => chunk.delta)
-  .join("")
-  .trim();
-console.log(`Saved content/recordings/${name}.json (${chunks.length} chunks)`);
-console.log(`Reply: ${text}`);
+const count = turns.reduce((total, turn) => total + turn.chunks.length, 0);
+console.log(`Saved content/recordings/${name}.json (${count} chunks)`);
+for (const turn of turns) {
+  console.log(`Reply to "${turn.prompt}": ${replyText(turn.chunks)}`);
+}

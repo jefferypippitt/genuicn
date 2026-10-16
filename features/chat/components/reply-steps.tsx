@@ -108,12 +108,12 @@ function useLoads(cards: readonly Card[], ready: boolean) {
       };
       card.lookup
         .load(card.props)
-        .catch((error: unknown) => {
-          return settle({
-            message: error instanceof Error ? error.message : "It failed.",
+        .catch((error: unknown) =>
+          settle({
+            message: Error.isError(error) ? error.message : "It failed.",
             status: "error",
-          });
-        })
+          })
+        )
         .then(() => settle({ status: "ready" }));
     }
     return () => {

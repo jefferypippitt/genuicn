@@ -1,0 +1,202 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "hyWW1rHRwZkHfGXH"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 650
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011Cg5Et4hJ6vCWwFdXfg7Tw",
+                "model": "claude-haiku-4-5-20251001",
+                "usage": {
+                  "input_tokens": 4702,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 2,
+                  "service_tier": "standard",
+                  "inference_geo": "not_available",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "0"
+          },
+          "wait": 266
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "card-group"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/card-group",
+                "value": {
+                  "type": "CardGroup",
+                  "props": {},
+                  "children": ["ba117", "ua837"]
+                }
+              }
+            }
+          },
+          "wait": 283
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/ba117",
+                "value": {
+                  "type": "BoardingPass",
+                  "props": {
+                    "flight": "BA 117",
+                    "date": "2026-11-03"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 251
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/ua837",
+                "value": {
+                  "type": "BoardingPass",
+                  "props": {
+                    "flight": "UA 837",
+                    "date": "2026-11-03"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 202
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 26
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "Boarding passes for BA 117 and UA 837 on November 3, 2026?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/flights?flight=BA+117&date=2026-11-03": {
+      "airline": "British Airways",
+      "airlineCode": "BA",
+      "from": {
+        "airport": "London Heathrow Airport",
+        "city": "London",
+        "code": "LHR"
+      },
+      "to": {
+        "airport": "John F Kennedy International Airport",
+        "city": "New York",
+        "code": "JFK"
+      },
+      "boardingTime": "07:40",
+      "demo": true,
+      "gate": "A7",
+      "passenger": "Jon Doe",
+      "seat": "8A",
+      "cabin": "Business",
+      "date": "2026-11-03",
+      "flight": "BA 117",
+      "group": "2",
+      "terminal": "5",
+      "departureTime": "08:20"
+    },
+    "/api/flights?flight=UA+837&date=2026-11-03": {
+      "airline": "United Airlines",
+      "airlineCode": "UA",
+      "from": {
+        "airport": "San Francisco International Airport",
+        "city": "San Francisco",
+        "code": "SFO"
+      },
+      "to": {
+        "airport": "Narita International Airport",
+        "city": "Tokyo",
+        "code": "NRT"
+      },
+      "boardingTime": "16:40",
+      "demo": true,
+      "gate": "E32",
+      "passenger": "Jon Doe",
+      "seat": "17J",
+      "cabin": "Economy",
+      "date": "2026-11-03",
+      "flight": "UA 837",
+      "group": "4",
+      "terminal": "1",
+      "departureTime": "17:20"
+    }
+  }
+}

@@ -61,7 +61,7 @@ Link [Cursor's skills docs](https://cursor.com/docs/skills) when this comes up. 
 The default answer is `/poteto-mode`, which runs most of the others when its steps need them. Name a skill directly when the user wants more or less of something than the playbook gives. Read the skill before you recommend it, and give one example prompt.
 
 | The user wants to | Skill |
-|---|---|
+| --- | --- |
 | Do any non-trivial task with rigor | [`/poteto-mode`](../poteto-mode/SKILL.md) |
 | Check that the agent understood their goal and the problem before it starts | [`/in-your-own-words`](../in-your-own-words/SKILL.md) |
 | Aim a task higher before starting: more expert, more outcome-focused, not overspecified | [`/sharpen`](../sharpen/SKILL.md) |
@@ -130,7 +130,7 @@ Principles are one-rule skills that `/poteto-mode` reads and cites in its replie
 ## Fix a run that went wrong
 
 | Symptom | Fix |
-|---|---|
+| --- | --- |
 | The mode stopped applying after a few turns | It was started with Enter. Start it as a Custom Mode, or start each task with `/poteto-mode`. |
 | A question got treated as the next step of the last task | Say "new task", or say the turn doesn't need the mode. |
 | A new model choice had no effect | The rule from `/setup-pstack` applies to new chats. Start one. |

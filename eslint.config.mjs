@@ -6,12 +6,26 @@ import vitest from "ultracite/eslint/vitest";
 const reactPlugin = react.find((config) => config.plugins?.react)?.plugins
   .react;
 
+// *.spec.ts files are Playwright tests, not Vitest.
+const vitestTests = vitest.map((config) => ({
+  ...config,
+  files: ["**/*.test.{ts,tsx}"],
+}));
+
 export default [
-  { ignores: [".agents/**", ".claude/**", "components/ui/**"] },
+  {
+    ignores: [
+      ".agents/**",
+      ".claude/**",
+      "components/ui/**",
+      "playwright-report/**",
+      "test-results/**",
+    ],
+  },
   ...core,
   ...react,
   ...next,
-  ...vitest,
+  ...vitestTests,
   {
     plugins: { react: reactPlugin },
     rules: {

@@ -47,7 +47,29 @@ function useMounted() {
   );
 }
 
-export const AppSidebar = (properties: Omit<SidebarProps, "children">) => {
+/**
+The blue "new" dot after a page the latest release added, the same blue the changelog uses for New.
+*/
+const NewDot = () => (
+  <>
+    <span
+      aria-hidden
+      className="ml-auto size-1.5 shrink-0 rounded-full bg-[var(--info)]"
+    />
+    <span className="sr-only">, new</span>
+  </>
+);
+
+export const AppSidebar = ({
+  newHrefs,
+  ...properties
+}: Omit<SidebarProps, "children"> & {
+  /**
+  Pages to mark as new, from the latest changelog release.
+  */
+  readonly newHrefs: readonly string[];
+}) => {
+  const newSet = new Set(newHrefs);
   const icons = useIcons();
   const pathname = usePathname();
 
@@ -74,6 +96,7 @@ export const AppSidebar = (properties: Omit<SidebarProps, "children">) => {
                     isActive={item.href === pathname}
                   >
                     {item.label}
+                    {item.href && newSet.has(item.href) ? <NewDot /> : null}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}

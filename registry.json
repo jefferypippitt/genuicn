@@ -93,6 +93,11 @@
           "target": "features/quote/components/quote-card.tsx"
         },
         {
+          "path": "components/glass-card.tsx",
+          "type": "registry:component",
+          "target": "components/glass-card.tsx"
+        },
+        {
           "path": "features/quote/components/live-quote-card.tsx",
           "type": "registry:component",
           "target": "features/quote/components/live-quote-card.tsx"
@@ -149,6 +154,11 @@
           "target": "features/weather/components/weather-card.tsx"
         },
         {
+          "path": "components/glass-card.tsx",
+          "type": "registry:component",
+          "target": "components/glass-card.tsx"
+        },
+        {
           "path": "features/weather/components/live-weather-card.tsx",
           "type": "registry:component",
           "target": "features/weather/components/live-weather-card.tsx"
@@ -157,11 +167,6 @@
           "path": "features/weather/components/weather-sky.tsx",
           "type": "registry:component",
           "target": "features/weather/components/weather-sky.tsx"
-        },
-        {
-          "path": "features/weather/components/weather-glass.tsx",
-          "type": "registry:component",
-          "target": "features/weather/components/weather-glass.tsx"
         },
         {
           "path": "features/weather/components/weather-icon.tsx",
@@ -210,6 +215,202 @@
         }
       ],
       "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   WeatherCard: weatherCatalogEntry\n  features/chat/chat-registry.tsx: WeatherCard: ({ props, loading }) => <LiveWeatherCard location={props.location || undefined} units={props.units} streaming={loading} />\n\nForecasts load from /api/weather (installed at app/api/weather/route.ts), backed by Open-Meteo. No API key needed."
+    },
+    {
+      "name": "flights",
+      "type": "registry:block",
+      "title": "Flights",
+      "description": "A live boarding pass for json-render chats, shaped like a ticket with a tear-off stub: the route over a world map, passenger, cabin and extras, boarding time, terminal, gate, group and seat. Plus a travel assistant that searches and books flights (a route card with searchable cities, a calendar, and results) and checks you in (bags, a seat on a seat map, extras) with Fluid Functionalism's AskUserQuestions (taps and validated short answers, no model needed), then shows the pass. With its API routes and a demo booking to replace with your own.",
+      "dependencies": ["zod", "server-only", "lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "https://www.fluidfunctionalism.com/r/base/ask-user-questions.json",
+        "https://www.fluidfunctionalism.com/r/base/combobox.json"
+      ],
+      "files": [
+        {
+          "path": "features/flights/components/boarding-pass-card.tsx",
+          "type": "registry:component",
+          "target": "features/flights/components/boarding-pass-card.tsx"
+        },
+        {
+          "path": "features/flights/components/live-boarding-pass-card.tsx",
+          "type": "registry:component",
+          "target": "features/flights/components/live-boarding-pass-card.tsx"
+        },
+        {
+          "path": "features/flights/components/check-in-agent.tsx",
+          "type": "registry:component",
+          "target": "features/flights/components/check-in-agent.tsx"
+        },
+        {
+          "path": "features/flights/components/seat-map.tsx",
+          "type": "registry:component",
+          "target": "features/flights/components/seat-map.tsx"
+        },
+        {
+          "path": "features/flights/components/route-picker.tsx",
+          "type": "registry:component",
+          "target": "features/flights/components/route-picker.tsx"
+        },
+        {
+          "path": "features/flights/components/date-picker.tsx",
+          "type": "registry:component",
+          "target": "features/flights/components/date-picker.tsx"
+        },
+        {
+          "path": "features/flights/components/flight-results.tsx",
+          "type": "registry:component",
+          "target": "features/flights/components/flight-results.tsx"
+        },
+        {
+          "path": "features/flights/components/world-map.ts",
+          "type": "registry:lib",
+          "target": "features/flights/components/world-map.ts"
+        },
+        {
+          "path": "features/flights/flight-catalog.ts",
+          "type": "registry:lib",
+          "target": "features/flights/flight-catalog.ts"
+        },
+        {
+          "path": "features/flights/flight-steps.ts",
+          "type": "registry:lib",
+          "target": "features/flights/flight-steps.ts"
+        },
+        {
+          "path": "features/flights/flight-requests.ts",
+          "type": "registry:lib",
+          "target": "features/flights/flight-requests.ts"
+        },
+        {
+          "path": "features/flights/flight-queries.ts",
+          "type": "registry:lib",
+          "target": "features/flights/flight-queries.ts"
+        },
+        {
+          "path": "features/flights/flight-booking.ts",
+          "type": "registry:lib",
+          "target": "features/flights/flight-booking.ts"
+        },
+        {
+          "path": "features/flights/airline-brands.ts",
+          "type": "registry:lib",
+          "target": "features/flights/airline-brands.ts"
+        },
+        {
+          "path": "features/flights/flight-fake.ts",
+          "type": "registry:lib",
+          "target": "features/flights/flight-fake.ts"
+        },
+        {
+          "path": "features/flights/flight-schema.ts",
+          "type": "registry:lib",
+          "target": "features/flights/flight-schema.ts"
+        },
+        {
+          "path": "features/flights/check-in-questions.ts",
+          "type": "registry:lib",
+          "target": "features/flights/check-in-questions.ts"
+        },
+        {
+          "path": "features/flights/check-in-conversation.ts",
+          "type": "registry:lib",
+          "target": "features/flights/check-in-conversation.ts"
+        },
+        {
+          "path": "features/flights/flight-network.ts",
+          "type": "registry:lib",
+          "target": "features/flights/flight-network.ts"
+        },
+        {
+          "path": "features/flights/flight-search.ts",
+          "type": "registry:lib",
+          "target": "features/flights/flight-search.ts"
+        },
+        {
+          "path": "features/flights/flight-route.ts",
+          "type": "registry:lib",
+          "target": "features/flights/flight-route.ts"
+        },
+        {
+          "path": "app/api/flights/route.ts",
+          "type": "registry:page",
+          "target": "app/api/flights/route.ts"
+        },
+        {
+          "path": "app/api/flights/check-in/route.ts",
+          "type": "registry:page",
+          "target": "app/api/flights/check-in/route.ts"
+        },
+        {
+          "path": "app/api/flights/search/route.ts",
+          "type": "registry:page",
+          "target": "app/api/flights/search/route.ts"
+        }
+      ],
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   BoardingPass: boardingPassCatalogEntry\n  features/chat/chat-registry.tsx: BoardingPass: ({ props, loading }) => <LiveBoardingPassCard flight={props.flight || undefined} date={props.date} streaming={loading} />\n  features/chat/chat-steps.ts:     BoardingPass: boardingPassLookup\n\nPasses load from /api/flights and check-in from /api/flights/check-in (installed under app/api/flights/). Routes come from adsbdb, no API key. Replace getBooking and getSeatMap in features/flights/flight-booking.ts with your booking system.\n\nThe check-in assistant (features/flights/components/check-in-agent.tsx) is a standalone page component: render <CheckInAgent className=\"flex-1\" /> in a full-height column. Its conversation is a script in features/flights/check-in-conversation.ts; replace demoBookingOf there with a request to your booking system."
+    },
+    {
+      "name": "crypto",
+      "type": "registry:block",
+      "title": "Crypto",
+      "description": "A live crypto price card for json-render chats: price, change, market cap, volume and a trend line with a 24H/1W/1M/1Y/All switch, with its API route and a rate-limit-safe cache in front of CoinGecko and Kraken.",
+      "dependencies": ["zod", "server-only"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "features/crypto/components/crypto-card.tsx",
+          "type": "registry:component",
+          "target": "features/crypto/components/crypto-card.tsx"
+        },
+        {
+          "path": "components/glass-card.tsx",
+          "type": "registry:component",
+          "target": "components/glass-card.tsx"
+        },
+        {
+          "path": "features/crypto/components/live-crypto-card.tsx",
+          "type": "registry:component",
+          "target": "features/crypto/components/live-crypto-card.tsx"
+        },
+        {
+          "path": "features/crypto/crypto-catalog.ts",
+          "type": "registry:lib",
+          "target": "features/crypto/crypto-catalog.ts"
+        },
+        {
+          "path": "features/crypto/crypto-steps.ts",
+          "type": "registry:lib",
+          "target": "features/crypto/crypto-steps.ts"
+        },
+        {
+          "path": "features/crypto/crypto-requests.ts",
+          "type": "registry:lib",
+          "target": "features/crypto/crypto-requests.ts"
+        },
+        {
+          "path": "features/crypto/crypto-queries.ts",
+          "type": "registry:lib",
+          "target": "features/crypto/crypto-queries.ts"
+        },
+        {
+          "path": "features/crypto/crypto-schema.ts",
+          "type": "registry:lib",
+          "target": "features/crypto/crypto-schema.ts"
+        },
+        {
+          "path": "features/crypto/crypto-fake.ts",
+          "type": "registry:lib",
+          "target": "features/crypto/crypto-fake.ts"
+        },
+        {
+          "path": "app/api/crypto/route.ts",
+          "type": "registry:page",
+          "target": "app/api/crypto/route.ts"
+        }
+      ],
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   CryptoCard: cryptoCatalogEntry\n  features/chat/chat-registry.tsx: CryptoCard: ({ props, loading }) => <LiveCryptoCard symbol={props.symbol || undefined} range={props.range ?? \"24h\"} streaming={loading} />\n  features/chat/chat-steps.ts:     CryptoCard: cryptoLookup\n\nPrices load from /api/crypto (installed at app/api/crypto/route.ts), backed by CoinGecko's public API, and Kraken's for the All range. No API key needed; the route caches each coin for a minute to stay inside CoinGecko's free rate limit."
     }
   ]
 }

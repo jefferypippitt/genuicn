@@ -77,13 +77,14 @@ export const CopyPromptButton = ({
   const [copied, setCopied] = useState(false);
   const timeoutReference = useRef<ReturnType<typeof setTimeout>>(null);
 
-  useEffect(() => {
-    return () => {
+  useEffect(
+    () => () => {
       if (timeoutReference.current) {
         clearTimeout(timeoutReference.current);
       }
-    };
-  }, []);
+    },
+    []
+  );
 
   const handleCopy = useCallback(async () => {
     const text = typeof prompt === "function" ? prompt() : prompt;

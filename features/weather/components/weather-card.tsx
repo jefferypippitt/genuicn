@@ -1,11 +1,7 @@
 "use client";
 
+import { GlassCard } from "@/components/glass-card";
 import { WeatherIcon } from "@/features/weather/components/weather-icon";
-import {
-  GlassSurface,
-  resetSheen,
-  trackSheen,
-} from "@/features/weather/components/weather-glass";
 import { WeatherSky } from "@/features/weather/components/weather-sky";
 import {
   formatHour,
@@ -29,11 +25,7 @@ export interface WeatherCardProps {
   readonly className?: string;
 }
 
-const CARD_FRAME =
-  "relative isolate w-full max-w-sm rounded-(--wc-radius) p-4 [--wc-radius:1rem]";
-
-const CARD_CLIP =
-  "pointer-events-none absolute inset-0 rounded-[inherit] [clip-path:inset(0_round_var(--wc-radius))]";
+const CARD_FRAME = "relative isolate w-full max-w-sm rounded-2xl p-4";
 
 export function WeatherCard({
   state,
@@ -70,25 +62,19 @@ function WeatherReady({
   const sunProgress =
     (data.asOf - data.sunrise) / Math.max(data.sunset - data.sunrise, 1);
   return (
-    <section
-      aria-label={summarizeWeather(data)}
-      onPointerMove={trackSheen}
-      onPointerLeave={resetSheen}
-      className={cn(
-        CARD_FRAME,
-        "text-white shadow-[0_12px_32px_-14px_rgb(0_0_0/0.55)] [text-shadow:0_1px_2px_rgb(0_0_0/0.2)]",
-        className
-      )}
-    >
-      <div className={CARD_CLIP}>
+    <GlassCard
+      surface="scene"
+      label={summarizeWeather(data)}
+      className={className}
+      backdrop={
         <WeatherSky
           phase={phase}
           condition={data.condition}
           sunProgress={sunProgress}
         />
-        <GlassSurface />
-      </div>
-      <div className="relative flex flex-col gap-3">
+      }
+    >
+      <div className="flex flex-col gap-3">
         <header className="flex items-start justify-between gap-3">
           <div className="min-w-0">
             <h3 className="truncate text-[15px] leading-5 font-semibold">
@@ -131,7 +117,7 @@ function WeatherReady({
           ))}
         </ol>
       </div>
-    </section>
+    </GlassCard>
   );
 }
 

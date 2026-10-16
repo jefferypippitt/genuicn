@@ -224,24 +224,24 @@ export function useMergeSplitBlocks(
         setTimeout(
           () => {
             timersReference.current.delete(b.tid);
-            setBoundaries((bs) => {
-              return bs.some((x) => x.tid === b.tid)
+            setBoundaries((bs) =>
+              bs.some((x) => x.tid === b.tid)
                 ? bs.flatMap((x) =>
-                    x.tid !== b.tid
-                      ? [x]
-                      : x.kind === "merge"
+                    x.tid === b.tid
+                      ? x.kind === "merge"
                         ? [{ ...x, phase: "commit" as const }]
                         : []
+                      : [x]
                   )
-                : bs;
-            });
+                : bs
+            );
           },
           b.kind === "merge" ? convergeMs : splitMs
         )
       );
     }
-    const stillValid = (b: Boundary) => {
-      return b.kind === "merge"
+    const stillValid = (b: Boundary) =>
+      b.kind === "merge"
         ? current.some(
             (c) =>
               c.id === b.survivorId &&
@@ -251,10 +251,7 @@ export function useMergeSplitBlocks(
         : current.some(
             (c) => c.id === b.survivorId && c.end === b.gapIndex - 1
           ) &&
-            current.some(
-              (c) => c.id === b.otherId && c.start === b.gapIndex + 1
-            );
-    };
+          current.some((c) => c.id === b.otherId && c.start === b.gapIndex + 1);
     setBoundaries((active) => {
       // Cancel the resolve timer of any boundary the latest selection
       // invalidated — otherwise it sits in timersRef until firing as a no-op.
@@ -289,15 +286,15 @@ export function useMergeSplitBlocks(
     ) {
       return;
     }
-    const frame = requestAnimationFrame(() => {
-      return setBoundaries((bs) =>
+    const frame = requestAnimationFrame(() =>
+      setBoundaries((bs) =>
         bs.flatMap((b) =>
           b.phase === "commit"
             ? []
             : [{ ...b, phase: b.phase === "splitIn" ? "diverge" : b.phase }]
         )
-      );
-    });
+      )
+    );
     return () => cancelAnimationFrame(frame);
   }, [boundaries]);
 

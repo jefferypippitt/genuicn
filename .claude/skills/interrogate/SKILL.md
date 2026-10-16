@@ -1,6 +1,6 @@
 ---
 name: interrogate
-description: "Use for \"interrogate\", \"adversarial review\", \"multi-model review\", \"challenge this\", \"stress test this code\", \"find blind spots\", or \"tear this apart\". Multiple LLM reviewers challenge changes from independent angles."
+description: 'Use for "interrogate", "adversarial review", "multi-model review", "challenge this", "stress test this code", "find blind spots", or "tear this apart". Multiple LLM reviewers challenge changes from independent angles.'
 disable-model-invocation: true
 ---
 
@@ -26,10 +26,10 @@ Before spawning reviewers, state the intent in one clear paragraph from the user
 
 Launch all reviewers in a single message with the Task tool, one per entry on the `interrogate reviewers` line in `~/.cursor/rules/pstack-models.mdc`, labeled Reviewer A, B, and so on to match the entry count. If the rule or that line is missing, use the table defaults.
 
-| Subagent | Default model |
-|----------|---------------|
+| Subagent   | Default model           |
+| ---------- | ----------------------- |
 | Reviewer A | `claude-opus-5-5-xhigh` |
-| Reviewer B | `grok-4.7-xhigh-fast` |
+| Reviewer B | `grok-4.7-xhigh-fast`   |
 
 Each reviewer gets `subagent_type: generalPurpose`, `readonly: true`, and `model` set to its configured entry, or its table default when there is no configured line. Omit `model` for an `auto` or `inherit-parent` entry, so that reviewer runs on the parent model.
 
@@ -53,22 +53,29 @@ You are the lead reviewer, a pragmatic senior engineer, not a neutral aggregator
 ## Output Format
 
 ### Intent
+
 > [The stated intent paragraph from Step 2]
 
 ### Reviewers
+
 - Reviewer [label]: [model name], [N findings] (one bullet per reviewer)
 
 ### Act On
+
 [Each: description, which models raised it, why it matters.]
 
 ### Consider
+
 [Each: description, which models raised it, the tradeoff.]
 
 ### Noted
+
 [Brief list.]
 
 ### Dismissed
+
 [Each with a brief rationale.]
 
 ### Agreement Map
+
 [Where models agreed and diverged, and what that pattern tells us.]

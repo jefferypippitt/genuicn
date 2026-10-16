@@ -177,7 +177,10 @@ When the type comes first, annotate the validator with the type it proves. The c
 ```ts
 type User = { id: string; name: string };
 
-const userSchema: z.ZodType<User> = z.object({ id: z.string(), name: z.string() });
+const userSchema: z.ZodType<User> = z.object({
+  id: z.string(),
+  name: z.string(),
+});
 ```
 
 When refactoring an `as` out of existing code, identify why TypeScript can't infer:

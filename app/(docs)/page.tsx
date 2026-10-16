@@ -1,5 +1,5 @@
 import { DocPage } from "@/components/docs/doc-page";
-import GalleryGrid from "@/features/home/components/gallery-grid";
+import GalleryCarousel from "@/features/home/components/gallery-carousel";
 
 export default function HomePage() {
   return (
@@ -8,7 +8,7 @@ export default function HomePage() {
       description="Give your chatbot something to show for itself. Live cards, ready to drop in."
       href="/"
     >
-      <GalleryGrid />
+      <GalleryCarousel />
     </DocPage>
   );
 }

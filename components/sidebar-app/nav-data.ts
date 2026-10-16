@@ -57,8 +57,10 @@ export const NAV_SECTIONS: NavSection[] = [
         description: "Top gainers and losers. Tap one for detail.",
       },
       {
+        description:
+          "Live price, 24-hour change, market cap, volume, and a 24-hour trend line.",
+        href: "/docs/crypto",
         label: "Crypto",
-        description: "Live price, 24-hour change, and market cap.",
       },
       {
         label: "Watchlist",
@@ -130,7 +132,9 @@ export const NAV_SECTIONS: NavSection[] = [
       },
       {
         label: "Flights",
-        description: "Flight results, live status, and a boarding pass.",
+        href: "/docs/flights",
+        description:
+          "A boarding pass looked up from the flight number, and a check-in assistant that asks for your booking, seat, bags, and extras.",
       },
       {
         label: "Hotel",

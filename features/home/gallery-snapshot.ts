@@ -1,8 +1,12 @@
+import cryptoBtcAll from "@/features/home/snapshot/crypto-btc-all.json";
+import flightBa117 from "@/features/home/snapshot/flight-ba117.json";
 import quote1d from "@/features/home/snapshot/quote-nvda-1d.json";
 import quote1m from "@/features/home/snapshot/quote-nvda-1m.json";
 import quote1w from "@/features/home/snapshot/quote-nvda-1w.json";
 import quote1y from "@/features/home/snapshot/quote-nvda-1y.json";
 import weatherNewYork from "@/features/home/snapshot/weather-new-york.json";
+import type { CryptoData } from "@/features/crypto/crypto-schema";
+import type { BoardingPassData } from "@/features/flights/flight-schema";
 import type { QuoteData, QuoteRange } from "@/features/quote/quote-schema";
 import type { WeatherData } from "@/features/weather/weather-schema";
 
@@ -14,3 +18,10 @@ export const GALLERY_QUOTES: Record<QuoteRange, QuoteData> = {
 };
 
 export const GALLERY_WEATHER = weatherNewYork as WeatherData;
+
+export const GALLERY_BOARDING_PASS = flightBa117 as BoardingPassData;
+
+/**
+Bitcoin over all time, since it first traded in October 2013.
+*/
+export const GALLERY_BITCOIN = cryptoBtcAll as CryptoData;

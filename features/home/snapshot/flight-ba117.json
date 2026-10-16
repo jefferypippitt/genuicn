@@ -1,0 +1,25 @@
+{
+  "airline": "British Airways",
+  "airlineCode": "BA",
+  "from": {
+    "airport": "London Heathrow Airport",
+    "city": "London",
+    "code": "LHR"
+  },
+  "to": {
+    "airport": "John F Kennedy International Airport",
+    "city": "New York",
+    "code": "JFK"
+  },
+  "boardingTime": "07:40",
+  "demo": true,
+  "gate": "A7",
+  "passenger": "Jon Doe",
+  "seat": "8A",
+  "cabin": "Business",
+  "date": "2026-11-03",
+  "flight": "BA 117",
+  "group": "2",
+  "terminal": "5",
+  "departureTime": "08:20"
+}

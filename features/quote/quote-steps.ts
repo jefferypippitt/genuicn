@@ -11,11 +11,10 @@ function propertiesOf(properties: Record<string, unknown>) {
 }
 
 export const quoteLookup: CardLookup = {
-  intent: (tickers) => {
-    return tickers.length === 1
+  intent: (tickers) =>
+    tickers.length === 1
       ? `A stock quote for ${tickers[0]}`
-      : `Stock quotes for ${listOf(tickers)}`;
-  },
+      : `Stock quotes for ${listOf(tickers)}`,
   load: (properties) => {
     const { ticker, range } = propertiesOf(properties);
     return loadQuote(ticker, range);
