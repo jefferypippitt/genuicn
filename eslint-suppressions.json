@@ -1,0 +1,1006 @@
+{
+  "app/(docs)/changelog/page.tsx": {
+    "sort-keys": {
+      "count": 1
+    }
+  },
+  "app/(docs)/docs/quote/page.tsx": {
+    "@typescript-eslint/no-use-before-define": {
+      "count": 1
+    },
+    "sort-keys": {
+      "count": 1
+    },
+    "unicorn/no-incorrect-template-string-interpolation": {
+      "count": 3
+    }
+  },
+  "app/(docs)/docs/weather/page.tsx": {
+    "unicorn/no-incorrect-template-string-interpolation": {
+      "count": 3
+    }
+  },
+  "app/(docs)/roadmap/page.tsx": {
+    "sort-keys": {
+      "count": 1
+    }
+  },
+  "app/api/chat/route.ts": {
+    "@typescript-eslint/no-use-before-define": {
+      "count": 2
+    },
+    "require-unicode-regexp": {
+      "count": 1
+    },
+    "sonarjs/function-name": {
+      "count": 1
+    }
+  },
+  "app/api/quote/route.ts": {
+    "sonarjs/function-name": {
+      "count": 1
+    }
+  },
+  "app/api/weather/route.ts": {
+    "sonarjs/function-name": {
+      "count": 1
+    },
+    "unicorn/try-complexity": {
+      "count": 1
+    }
+  },
+  "app/layout.tsx": {
+    "sort-keys": {
+      "count": 2
+    }
+  },
+  "components/changelog/changelog-view.tsx": {
+    "@typescript-eslint/no-use-before-define": {
+      "count": 14
+    },
+    "arrow-body-style": {
+      "count": 4
+    },
+    "github/prefer-observers": {
+      "count": 2
+    },
+    "jsx-a11y/control-has-associated-label": {
+      "count": 1
+    },
+    "prefer-destructuring": {
+      "count": 1
+    },
+    "react-doctor/no-array-index-as-key": {
+      "count": 1
+    },
+    "react-doctor/no-layout-property-animation": {
+      "count": 2
+    },
+    "react-doctor/no-prevent-default": {
+      "count": 1
+    },
+    "react-doctor/use-lazy-motion": {
+      "count": 1
+    },
+    "sonarjs/function-name": {
+      "count": 2
+    },
+    "unicorn/name-replacements": {
+      "count": 1
+    },
+    "unicorn/no-unreadable-new-expression": {
+      "count": 1
+    },
+    "unicorn/prefer-query-selector": {
+      "count": 1
+    }
+  },
+  "components/dialog-sidebar/settings-dialog.tsx": {
+    "@typescript-eslint/no-use-before-define": {
+      "count": 6
+    },
+    "react-doctor/rerender-lazy-state-init": {
+      "count": 1
+    },
+    "sort-keys": {
+      "count": 13
+    },
+    "unicorn/consistent-boolean-name": {
+      "count": 1
+    },
+    "unicorn/name-replacements": {
+      "count": 1
+    }
+  },
+  "components/docs/chat-playground.tsx": {
+    "@typescript-eslint/no-use-before-define": {
+      "count": 3
+    },
+    "react-doctor/async-await-in-loop": {
+      "count": 1
+    },
+    "react-hooks/exhaustive-deps": {
+      "count": 1
+    },
+    "react-hooks/immutability": {
+      "count": 1
+    },
+    "react/hook-use-state": {
+      "count": 2
+    },
+    "sonarjs/function-name": {
+      "count": 1
+    }
+  },
+  "components/docs/copy-prompt-button.tsx": {
+    "arrow-body-style": {
+      "count": 1
+    },
+    "react-doctor/use-lazy-motion": {
+      "count": 1
+    }
+  },
+  "components/docs/doc-page.tsx": {
+    "@typescript-eslint/no-use-before-define": {
+      "count": 3
+    },
+    "sonarjs/no-duplicate-string": {
+      "count": 1
+    },
+    "unicorn/name-replacements": {
+      "count": 6
+    }
+  },
+  "components/docs/install-command.tsx": {
+    "@typescript-eslint/no-empty-function": {
+      "count": 1
+    }
+  },
+  "components/docs/roadmap-view.tsx": {
+    "react-doctor/js-combine-iterations": {
+      "count": 1
+    }
+  },
+  "components/docs/use-page-arrow-keys.ts": {
+    "sonarjs/expression-complexity": {
+      "count": 1
+    }
+  },
+  "components/fluid-hover-highlight.tsx": {
+    "react-doctor/only-export-components": {
+      "count": 3
+    },
+    "react-doctor/use-lazy-motion": {
+      "count": 1
+    },
+    "sonarjs/expression-complexity": {
+      "count": 1
+    },
+    "sort-keys": {
+      "count": 2
+    },
+    "unicorn/consistent-boolean-name": {
+      "count": 1
+    },
+    "unicorn/name-replacements": {
+      "count": 1
+    },
+    "unicorn/prefer-simple-condition-first": {
+      "count": 1
+    }
+  },
+  "components/queued-stack.tsx": {
+    "complexity": {
+      "count": 1
+    },
+    "react-doctor/motion-animate-presence-must-outlive-child": {
+      "count": 1
+    },
+    "react-doctor/no-giant-component": {
+      "count": 1
+    },
+    "react-doctor/no-layout-property-animation": {
+      "count": 1
+    },
+    "react-doctor/only-export-components": {
+      "count": 1
+    },
+    "react-doctor/prefer-use-effect-event": {
+      "count": 1
+    },
+    "react-doctor/use-lazy-motion": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "sonarjs/no-inconsistent-returns": {
+      "count": 1
+    },
+    "sonarjs/no-nested-conditional": {
+      "count": 2
+    },
+    "sort-keys": {
+      "count": 10
+    },
+    "unicorn/name-replacements": {
+      "count": 8
+    },
+    "unicorn/prefer-early-return": {
+      "count": 1
+    },
+    "unicorn/prefer-simple-condition-first": {
+      "count": 2
+    }
+  },
+  "components/sidebar-app/app-sidebar.tsx": {
+    "@typescript-eslint/no-empty-function": {
+      "count": 1
+    },
+    "@typescript-eslint/no-use-before-define": {
+      "count": 1
+    },
+    "sort-keys": {
+      "count": 6
+    },
+    "unicorn/consistent-function-scoping": {
+      "count": 1
+    },
+    "unicorn/prefer-default-parameters": {
+      "count": 1
+    }
+  },
+  "components/sidebar-app/nav-data.ts": {
+    "sort-keys": {
+      "count": 56
+    },
+    "unicorn/no-unnecessary-array-flat-map": {
+      "count": 1
+    }
+  },
+  "components/sidebar-app/search-field.tsx": {
+    "unicorn/name-replacements": {
+      "count": 1
+    }
+  },
+  "components/sidebar-app/user-footer.tsx": {
+    "unicorn/name-replacements": {
+      "count": 1
+    }
+  },
+  "components/sidebar-app/workspace-header.tsx": {
+    "unicorn/name-replacements": {
+      "count": 1
+    }
+  },
+  "components/theme-provider.tsx": {
+    "@typescript-eslint/no-use-before-define": {
+      "count": 1
+    },
+    "sonarjs/expression-complexity": {
+      "count": 1
+    },
+    "sonarjs/function-name": {
+      "count": 1
+    },
+    "sonarjs/no-wildcard-import": {
+      "count": 1
+    }
+  },
+  "eslint.config.mjs": {
+    "sort-keys": {
+      "count": 1
+    }
+  },
+  "features/chat/chat-registry.tsx": {
+    "react/prop-types": {
+      "count": 9
+    }
+  },
+  "features/chat/components/card-group.tsx": {
+    "react-doctor/only-export-components": {
+      "count": 1
+    }
+  },
+  "features/chat/components/chat-devtools.tsx": {
+    "github/no-then": {
+      "count": 1
+    },
+    "import-x/dynamic-import-chunkname": {
+      "count": 1
+    },
+    "promise/prefer-await-to-then": {
+      "count": 1
+    },
+    "unicorn/prefer-await": {
+      "count": 1
+    }
+  },
+  "features/chat/components/chat.tsx": {
+    "@typescript-eslint/no-use-before-define": {
+      "count": 3
+    },
+    "react-doctor/use-lazy-motion": {
+      "count": 1
+    },
+    "sonarjs/no-inconsistent-returns": {
+      "count": 1
+    },
+    "unicorn/prefer-logical-operator-over-ternary": {
+      "count": 1
+    },
+    "unicorn/prefer-simple-condition-first": {
+      "count": 1
+    }
+  },
+  "features/chat/components/reply-steps.tsx": {
+    "arrow-body-style": {
+      "count": 1
+    },
+    "github/no-then": {
+      "count": 2
+    },
+    "no-loop-func": {
+      "count": 1
+    },
+    "promise/prefer-await-to-callbacks": {
+      "count": 1
+    },
+    "promise/prefer-await-to-then": {
+      "count": 2
+    },
+    "react-doctor/js-combine-iterations": {
+      "count": 1
+    },
+    "react-doctor/no-ref-current-in-render": {
+      "count": 1
+    },
+    "react-hooks/refs": {
+      "count": 1
+    },
+    "react-hooks/set-state-in-effect": {
+      "count": 1
+    },
+    "react/hook-use-state": {
+      "count": 1
+    },
+    "sonarjs/no-inconsistent-returns": {
+      "count": 2
+    },
+    "unicorn/consistent-boolean-name": {
+      "count": 1
+    },
+    "unicorn/iteration-fallback-style": {
+      "count": 1
+    },
+    "unicorn/no-unnecessary-array-flat-map": {
+      "count": 1
+    },
+    "unicorn/no-unreadable-for-of-expression": {
+      "count": 1
+    },
+    "unicorn/no-unreadable-new-expression": {
+      "count": 1
+    },
+    "unicorn/prefer-await": {
+      "count": 2
+    },
+    "unicorn/prefer-error-is-error": {
+      "count": 1
+    },
+    "unicorn/prefer-iterator-to-array": {
+      "count": 1
+    }
+  },
+  "features/quote/components/live-quote-card.tsx": {
+    "react-hooks/set-state-in-effect": {
+      "count": 1
+    },
+    "sonarjs/no-inconsistent-returns": {
+      "count": 1
+    },
+    "unicorn/try-complexity": {
+      "count": 1
+    }
+  },
+  "features/quote/components/quote-card.tsx": {
+    "@typescript-eslint/no-use-before-define": {
+      "count": 9
+    },
+    "arrow-body-style": {
+      "count": 1
+    },
+    "jsx-a11y/no-noninteractive-element-interactions": {
+      "count": 2
+    },
+    "jsx-a11y/no-noninteractive-tabindex": {
+      "count": 1
+    },
+    "jsx-a11y/prefer-tag-over-role": {
+      "count": 3
+    },
+    "no-nested-ternary": {
+      "count": 1
+    },
+    "react-doctor/nextjs-no-img-element": {
+      "count": 1
+    },
+    "react-doctor/no-locale-format-in-render": {
+      "count": 2
+    },
+    "react-doctor/no-tiny-text": {
+      "count": 1
+    },
+    "react-hooks/todo": {
+      "count": 1
+    },
+    "sonarjs/no-nested-conditional": {
+      "count": 1
+    },
+    "unicorn/name-replacements": {
+      "count": 1
+    },
+    "unicorn/no-declarations-before-early-exit": {
+      "count": 3
+    },
+    "unicorn/no-unreadable-new-expression": {
+      "count": 1
+    },
+    "unicorn/prefer-default-parameters": {
+      "count": 1
+    }
+  },
+  "features/quote/quote-fake.ts": {
+    "no-bitwise": {
+      "count": 8
+    },
+    "sonarjs/no-nested-assignment": {
+      "count": 1
+    }
+  },
+  "features/quote/quote-queries.ts": {
+    "complexity": {
+      "count": 1
+    },
+    "eqeqeq": {
+      "count": 1
+    },
+    "no-eq-null": {
+      "count": 1
+    },
+    "unicorn/no-unnecessary-array-flat-map": {
+      "count": 1
+    }
+  },
+  "features/quote/quote-schema.ts": {
+    "@typescript-eslint/no-use-before-define": {
+      "count": 1
+    },
+    "unicorn/no-unreadable-new-expression": {
+      "count": 1
+    }
+  },
+  "features/quote/quote-steps.ts": {
+    "arrow-body-style": {
+      "count": 1
+    }
+  },
+  "features/weather/components/live-weather-card.tsx": {
+    "react-hooks/set-state-in-effect": {
+      "count": 1
+    },
+    "sonarjs/no-inconsistent-returns": {
+      "count": 1
+    },
+    "unicorn/try-complexity": {
+      "count": 1
+    }
+  },
+  "features/weather/components/weather-card.tsx": {
+    "@typescript-eslint/no-use-before-define": {
+      "count": 3
+    },
+    "jsx-a11y/prefer-tag-over-role": {
+      "count": 1
+    },
+    "unicorn/name-replacements": {
+      "count": 1
+    },
+    "unicorn/prefer-default-parameters": {
+      "count": 1
+    }
+  },
+  "features/weather/components/weather-glass.tsx": {
+    "react-doctor/only-export-components": {
+      "count": 2
+    },
+    "sort-keys": {
+      "count": 1
+    }
+  },
+  "features/weather/components/weather-sky.tsx": {
+    "@typescript-eslint/no-use-before-define": {
+      "count": 28
+    },
+    "github/a11y-svg-has-accessible-name": {
+      "count": 5
+    },
+    "react-doctor/no-permanent-will-change": {
+      "count": 2
+    },
+    "react-doctor/prefer-module-scope-pure-function": {
+      "count": 1
+    },
+    "unicorn/consistent-function-scoping": {
+      "count": 1
+    },
+    "unicorn/prefer-continue": {
+      "count": 1
+    }
+  },
+  "features/weather/weather-atmosphere.ts": {
+    "no-bitwise": {
+      "count": 6
+    },
+    "sonarjs/max-union-size": {
+      "count": 1
+    },
+    "sonarjs/no-duplicate-string": {
+      "count": 2
+    },
+    "sonarjs/redundant-type-aliases": {
+      "count": 1
+    },
+    "unicorn/prefer-includes-over-repeated-comparisons": {
+      "count": 1
+    },
+    "unicorn/prefer-simple-condition-first": {
+      "count": 1
+    }
+  },
+  "features/weather/weather-fake.ts": {
+    "no-bitwise": {
+      "count": 8
+    },
+    "sonarjs/no-nested-assignment": {
+      "count": 1
+    },
+    "sonarjs/no-nested-conditional": {
+      "count": 1
+    }
+  },
+  "features/weather/weather-queries.ts": {
+    "sonarjs/variable-name": {
+      "count": 1
+    }
+  },
+  "features/weather/weather-schema.ts": {
+    "complexity": {
+      "count": 1
+    },
+    "unicorn/no-unreadable-new-expression": {
+      "count": 1
+    },
+    "unicorn/prefer-simple-condition-first": {
+      "count": 1
+    }
+  },
+  "hooks/use-fluid-hover.ts": {
+    "arrow-body-style": {
+      "count": 1
+    },
+    "complexity": {
+      "count": 1
+    },
+    "github/array-foreach": {
+      "count": 1
+    },
+    "no-inline-comments": {
+      "count": 1
+    },
+    "no-plusplus": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "sonarjs/expression-complexity": {
+      "count": 1
+    },
+    "sonarjs/no-inconsistent-returns": {
+      "count": 2
+    },
+    "sonarjs/no-inverted-boolean-check": {
+      "count": 1
+    },
+    "sonarjs/too-many-break-or-continue-in-loop": {
+      "count": 1
+    },
+    "sort-keys": {
+      "count": 11
+    },
+    "unicorn/name-replacements": {
+      "count": 5
+    },
+    "unicorn/no-for-each": {
+      "count": 1
+    },
+    "unicorn/prefer-simple-condition-first": {
+      "count": 1
+    },
+    "unicorn/prefer-toggle-attribute": {
+      "count": 1
+    }
+  },
+  "hooks/use-keyboard-nav-gate.ts": {
+    "unicorn/consistent-boolean-name": {
+      "count": 1
+    },
+    "unicorn/name-replacements": {
+      "count": 1
+    }
+  },
+  "hooks/use-merge-split.tsx": {
+    "arrow-body-style": {
+      "count": 3
+    },
+    "github/array-foreach": {
+      "count": 1
+    },
+    "no-inline-comments": {
+      "count": 11
+    },
+    "no-negated-condition": {
+      "count": 1
+    },
+    "no-nested-ternary": {
+      "count": 1
+    },
+    "no-param-reassign": {
+      "count": 1
+    },
+    "no-plusplus": {
+      "count": 5
+    },
+    "react-doctor/effect-needs-cleanup": {
+      "count": 1
+    },
+    "react-doctor/js-cache-property-access": {
+      "count": 1
+    },
+    "react-doctor/no-derived-state-effect": {
+      "count": 1
+    },
+    "react-doctor/no-impure-state-updater": {
+      "count": 1
+    },
+    "react-doctor/no-layout-property-animation": {
+      "count": 4
+    },
+    "react-doctor/no-side-effect-in-state-updater-function": {
+      "count": 1
+    },
+    "react-doctor/use-lazy-motion": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "sonarjs/max-union-size": {
+      "count": 1
+    },
+    "sonarjs/no-inconsistent-returns": {
+      "count": 1
+    },
+    "sonarjs/no-nested-conditional": {
+      "count": 1
+    },
+    "sonarjs/no-nested-functions": {
+      "count": 3
+    },
+    "sonarjs/no-nested-incdec": {
+      "count": 3
+    },
+    "sonarjs/too-many-break-or-continue-in-loop": {
+      "count": 3
+    },
+    "sort-keys": {
+      "count": 41
+    },
+    "unicorn/name-replacements": {
+      "count": 1
+    },
+    "unicorn/no-array-sort": {
+      "count": 2
+    },
+    "unicorn/no-for-each": {
+      "count": 1
+    },
+    "unicorn/no-negated-condition": {
+      "count": 1
+    },
+    "unicorn/no-unnecessary-array-flat-map": {
+      "count": 2
+    }
+  },
+  "hooks/use-touch-primary.tsx": {
+    "sonarjs/no-inconsistent-returns": {
+      "count": 1
+    }
+  },
+  "lib/changelog/load.ts": {
+    "prefer-named-capture-group": {
+      "count": 1
+    },
+    "require-unicode-regexp": {
+      "count": 1
+    },
+    "unicorn/import-style": {
+      "count": 1
+    },
+    "unicorn/no-unreadable-new-expression": {
+      "count": 1
+    },
+    "unicorn/require-array-sort-compare": {
+      "count": 1
+    },
+    "unicorn/text-encoding-identifier-case": {
+      "count": 1
+    }
+  },
+  "lib/changelog/parse.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 6
+    },
+    "@typescript-eslint/no-use-before-define": {
+      "count": 5
+    },
+    "complexity": {
+      "count": 2
+    },
+    "prefer-destructuring": {
+      "count": 1
+    },
+    "prefer-named-capture-group": {
+      "count": 8
+    },
+    "require-unicode-regexp": {
+      "count": 11
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 2
+    },
+    "sonarjs/no-nested-template-literals": {
+      "count": 1
+    },
+    "sonarjs/super-linear-regex": {
+      "count": 2
+    },
+    "sonarjs/too-many-break-or-continue-in-loop": {
+      "count": 1
+    },
+    "sort-keys": {
+      "count": 8
+    },
+    "unicorn/custom-error-definition": {
+      "count": 1
+    },
+    "unicorn/name-replacements": {
+      "count": 1
+    },
+    "unicorn/no-array-front-mutation": {
+      "count": 1
+    },
+    "unicorn/no-unreadable-for-of-expression": {
+      "count": 1
+    },
+    "unicorn/no-unreadable-new-expression": {
+      "count": 1
+    },
+    "unicorn/prefer-simple-condition-first": {
+      "count": 2
+    }
+  },
+  "lib/docs/chat-recording.ts": {
+    "@typescript-eslint/class-methods-use-this": {
+      "count": 1
+    },
+    "promise/avoid-new": {
+      "count": 1
+    },
+    "require-await": {
+      "count": 1
+    },
+    "unicorn/consistent-class-member-order": {
+      "count": 1
+    }
+  },
+  "lib/docs/highlight.ts": {
+    "github/no-then": {
+      "count": 1
+    },
+    "import-x/dynamic-import-chunkname": {
+      "count": 1
+    },
+    "promise/prefer-await-to-then": {
+      "count": 1
+    },
+    "unicorn/no-top-level-assignment-in-function": {
+      "count": 1
+    },
+    "unicorn/prefer-await": {
+      "count": 1
+    }
+  },
+  "lib/docs/install-prompt.ts": {
+    "unicorn/no-incorrect-template-string-interpolation": {
+      "count": 4
+    }
+  },
+  "lib/fluid-provider.tsx": {
+    "unicorn/name-replacements": {
+      "count": 1
+    }
+  },
+  "lib/font-weight.ts": {
+    "sort-keys": {
+      "count": 1
+    }
+  },
+  "lib/icon-context.tsx": {
+    "react-doctor/only-export-components": {
+      "count": 1
+    },
+    "sort-keys": {
+      "count": 28
+    },
+    "unicorn/name-replacements": {
+      "count": 1
+    }
+  },
+  "lib/icons-untitledui.tsx": {
+    "sort-keys": {
+      "count": 28
+    }
+  },
+  "lib/omit.ts": {
+    "@typescript-eslint/no-dynamic-delete": {
+      "count": 1
+    }
+  },
+  "lib/right-rail.tsx": {
+    "@typescript-eslint/no-empty-function": {
+      "count": 1
+    },
+    "react/jsx-no-constructed-context-values": {
+      "count": 1
+    }
+  },
+  "lib/shape-context.tsx": {
+    "n/callback-return": {
+      "count": 1
+    },
+    "promise/prefer-await-to-callbacks": {
+      "count": 2
+    },
+    "react-doctor/only-export-components": {
+      "count": 2
+    },
+    "react/hook-use-state": {
+      "count": 1
+    },
+    "sonarjs/no-duplicate-string": {
+      "count": 2
+    },
+    "sonarjs/void-use": {
+      "count": 1
+    },
+    "sort-keys": {
+      "count": 12
+    }
+  },
+  "lib/size-context.tsx": {
+    "@typescript-eslint/no-use-before-define": {
+      "count": 1
+    },
+    "react-doctor/only-export-components": {
+      "count": 1
+    },
+    "sort-keys": {
+      "count": 15
+    }
+  },
+  "lib/springs.ts": {
+    "sort-keys": {
+      "count": 6
+    }
+  },
+  "lib/type-scale.ts": {
+    "sort-keys": {
+      "count": 26
+    }
+  },
+  "lib/utils.ts": {
+    "unicorn/name-replacements": {
+      "count": 1
+    },
+    "unicorn/no-barrel-files": {
+      "count": 1
+    }
+  },
+  "next.config.ts": {
+    "sort-keys": {
+      "count": 2
+    }
+  },
+  "registry/chat/chat-registry.tsx": {
+    "react/prop-types": {
+      "count": 1
+    }
+  },
+  "registry/chat/page.tsx": {
+    "react-doctor/nextjs-missing-metadata": {
+      "count": 1
+    }
+  },
+  "scripts/card-responses.mjs": {
+    "no-await-in-loop": {
+      "count": 1
+    },
+    "sonarjs/function-name": {
+      "count": 2
+    },
+    "unicorn/no-computed-property-existence-check": {
+      "count": 1
+    },
+    "unicorn/no-unreadable-for-of-expression": {
+      "count": 1
+    },
+    "unicorn/prefer-iterator-to-array": {
+      "count": 1
+    }
+  },
+  "scripts/record-chat.mjs": {
+    "github/no-then": {
+      "count": 1
+    },
+    "no-magic-numbers": {
+      "count": 8
+    },
+    "require-unicode-regexp": {
+      "count": 1
+    },
+    "unicorn/import-style": {
+      "count": 1
+    },
+    "unicorn/name-replacements": {
+      "count": 1
+    },
+    "unicorn/no-declarations-before-early-exit": {
+      "count": 1
+    },
+    "unicorn/prefer-await": {
+      "count": 1
+    },
+    "unicorn/prefer-simple-condition-first": {
+      "count": 1
+    }
+  },
+  "scripts/snapshot-recordings.mjs": {
+    "no-magic-numbers": {
+      "count": 4
+    },
+    "unicorn/import-style": {
+      "count": 1
+    },
+    "unicorn/name-replacements": {
+      "count": 1
+    },
+    "unicorn/no-await-expression-member": {
+      "count": 1
+    },
+    "unicorn/text-encoding-identifier-case": {
+      "count": 1
+    }
+  }
+}

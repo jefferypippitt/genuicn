@@ -1,0 +1,90 @@
+import { DefaultChatTransport } from "ai";
+import { primeQuote } from "@/features/quote/quote-requests";
+import { QUOTE_RANGES } from "@/features/quote/quote-schema";
+import { primeWeather } from "@/features/weather/weather-requests";
+import { WEATHER_UNITS } from "@/features/weather/weather-schema";
+import type { QuoteData } from "@/features/quote/quote-schema";
+import type { ChatTransport, UIMessage, UIMessageChunk } from "ai";
+import type { WeatherData } from "@/features/weather/weather-schema";
+
+export interface RecordedTurn {
+  prompt: string;
+  chunks: { wait: number; chunk: UIMessageChunk }[];
+}
+
+export interface ChatRecording {
+  version: 1;
+  turns: RecordedTurn[];
+  responsesByUrl?: Record<string, unknown>;
+}
+
+const MAX_WAIT_MS = 1500;
+
+function sleep(ms: number, signal?: AbortSignal) {
+  return new Promise<void>((resolve) => {
+    const timer = setTimeout(resolve, ms);
+    signal?.addEventListener("abort", () => {
+      clearTimeout(timer);
+      resolve();
+    });
+  });
+}
+
+export class ReplayTransport implements ChatTransport<UIMessage> {
+  mode: "replay" | "live" = "replay";
+  recording: ChatRecording | null = null;
+  private readonly live = new DefaultChatTransport<UIMessage>();
+
+  sendMessages: ChatTransport<UIMessage>["sendMessages"] = async (options) => {
+    if (this.mode === "live") {
+      return this.live.sendMessages(options);
+    }
+    const index =
+      options.messages.filter((message) => message.role === "user").length - 1;
+    const turn = this.recording?.turns[index];
+    if (!turn) {
+      throw new Error("The recording has no reply for this message.");
+    }
+    const signal = options.abortSignal;
+    return new ReadableStream<UIMessageChunk>({
+      async start(controller) {
+        for (const { wait, chunk } of turn.chunks) {
+          // eslint-disable-next-line no-await-in-loop -- chunks play in order
+          await sleep(Math.min(wait, MAX_WAIT_MS), signal);
+          if (signal?.aborted) {
+            break;
+          }
+          controller.enqueue(chunk);
+        }
+        controller.close();
+      },
+    });
+  };
+
+  reconnectToStream = () => Promise.resolve(null);
+}
+
+const URL_BASE = "http://localhost";
+
+export function primeCardData({ responsesByUrl }: ChatRecording) {
+  if (!responsesByUrl) {
+    return;
+  }
+  const savedResponses = Object.entries(responsesByUrl);
+  for (const [requestUrl, data] of savedResponses) {
+    const { pathname, searchParams } = new URL(requestUrl, URL_BASE);
+    const ticker = searchParams.get("ticker");
+    const range = QUOTE_RANGES.find(
+      (value) => value === searchParams.get("range")
+    );
+    const location = searchParams.get("location");
+    const units = WEATHER_UNITS.find(
+      (value) => value === searchParams.get("units")
+    );
+    if (pathname === "/api/quote" && ticker && range) {
+      primeQuote(ticker, range, data as QuoteData);
+    } else if (pathname === "/api/weather" && location) {
+      primeWeather(location, units, data as WeatherData);
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "asOf": 1792114200000,
+  "condition": "clear",
+  "fake": false,
+  "high": 68.4,
+  "hours": [
+    {
+      "condition": "clear",
+      "isDay": false,
+      "temperature": 56.8,
+      "time": 1792112400000
+    },
+    {
+      "condition": "clear",
+      "isDay": false,
+      "temperature": 55.5,
+      "time": 1792116000000
+    },
+    {
+      "condition": "clear",
+      "isDay": false,
+      "temperature": 54.8,
+      "time": 1792119600000
+    },
+    {
+      "condition": "clear",
+      "isDay": false,
+      "temperature": 53.9,
+      "time": 1792123200000
+    },
+    {
+      "condition": "cloudy",
+      "isDay": false,
+      "temperature": 54.8,
+      "time": 1792126800000
+    },
+    {
+      "condition": "clear",
+      "isDay": false,
+      "temperature": 55.5,
+      "time": 1792130400000
+    }
+  ],
+  "isDay": false,
+  "label": "Clear",
+  "location": "New York",
+  "low": 53.9,
+  "region": "New York, United States",
+  "sunrise": 1792062420000,
+  "sunset": 1792102500000,
+  "temperature": 56,
+  "timeZone": "America/New_York",
+  "units": "f"
+}

@@ -376,9 +376,9 @@ export function useFluidHover<T extends HTMLElement>(
     // compare) so redundant remeasures don't churn re-renders.
     const previous = itemRectsReference.current;
     let isChanged = previous.length !== rects.length;
-    for (let i = 0; !isChanged && i < rects.length; i++) {
-      const p = previous[i];
-      const r = rects[i];
+    for (let index = 0; !isChanged && index < rects.length; index++) {
+      const p = previous[index];
+      const r = rects[index];
       if (p === r) {
         continue;
       } // both undefined (sparse slot)

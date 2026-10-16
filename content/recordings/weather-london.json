@@ -1,0 +1,166 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "PUrzUzYCgFwhyQdz"
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 520
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011Cg4mrpYpr7kK6vqxPbRR6",
+                "model": "claude-haiku-4-5-20251001",
+                "usage": {
+                  "input_tokens": 4604,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 1,
+                  "service_tier": "standard",
+                  "inference_geo": "not_available",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "0"
+          },
+          "wait": 197
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "weather"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/weather",
+                "value": {
+                  "type": "WeatherCard",
+                  "props": {
+                    "location": "London"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 267
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 7
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "Is it raining in London right now?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/weather?location=London": {
+      "asOf": 1792116000000,
+      "condition": "clear",
+      "fake": false,
+      "high": 17.1,
+      "hours": [
+        {
+          "condition": "clear",
+          "isDay": false,
+          "temperature": 15.5,
+          "time": 1792116000000
+        },
+        {
+          "condition": "partly-cloudy",
+          "isDay": false,
+          "temperature": 15.2,
+          "time": 1792119600000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": false,
+          "temperature": 15.3,
+          "time": 1792123200000
+        },
+        {
+          "condition": "rain",
+          "isDay": false,
+          "temperature": 15,
+          "time": 1792126800000
+        },
+        {
+          "condition": "rain",
+          "isDay": false,
+          "temperature": 14.8,
+          "time": 1792130400000
+        },
+        {
+          "condition": "drizzle",
+          "isDay": true,
+          "temperature": 12.9,
+          "time": 1792134000000
+        }
+      ],
+      "isDay": false,
+      "label": "Clear",
+      "location": "London",
+      "low": 9.9,
+      "region": "England, United Kingdom",
+      "sunrise": 1792131960000,
+      "sunset": 1792170300000,
+      "temperature": 15.5,
+      "timeZone": "Europe/London",
+      "units": "c"
+    }
+  }
+}

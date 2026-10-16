@@ -1,6 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useSyncExternalStore } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
 import {
   Sidebar,
   SidebarHeader,
@@ -8,14 +11,10 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupLabel,
-  SidebarGroupActions,
-  SidebarGroupAction,
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-  SidebarMenuAction,
 } from "@/components/ui/sidebar";
-import { Tooltip } from "@/components/ui/tooltip";
 import {
   DropdownMenu,
   DropdownTrigger,
@@ -23,125 +22,59 @@ import {
 } from "@/components/ui/dropdown";
 import { MenuItem } from "@/components/ui/menu-item";
 import { useIcons } from "@/lib/icon-context";
+import { useSize } from "@/lib/size-context";
+import { SIDEBAR_MENU_POPUP } from "@/lib/sidebar-menu-grid";
 import {
   SidebarWorkspaceHeader,
   WorkspaceTile,
 } from "@/components/sidebar-app/workspace-header";
-import { SidebarUserFooter } from "@/components/sidebar-app/user-footer";
 import { SidebarSearchField } from "@/components/sidebar-app/search-field";
-import { NAV_SECTIONS } from "@/components/sidebar-app/nav-data";
+import { BUILT_SECTIONS } from "@/components/sidebar-app/nav-data";
 import type { SidebarProps } from "@/components/ui/sidebar";
 
+const THEMES = [
+  { value: "system", label: "System", icon: "monitor" },
+  { value: "light", label: "Light", icon: "sun" },
+  { value: "dark", label: "Dark", icon: "moon" },
+] as const;
+
+const subscribe = () => () => {};
+function useMounted() {
+  return useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false
+  );
+}
+
 export const AppSidebar = (properties: Omit<SidebarProps, "children">) => {
-  const [active, setActive] = useState("New pricing page exploration");
   const icons = useIcons();
-  const PlusIcon = icons.plus;
-  const PencilIcon = icons.pencil;
-  const MoreVerticalIcon = icons["more-vertical"];
-  const LinkIcon = icons.link;
-  const UserIcon = icons.user;
-  const SettingsIcon = icons.settings;
-  const ArrowLeftIcon = icons["arrow-left"];
-  const FooterSettingsIcon = icons.settings;
-  const MoonIcon = icons.moon;
+  const pathname = usePathname();
 
   return (
     <Sidebar variant="inset" {...properties}>
       <SidebarHeader>
         <SidebarWorkspaceHeader
-          name="Acme Inc"
-          tile={<WorkspaceTile>A</WorkspaceTile>}
-          checkedIndex={0}
-          menu={
-            <>
-              <MenuItem
-                index={0}
-                label="Acme Inc"
-                checked
-                onSelect={() => {}}
-              />
-              <MenuItem index={1} label="Personal" onSelect={() => {}} />
-              <MenuItem
-                index={2}
-                icon={PlusIcon}
-                label="New workspace"
-                onSelect={() => {}}
-              />
-            </>
-          }
+          name="genuicn"
+          tile={<WorkspaceTile>g</WorkspaceTile>}
         />
-        {/* search + action rows are ONE block on the menu rows' rhythm */}
-        <div className="flex flex-col gap-0.5">
-          <SidebarSearchField />
-          <SidebarMenu>
-            <SidebarMenuItem>
-              <SidebarMenuButton icon={PlusIcon}>
-                New
-                {/* shortcut chip, revealed on row hover */}
-                <span className="ml-auto inline-flex opacity-0 transition-opacity duration-80 group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100">
-                  <kbd className="text-muted-foreground font-sans text-[11px]">
-                    ⇧⌘O
-                  </kbd>
-                </span>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          </SidebarMenu>
-        </div>
+        <SidebarSearchField placeholder="Search docs…" />
       </SidebarHeader>
 
       <SidebarContent>
-        {NAV_SECTIONS.map((section) => (
-          <SidebarGroup key={section.label} collapsible>
+        {BUILT_SECTIONS.map((section, sectionIndex) => (
+          <SidebarGroup key={section.label} collapsible={sectionIndex > 0}>
             <SidebarGroupLabel>{section.label}</SidebarGroupLabel>
-            <SidebarGroupActions>
-              <Tooltip content="Add item" side="top">
-                <SidebarGroupAction aria-label="Add item">
-                  <PlusIcon />
-                </SidebarGroupAction>
-              </Tooltip>
-            </SidebarGroupActions>
             <SidebarMenu>
               {section.items.map((item) => (
                 <SidebarMenuItem key={item.label}>
-                  {/* status drives the dot and the screen-reader "unread" text */}
                   <SidebarMenuButton
-                    status={item.status}
-                    isActive={item.label === active}
-                    onClick={() => setActive(item.label)}
+                    icon={item.icon ? icons[item.icon] : undefined}
+                    render={item.href ? <Link href={item.href} /> : undefined}
+                    isActive={item.href === pathname}
                   >
                     {item.label}
                   </SidebarMenuButton>
-                  <DropdownMenu>
-                    <DropdownTrigger
-                      render={
-                        <SidebarMenuAction
-                          showOnHover
-                          aria-label="More options"
-                        >
-                          <MoreVerticalIcon />
-                        </SidebarMenuAction>
-                      }
-                    />
-                    {/* 240px — the header/footer trigger width */}
-                    <DropdownContent
-                      className="w-[240px] min-w-0"
-                      align="start"
-                      sideOffset={4}
-                    >
-                      <MenuItem
-                        index={0}
-                        icon={PencilIcon}
-                        label="Rename"
-                        onSelect={() => {}}
-                      />
-                      <MenuItem
-                        index={1}
-                        icon={LinkIcon}
-                        label="Share"
-                        onSelect={() => {}}
-                      />
-                    </DropdownContent>
-                  </DropdownMenu>
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>
@@ -150,58 +83,64 @@ export const AppSidebar = (properties: Omit<SidebarProps, "children">) => {
       </SidebarContent>
 
       <SidebarFooter>
-        <div className="flex items-center gap-1 pr-1.5">
-          <SidebarUserFooter
-            name="Jane Doe"
-            avatar={
-              <span className="bg-muted-foreground text-background flex size-5 items-center justify-center rounded-full text-[10px]">
-                J
-              </span>
-            }
-            className="min-w-0 flex-1"
-            menu={
-              <>
-                <MenuItem
-                  index={0}
-                  icon={UserIcon}
-                  label="Profile"
-                  onSelect={() => {}}
-                />
-                <MenuItem
-                  index={1}
-                  icon={SettingsIcon}
-                  label="Settings"
-                  onSelect={() => {}}
-                />
-                <MenuItem
-                  index={2}
-                  icon={ArrowLeftIcon}
-                  label="Log out"
-                  onSelect={() => {}}
-                />
-              </>
-            }
-          />
-          <Tooltip content="Settings" side="top">
-            <button
-              type="button"
-              aria-label="Settings"
-              className="text-muted-foreground hover:bg-hover hover:text-foreground flex size-6 shrink-0 items-center justify-center rounded-md transition-colors duration-80 outline-none focus-visible:ring-1 focus-visible:ring-[color:var(--focus-ring,#6B97FF)]"
-            >
-              <FooterSettingsIcon size={16} strokeWidth={1.5} />
-            </button>
-          </Tooltip>
-          <Tooltip content="Theme" side="top">
-            <button
-              type="button"
-              aria-label="Theme"
-              className="text-muted-foreground hover:bg-hover hover:text-foreground flex size-6 shrink-0 items-center justify-center rounded-md transition-colors duration-80 outline-none focus-visible:ring-1 focus-visible:ring-[color:var(--focus-ring,#6B97FF)]"
-            >
-              <MoonIcon size={16} strokeWidth={1.5} />
-            </button>
-          </Tooltip>
-        </div>
+        <ThemeFooter />
       </SidebarFooter>
     </Sidebar>
+  );
+};
+
+const ThemeFooter = () => {
+  const { theme, setTheme } = useTheme();
+  const mounted = useMounted();
+  const icons = useIcons();
+  const iconSize = useSize().icon;
+  const ChevronsUpDown = icons["chevrons-up-down"];
+
+  const current = mounted ? (theme ?? "system") : "system";
+  const currentIndex = Math.max(
+    0,
+    THEMES.findIndex((t) => t.value === current)
+  );
+  const { label, icon } = THEMES[currentIndex];
+
+  return (
+    <SidebarMenu aria-label="Theme">
+      <SidebarMenuItem>
+        <DropdownMenu>
+          <DropdownTrigger
+            render={
+              <SidebarMenuButton icon={icons[icon]} aria-label="Change theme">
+                {label}
+                <span className="-mr-0.5 ml-auto flex size-6 shrink-0 items-center justify-center">
+                  <ChevronsUpDown
+                    size={iconSize}
+                    strokeWidth={1.5}
+                    className="text-muted-foreground"
+                  />
+                </span>
+              </SidebarMenuButton>
+            }
+          />
+          <DropdownContent
+            className={SIDEBAR_MENU_POPUP}
+            side="top"
+            align="start"
+            sideOffset={6}
+            checkedIndex={currentIndex}
+          >
+            {THEMES.map((t, index) => (
+              <MenuItem
+                key={t.value}
+                index={index}
+                icon={icons[t.icon]}
+                label={t.label}
+                checked={t.value === current}
+                onSelect={() => setTheme(t.value)}
+              />
+            ))}
+          </DropdownContent>
+        </DropdownMenu>
+      </SidebarMenuItem>
+    </SidebarMenu>
   );
 };

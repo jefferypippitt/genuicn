@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# genuicn
 
-## Getting Started
+genuicn is a shadcn registry of generative UI cards that render inside a chatbot. The chat uses [json-render](https://github.com/vercel-labs/json-render), so the model writes a small spec that names a card and its props, and the card fetches its own live data. Quote, a live stock quote card, is the first one. The other cards in the docs sidebar are planned.
 
-First, run the development server:
+To add the chat and cards to your own Next.js app, follow the Installation page at `/docs/installation`.
+
+## Running this site
+
+This repo is the docs site and the registry source. We use pnpm.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000). The docs playgrounds replay recorded chats along with the data each card loaded, so browsing the site calls neither the model nor the quote and weather services.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To try `/api/chat` locally, copy `.env.example` to `.env.local` and add an `AI_GATEWAY_API_KEY` from the Vercel dashboard under AI Gateway, API Keys.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts
 
-## Learn More
+- `pnpm registry:build` runs `shadcn build`, which writes the installable items in `registry.json` to `public/r/`. `pnpm build` runs it before `next build`.
+- `pnpm record <name> "<prompt>"` sends one prompt to the running dev server and saves the reply to `content/recordings/<name>.json` for a docs playground, together with the data each card in the reply loaded. It needs `pnpm dev` running and the key in `.env.local`.
+- `pnpm record:data [name...]` refreshes the card data in every recording, or in the ones named, without calling the model. It needs `pnpm dev` running. Run it before a deploy to bring the playground numbers up to date.
+- `pnpm check` and `pnpm fix` run Ultracite.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The changelog lives in `content/changelog/`, one file per month. The format is in `content/changelog/README.md`.

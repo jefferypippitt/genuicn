@@ -1,0 +1,167 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "tutYmphrs9VJmV7Q"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 561
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011Cg4msCHXQLeFTaVvU8cwX",
+                "model": "claude-haiku-4-5-20251001",
+                "usage": {
+                  "input_tokens": 4606,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 1,
+                  "service_tier": "standard",
+                  "inference_geo": "not_available",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "0"
+          },
+          "wait": 239
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "weather"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/weather",
+                "value": {
+                  "type": "WeatherCard",
+                  "props": {
+                    "location": "Tokyo",
+                    "units": "c"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 272
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 4
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "How warm is it in Tokyo, in Celsius?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/weather?location=Tokyo&units=c": {
+      "asOf": 1792116000000,
+      "condition": "clear",
+      "fake": false,
+      "high": 25.8,
+      "hours": [
+        {
+          "condition": "clear",
+          "isDay": true,
+          "temperature": 23.2,
+          "time": 1792116000000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "temperature": 24.4,
+          "time": 1792119600000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "temperature": 25.3,
+          "time": 1792123200000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "temperature": 25.7,
+          "time": 1792126800000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "temperature": 25.8,
+          "time": 1792130400000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "temperature": 25.1,
+          "time": 1792134000000
+        }
+      ],
+      "isDay": true,
+      "label": "Sunny",
+      "location": "Tokyo",
+      "low": 15.7,
+      "region": "Tokyo, Japan",
+      "sunrise": 1792097280000,
+      "sunset": 1792137900000,
+      "temperature": 23.2,
+      "timeZone": "Asia/Tokyo",
+      "units": "c"
+    }
+  }
+}

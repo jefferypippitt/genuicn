@@ -1,0 +1,5 @@
+components/ui/
+# Written by `shadcn build` on every build
+public/r/
+# Written by ESLint (`ultracite check --suppress-all` and `--prune-suppressions`)
+eslint-suppressions.json

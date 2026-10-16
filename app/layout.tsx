@@ -1,12 +1,9 @@
-import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
-
-import "./globals.css";
+import { Geist_Mono, Inter } from "next/font/google";
 import { Providers } from "@/components/providers";
+import { SiteShell } from "@/components/site-shell";
+import type { Metadata } from "next";
+import "./globals.css";
 
-// Inter with its optical-size axis: Fluid Functionalism animates a label's
-// weight together with opsz, so it gets bolder without getting wider. Without
-// the axis (or with a static Inter) weight changes shift the layout.
 const inter = Inter({
   subsets: ["latin"],
   axes: ["opsz"],
@@ -15,8 +12,9 @@ const inter = Inter({
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
-  title: "My app",
-  description: "Built with Fluid Functionalism.",
+  title: "genuicn",
+  description:
+    "Generative UI cards for your chatbot, installed with the shadcn CLI.",
 };
 
 export default function RootLayout({
@@ -31,7 +29,9 @@ export default function RootLayout({
       className={`${inter.variable} ${mono.variable} font-sans antialiased`}
     >
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <SiteShell>{children}</SiteShell>
+        </Providers>
       </body>
     </html>
   );

@@ -1,0 +1,215 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "genuicn",
+  "homepage": "https://github.com/jefferypippitt/genuicn",
+  "items": [
+    {
+      "name": "chat",
+      "type": "registry:block",
+      "title": "Chat",
+      "description": "The foundation for genuicn cards: a json-render chat (Fluid Functionalism UI, Vercel AI SDK, AI Gateway) with its API route and a /chat page. Install once, then add cards.",
+      "dependencies": [
+        "ai",
+        "@ai-sdk/react",
+        "@json-render/core@0.21.1",
+        "@json-render/react@0.21.1",
+        "@json-render/devtools-react@0.21.1",
+        "zod"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://www.fluidfunctionalism.com/r/chat-message.json",
+        "https://www.fluidfunctionalism.com/r/base/input-message.json",
+        "https://www.fluidfunctionalism.com/r/base/thinking-steps.json"
+      ],
+      "files": [
+        {
+          "path": "features/chat/components/chat.tsx",
+          "type": "registry:component",
+          "target": "features/chat/components/chat.tsx"
+        },
+        {
+          "path": "features/chat/components/card-group.tsx",
+          "type": "registry:component",
+          "target": "features/chat/components/card-group.tsx"
+        },
+        {
+          "path": "features/chat/components/chat-devtools.tsx",
+          "type": "registry:component",
+          "target": "features/chat/components/chat-devtools.tsx"
+        },
+        {
+          "path": "features/chat/components/reply-steps.tsx",
+          "type": "registry:component",
+          "target": "features/chat/components/reply-steps.tsx"
+        },
+        {
+          "path": "features/chat/lookup.ts",
+          "type": "registry:lib",
+          "target": "features/chat/lookup.ts"
+        },
+        {
+          "path": "registry/chat/chat-catalog.ts",
+          "type": "registry:lib",
+          "target": "features/chat/chat-catalog.ts"
+        },
+        {
+          "path": "registry/chat/chat-registry.tsx",
+          "type": "registry:lib",
+          "target": "features/chat/chat-registry.tsx"
+        },
+        {
+          "path": "registry/chat/chat-steps.ts",
+          "type": "registry:lib",
+          "target": "features/chat/chat-steps.ts"
+        },
+        {
+          "path": "app/api/chat/route.ts",
+          "type": "registry:page",
+          "target": "app/api/chat/route.ts"
+        },
+        {
+          "path": "registry/chat/page.tsx",
+          "type": "registry:page",
+          "target": "app/chat/page.tsx"
+        }
+      ],
+      "envVars": {
+        "AI_GATEWAY_API_KEY": ""
+      },
+      "docs": "Add your Vercel AI Gateway key to .env.local as AI_GATEWAY_API_KEY (Vercel dashboard > AI Gateway > API Keys), then open /chat. Install cards next, e.g. npx shadcn@latest add <site>/r/quote.json."
+    },
+    {
+      "name": "quote",
+      "type": "registry:block",
+      "title": "Quote",
+      "description": "A live stock quote card for json-render chats: price, change, a trend line and a 1D/1W/1M/1Y switch, with its API route.",
+      "dependencies": ["zod", "server-only"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "features/quote/components/quote-card.tsx",
+          "type": "registry:component",
+          "target": "features/quote/components/quote-card.tsx"
+        },
+        {
+          "path": "features/quote/components/live-quote-card.tsx",
+          "type": "registry:component",
+          "target": "features/quote/components/live-quote-card.tsx"
+        },
+        {
+          "path": "features/quote/quote-catalog.ts",
+          "type": "registry:lib",
+          "target": "features/quote/quote-catalog.ts"
+        },
+        {
+          "path": "features/quote/quote-requests.ts",
+          "type": "registry:lib",
+          "target": "features/quote/quote-requests.ts"
+        },
+        {
+          "path": "features/quote/quote-steps.ts",
+          "type": "registry:lib",
+          "target": "features/quote/quote-steps.ts"
+        },
+        {
+          "path": "features/quote/quote-queries.ts",
+          "type": "registry:lib",
+          "target": "features/quote/quote-queries.ts"
+        },
+        {
+          "path": "features/quote/quote-schema.ts",
+          "type": "registry:lib",
+          "target": "features/quote/quote-schema.ts"
+        },
+        {
+          "path": "features/quote/quote-fake.ts",
+          "type": "registry:lib",
+          "target": "features/quote/quote-fake.ts"
+        },
+        {
+          "path": "app/api/quote/route.ts",
+          "type": "registry:page",
+          "target": "app/api/quote/route.ts"
+        }
+      ],
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   QuoteCard: quoteCatalogEntry\n  features/chat/chat-registry.tsx: QuoteCard: ({ props, loading }) => <LiveQuoteCard ticker={props.ticker} range={props.range ?? \"1d\"} streaming={loading} />\n\nQuotes load from /api/quote (installed at app/api/quote/route.ts). No API key needed."
+    },
+    {
+      "name": "weather",
+      "type": "registry:block",
+      "title": "Weather",
+      "description": "A live weather card for json-render chats: temperature, conditions, high and low, and the next six hours on an animated sky drawn for the time of day (dawn, sunrise, day, golden hour, sunset, dusk, night) and the weather (clouds, fog, rain, snow, storms), with its API route.",
+      "dependencies": ["zod", "server-only"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "features/weather/components/weather-card.tsx",
+          "type": "registry:component",
+          "target": "features/weather/components/weather-card.tsx"
+        },
+        {
+          "path": "features/weather/components/live-weather-card.tsx",
+          "type": "registry:component",
+          "target": "features/weather/components/live-weather-card.tsx"
+        },
+        {
+          "path": "features/weather/components/weather-sky.tsx",
+          "type": "registry:component",
+          "target": "features/weather/components/weather-sky.tsx"
+        },
+        {
+          "path": "features/weather/components/weather-glass.tsx",
+          "type": "registry:component",
+          "target": "features/weather/components/weather-glass.tsx"
+        },
+        {
+          "path": "features/weather/components/weather-icon.tsx",
+          "type": "registry:component",
+          "target": "features/weather/components/weather-icon.tsx"
+        },
+        {
+          "path": "features/weather/weather-catalog.ts",
+          "type": "registry:lib",
+          "target": "features/weather/weather-catalog.ts"
+        },
+        {
+          "path": "features/weather/weather-requests.ts",
+          "type": "registry:lib",
+          "target": "features/weather/weather-requests.ts"
+        },
+        {
+          "path": "features/weather/weather-steps.ts",
+          "type": "registry:lib",
+          "target": "features/weather/weather-steps.ts"
+        },
+        {
+          "path": "features/weather/weather-queries.ts",
+          "type": "registry:lib",
+          "target": "features/weather/weather-queries.ts"
+        },
+        {
+          "path": "features/weather/weather-schema.ts",
+          "type": "registry:lib",
+          "target": "features/weather/weather-schema.ts"
+        },
+        {
+          "path": "features/weather/weather-atmosphere.ts",
+          "type": "registry:lib",
+          "target": "features/weather/weather-atmosphere.ts"
+        },
+        {
+          "path": "features/weather/weather-fake.ts",
+          "type": "registry:lib",
+          "target": "features/weather/weather-fake.ts"
+        },
+        {
+          "path": "app/api/weather/route.ts",
+          "type": "registry:page",
+          "target": "app/api/weather/route.ts"
+        }
+      ],
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   WeatherCard: weatherCatalogEntry\n  features/chat/chat-registry.tsx: WeatherCard: ({ props, loading }) => <LiveWeatherCard location={props.location || undefined} units={props.units} streaming={loading} />\n\nForecasts load from /api/weather (installed at app/api/weather/route.ts), backed by Open-Meteo. No API key needed."
+    }
+  ]
+}

@@ -3,4 +3,27 @@ import react from "ultracite/eslint/react";
 import next from "ultracite/eslint/next";
 import vitest from "ultracite/eslint/vitest";
 
-export default [...core, ...react, ...next, ...vitest];
+const reactPlugin = react.find((config) => config.plugins?.react)?.plugins
+  .react;
+
+export default [
+  { ignores: [".agents/**", ".claude/**", "components/ui/**"] },
+  ...core,
+  ...react,
+  ...next,
+  ...vitest,
+  {
+    plugins: { react: reactPlugin },
+    rules: {
+      "func-style": ["error", "declaration", { allowArrowFunctions: true }],
+      // Contradicts arrow-body-style: a multiline single-expression arrow
+      // fails one rule with an implicit return and the other with an
+      // explicit one. Prettier-formatted callbacks use the implicit form.
+      "unicorn/consistent-arrow-return-style": "off",
+      "react/function-component-definition": [
+        "error",
+        { namedComponents: ["function-declaration", "arrow-function"] },
+      ],
+    },
+  },
+];

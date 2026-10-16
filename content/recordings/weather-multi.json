@@ -1,0 +1,332 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "3Wa0wo5o9Y2ZQlCv"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 478
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011Cg4mrw2WVRbdeHD93ifcN",
+                "model": "claude-haiku-4-5-20251001",
+                "usage": {
+                  "input_tokens": 4604,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 1,
+                  "service_tier": "standard",
+                  "inference_geo": "not_available",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "0"
+          },
+          "wait": 246
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "weather-group"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/weather-group",
+                "value": {
+                  "type": "CardGroup",
+                  "props": {},
+                  "children": ["ny-weather", "london-weather", "tokyo-weather"]
+                }
+              }
+            }
+          },
+          "wait": 303
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/ny-weather",
+                "value": {
+                  "type": "WeatherCard",
+                  "props": {
+                    "location": "New York"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 227
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/london-weather",
+                "value": {
+                  "type": "WeatherCard",
+                  "props": {
+                    "location": "London"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 154
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/tokyo-weather",
+                "value": {
+                  "type": "WeatherCard",
+                  "props": {
+                    "location": "Tokyo"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 160
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 6
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "Weather in New York, London and Tokyo?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/weather?location=New+York": {
+      "asOf": 1792116000000,
+      "condition": "clear",
+      "fake": false,
+      "high": 68.4,
+      "hours": [
+        {
+          "condition": "clear",
+          "isDay": false,
+          "temperature": 55.5,
+          "time": 1792116000000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "temperature": 54.8,
+          "time": 1792119600000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "temperature": 53.9,
+          "time": 1792123200000
+        },
+        {
+          "condition": "partly-cloudy",
+          "isDay": false,
+          "temperature": 54.8,
+          "time": 1792126800000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": false,
+          "temperature": 55.5,
+          "time": 1792130400000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": false,
+          "temperature": 56,
+          "time": 1792134000000
+        }
+      ],
+      "isDay": false,
+      "label": "Clear",
+      "location": "New York",
+      "low": 53.9,
+      "region": "New York, United States",
+      "sunrise": 1792062420000,
+      "sunset": 1792102500000,
+      "temperature": 55.5,
+      "timeZone": "America/New_York",
+      "units": "f"
+    },
+    "/api/weather?location=London": {
+      "asOf": 1792116000000,
+      "condition": "clear",
+      "fake": false,
+      "high": 17.1,
+      "hours": [
+        {
+          "condition": "clear",
+          "isDay": false,
+          "temperature": 15.5,
+          "time": 1792116000000
+        },
+        {
+          "condition": "partly-cloudy",
+          "isDay": false,
+          "temperature": 15.2,
+          "time": 1792119600000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": false,
+          "temperature": 15.3,
+          "time": 1792123200000
+        },
+        {
+          "condition": "rain",
+          "isDay": false,
+          "temperature": 15,
+          "time": 1792126800000
+        },
+        {
+          "condition": "rain",
+          "isDay": false,
+          "temperature": 14.8,
+          "time": 1792130400000
+        },
+        {
+          "condition": "drizzle",
+          "isDay": true,
+          "temperature": 12.9,
+          "time": 1792134000000
+        }
+      ],
+      "isDay": false,
+      "label": "Clear",
+      "location": "London",
+      "low": 9.9,
+      "region": "England, United Kingdom",
+      "sunrise": 1792131960000,
+      "sunset": 1792170300000,
+      "temperature": 15.5,
+      "timeZone": "Europe/London",
+      "units": "c"
+    },
+    "/api/weather?location=Tokyo": {
+      "asOf": 1792116000000,
+      "condition": "clear",
+      "fake": false,
+      "high": 25.8,
+      "hours": [
+        {
+          "condition": "clear",
+          "isDay": true,
+          "temperature": 23.2,
+          "time": 1792116000000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "temperature": 24.4,
+          "time": 1792119600000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "temperature": 25.3,
+          "time": 1792123200000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "temperature": 25.7,
+          "time": 1792126800000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "temperature": 25.8,
+          "time": 1792130400000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "temperature": 25.1,
+          "time": 1792134000000
+        }
+      ],
+      "isDay": true,
+      "label": "Sunny",
+      "location": "Tokyo",
+      "low": 15.7,
+      "region": "Tokyo, Japan",
+      "sunrise": 1792097280000,
+      "sunset": 1792137900000,
+      "temperature": 23.2,
+      "timeZone": "Asia/Tokyo",
+      "units": "c"
+    }
+  }
+}
