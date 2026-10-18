@@ -80,11 +80,7 @@
                 "value": {
                   "type": "CardGroup",
                   "props": {},
-                  "children": [
-                    "west-a",
-                    "west-b",
-                    "west-c"
-                  ]
+                  "children": ["west-a", "west-b", "west-c"]
                 }
               }
             }

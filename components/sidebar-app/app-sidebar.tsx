@@ -35,7 +35,10 @@ import {
   SidebarWorkspaceHeader,
   WorkspaceTile,
 } from "@/components/sidebar-app/workspace-header";
-import { SidebarSearchField } from "@/components/sidebar-app/search-field";
+import {
+  DocumentationSearchProvider,
+  SidebarSearchTrigger,
+} from "@/components/sidebar-app/documentation-search";
 import { BUILT_SECTIONS } from "@/components/sidebar-app/nav-data";
 import type { NavItem } from "@/components/sidebar-app/nav-data";
 import type { SidebarProps } from "@/components/ui/sidebar";
@@ -166,55 +169,59 @@ export const AppSidebar = ({
   const pathname = usePathname();
 
   return (
-    <Sidebar variant="inset" {...properties}>
-      <SidebarHeader>
-        <SidebarWorkspaceHeader
-          name="genuicn"
-          tile={<WorkspaceTile>g</WorkspaceTile>}
-        />
-        <SidebarSearchField placeholder="Search docs…" />
-      </SidebarHeader>
+    <DocumentationSearchProvider>
+      <Sidebar variant="inset" {...properties}>
+        <SidebarHeader>
+          <SidebarWorkspaceHeader
+            name="genuicn"
+            tile={<WorkspaceTile>g</WorkspaceTile>}
+          />
+          <SidebarSearchTrigger />
+        </SidebarHeader>
 
-      <SidebarContent>
-        {BUILT_SECTIONS.map((section, sectionIndex) => (
-          <SidebarGroup key={section.label} collapsible={sectionIndex > 0}>
-            <SidebarGroupLabel>{section.label}</SidebarGroupLabel>
-            <SidebarMenu>
-              {rowsOf(section.items).map((row) => {
-                if (row.kind === "group") {
+        <SidebarContent>
+          {BUILT_SECTIONS.map((section, sectionIndex) => (
+            <SidebarGroup key={section.label} collapsible={sectionIndex > 0}>
+              <SidebarGroupLabel>{section.label}</SidebarGroupLabel>
+              <SidebarMenu>
+                {rowsOf(section.items).map((row) => {
+                  if (row.kind === "group") {
+                    return (
+                      <NavGroup
+                        key={row.label}
+                        label={row.label}
+                        items={row.items}
+                        pathname={pathname}
+                        newSet={newSet}
+                      />
+                    );
+                  }
+                  const { item } = row;
                   return (
-                    <NavGroup
-                      key={row.label}
-                      label={row.label}
-                      items={row.items}
-                      pathname={pathname}
-                      newSet={newSet}
-                    />
+                    <SidebarMenuItem key={item.label}>
+                      <SidebarMenuButton
+                        icon={item.icon ? icons[item.icon] : undefined}
+                        render={
+                          item.href ? <Link href={item.href} /> : undefined
+                        }
+                        isActive={item.href === pathname}
+                      >
+                        {item.label}
+                        {item.href && newSet.has(item.href) ? <NewDot /> : null}
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
                   );
-                }
-                const { item } = row;
-                return (
-                  <SidebarMenuItem key={item.label}>
-                    <SidebarMenuButton
-                      icon={item.icon ? icons[item.icon] : undefined}
-                      render={item.href ? <Link href={item.href} /> : undefined}
-                      isActive={item.href === pathname}
-                    >
-                      {item.label}
-                      {item.href && newSet.has(item.href) ? <NewDot /> : null}
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                );
-              })}
-            </SidebarMenu>
-          </SidebarGroup>
-        ))}
-      </SidebarContent>
+                })}
+              </SidebarMenu>
+            </SidebarGroup>
+          ))}
+        </SidebarContent>
 
-      <SidebarFooter>
-        <ThemeFooter />
-      </SidebarFooter>
-    </Sidebar>
+        <SidebarFooter>
+          <ThemeFooter />
+        </SidebarFooter>
+      </Sidebar>
+    </DocumentationSearchProvider>
   );
 };
 
