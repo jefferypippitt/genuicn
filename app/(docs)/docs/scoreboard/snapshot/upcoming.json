@@ -1,0 +1,32 @@
+{
+  "asOf": 1792218121176,
+  "away": {
+    "abbreviation": "OKC",
+    "isWinner": false,
+    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/okc.png",
+    "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/okc.png",
+    "name": "Oklahoma City Thunder",
+    "record": "0-0",
+    "score": null,
+    "periods": [],
+    "shortName": "Thunder"
+  },
+  "broadcast": "NBC",
+  "home": {
+    "abbreviation": "SA",
+    "isWinner": false,
+    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/sa.png",
+    "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/sa.png",
+    "name": "San Antonio Spurs",
+    "record": "0-0",
+    "score": null,
+    "periods": [],
+    "shortName": "Spurs"
+  },
+  "series": null,
+  "stage": null,
+  "startsAt": 1792546200000,
+  "state": "pre",
+  "status": "10/20 - 9:30 PM EDT",
+  "venue": "Frost Bank Center"
+}

@@ -1,0 +1,67 @@
+{
+  "asOf": 1792268000000,
+  "group": "east-a",
+  "season": "2026-27",
+  "teams": [
+    {
+      "abbreviation": "DET",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/det.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/det.png",
+      "losses": 0,
+      "name": "Pistons",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 1,
+      "wins": 0
+    },
+    {
+      "abbreviation": "TOR",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/tor.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/tor.png",
+      "losses": 0,
+      "name": "Raptors",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 2,
+      "wins": 0
+    },
+    {
+      "abbreviation": "ORL",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/orl.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/orl.png",
+      "losses": 0,
+      "name": "Magic",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 3,
+      "wins": 0
+    },
+    {
+      "abbreviation": "MIL",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/mil.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/mil.png",
+      "losses": 0,
+      "name": "Bucks",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 4,
+      "wins": 0
+    },
+    {
+      "abbreviation": "BKN",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/bkn.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/bkn.png",
+      "losses": 0,
+      "name": "Nets",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 5,
+      "wins": 0
+    }
+  ]
+}

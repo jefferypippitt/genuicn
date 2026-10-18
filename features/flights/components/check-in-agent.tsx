@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { AskUserQuestions } from "@/components/ui/ask-user-questions";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { ChatMessage } from "@/components/ui/chat-message";
 import { ThinkingIndicator } from "@/components/ui/thinking-indicator";
 import { BoardingPassCard } from "@/features/flights/components/boarding-pass-card";
@@ -51,11 +52,21 @@ function useConversation() {
 /**
 Keeps the newest message in view as the conversation grows.
 */
+/**
+The element that scrolls inside a Fluid ScrollArea: its ref points at the outer root, and the viewport inside it does the scrolling.
+*/
+function viewportOf(root: HTMLElement | null) {
+  return (
+    root?.querySelector<HTMLElement>('[data-slot="scroll-area-viewport"]') ??
+    null
+  );
+}
+
 function useFollow() {
   const scrollReference = useRef<HTMLDivElement>(null);
   const contentReference = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const element = scrollReference.current;
+    const element = viewportOf(scrollReference.current);
     const content = contentReference.current;
     if (!element || !content) {
       return;
@@ -139,17 +150,14 @@ export default function CheckInAgent({
 
   return (
     <div className={cn("flex min-h-0 flex-col", className)}>
-      <div
-        ref={scrollReference}
-        className="flex min-h-0 flex-1 flex-col overflow-y-auto p-4"
-      >
-        <div ref={contentReference} className="flex flex-col gap-4">
+      <ScrollArea ref={scrollReference} className="min-h-0 flex-1">
+        <div ref={contentReference} className="flex flex-col gap-4 p-4">
           {entries.map((entry) => (
             <EntryView key={entry.id} entry={entry} />
           ))}
           {isThinking ? <ThinkingIndicator className="px-0" /> : null}
         </div>
-      </div>
+      </ScrollArea>
       <AnimatePresence mode="popLayout">
         {prompt ? (
           <motion.div

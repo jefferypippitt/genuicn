@@ -1,0 +1,24 @@
+{
+  "asOf": 1792268000000,
+  "season": "2026-27",
+  "startsAt": 1792537200000,
+  "state": "pre",
+  "teams": [
+    {
+      "abbreviation": "PHI",
+      "color": "#e01234",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/phi.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/phi.png",
+      "name": "Philadelphia 76ers",
+      "probability": 46.9
+    },
+    {
+      "abbreviation": "NY",
+      "color": "#1d428a",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ny.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/ny.png",
+      "name": "New York Knicks",
+      "probability": 53.1
+    }
+  ]
+}

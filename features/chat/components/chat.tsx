@@ -12,6 +12,7 @@ import { motion } from "motion/react";
 import { ChatDevtools } from "@/features/chat/components/chat-devtools";
 import { ChatMessage } from "@/components/ui/chat-message";
 import { InputMessage } from "@/components/ui/input-message";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { catalog } from "@/features/chat/chat-catalog";
 import { ReplySteps } from "@/features/chat/components/reply-steps";
 import { registry } from "@/features/chat/chat-registry";
@@ -22,6 +23,16 @@ import type { Chat as ChatInstance } from "@ai-sdk/react";
 import type { UIMessage } from "ai";
 
 const PINNED_PX = 48;
+
+/**
+The element that scrolls inside a Fluid ScrollArea: its ref points at the outer root, and the viewport inside it does the scrolling.
+*/
+function viewportOf(root: HTMLElement | null) {
+  return (
+    root?.querySelector<HTMLElement>('[data-slot="scroll-area-viewport"]') ??
+    null
+  );
+}
 
 const SUGGESTIONS = [
   "How's NVDA doing?",
@@ -61,26 +72,40 @@ export const Chat = ({
   const scrollReference = useRef<HTMLDivElement>(null);
   const contentReference = useRef<HTMLDivElement>(null);
   const pinnedReference = useRef(true);
+  const bottomReference = useRef<HTMLDivElement>(null);
+  // Follows the reply as it grows, unless the reader scrolled up to read:
+  // the chat stays pinned while the marker at its end is within PINNED_PX of
+  // the view. Resize observers run before intersection observers in a frame,
+  // so growth scrolls first and the marker is still in view when it's checked.
   useEffect(() => {
-    const element = scrollReference.current;
+    const element = viewportOf(scrollReference.current);
     const content = contentReference.current;
-    if (!element || !content) {
+    const bottom = bottomReference.current;
+    if (!(element && content && bottom)) {
       return;
     }
-    const follow = () => {
+    const resize = new ResizeObserver(() => {
       if (pinnedReference.current) {
         element.scrollTo({ top: element.scrollHeight });
       }
+    });
+    const pin = new IntersectionObserver(
+      ([entry]) => {
+        pinnedReference.current = entry?.isIntersecting ?? true;
+      },
+      { root: element, rootMargin: `0px 0px ${PINNED_PX}px 0px` }
+    );
+    resize.observe(content);
+    pin.observe(bottom);
+    return () => {
+      resize.disconnect();
+      pin.disconnect();
     };
-    const observer = new ResizeObserver(follow);
-    observer.observe(content);
-    return () => observer.disconnect();
   }, []);
   useEffect(() => {
     pinnedReference.current = true;
-    scrollReference.current?.scrollTo({
-      top: scrollReference.current.scrollHeight,
-    });
+    const element = viewportOf(scrollReference.current);
+    element?.scrollTo({ top: element.scrollHeight });
   }, [messages.length]);
 
   const isBusy = status === "submitted" || status === "streaming";
@@ -99,17 +124,8 @@ export const Chat = ({
         position="right"
       />
       <div className={cn("flex min-h-0 flex-col", className)}>
-        <div
-          ref={scrollReference}
-          onScroll={(event) => {
-            const element = event.currentTarget;
-            pinnedReference.current =
-              element.scrollHeight - element.scrollTop - element.clientHeight <
-              PINNED_PX;
-          }}
-          className="flex min-h-0 flex-1 flex-col overflow-y-auto p-4"
-        >
-          <div ref={contentReference} className="flex flex-col gap-4">
+        <ScrollArea ref={scrollReference} className="min-h-0 flex-1">
+          <div ref={contentReference} className="flex flex-col gap-4 p-4">
             {turns.map((turn, index) => {
               const isLatest = index === turns.length - 1;
               return (
@@ -135,8 +151,9 @@ export const Chat = ({
                 Something went wrong. Send the message again.
               </p>
             ) : null}
+            <div ref={bottomReference} aria-hidden className="-mt-4 h-px" />
           </div>
-        </div>
+        </ScrollArea>
 
         {input ? (
           <div className="p-3 pt-0">

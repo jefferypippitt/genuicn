@@ -124,12 +124,6 @@ export default function CryptoDocument() {
       </DocSection>
 
       <DocSection title="Ranges">
-        <p>
-          Each tab shows six coins over one range. The prices, market caps, and
-          volumes are CoinGecko&apos;s figures from October 16, 2026. The lines
-          leading up to them are generated, so they don&apos;t match the real
-          history.
-        </p>
         <RangeGallery />
       </DocSection>
 

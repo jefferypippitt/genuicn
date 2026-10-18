@@ -1,7 +1,6 @@
 "use client";
 
 import { useId, useState } from "react";
-import { GlassCard } from "@/components/glass-card";
 import {
   CRYPTO_RANGE_LABEL,
   CRYPTO_RANGES,
@@ -10,6 +9,7 @@ import {
   formatPercent,
   summarizeCrypto,
 } from "@/features/crypto/crypto-schema";
+import { CARD_FRAME as SHARED_CARD_FRAME } from "@/lib/card-frame";
 import { cn } from "@/lib/utils";
 import type { CryptoData, CryptoRange } from "@/features/crypto/crypto-schema";
 
@@ -33,8 +33,7 @@ export interface CryptoCardProperties {
   readonly className?: string;
 }
 
-const CARD_FRAME =
-  "bg-card text-card-foreground w-full max-w-sm rounded-2xl border p-4";
+const CARD_FRAME = `${SHARED_CARD_FRAME} w-full max-w-sm`;
 
 const LABEL = "text-muted-foreground text-xs";
 
@@ -508,14 +507,17 @@ export const CryptoCard = ({
 
   if (state === "ready" && shown) {
     return (
-      <GlassCard label={summarizeCrypto(shown)} className={className}>
+      <section
+        aria-label={summarizeCrypto(shown)}
+        className={cn(CARD_FRAME, className)}
+      >
         <CryptoReady
           data={shown}
           pendingRange={pendingRange}
           rangeError={rangeError}
           onSelectRange={loadRange ? selectRange : undefined}
         />
-      </GlassCard>
+      </section>
     );
   }
   if (state === "error") {

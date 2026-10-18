@@ -29,12 +29,36 @@ const CARD_URLS = {
             `/api/crypto?symbol=${encodeURIComponent(symbol)}&range=${range}`
         )
       : [],
+  NbaCupCard: ({ group }) =>
+    typeof group === "string" && group
+      ? [`/api/nba-cup?group=${encodeURIComponent(group)}`]
+      : [],
+  PlayerCard: ({ players }) =>
+    Array.isArray(players)
+      ? players
+          .filter((player) => typeof player === "string" && player)
+          .map((player) => `/api/player?${new URLSearchParams({ player })}`)
+      : [],
   QuoteCard: ({ ticker }) =>
     typeof ticker === "string" && ticker
       ? QUOTE_RANGES.map(
           (range) =>
             `/api/quote?ticker=${encodeURIComponent(ticker)}&range=${range}`
         )
+      : [],
+  ScoreboardCard: ({ team, date }) => {
+    if (!(typeof team === "string" && team)) {
+      return [];
+    }
+    const parameters = new URLSearchParams({ team });
+    if (date) {
+      parameters.set("date", date);
+    }
+    return [`/api/scoreboard?${parameters}`];
+  },
+  StandingsCard: ({ conference }) =>
+    conference === "east" || conference === "west"
+      ? [`/api/standings?conference=${conference}`]
       : [],
   WeatherCard: ({ location, units }) => {
     if (!(typeof location === "string" && location)) {
@@ -45,6 +69,16 @@ const CARD_URLS = {
       parameters.set("units", units);
     }
     return [`/api/weather?${parameters}`];
+  },
+  WinProbabilityCard: ({ team, date }) => {
+    if (!(typeof team === "string" && team)) {
+      return [];
+    }
+    const parameters = new URLSearchParams({ team });
+    if (date) {
+      parameters.set("date", date);
+    }
+    return [`/api/win-probability?${parameters}`];
   },
 };
 

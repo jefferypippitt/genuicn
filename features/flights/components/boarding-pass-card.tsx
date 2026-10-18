@@ -11,6 +11,7 @@ import {
   seatPositionOf,
   summarizeBoardingPass,
 } from "@/features/flights/flight-schema";
+import { CARD_FRAME } from "@/lib/card-frame";
 import { cn } from "@/lib/utils";
 import type { AirlineBrand } from "@/features/flights/airline-brands";
 import type { BoardingPassData } from "@/features/flights/flight-schema";
@@ -448,7 +449,8 @@ const BoardingPassError = ({
   <div
     role="alert"
     className={cn(
-      "bg-card text-card-foreground flex w-full max-w-2xl flex-col gap-1 rounded-2xl border p-4",
+      CARD_FRAME,
+      "flex w-full max-w-2xl flex-col gap-1",
       className
     )}
   >

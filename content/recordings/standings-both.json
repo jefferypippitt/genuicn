@@ -1,0 +1,677 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "5BP9G26xrwPJN61m"
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 580
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011Cg8SxNBmxr4qVm4TdgTrr",
+                "model": "claude-haiku-4-5-20251001",
+                "usage": {
+                  "input_tokens": 5146,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 2,
+                  "service_tier": "standard",
+                  "inference_geo": "not_available",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "0"
+          },
+          "wait": 234
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "standings"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/standings",
+                "value": {
+                  "type": "CardGroup",
+                  "props": {},
+                  "children": [
+                    "east-standings",
+                    "west-standings"
+                  ]
+                }
+              }
+            }
+          },
+          "wait": 309
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/east-standings",
+                "value": {
+                  "type": "StandingsCard",
+                  "props": {
+                    "conference": "east"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 250
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/west-standings",
+                "value": {
+                  "type": "StandingsCard",
+                  "props": {
+                    "conference": "west"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 151
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 26
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "NBA standings"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/standings?conference=east": {
+      "asOf": 1792269264859,
+      "conference": "east",
+      "season": "2026-27",
+      "teams": [
+        {
+          "abbreviation": "ATL",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/atl.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/atl.png",
+          "losses": 0,
+          "name": "Atlanta Hawks",
+          "shortName": "Hawks",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 1
+        },
+        {
+          "abbreviation": "BOS",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/bos.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/bos.png",
+          "losses": 0,
+          "name": "Boston Celtics",
+          "shortName": "Celtics",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 2
+        },
+        {
+          "abbreviation": "CHI",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/chi.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/chi.png",
+          "losses": 0,
+          "name": "Chicago Bulls",
+          "shortName": "Bulls",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 3
+        },
+        {
+          "abbreviation": "CLE",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/cle.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/cle.png",
+          "losses": 0,
+          "name": "Cleveland Cavaliers",
+          "shortName": "Cavaliers",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 4
+        },
+        {
+          "abbreviation": "DET",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/det.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/det.png",
+          "losses": 0,
+          "name": "Detroit Pistons",
+          "shortName": "Pistons",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 5
+        },
+        {
+          "abbreviation": "IND",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/ind.png",
+          "losses": 0,
+          "name": "Indiana Pacers",
+          "shortName": "Pacers",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 6
+        },
+        {
+          "abbreviation": "MIA",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mia.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/mia.png",
+          "losses": 0,
+          "name": "Miami Heat",
+          "shortName": "Heat",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 7
+        },
+        {
+          "abbreviation": "MIL",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/mil.png",
+          "losses": 0,
+          "name": "Milwaukee Bucks",
+          "shortName": "Bucks",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 8
+        },
+        {
+          "abbreviation": "BKN",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/bkn.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/bkn.png",
+          "losses": 0,
+          "name": "Brooklyn Nets",
+          "shortName": "Nets",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 9
+        },
+        {
+          "abbreviation": "NY",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ny.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/ny.png",
+          "losses": 0,
+          "name": "New York Knicks",
+          "shortName": "Knicks",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 10
+        },
+        {
+          "abbreviation": "ORL",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/orl.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/orl.png",
+          "losses": 0,
+          "name": "Orlando Magic",
+          "shortName": "Magic",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 11
+        },
+        {
+          "abbreviation": "PHI",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/phi.png",
+          "losses": 0,
+          "name": "Philadelphia 76ers",
+          "shortName": "76ers",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 12
+        },
+        {
+          "abbreviation": "WSH",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/wsh.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/wsh.png",
+          "losses": 0,
+          "name": "Washington Wizards",
+          "shortName": "Wizards",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 13
+        },
+        {
+          "abbreviation": "TOR",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/tor.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/tor.png",
+          "losses": 0,
+          "name": "Toronto Raptors",
+          "shortName": "Raptors",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 14
+        },
+        {
+          "abbreviation": "CHA",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/cha.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/cha.png",
+          "losses": 0,
+          "name": "Charlotte Hornets",
+          "shortName": "Hornets",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 15
+        }
+      ]
+    },
+    "/api/standings?conference=west": {
+      "asOf": 1792269264892,
+      "conference": "west",
+      "season": "2026-27",
+      "teams": [
+        {
+          "abbreviation": "NO",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/no.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/no.png",
+          "losses": 0,
+          "name": "New Orleans Pelicans",
+          "shortName": "Pelicans",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 1
+        },
+        {
+          "abbreviation": "DAL",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/dal.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/dal.png",
+          "losses": 0,
+          "name": "Dallas Mavericks",
+          "shortName": "Mavericks",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 2
+        },
+        {
+          "abbreviation": "DEN",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/den.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/den.png",
+          "losses": 0,
+          "name": "Denver Nuggets",
+          "shortName": "Nuggets",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 3
+        },
+        {
+          "abbreviation": "GS",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/gs.png",
+          "losses": 0,
+          "name": "Golden State Warriors",
+          "shortName": "Warriors",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 4
+        },
+        {
+          "abbreviation": "HOU",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/hou.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/hou.png",
+          "losses": 0,
+          "name": "Houston Rockets",
+          "shortName": "Rockets",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 5
+        },
+        {
+          "abbreviation": "LAC",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lac.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/lac.png",
+          "losses": 0,
+          "name": "LA Clippers",
+          "shortName": "Clippers",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 6
+        },
+        {
+          "abbreviation": "LAL",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/lal.png",
+          "losses": 0,
+          "name": "Los Angeles Lakers",
+          "shortName": "Lakers",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 7
+        },
+        {
+          "abbreviation": "MIN",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/min.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/min.png",
+          "losses": 0,
+          "name": "Minnesota Timberwolves",
+          "shortName": "Timberwolves",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 8
+        },
+        {
+          "abbreviation": "PHX",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phx.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/phx.png",
+          "losses": 0,
+          "name": "Phoenix Suns",
+          "shortName": "Suns",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 9
+        },
+        {
+          "abbreviation": "POR",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/por.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/por.png",
+          "losses": 0,
+          "name": "Portland Trail Blazers",
+          "shortName": "Trail Blazers",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 10
+        },
+        {
+          "abbreviation": "SAC",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/sac.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/sac.png",
+          "losses": 0,
+          "name": "Sacramento Kings",
+          "shortName": "Kings",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 11
+        },
+        {
+          "abbreviation": "SA",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/sa.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/sa.png",
+          "losses": 0,
+          "name": "San Antonio Spurs",
+          "shortName": "Spurs",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 12
+        },
+        {
+          "abbreviation": "OKC",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/okc.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/okc.png",
+          "losses": 0,
+          "name": "Oklahoma City Thunder",
+          "shortName": "Thunder",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 13
+        },
+        {
+          "abbreviation": "UTAH",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/utah.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/utah.png",
+          "losses": 0,
+          "name": "Utah Jazz",
+          "shortName": "Jazz",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 14
+        },
+        {
+          "abbreviation": "MEM",
+          "away": "0-0",
+          "conference": "0-0",
+          "gamesBehind": "-",
+          "home": "0-0",
+          "lastTen": "0-0",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/mem.png",
+          "losses": 0,
+          "name": "Memphis Grizzlies",
+          "shortName": "Grizzlies",
+          "streak": "-",
+          "winPercent": ".000",
+          "wins": 0,
+          "rank": 15
+        }
+      ]
+    }
+  }
+}

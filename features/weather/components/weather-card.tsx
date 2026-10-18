@@ -1,6 +1,5 @@
 "use client";
 
-import { GlassCard } from "@/components/glass-card";
 import { WeatherIcon } from "@/features/weather/components/weather-icon";
 import { WeatherSky } from "@/features/weather/components/weather-sky";
 import {
@@ -9,6 +8,7 @@ import {
   skyPhase,
   summarizeWeather,
 } from "@/features/weather/weather-schema";
+import { CARD_SURFACE } from "@/lib/card-frame";
 import { cn } from "@/lib/utils";
 import type { WeatherData } from "@/features/weather/weather-schema";
 
@@ -26,6 +26,17 @@ export interface WeatherCardProps {
 }
 
 const CARD_FRAME = "relative isolate w-full max-w-sm rounded-2xl p-4";
+
+/**
+The ready card is the sky itself, with white text over it. A faint shadow keeps the text readable on a bright sky.
+*/
+const SCENE = "text-white [text-shadow:0_1px_2px_rgb(0_0_0/0.2)]";
+
+/**
+Clips the sky to the card's corners. A clip-path rather than overflow-hidden, so the sky's animated layers stay clipped in Safari.
+*/
+const SKY_CLIP =
+  "pointer-events-none absolute inset-0 rounded-[inherit] [clip-path:inset(0_round_1rem)]";
 
 export function WeatherCard({
   state,
@@ -62,19 +73,18 @@ function WeatherReady({
   const sunProgress =
     (data.asOf - data.sunrise) / Math.max(data.sunset - data.sunrise, 1);
   return (
-    <GlassCard
-      surface="scene"
-      label={summarizeWeather(data)}
-      className={className}
-      backdrop={
+    <section
+      aria-label={summarizeWeather(data)}
+      className={cn(CARD_FRAME, SCENE, className)}
+    >
+      <div aria-hidden className={SKY_CLIP}>
         <WeatherSky
           phase={phase}
           condition={data.condition}
           sunProgress={sunProgress}
         />
-      }
-    >
-      <div className="flex flex-col gap-3">
+      </div>
+      <div className="relative flex flex-col gap-3">
         <header className="flex items-start justify-between gap-3">
           <div className="min-w-0">
             <h3 className="truncate text-[15px] leading-5 font-semibold">
@@ -117,7 +127,7 @@ function WeatherReady({
           ))}
         </ol>
       </div>
-    </GlassCard>
+    </section>
   );
 }
 
@@ -133,11 +143,7 @@ function WeatherError({
   return (
     <div
       role="alert"
-      className={cn(
-        CARD_FRAME,
-        "bg-card text-card-foreground flex flex-col gap-1 border",
-        className
-      )}
+      className={cn(CARD_FRAME, CARD_SURFACE, "flex flex-col gap-1", className)}
     >
       <p className="text-sm font-semibold">
         {location

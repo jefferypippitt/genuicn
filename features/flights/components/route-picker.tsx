@@ -19,6 +19,7 @@ import {
 import { fontWeights } from "@/lib/font-weight";
 import { useShape } from "@/lib/shape-context";
 import { useSize } from "@/lib/size-context";
+import { CARD_SURFACE } from "@/lib/card-frame";
 import { cn } from "@/lib/utils";
 import type { NetworkCity } from "@/features/flights/flight-network";
 
@@ -168,7 +169,8 @@ export default function RoutePicker({
     <section
       aria-label="Route"
       className={cn(
-        "bg-card text-card-foreground flex w-full max-w-sm flex-col gap-2 border p-3",
+        CARD_SURFACE,
+        "flex w-full max-w-sm flex-col gap-2 p-3",
         shape.container,
         className
       )}

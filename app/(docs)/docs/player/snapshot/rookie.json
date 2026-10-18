@@ -1,0 +1,22 @@
+{
+  "asOf": 1792268000000,
+  "player": {
+    "age": 20,
+    "experience": 0,
+    "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/4873090.png",
+    "height": "6' 3\"",
+    "id": "4873090",
+    "jersey": "00",
+    "name": "Labaron Philon Jr.",
+    "assists": null,
+    "points": null,
+    "rebounds": null,
+    "steals": null
+  },
+  "season": "2026-27",
+  "statsSeason": "2025-26",
+  "team": {
+    "abbreviation": "PHI",
+    "name": "Philadelphia 76ers"
+  }
+}

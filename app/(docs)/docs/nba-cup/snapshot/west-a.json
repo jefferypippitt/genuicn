@@ -1,0 +1,67 @@
+{
+  "asOf": 1792268000000,
+  "group": "west-a",
+  "season": "2026-27",
+  "teams": [
+    {
+      "abbreviation": "DEN",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/den.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/den.png",
+      "losses": 0,
+      "name": "Nuggets",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 1,
+      "wins": 0
+    },
+    {
+      "abbreviation": "HOU",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/hou.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/hou.png",
+      "losses": 0,
+      "name": "Rockets",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 2,
+      "wins": 0
+    },
+    {
+      "abbreviation": "PHX",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/phx.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/phx.png",
+      "losses": 0,
+      "name": "Suns",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 3,
+      "wins": 0
+    },
+    {
+      "abbreviation": "DAL",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/dal.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/dal.png",
+      "losses": 0,
+      "name": "Mavericks",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 4,
+      "wins": 0
+    },
+    {
+      "abbreviation": "UTA",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/utah.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/utah.png",
+      "losses": 0,
+      "name": "Jazz",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 5,
+      "wins": 0
+    }
+  ]
+}

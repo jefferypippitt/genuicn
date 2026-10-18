@@ -1,0 +1,67 @@
+{
+  "asOf": 1792268000000,
+  "group": "west-c",
+  "season": "2026-27",
+  "teams": [
+    {
+      "abbreviation": "SAS",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/sa.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/sa.png",
+      "losses": 0,
+      "name": "Spurs",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 1,
+      "wins": 0
+    },
+    {
+      "abbreviation": "LAL",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/lal.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/lal.png",
+      "losses": 0,
+      "name": "Lakers",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 2,
+      "wins": 0
+    },
+    {
+      "abbreviation": "POR",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/por.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/por.png",
+      "losses": 0,
+      "name": "Trail Blazers",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 3,
+      "wins": 0
+    },
+    {
+      "abbreviation": "GSW",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/gs.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/gs.png",
+      "losses": 0,
+      "name": "Warriors",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 4,
+      "wins": 0
+    },
+    {
+      "abbreviation": "SAC",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/sac.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/sac.png",
+      "losses": 0,
+      "name": "Kings",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 5,
+      "wins": 0
+    }
+  ]
+}

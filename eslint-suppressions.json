@@ -263,7 +263,7 @@
   },
   "components/sidebar-app/nav-data.ts": {
     "sort-keys": {
-      "count": 56
+      "count": 52
     },
     "unicorn/no-unnecessary-array-flat-map": {
       "count": 1
@@ -305,7 +305,7 @@
   },
   "features/chat/chat-registry.tsx": {
     "react/prop-types": {
-      "count": 18
+      "count": 35
     }
   },
   "features/chat/components/card-group.tsx": {
@@ -434,7 +434,7 @@
   },
   "features/quote/components/quote-card.tsx": {
     "@typescript-eslint/no-use-before-define": {
-      "count": 9
+      "count": 8
     },
     "jsx-a11y/no-noninteractive-element-interactions": {
       "count": 2
@@ -835,7 +835,7 @@
   },
   "lib/docs/install-prompt.ts": {
     "unicorn/no-incorrect-template-string-interpolation": {
-      "count": 7
+      "count": 15
     }
   },
   "lib/fluid-provider.tsx": {
@@ -949,7 +949,7 @@
       "count": 1
     },
     "sonarjs/function-name": {
-      "count": 4
+      "count": 9
     },
     "unicorn/no-computed-property-existence-check": {
       "count": 1

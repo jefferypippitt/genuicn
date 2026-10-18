@@ -14,6 +14,7 @@ import { useIcons } from "@/lib/icon-context";
 import { useShape } from "@/lib/shape-context";
 import { useSize } from "@/lib/size-context";
 import { spring } from "@/lib/springs";
+import { CARD_SURFACE } from "@/lib/card-frame";
 import { cn } from "@/lib/utils";
 
 const MS_PER_DAY = 86_400_000;
@@ -191,7 +192,8 @@ export default function DatePicker({
     <section
       aria-label="Departure date"
       className={cn(
-        "bg-card text-card-foreground flex w-full max-w-sm flex-col gap-2 border p-3",
+        CARD_SURFACE,
+        "flex w-full max-w-sm flex-col gap-2 p-3",
         shape.container,
         className
       )}

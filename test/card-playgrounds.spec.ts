@@ -14,6 +14,31 @@ const CARD_PAGES = [
     prompt: "Show my boarding pass for BA 117 on November 3, 2026.",
     title: "Flights",
   },
+  {
+    path: "/docs/scoreboard",
+    prompt: "What's the Lakers score?",
+    title: "NBA scoreboard",
+  },
+  {
+    path: "/docs/standings",
+    prompt: "Show me the Western Conference standings.",
+    title: "NBA standings",
+  },
+  {
+    path: "/docs/nba-cup",
+    prompt: "Show me NBA Cup West Group A.",
+    title: "NBA Cup",
+  },
+  {
+    path: "/docs/player",
+    prompt: "How's LeBron James doing?",
+    title: "NBA player",
+  },
+  {
+    path: "/docs/win-probability",
+    prompt: "Who's going to win the Knicks game on October 20?",
+    title: "NBA win probability",
+  },
 ] as const;
 
 test.describe("Card playgrounds", () => {

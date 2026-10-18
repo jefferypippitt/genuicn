@@ -5,6 +5,7 @@ import { Plane } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { formatPrice } from "@/features/flights/check-in-questions";
 import { airlineLogoUrl } from "@/features/flights/flight-schema";
+import { CARD_FRAME } from "@/lib/card-frame";
 import { cn } from "@/lib/utils";
 import type { FlightOffer } from "@/features/flights/flight-schema";
 
@@ -133,7 +134,8 @@ export default function FlightResults({
     <section
       aria-label="Flights"
       className={cn(
-        "bg-card text-card-foreground flex w-full max-w-md flex-col gap-3 rounded-2xl border p-4",
+        CARD_FRAME,
+        "flex w-full max-w-md flex-col gap-3",
         className
       )}
     >
