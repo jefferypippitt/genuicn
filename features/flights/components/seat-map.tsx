@@ -5,6 +5,7 @@ import { ChevronDown, ChevronUp, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { formatPrice } from "@/features/flights/check-in-questions";
 import { seatOptionOf } from "@/features/flights/flight-schema";
+import { CARD_SURFACE } from "@/lib/card-frame";
 import { cn } from "@/lib/utils";
 import type {
   SeatMap,
@@ -183,7 +184,8 @@ export default function SeatMapPicker({
     <section
       aria-label={`Seat map for ${flight}`}
       className={cn(
-        "bg-card text-card-foreground flex w-full max-w-sm flex-col items-center gap-3 rounded-t-[7rem] rounded-b-[2rem] border px-4 pt-7 pb-4",
+        CARD_SURFACE,
+        "flex w-full max-w-sm flex-col items-center gap-3 rounded-t-[7rem] rounded-b-[2rem] px-4 pt-7 pb-4",
         className
       )}
     >

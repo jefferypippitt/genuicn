@@ -1,0 +1,159 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "YrObzYIVuRghrFjv"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 640
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011Cg8h81ra5GcMwkpQPFx82",
+                "model": "claude-haiku-4-5-20251001",
+                "usage": {
+                  "input_tokens": 5496,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 2,
+                  "service_tier": "standard",
+                  "inference_geo": "not_available",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "0"
+          },
+          "wait": 216
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "players"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/players",
+                "value": {
+                  "type": "PlayerCard",
+                  "props": {
+                    "players": [
+                      "LeBron James",
+                      "Victor Wembanyama"
+                    ]
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 355
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "Compare LeBron James and Victor Wembanyama"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/player?player=LeBron+James": {
+      "asOf": 1792280411174,
+      "player": {
+        "age": 41,
+        "experience": 23,
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/1966.png",
+        "height": "6' 9\"",
+        "id": "1966",
+        "jersey": "23",
+        "name": "LeBron James",
+        "assists": 7.2,
+        "points": 20.933332,
+        "rebounds": 6.0666666,
+        "steals": 1.2
+      },
+      "season": "2026-27",
+      "statsSeason": "2025-26",
+      "team": {
+        "abbreviation": "PHI",
+        "name": "Philadelphia 76ers"
+      }
+    },
+    "/api/player?player=Victor+Wembanyama": {
+      "asOf": 1792280411277,
+      "player": {
+        "age": 22,
+        "experience": 3,
+        "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/5104157.png",
+        "height": "7' 4\"",
+        "id": "5104157",
+        "jersey": "1",
+        "name": "Victor Wembanyama",
+        "assists": 3.109375,
+        "points": 25,
+        "rebounds": 11.5,
+        "steals": 1.03125
+      },
+      "season": "2026-27",
+      "statsSeason": "2025-26",
+      "team": {
+        "abbreviation": "SA",
+        "name": "San Antonio Spurs"
+      }
+    }
+  }
+}

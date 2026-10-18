@@ -1,0 +1,40 @@
+{
+  "asOf": 1792218121745,
+  "away": {
+    "abbreviation": "NY",
+    "isWinner": true,
+    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ny.png",
+    "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/ny.png",
+    "name": "New York Knicks",
+    "periods": [13, 24, 28, 29],
+    "record": "53-29",
+    "score": 94,
+    "shortName": "Knicks"
+  },
+  "broadcast": "ABC",
+  "home": {
+    "abbreviation": "SA",
+    "isWinner": false,
+    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/sa.png",
+    "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/sa.png",
+    "name": "San Antonio Spurs",
+    "periods": [23, 19, 30, 18],
+    "record": "62-20",
+    "score": 90,
+    "shortName": "Spurs"
+  },
+  "series": {
+    "awayWins": 4,
+    "game": 5,
+    "homeWins": 1,
+    "isComplete": true,
+    "isFinals": true,
+    "length": 7,
+    "summary": "NY wins series 4-1"
+  },
+  "stage": "NBA Finals - Game 5 · NY wins series 4-1",
+  "startsAt": 1781397000000,
+  "state": "post",
+  "status": "Final",
+  "venue": "Frost Bank Center"
+}

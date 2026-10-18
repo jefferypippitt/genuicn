@@ -1,0 +1,136 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "jV15GsJJuojmrJ4S"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 565
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011Cg8izRSepTubutVqDHhT4",
+                "model": "claude-haiku-4-5-20251001",
+                "usage": {
+                  "input_tokens": 5690,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 1,
+                  "service_tier": "standard",
+                  "inference_geo": "not_available",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "0"
+          },
+          "wait": 248
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "win-prob"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/win-prob",
+                "value": {
+                  "type": "WinProbabilityCard",
+                  "props": {
+                    "team": "Oklahoma City Thunder"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 351
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 4
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "What are the Thunder's chances in their next game?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/win-probability?team=Oklahoma+City+Thunder": {
+      "asOf": 1792281883357,
+      "season": "2026-27",
+      "startsAt": 1792546200000,
+      "state": "pre",
+      "teams": [
+        {
+          "abbreviation": "OKC",
+          "color": "#007ac1",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/okc.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/okc.png",
+          "name": "Oklahoma City Thunder",
+          "probability": 47.4
+        },
+        {
+          "abbreviation": "SA",
+          "color": "#000000",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/sa.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/sa.png",
+          "name": "San Antonio Spurs",
+          "probability": 52.6
+        }
+      ]
+    }
+  }
+}

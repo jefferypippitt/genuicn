@@ -1,0 +1,144 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "4wKt6oZtrr6it5RY"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 630
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011Cg6yZaGmhGP2vzWA1bX5P",
+                "model": "claude-haiku-4-5-20251001",
+                "usage": {
+                  "input_tokens": 5010,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 1,
+                  "service_tier": "standard",
+                  "inference_geo": "not_available",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "0"
+          },
+          "wait": 247
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "scoreboard"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/scoreboard",
+                "value": {
+                  "type": "ScoreboardCard",
+                  "props": {
+                    "team": "New York Knicks",
+                    "date": "2026-10-15"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 325
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 2
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "How did the Knicks do on October 15?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/scoreboard?team=New+York+Knicks&date=2026-10-15": {
+      "asOf": 1792218130434,
+      "away": {
+        "abbreviation": "TOR",
+        "isWinner": false,
+        "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/tor.png",
+        "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/tor.png",
+        "name": "Toronto Raptors",
+        "record": "2-2",
+        "score": 120,
+        "periods": [32, 26, 21, 41],
+        "shortName": "Raptors"
+      },
+      "broadcast": "",
+      "home": {
+        "abbreviation": "NY",
+        "isWinner": true,
+        "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ny.png",
+        "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/ny.png",
+        "name": "New York Knicks",
+        "record": "1-4",
+        "score": 122,
+        "periods": [35, 28, 24, 35],
+        "shortName": "Knicks"
+      },
+      "stage": "Preseason",
+      "startsAt": 1792107000000,
+      "state": "post",
+      "status": "Final",
+      "venue": "Madison Square Garden"
+    }
+  }
+}

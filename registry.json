@@ -20,7 +20,8 @@
         "utils",
         "https://www.fluidfunctionalism.com/r/chat-message.json",
         "https://www.fluidfunctionalism.com/r/base/input-message.json",
-        "https://www.fluidfunctionalism.com/r/base/thinking-steps.json"
+        "https://www.fluidfunctionalism.com/r/base/thinking-steps.json",
+        "https://www.fluidfunctionalism.com/r/base/scroll-area.json"
       ],
       "files": [
         {
@@ -93,11 +94,6 @@
           "target": "features/quote/components/quote-card.tsx"
         },
         {
-          "path": "components/glass-card.tsx",
-          "type": "registry:component",
-          "target": "components/glass-card.tsx"
-        },
-        {
           "path": "features/quote/components/live-quote-card.tsx",
           "type": "registry:component",
           "target": "features/quote/components/live-quote-card.tsx"
@@ -136,6 +132,11 @@
           "path": "app/api/quote/route.ts",
           "type": "registry:page",
           "target": "app/api/quote/route.ts"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "type": "registry:lib",
+          "target": "lib/card-frame.ts"
         }
       ],
       "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   QuoteCard: quoteCatalogEntry\n  features/chat/chat-registry.tsx: QuoteCard: ({ props, loading }) => <LiveQuoteCard ticker={props.ticker} range={props.range ?? \"1d\"} streaming={loading} />\n\nQuotes load from /api/quote (installed at app/api/quote/route.ts). No API key needed."
@@ -152,11 +153,6 @@
           "path": "features/weather/components/weather-card.tsx",
           "type": "registry:component",
           "target": "features/weather/components/weather-card.tsx"
-        },
-        {
-          "path": "components/glass-card.tsx",
-          "type": "registry:component",
-          "target": "components/glass-card.tsx"
         },
         {
           "path": "features/weather/components/live-weather-card.tsx",
@@ -212,6 +208,11 @@
           "path": "app/api/weather/route.ts",
           "type": "registry:page",
           "target": "app/api/weather/route.ts"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "type": "registry:lib",
+          "target": "lib/card-frame.ts"
         }
       ],
       "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   WeatherCard: weatherCatalogEntry\n  features/chat/chat-registry.tsx: WeatherCard: ({ props, loading }) => <LiveWeatherCard location={props.location || undefined} units={props.units} streaming={loading} />\n\nForecasts load from /api/weather (installed at app/api/weather/route.ts), backed by Open-Meteo. No API key needed."
@@ -225,7 +226,8 @@
       "registryDependencies": [
         "utils",
         "https://www.fluidfunctionalism.com/r/base/ask-user-questions.json",
-        "https://www.fluidfunctionalism.com/r/base/combobox.json"
+        "https://www.fluidfunctionalism.com/r/base/combobox.json",
+        "https://www.fluidfunctionalism.com/r/base/scroll-area.json"
       ],
       "files": [
         {
@@ -347,6 +349,11 @@
           "path": "app/api/flights/search/route.ts",
           "type": "registry:page",
           "target": "app/api/flights/search/route.ts"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "type": "registry:lib",
+          "target": "lib/card-frame.ts"
         }
       ],
       "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   BoardingPass: boardingPassCatalogEntry\n  features/chat/chat-registry.tsx: BoardingPass: ({ props, loading }) => <LiveBoardingPassCard flight={props.flight || undefined} date={props.date} streaming={loading} />\n  features/chat/chat-steps.ts:     BoardingPass: boardingPassLookup\n\nPasses load from /api/flights and check-in from /api/flights/check-in (installed under app/api/flights/). Routes come from adsbdb, no API key. Replace getBooking and getSeatMap in features/flights/flight-booking.ts with your booking system.\n\nThe check-in assistant (features/flights/components/check-in-agent.tsx) is a standalone page component: render <CheckInAgent className=\"flex-1\" /> in a full-height column. Its conversation is a script in features/flights/check-in-conversation.ts; replace demoBookingOf there with a request to your booking system."
@@ -363,11 +370,6 @@
           "path": "features/crypto/components/crypto-card.tsx",
           "type": "registry:component",
           "target": "features/crypto/components/crypto-card.tsx"
-        },
-        {
-          "path": "components/glass-card.tsx",
-          "type": "registry:component",
-          "target": "components/glass-card.tsx"
         },
         {
           "path": "features/crypto/components/live-crypto-card.tsx",
@@ -408,9 +410,319 @@
           "path": "app/api/crypto/route.ts",
           "type": "registry:page",
           "target": "app/api/crypto/route.ts"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "type": "registry:lib",
+          "target": "lib/card-frame.ts"
         }
       ],
       "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   CryptoCard: cryptoCatalogEntry\n  features/chat/chat-registry.tsx: CryptoCard: ({ props, loading }) => <LiveCryptoCard symbol={props.symbol || undefined} range={props.range ?? \"24h\"} streaming={loading} />\n  features/chat/chat-steps.ts:     CryptoCard: cryptoLookup\n\nPrices load from /api/crypto (installed at app/api/crypto/route.ts), backed by CoinGecko's public API, and Kraken's for the All range. No API key needed; the route caches each coin for a minute to stay inside CoinGecko's free rate limit."
+    },
+    {
+      "name": "scoreboard",
+      "type": "registry:block",
+      "title": "NBA scoreboard",
+      "description": "A live NBA scoreboard card for json-render chats: one game with both teams' logos and records, the score, the clock, and the score of each quarter played so far, with its API route in front of ESPN's public scores.",
+      "dependencies": ["zod", "server-only"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "features/scoreboard/components/scoreboard-card.tsx",
+          "type": "registry:component",
+          "target": "features/scoreboard/components/scoreboard-card.tsx"
+        },
+        {
+          "path": "features/scoreboard/components/live-scoreboard-card.tsx",
+          "type": "registry:component",
+          "target": "features/scoreboard/components/live-scoreboard-card.tsx"
+        },
+        {
+          "path": "features/scoreboard/scoreboard-catalog.ts",
+          "type": "registry:lib",
+          "target": "features/scoreboard/scoreboard-catalog.ts"
+        },
+        {
+          "path": "features/scoreboard/scoreboard-steps.ts",
+          "type": "registry:lib",
+          "target": "features/scoreboard/scoreboard-steps.ts"
+        },
+        {
+          "path": "features/scoreboard/scoreboard-requests.ts",
+          "type": "registry:lib",
+          "target": "features/scoreboard/scoreboard-requests.ts"
+        },
+        {
+          "path": "features/scoreboard/scoreboard-queries.ts",
+          "type": "registry:lib",
+          "target": "features/scoreboard/scoreboard-queries.ts"
+        },
+        {
+          "path": "features/scoreboard/scoreboard-schema.ts",
+          "type": "registry:lib",
+          "target": "features/scoreboard/scoreboard-schema.ts"
+        },
+        {
+          "path": "app/api/scoreboard/route.ts",
+          "type": "registry:page",
+          "target": "app/api/scoreboard/route.ts"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "type": "registry:lib",
+          "target": "lib/card-frame.ts"
+        }
+      ],
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   ScoreboardCard: scoreboardCatalogEntry\n  features/chat/chat-registry.tsx: ScoreboardCard: ({ props, loading }) => <LiveScoreboardCard team={props.team || undefined} date={props.date} streaming={loading} />\n  features/chat/chat-steps.ts:     ScoreboardCard: scoreboardLookup\n\nScores load from /api/scoreboard (installed at app/api/scoreboard/route.ts), backed by ESPN's public site API. No API key needed; a game in progress refreshes its score every 30 seconds."
+    },
+    {
+      "name": "standings",
+      "type": "registry:block",
+      "title": "NBA standings",
+      "description": "An NBA standings card for json-render chats: one conference's regular-season table with each team's place, logo, wins, losses, win percentage, games behind, conference, home, away and last-ten records, and streak, on Fluid Functionalism's Table, with its API route in front of ESPN's public standings.",
+      "dependencies": ["zod", "server-only"],
+      "registryDependencies": [
+        "utils",
+        "https://www.fluidfunctionalism.com/r/table.json",
+        "https://www.fluidfunctionalism.com/r/base/scroll-area.json"
+      ],
+      "files": [
+        {
+          "path": "features/standings/components/standings-card.tsx",
+          "type": "registry:component",
+          "target": "features/standings/components/standings-card.tsx"
+        },
+        {
+          "path": "features/standings/components/live-standings-card.tsx",
+          "type": "registry:component",
+          "target": "features/standings/components/live-standings-card.tsx"
+        },
+        {
+          "path": "features/standings/standings-catalog.ts",
+          "type": "registry:lib",
+          "target": "features/standings/standings-catalog.ts"
+        },
+        {
+          "path": "features/standings/standings-steps.ts",
+          "type": "registry:lib",
+          "target": "features/standings/standings-steps.ts"
+        },
+        {
+          "path": "features/standings/standings-requests.ts",
+          "type": "registry:lib",
+          "target": "features/standings/standings-requests.ts"
+        },
+        {
+          "path": "features/standings/standings-queries.ts",
+          "type": "registry:lib",
+          "target": "features/standings/standings-queries.ts"
+        },
+        {
+          "path": "features/standings/standings-schema.ts",
+          "type": "registry:lib",
+          "target": "features/standings/standings-schema.ts"
+        },
+        {
+          "path": "app/api/standings/route.ts",
+          "type": "registry:page",
+          "target": "app/api/standings/route.ts"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "type": "registry:lib",
+          "target": "lib/card-frame.ts"
+        }
+      ],
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   StandingsCard: standingsCatalogEntry\n  features/chat/chat-registry.tsx: StandingsCard: ({ props, loading }) => <LiveStandingsCard conference={props.conference || undefined} streaming={loading} />\n  features/chat/chat-steps.ts:     StandingsCard: standingsLookup\n\nStandings load from /api/standings (installed at app/api/standings/route.ts), backed by ESPN's public site API. No API key needed."
+    },
+    {
+      "name": "nba-cup",
+      "type": "registry:block",
+      "title": "NBA Cup",
+      "description": "An NBA Cup card for json-render chats: one group's table this season, its five teams in order with logos, games played, wins, losses, points for and against, and point difference, on Fluid Functionalism's Table, with its API route in front of the NBA's public stats API.",
+      "dependencies": ["zod", "server-only"],
+      "registryDependencies": [
+        "utils",
+        "https://www.fluidfunctionalism.com/r/table.json",
+        "https://www.fluidfunctionalism.com/r/base/scroll-area.json"
+      ],
+      "files": [
+        {
+          "path": "features/nba-cup/components/nba-cup-card.tsx",
+          "type": "registry:component",
+          "target": "features/nba-cup/components/nba-cup-card.tsx"
+        },
+        {
+          "path": "features/nba-cup/components/live-nba-cup-card.tsx",
+          "type": "registry:component",
+          "target": "features/nba-cup/components/live-nba-cup-card.tsx"
+        },
+        {
+          "path": "features/nba-cup/nba-cup-catalog.ts",
+          "type": "registry:lib",
+          "target": "features/nba-cup/nba-cup-catalog.ts"
+        },
+        {
+          "path": "features/nba-cup/nba-cup-steps.ts",
+          "type": "registry:lib",
+          "target": "features/nba-cup/nba-cup-steps.ts"
+        },
+        {
+          "path": "features/nba-cup/nba-cup-requests.ts",
+          "type": "registry:lib",
+          "target": "features/nba-cup/nba-cup-requests.ts"
+        },
+        {
+          "path": "features/nba-cup/nba-cup-queries.ts",
+          "type": "registry:lib",
+          "target": "features/nba-cup/nba-cup-queries.ts"
+        },
+        {
+          "path": "features/nba-cup/nba-cup-schema.ts",
+          "type": "registry:lib",
+          "target": "features/nba-cup/nba-cup-schema.ts"
+        },
+        {
+          "path": "app/api/nba-cup/route.ts",
+          "type": "registry:page",
+          "target": "app/api/nba-cup/route.ts"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "type": "registry:lib",
+          "target": "lib/card-frame.ts"
+        }
+      ],
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   NbaCupCard: nbaCupCatalogEntry\n  features/chat/chat-registry.tsx: NbaCupCard: ({ props, loading }) => <LiveNbaCupCard group={props.group || undefined} streaming={loading} />\n  features/chat/chat-steps.ts:     NbaCupCard: nbaCupLookup\n\nGroup tables load from /api/nba-cup (installed at app/api/nba-cup/route.ts), backed by the NBA's public stats API. No API key needed."
+    },
+    {
+      "name": "player",
+      "type": "registry:block",
+      "title": "NBA player",
+      "description": "An NBA player card for json-render chats: players this season, one row each in one table, with photo, number, name, height, age and experience, points, assists, rebounds and steals per game, and each player's team now, on Fluid Functionalism's Table. Shows one player or compares several. With its API route in front of ESPN's public rosters and stats.",
+      "dependencies": ["zod", "server-only"],
+      "registryDependencies": [
+        "utils",
+        "https://www.fluidfunctionalism.com/r/table.json",
+        "https://www.fluidfunctionalism.com/r/base/scroll-area.json"
+      ],
+      "files": [
+        {
+          "path": "features/player/components/player-card.tsx",
+          "target": "features/player/components/player-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "features/player/components/live-player-card.tsx",
+          "target": "features/player/components/live-player-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "features/player/player-catalog.ts",
+          "target": "features/player/player-catalog.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/player/player-steps.ts",
+          "target": "features/player/player-steps.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/player/player-requests.ts",
+          "target": "features/player/player-requests.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/player/player-queries.ts",
+          "target": "features/player/player-queries.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/player/player-schema.ts",
+          "target": "features/player/player-schema.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "target": "lib/card-frame.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "app/api/player/route.ts",
+          "target": "app/api/player/route.ts",
+          "type": "registry:page"
+        }
+      ],
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   PlayerCard: playerCatalogEntry\n  features/chat/chat-registry.tsx: PlayerCard: ({ props, loading }) => <LivePlayerCard players={props.players} streaming={loading} />\n  features/chat/chat-steps.ts:     PlayerCard: playerLookup\n\nPlayers load from /api/player (installed at app/api/player/route.ts), backed by ESPN's public site API. No API key needed."
+    },
+    {
+      "name": "win-probability",
+      "type": "registry:block",
+      "title": "NBA win probability",
+      "description": "An NBA win probability card for json-render chats: one game in one card, each team's logo and name over Fluid's steps Slider filled in its color, the percent on hover, and what a win pays back. ESPN's prediction before tip-off, the live chance during the game, the result after. With its API route in front of ESPN's public scores.",
+      "dependencies": ["zod", "server-only"],
+      "registryDependencies": [
+        "utils",
+        "https://www.fluidfunctionalism.com/r/base/slider.json"
+      ],
+      "files": [
+        {
+          "path": "features/win-probability/components/win-probability-card.tsx",
+          "target": "features/win-probability/components/win-probability-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "features/win-probability/components/live-win-probability-card.tsx",
+          "target": "features/win-probability/components/live-win-probability-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "features/win-probability/win-probability-catalog.ts",
+          "target": "features/win-probability/win-probability-catalog.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/win-probability/win-probability-steps.ts",
+          "target": "features/win-probability/win-probability-steps.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/win-probability/win-probability-requests.ts",
+          "target": "features/win-probability/win-probability-requests.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/win-probability/win-probability-queries.ts",
+          "target": "features/win-probability/win-probability-queries.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/win-probability/win-probability-schema.ts",
+          "target": "features/win-probability/win-probability-schema.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/scoreboard/scoreboard-queries.ts",
+          "target": "features/scoreboard/scoreboard-queries.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/scoreboard/scoreboard-schema.ts",
+          "target": "features/scoreboard/scoreboard-schema.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "target": "lib/card-frame.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "app/api/win-probability/route.ts",
+          "target": "app/api/win-probability/route.ts",
+          "type": "registry:page"
+        }
+      ],
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   WinProbabilityCard: winProbabilityCatalogEntry\n  features/chat/chat-registry.tsx: WinProbabilityCard: ({ props, loading }) => <LiveWinProbabilityCard team={props.team || undefined} date={props.date} streaming={loading} />\n  features/chat/chat-steps.ts:     WinProbabilityCard: winProbabilityLookup\n\nChances load from /api/win-probability (installed at app/api/win-probability/route.ts), backed by ESPN's public site API; the game is found with the NBA scoreboard's lookup in features/scoreboard/. No API key needed; a game in progress refreshes every 30 seconds."
     }
   ]
 }

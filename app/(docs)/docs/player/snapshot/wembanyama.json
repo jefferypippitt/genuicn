@@ -1,0 +1,22 @@
+{
+  "asOf": 1792268000000,
+  "player": {
+    "age": 22,
+    "experience": 3,
+    "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/5104157.png",
+    "height": "7' 4\"",
+    "id": "5104157",
+    "jersey": "1",
+    "name": "Victor Wembanyama",
+    "assists": 3.109375,
+    "points": 25,
+    "rebounds": 11.5,
+    "steals": 1.03125
+  },
+  "season": "2026-27",
+  "statsSeason": "2025-26",
+  "team": {
+    "abbreviation": "SA",
+    "name": "San Antonio Spurs"
+  }
+}

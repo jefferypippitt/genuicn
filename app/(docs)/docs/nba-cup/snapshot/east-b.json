@@ -1,0 +1,67 @@
+{
+  "asOf": 1792268000000,
+  "group": "east-b",
+  "season": "2026-27",
+  "teams": [
+    {
+      "abbreviation": "NYK",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ny.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/ny.png",
+      "losses": 0,
+      "name": "Knicks",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 1,
+      "wins": 0
+    },
+    {
+      "abbreviation": "CLE",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/cle.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/cle.png",
+      "losses": 0,
+      "name": "Cavaliers",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 2,
+      "wins": 0
+    },
+    {
+      "abbreviation": "PHI",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/phi.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/phi.png",
+      "losses": 0,
+      "name": "76ers",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 3,
+      "wins": 0
+    },
+    {
+      "abbreviation": "MIA",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/mia.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/mia.png",
+      "losses": 0,
+      "name": "Heat",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 4,
+      "wins": 0
+    },
+    {
+      "abbreviation": "IND",
+      "difference": 0,
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png",
+      "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/ind.png",
+      "losses": 0,
+      "name": "Pacers",
+      "pointsAgainst": 0,
+      "pointsFor": 0,
+      "rank": 5,
+      "wins": 0
+    }
+  ]
+}

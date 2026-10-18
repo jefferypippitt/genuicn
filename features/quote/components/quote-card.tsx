@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { GlassCard } from "@/components/glass-card";
+import { CARD_FRAME as SHARED_CARD_FRAME } from "@/lib/card-frame";
 import { cn } from "@/lib/utils";
 import {
   QUOTE_RANGES,
@@ -35,6 +35,8 @@ export interface QuoteCardProps {
   readonly showAsOf?: boolean;
   readonly className?: string;
 }
+
+const CARD_FRAME = `${SHARED_CARD_FRAME} w-full max-w-sm`;
 
 export const QuoteCard = ({
   state,
@@ -82,7 +84,10 @@ export const QuoteCard = ({
     );
   }
   return (
-    <GlassCard label={summarizeQuote(shown)} className={className}>
+    <section
+      aria-label={summarizeQuote(shown)}
+      className={cn(CARD_FRAME, className)}
+    >
       <QuoteReady
         data={shown}
         pendingRange={pendingRange}
@@ -90,12 +95,9 @@ export const QuoteCard = ({
         showAsOf={showAsOf}
         onSelectRange={loadRange ? selectRange : undefined}
       />
-    </GlassCard>
+    </section>
   );
 };
-
-const CARD_FRAME =
-  "bg-card text-card-foreground w-full max-w-sm rounded-2xl border p-4";
 
 const QuoteReady = ({
   data,

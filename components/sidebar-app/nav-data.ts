@@ -1,10 +1,17 @@
 import type { IconName } from "@/lib/icon-context";
 
 export interface NavItem {
+  /**
+  The item's name. In a group, the short one ("Scoreboard"): fullLabel adds the group where the page shows outside it.
+  */
   label: string;
   icon?: IconName;
   href?: string;
   description?: string;
+  /**
+  A row in the sidebar that opens to show this item and the others with the same group, e.g. "NBA" under Sports.
+  */
+  group?: string;
 }
 
 export interface NavSection {
@@ -77,44 +84,69 @@ export const NAV_SECTIONS: NavSection[] = [
     kind: "cards",
     items: [
       {
-        label: "Live scoreboard",
-        description: "Live scores in each team's colors.",
+        description:
+          "One NBA game's live score, with both teams and the clock.",
+        group: "NBA",
+        href: "/docs/scoreboard",
+        label: "Scoreboard",
       },
       {
+        group: "NBA",
         label: "Box score",
         description: "Each player's stats for one game, with the team totals.",
       },
       {
+        group: "NBA",
         label: "Play-by-play",
         description: "Each play of a live game as it happens, newest first.",
       },
       {
+        description:
+          "One conference's table, with each team's record, games behind, and recent form.",
+        group: "NBA",
+        href: "/docs/standings",
         label: "Standings",
-        description: "A table with playoff lines and recent form.",
       },
       {
+        description:
+          "One NBA Cup group's table, with each team's games, wins, losses, and points for and against.",
+        group: "NBA",
+        href: "/docs/nba-cup",
+        label: "NBA Cup",
+      },
+      {
+        description:
+          "One player's number, height, age, experience, and per-game averages, with his team now.",
+        group: "NBA",
+        href: "/docs/player",
         label: "Player",
-        description: "Season stats and a chart of recent games.",
       },
       {
+        group: "NBA",
         label: "Head-to-head",
         description:
           "Two teams or players side by side, with their record against each other.",
       },
       {
+        group: "NBA",
         label: "Schedule",
         description: "Upcoming games, each with an add-to-calendar button.",
       },
       {
+        group: "NBA",
         label: "Playoff bracket",
         description:
           "The bracket round by round, with winners moving on as series end.",
       },
       {
+        description:
+          "Each team's chance of winning one game, before tip-off and live, with what a win pays back.",
+        group: "NBA",
+        href: "/docs/win-probability",
         label: "Win probability",
-        description: "Each side's chance of winning, charted through the game.",
       },
       {
+        group: "NBA",
         label: "Start or sit",
         description: "Which player to start in this week's fantasy lineup.",
       },
@@ -199,6 +231,15 @@ export const NAV_SECTIONS: NavSection[] = [
   },
 ];
 
+/**
+The page's name on its own, outside the sidebar: "NBA scoreboard" for Scoreboard in the NBA group. A label that already names its group ("NBA Cup") stays as it is.
+*/
+export function fullLabel(item: NavItem): string {
+  return !item.group || item.label.startsWith(item.group)
+    ? item.label
+    : `${item.group} ${item.label.charAt(0).toLowerCase()}${item.label.slice(1)}`;
+}
+
 export const BUILT_SECTIONS: NavSection[] = NAV_SECTIONS.map((section) => ({
   ...section,
   items: section.items.filter((item) => item.href),
@@ -206,6 +247,6 @@ export const BUILT_SECTIONS: NavSection[] = NAV_SECTIONS.map((section) => ({
 
 export const PAGE_ORDER = NAV_SECTIONS.flatMap((section) =>
   section.items.flatMap((item) =>
-    item.href ? [{ href: item.href, label: item.label }] : []
+    item.href ? [{ href: item.href, label: fullLabel(item) }] : []
   )
 );

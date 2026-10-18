@@ -1,0 +1,32 @@
+{
+  "asOf": 1792218121483,
+  "away": {
+    "abbreviation": "SA",
+    "isWinner": false,
+    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/sa.png",
+    "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/sa.png",
+    "name": "San Antonio Spurs",
+    "record": null,
+    "score": 113,
+    "periods": [30, 31, 33, 19],
+    "shortName": "Spurs"
+  },
+  "broadcast": "Prime Video",
+  "home": {
+    "abbreviation": "NY",
+    "isWinner": true,
+    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ny.png",
+    "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/ny.png",
+    "name": "New York Knicks",
+    "record": null,
+    "score": 124,
+    "periods": [28, 31, 30, 35],
+    "shortName": "Knicks"
+  },
+  "series": null,
+  "stage": "NBA Cup Championship",
+  "startsAt": 1765935000000,
+  "state": "post",
+  "status": "Final",
+  "venue": "T-Mobile Arena"
+}

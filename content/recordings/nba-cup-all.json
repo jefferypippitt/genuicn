@@ -1,0 +1,639 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "H7lkF7DhLhLf925u"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 640
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011Cg8V6moJd5tX123JoBKNM",
+                "model": "claude-haiku-4-5-20251001",
+                "usage": {
+                  "input_tokens": 5336,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 2,
+                  "service_tier": "standard",
+                  "inference_geo": "not_available",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "0"
+          },
+          "wait": 256
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "main"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/main",
+                "value": {
+                  "type": "CardGroup",
+                  "props": {},
+                  "children": [
+                    "east-a",
+                    "east-b",
+                    "east-c",
+                    "west-a",
+                    "west-b",
+                    "west-c"
+                  ]
+                }
+              }
+            }
+          },
+          "wait": 391
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/east-a",
+                "value": {
+                  "type": "NbaCupCard",
+                  "props": {
+                    "group": "east-a"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 319
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/east-b",
+                "value": {
+                  "type": "NbaCupCard",
+                  "props": {
+                    "group": "east-b"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 206
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/east-c",
+                "value": {
+                  "type": "NbaCupCard",
+                  "props": {
+                    "group": "east-c"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 128
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/west-a",
+                "value": {
+                  "type": "NbaCupCard",
+                  "props": {
+                    "group": "west-a"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 167
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/west-b",
+                "value": {
+                  "type": "NbaCupCard",
+                  "props": {
+                    "group": "west-b"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 176
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/west-c",
+                "value": {
+                  "type": "NbaCupCard",
+                  "props": {
+                    "group": "west-c"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 158
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 28
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "NBA Cup standings"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/nba-cup?group=east-a": {
+      "asOf": 1792271089034,
+      "group": "east-a",
+      "season": "2026-27",
+      "teams": [
+        {
+          "abbreviation": "DET",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/det.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/det.png",
+          "losses": 0,
+          "name": "Pistons",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 1,
+          "wins": 0
+        },
+        {
+          "abbreviation": "TOR",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/tor.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/tor.png",
+          "losses": 0,
+          "name": "Raptors",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 2,
+          "wins": 0
+        },
+        {
+          "abbreviation": "ORL",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/orl.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/orl.png",
+          "losses": 0,
+          "name": "Magic",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 3,
+          "wins": 0
+        },
+        {
+          "abbreviation": "MIL",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/mil.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/mil.png",
+          "losses": 0,
+          "name": "Bucks",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 4,
+          "wins": 0
+        },
+        {
+          "abbreviation": "BKN",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/bkn.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/bkn.png",
+          "losses": 0,
+          "name": "Nets",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 5,
+          "wins": 0
+        }
+      ]
+    },
+    "/api/nba-cup?group=east-b": {
+      "asOf": 1792271089043,
+      "group": "east-b",
+      "season": "2026-27",
+      "teams": [
+        {
+          "abbreviation": "NYK",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ny.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/ny.png",
+          "losses": 0,
+          "name": "Knicks",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 1,
+          "wins": 0
+        },
+        {
+          "abbreviation": "CLE",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/cle.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/cle.png",
+          "losses": 0,
+          "name": "Cavaliers",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 2,
+          "wins": 0
+        },
+        {
+          "abbreviation": "PHI",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/phi.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/phi.png",
+          "losses": 0,
+          "name": "76ers",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 3,
+          "wins": 0
+        },
+        {
+          "abbreviation": "MIA",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/mia.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/mia.png",
+          "losses": 0,
+          "name": "Heat",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 4,
+          "wins": 0
+        },
+        {
+          "abbreviation": "IND",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/ind.png",
+          "losses": 0,
+          "name": "Pacers",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 5,
+          "wins": 0
+        }
+      ]
+    },
+    "/api/nba-cup?group=east-c": {
+      "asOf": 1792271089049,
+      "group": "east-c",
+      "season": "2026-27",
+      "teams": [
+        {
+          "abbreviation": "BOS",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/bos.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/bos.png",
+          "losses": 0,
+          "name": "Celtics",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 1,
+          "wins": 0
+        },
+        {
+          "abbreviation": "ATL",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/atl.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/atl.png",
+          "losses": 0,
+          "name": "Hawks",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 2,
+          "wins": 0
+        },
+        {
+          "abbreviation": "CHA",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/cha.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/cha.png",
+          "losses": 0,
+          "name": "Hornets",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 3,
+          "wins": 0
+        },
+        {
+          "abbreviation": "CHI",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/chi.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/chi.png",
+          "losses": 0,
+          "name": "Bulls",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 4,
+          "wins": 0
+        },
+        {
+          "abbreviation": "WAS",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/wsh.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/wsh.png",
+          "losses": 0,
+          "name": "Wizards",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 5,
+          "wins": 0
+        }
+      ]
+    },
+    "/api/nba-cup?group=west-a": {
+      "asOf": 1792271089056,
+      "group": "west-a",
+      "season": "2026-27",
+      "teams": [
+        {
+          "abbreviation": "DEN",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/den.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/den.png",
+          "losses": 0,
+          "name": "Nuggets",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 1,
+          "wins": 0
+        },
+        {
+          "abbreviation": "HOU",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/hou.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/hou.png",
+          "losses": 0,
+          "name": "Rockets",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 2,
+          "wins": 0
+        },
+        {
+          "abbreviation": "PHX",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/phx.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/phx.png",
+          "losses": 0,
+          "name": "Suns",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 3,
+          "wins": 0
+        },
+        {
+          "abbreviation": "DAL",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/dal.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/dal.png",
+          "losses": 0,
+          "name": "Mavericks",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 4,
+          "wins": 0
+        },
+        {
+          "abbreviation": "UTA",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/utah.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/utah.png",
+          "losses": 0,
+          "name": "Jazz",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 5,
+          "wins": 0
+        }
+      ]
+    },
+    "/api/nba-cup?group=west-b": {
+      "asOf": 1792271089063,
+      "group": "west-b",
+      "season": "2026-27",
+      "teams": [
+        {
+          "abbreviation": "OKC",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/okc.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/okc.png",
+          "losses": 0,
+          "name": "Thunder",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 1,
+          "wins": 0
+        },
+        {
+          "abbreviation": "MIN",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/min.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/min.png",
+          "losses": 0,
+          "name": "Timberwolves",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 2,
+          "wins": 0
+        },
+        {
+          "abbreviation": "LAC",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/lac.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/lac.png",
+          "losses": 0,
+          "name": "Clippers",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 3,
+          "wins": 0
+        },
+        {
+          "abbreviation": "NOP",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/no.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/no.png",
+          "losses": 0,
+          "name": "Pelicans",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 4,
+          "wins": 0
+        },
+        {
+          "abbreviation": "MEM",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/mem.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/mem.png",
+          "losses": 0,
+          "name": "Grizzlies",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 5,
+          "wins": 0
+        }
+      ]
+    },
+    "/api/nba-cup?group=west-c": {
+      "asOf": 1792271089071,
+      "group": "west-c",
+      "season": "2026-27",
+      "teams": [
+        {
+          "abbreviation": "SAS",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/sa.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/sa.png",
+          "losses": 0,
+          "name": "Spurs",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 1,
+          "wins": 0
+        },
+        {
+          "abbreviation": "LAL",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/lal.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/lal.png",
+          "losses": 0,
+          "name": "Lakers",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 2,
+          "wins": 0
+        },
+        {
+          "abbreviation": "POR",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/por.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/por.png",
+          "losses": 0,
+          "name": "Trail Blazers",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 3,
+          "wins": 0
+        },
+        {
+          "abbreviation": "GSW",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/gs.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/gs.png",
+          "losses": 0,
+          "name": "Warriors",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 4,
+          "wins": 0
+        },
+        {
+          "abbreviation": "SAC",
+          "difference": 0,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/sac.png",
+          "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/sac.png",
+          "losses": 0,
+          "name": "Kings",
+          "pointsAgainst": 0,
+          "pointsFor": 0,
+          "rank": 5,
+          "wins": 0
+        }
+      ]
+    }
+  }
+}

@@ -132,6 +132,158 @@ The model only writes the card's props; the card loads its data itself:
 Docs: ${origin}/docs/flights`;
 }
 
+function scoreboardInstallPrompt(origin: string): string {
+  return `Add the NBA scoreboard card from genuicn to my Next.js app. It's a live scoreboard for one NBA game (both teams with their logos and records, the score, the clock or final, and a table of each quarter played so far) that the chat's model can show.
+
+${chatSetup(origin)}
+
+2. Install the card:
+npx shadcn@latest add ${origin}/r/scoreboard.json
+It adds features/scoreboard/ and app/api/scoreboard/route.ts, which the card loads scores from (ESPN's public site API, no API key). A game in progress reads its score again every 30 seconds. Team logos load as plain <img> tags from a.espncdn.com, with a letter tile when a logo is missing or blocked: if my app sets a Content-Security-Policy, add it to img-src.
+
+3. Turn the card on, one entry in each file, next to the CardGroup entry that is already there (keep it: it lets one reply show several cards):
+features/chat/chat-catalog.ts
+  import { scoreboardCatalogEntry } from "@/features/scoreboard/scoreboard-catalog";
+  ScoreboardCard: scoreboardCatalogEntry,
+features/chat/chat-registry.tsx
+  import LiveScoreboardCard from "@/features/scoreboard/components/live-scoreboard-card";
+  ScoreboardCard: ({ props, loading }) => (
+    <LiveScoreboardCard team={props.team || undefined} date={props.date} streaming={loading} />
+  ),
+features/chat/chat-steps.ts (the reply's thinking steps for this card)
+  import { scoreboardLookup } from "@/features/scoreboard/scoreboard-steps";
+  ScoreboardCard: scoreboardLookup,
+
+4. Check it: run the dev server, open /chat and ask "What's the Lakers score?", then "Scores for the Heat, the Knicks and the Warriors?" for several cards in one reply.
+
+The model only writes the card's props; the card fetches the score itself:
+- team: string, the NBA team, e.g. "Los Angeles Lakers"
+- date: string | null, as YYYY-MM-DD (null means the team's current game: today's, or the closest one to now)
+
+Docs: ${origin}/docs/scoreboard`;
+}
+
+function standingsInstallPrompt(origin: string): string {
+  return `Add the NBA standings card from genuicn to my Next.js app. It's one conference's regular-season table (each team's place, logo, wins, losses, win percentage, games behind, conference, home, away and last-ten records, and streak) that the chat's model can show.
+
+${chatSetup(origin)}
+
+2. Install the card:
+npx shadcn@latest add ${origin}/r/standings.json
+It adds features/standings/, app/api/standings/route.ts, which the card loads the table from (ESPN's public site API, no API key), and Fluid Functionalism's Table. Team logos load as plain <img> tags from a.espncdn.com, with the team's letters when a logo is missing or blocked: if my app sets a Content-Security-Policy, add it to img-src.
+
+3. Turn the card on, one entry in each file, next to the CardGroup entry that is already there (keep it: it lets one reply show both conferences):
+features/chat/chat-catalog.ts
+  import { standingsCatalogEntry } from "@/features/standings/standings-catalog";
+  StandingsCard: standingsCatalogEntry,
+features/chat/chat-registry.tsx
+  import LiveStandingsCard from "@/features/standings/components/live-standings-card";
+  StandingsCard: ({ props, loading }) => (
+    <LiveStandingsCard conference={props.conference || undefined} streaming={loading} />
+  ),
+features/chat/chat-steps.ts (the reply's thinking steps for this card)
+  import { standingsLookup } from "@/features/standings/standings-steps";
+  StandingsCard: standingsLookup,
+
+4. Check it: run the dev server, open /chat and ask "Show me the Western Conference standings", then "NBA standings" for both conferences in one reply.
+
+The model only writes the card's props; the card fetches the table itself:
+- conference: "east" | "west"
+
+Docs: ${origin}/docs/standings`;
+}
+
+function nbaCupInstallPrompt(origin: string): string {
+  return `Add the NBA Cup card from genuicn to my Next.js app. It's one NBA Cup group's table this season (its five teams in order, each with its logo, games played, wins, losses, points for and against, and point difference) that the chat's model can show.
+
+${chatSetup(origin)}
+
+2. Install the card:
+npx shadcn@latest add ${origin}/r/nba-cup.json
+It adds features/nba-cup/, app/api/nba-cup/route.ts, which the card loads the table from (the NBA's public stats API, no API key; the route sends the browser-like headers that API needs, and keeps one answer for all six groups for a minute), and Fluid Functionalism's Table. Team logos load as plain <img> tags from a.espncdn.com, with the team's letters when a logo is missing or blocked: if my app sets a Content-Security-Policy, add it to img-src.
+
+3. Turn the card on, one entry in each file, next to the CardGroup entry that is already there (keep it: it lets one reply show several groups):
+features/chat/chat-catalog.ts
+  import { nbaCupCatalogEntry } from "@/features/nba-cup/nba-cup-catalog";
+  NbaCupCard: nbaCupCatalogEntry,
+features/chat/chat-registry.tsx
+  import LiveNbaCupCard from "@/features/nba-cup/components/live-nba-cup-card";
+  NbaCupCard: ({ props, loading }) => (
+    <LiveNbaCupCard group={props.group || undefined} streaming={loading} />
+  ),
+features/chat/chat-steps.ts (the reply's thinking steps for this card)
+  import { nbaCupLookup } from "@/features/nba-cup/nba-cup-steps";
+  NbaCupCard: nbaCupLookup,
+
+4. Check it: run the dev server, open /chat and ask "Show me NBA Cup West Group A", then "NBA Cup standings" for all six groups in one reply.
+
+The model only writes the card's props; the card fetches the table itself:
+- group: "east-a" | "east-b" | "east-c" | "west-a" | "west-b" | "west-c"
+
+Docs: ${origin}/docs/nba-cup`;
+}
+
+function playerInstallPrompt(origin: string): string {
+  return `Add the NBA player card from genuicn to my Next.js app. It shows NBA players this season, one row each in one table (photo, number, name, height, age and experience, with points, assists, rebounds and steals per game, and the team each plays for now), so the chat's model can show one player or compare several. It finds each player's current team itself, so trades and signings are always up to date.
+
+${chatSetup(origin)}
+
+2. Install the card:
+npx shadcn@latest add ${origin}/r/player.json
+It adds features/player/, app/api/player/route.ts, which the card loads the player from (ESPN's public site API, no API key), and Fluid Functionalism's Table and ScrollArea. Before a season's first games, the averages come from the season before. Player photos load as plain <img> tags from a.espncdn.com: if my app sets a Content-Security-Policy, add it to img-src.
+
+3. Turn the card on, one entry in each file, next to the CardGroup entry that is already there (keep it: it lets one reply show several cards):
+features/chat/chat-catalog.ts
+  import { playerCatalogEntry } from "@/features/player/player-catalog";
+  PlayerCard: playerCatalogEntry,
+features/chat/chat-registry.tsx
+  import LivePlayerCard from "@/features/player/components/live-player-card";
+  PlayerCard: ({ props, loading }) => (
+    <LivePlayerCard players={props.players} streaming={loading} />
+  ),
+features/chat/chat-steps.ts (the reply's thinking steps for this card)
+  import { playerLookup } from "@/features/player/player-steps";
+  PlayerCard: playerLookup,
+
+4. Check it: run the dev server, open /chat and ask "How's LeBron James doing?", then "Compare LeBron James and Victor Wembanyama" for both in one table.
+
+The model only writes the card's props; the card fetches the players itself:
+- players: string[], the NBA players' full names, e.g. ["LeBron James", "Victor Wembanyama"]
+
+Docs: ${origin}/docs/player`;
+}
+
+function winProbabilityInstallPrompt(origin: string): string {
+  return `Add the NBA win probability card from genuicn to my Next.js app. It's one card for one NBA game: each team's logo and name over a bar in its color (Fluid's steps Slider, read-only, with the percent over its thumb on hover) and what a win pays back (1.9x for 53%), that the chat's model can show. Before tip-off it shows ESPN's prediction, during the game the live chance (read again every 30 seconds), and after it the result.
+
+${chatSetup(origin)}
+
+2. Install the card:
+npx shadcn@latest add ${origin}/r/win-probability.json
+It adds features/win-probability/ and app/api/win-probability/route.ts, which the card loads the chances from (ESPN's public site API, no API key), the NBA scoreboard's game lookup in features/scoreboard/, which finds the game, and Fluid Functionalism's Slider (the steps design, shown read-only as each team's bar). Team logos load as plain <img> tags from a.espncdn.com: if my app sets a Content-Security-Policy, add it to img-src.
+
+3. Turn the card on, one entry in each file, next to the CardGroup entry that is already there (keep it: it lets one reply show several games):
+features/chat/chat-catalog.ts
+  import { winProbabilityCatalogEntry } from "@/features/win-probability/win-probability-catalog";
+  WinProbabilityCard: winProbabilityCatalogEntry,
+features/chat/chat-registry.tsx
+  import LiveWinProbabilityCard from "@/features/win-probability/components/live-win-probability-card";
+  WinProbabilityCard: ({ props, loading }) => (
+    <LiveWinProbabilityCard team={props.team || undefined} date={props.date} streaming={loading} />
+  ),
+features/chat/chat-steps.ts (the reply's thinking steps for this card)
+  import { winProbabilityLookup } from "@/features/win-probability/win-probability-steps";
+  WinProbabilityCard: winProbabilityLookup,
+
+4. Check it: run the dev server, open /chat and ask "Who's going to win the Knicks game?", then "Odds for the Celtics and Thunder games" for two cards in one reply.
+
+The model only writes the card's props; the card fetches the chances itself:
+- team: string, one of the two teams, e.g. "New York Knicks"
+- date: string | null, as YYYY-MM-DD (null means the team's current game: today's, or the closest one to now)
+
+Docs: ${origin}/docs/win-probability`;
+}
+
 function chatInstallPrompt(origin: string): string {
   return `Set up the genuicn chat in my Next.js app: a json-render chat where the model shows live cards (stock quotes and more) instead of plain text.
 
@@ -150,8 +302,13 @@ export const INSTALL_PROMPTS = {
   chat: chatInstallPrompt,
   crypto: cryptoInstallPrompt,
   flights: flightsInstallPrompt,
+  "nba-cup": nbaCupInstallPrompt,
+  player: playerInstallPrompt,
   quote: quoteInstallPrompt,
+  scoreboard: scoreboardInstallPrompt,
+  standings: standingsInstallPrompt,
   weather: weatherInstallPrompt,
+  "win-probability": winProbabilityInstallPrompt,
 } satisfies Record<string, (origin: string) => string>;
 
 export type InstallCard = keyof typeof INSTALL_PROMPTS;

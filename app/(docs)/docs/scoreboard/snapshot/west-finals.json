@@ -1,0 +1,40 @@
+{
+  "asOf": 1792218121745,
+  "away": {
+    "abbreviation": "SA",
+    "isWinner": true,
+    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/sa.png",
+    "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/sa.png",
+    "name": "San Antonio Spurs",
+    "periods": [32, 24, 24, 31],
+    "record": "62-20",
+    "score": 111,
+    "shortName": "Spurs"
+  },
+  "broadcast": "NBC/Peacock",
+  "home": {
+    "abbreviation": "OKC",
+    "isWinner": false,
+    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/okc.png",
+    "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/okc.png",
+    "name": "Oklahoma City Thunder",
+    "periods": [25, 28, 24, 26],
+    "record": "64-18",
+    "score": 103,
+    "shortName": "Thunder"
+  },
+  "series": {
+    "awayWins": 4,
+    "game": 7,
+    "homeWins": 3,
+    "isComplete": true,
+    "isFinals": false,
+    "length": 7,
+    "summary": "SA wins series 4-3"
+  },
+  "stage": "West Finals - Game 7 · SA wins series 4-3",
+  "startsAt": 1780185600000,
+  "state": "post",
+  "status": "Final",
+  "venue": "Paycom Center"
+}

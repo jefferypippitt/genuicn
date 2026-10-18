@@ -1,0 +1,40 @@
+{
+  "asOf": 1792218121745,
+  "away": {
+    "abbreviation": "SA",
+    "isWinner": false,
+    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/sa.png",
+    "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/sa.png",
+    "name": "San Antonio Spurs",
+    "record": "62-20",
+    "score": 106,
+    "periods": [41, 35, 14, 16],
+    "shortName": "Spurs"
+  },
+  "broadcast": "ABC",
+  "home": {
+    "abbreviation": "NY",
+    "isWinner": true,
+    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ny.png",
+    "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/ny.png",
+    "name": "New York Knicks",
+    "record": "53-29",
+    "score": 107,
+    "periods": [22, 27, 26, 32],
+    "shortName": "Knicks"
+  },
+  "series": {
+    "awayWins": 1,
+    "game": 4,
+    "homeWins": 3,
+    "isComplete": false,
+    "isFinals": true,
+    "length": 7,
+    "summary": "NY leads series 3-1"
+  },
+  "stage": "NBA Finals - Game 4 · NY leads series 3-1",
+  "startsAt": 1781137800000,
+  "state": "post",
+  "status": "Final",
+  "venue": "Madison Square Garden"
+}

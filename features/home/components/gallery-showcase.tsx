@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { FluidHoverHighlight } from "@/components/fluid-hover-highlight";
-import { NAV_SECTIONS } from "@/components/sidebar-app/nav-data";
+import { fullLabel, NAV_SECTIONS } from "@/components/sidebar-app/nav-data";
 import { BoardingPassCard } from "@/features/flights/components/boarding-pass-card";
 import GalleryQuote from "@/features/home/components/gallery-quote";
 import {
@@ -72,7 +72,7 @@ const IndexRow = ({
         )}
       >
         <span className={cn(type.subtitle, "text-foreground")}>
-          {item.label}
+          {fullLabel(item)}
         </span>
         {item.description ? (
           <span className={cn(type.body, "text-muted-foreground")}>

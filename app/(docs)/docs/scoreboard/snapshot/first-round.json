@@ -1,0 +1,40 @@
+{
+  "asOf": 1792219010909,
+  "away": {
+    "abbreviation": "TOR",
+    "isWinner": false,
+    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/tor.png",
+    "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/tor.png",
+    "name": "Toronto Raptors",
+    "periods": [19, 29, 29, 28],
+    "record": "46-36",
+    "score": 105,
+    "shortName": "Raptors"
+  },
+  "broadcast": "Peacock/NBCSN",
+  "home": {
+    "abbreviation": "CLE",
+    "isWinner": true,
+    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/cle.png",
+    "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/cle.png",
+    "name": "Cleveland Cavaliers",
+    "periods": [26, 28, 30, 31],
+    "record": "52-30",
+    "score": 115,
+    "shortName": "Cavaliers"
+  },
+  "series": {
+    "awayWins": 0,
+    "game": 2,
+    "homeWins": 2,
+    "isComplete": false,
+    "isFinals": false,
+    "length": 7,
+    "summary": "CLE leads series 2-0"
+  },
+  "stage": "East 1st Round - Game 2 · CLE leads series 2-0",
+  "startsAt": 1776726000000,
+  "state": "post",
+  "status": "Final",
+  "venue": "Rocket Arena"
+}

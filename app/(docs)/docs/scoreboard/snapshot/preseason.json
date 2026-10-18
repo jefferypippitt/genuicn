@@ -1,0 +1,32 @@
+{
+  "asOf": 1792218121305,
+  "away": {
+    "abbreviation": "DEN",
+    "isWinner": true,
+    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/den.png",
+    "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/den.png",
+    "name": "Denver Nuggets",
+    "record": "3-2",
+    "score": 121,
+    "periods": [36, 26, 26, 33],
+    "shortName": "Nuggets"
+  },
+  "broadcast": "ESPN",
+  "home": {
+    "abbreviation": "LAL",
+    "isWinner": false,
+    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/lal.png",
+    "logoDark": "https://a.espncdn.com/i/teamlogos/nba/500-dark/scoreboard/lal.png",
+    "name": "Los Angeles Lakers",
+    "record": "2-3",
+    "score": 106,
+    "periods": [22, 33, 28, 23],
+    "shortName": "Lakers"
+  },
+  "series": null,
+  "stage": "Preseason",
+  "startsAt": 1792204200000,
+  "state": "post",
+  "status": "Final",
+  "venue": "crypto.com Arena"
+}

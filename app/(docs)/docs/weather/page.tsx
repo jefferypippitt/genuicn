@@ -10,7 +10,7 @@ import type { ChatRecording } from "@/lib/docs/chat-recording";
 import type { Metadata } from "next";
 
 const DESCRIPTION =
-  "The temperature, conditions, and the next six hours on a glass card. The sky behind it is drawn from where the sun is and what the weather is doing there, so the clouds, haze, stars, and moon change with both.";
+  "The temperature, conditions, and the next six hours over a sky drawn from where the sun is and what the weather is doing there, so the clouds, haze, stars, and moon change with both.";
 
 export const metadata: Metadata = {
   description: DESCRIPTION,
@@ -95,10 +95,6 @@ export default function WeatherPage() {
       </DocSection>
 
       <DocSection title="Skies">
-        <p>
-          Each tab is a time of day, with the card in all eight conditions. The
-          demo cards use generated data, so the sky is pinned to that hour.
-        </p>
         <SkyGallery />
       </DocSection>
 

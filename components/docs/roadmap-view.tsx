@@ -1,7 +1,7 @@
 "use client";
 
 import { DocSection } from "@/components/docs/doc-page";
-import { NAV_SECTIONS } from "@/components/sidebar-app/nav-data";
+import { fullLabel, NAV_SECTIONS } from "@/components/sidebar-app/nav-data";
 import { fontWeights } from "@/lib/font-weight";
 import { useIcons } from "@/lib/icon-context";
 import type { NavItem } from "@/components/sidebar-app/nav-data";
@@ -22,7 +22,7 @@ function PlannedCard({ item }: { readonly item: NavItem }) {
       </span>
       <div className="flex min-w-0 flex-col gap-1">
         <p style={{ fontVariationSettings: fontWeights.semibold }}>
-          {item.label}
+          {fullLabel(item)}
         </p>
         {item.description ? (
           <p className="text-muted-foreground">{item.description}</p>

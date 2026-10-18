@@ -2,14 +2,26 @@ import { DefaultChatTransport } from "ai";
 import { primeCrypto } from "@/features/crypto/crypto-requests";
 import { CRYPTO_RANGES } from "@/features/crypto/crypto-schema";
 import { primeBoardingPass } from "@/features/flights/flight-requests";
+import { primeCupGroup } from "@/features/nba-cup/nba-cup-requests";
+import { parseCupGroup } from "@/features/nba-cup/nba-cup-schema";
+import { primePlayer } from "@/features/player/player-requests";
 import { primeQuote } from "@/features/quote/quote-requests";
 import { QUOTE_RANGES } from "@/features/quote/quote-schema";
+import { primeScoreboard } from "@/features/scoreboard/scoreboard-requests";
+import { primeStandings } from "@/features/standings/standings-requests";
+import { parseConference } from "@/features/standings/standings-schema";
+import { primeWinProbability } from "@/features/win-probability/win-probability-requests";
 import { primeWeather } from "@/features/weather/weather-requests";
 import { WEATHER_UNITS } from "@/features/weather/weather-schema";
 import type { CryptoData } from "@/features/crypto/crypto-schema";
 import type { BoardingPassData } from "@/features/flights/flight-schema";
+import type { CupGroupData } from "@/features/nba-cup/nba-cup-schema";
+import type { PlayerData } from "@/features/player/player-schema";
 import type { QuoteData } from "@/features/quote/quote-schema";
+import type { ScoreboardData } from "@/features/scoreboard/scoreboard-schema";
+import type { StandingsData } from "@/features/standings/standings-schema";
 import type { ChatTransport, UIMessage, UIMessageChunk } from "ai";
+import type { WinProbabilityData } from "@/features/win-probability/win-probability-schema";
 import type { WeatherData } from "@/features/weather/weather-schema";
 
 export interface RecordedTurn {
@@ -71,6 +83,37 @@ export class ReplayTransport implements ChatTransport<UIMessage> {
 
 const URL_BASE = "http://localhost";
 
+/**
+Saves one NBA card's recorded response, keyed the way its card asks for it.
+*/
+function primeNbaData(
+  pathname: string,
+  parameters: URLSearchParams,
+  data: unknown
+) {
+  const team = parameters.get("team");
+  const player = parameters.get("player");
+  const cupGroup = parseCupGroup(parameters.get("group") ?? "");
+  const conference = parseConference(parameters.get("conference") ?? "");
+  if (pathname === "/api/scoreboard" && team) {
+    primeScoreboard(
+      { date: parameters.get("date"), team },
+      data as ScoreboardData
+    );
+  } else if (pathname === "/api/nba-cup" && cupGroup) {
+    primeCupGroup(cupGroup, data as CupGroupData);
+  } else if (pathname === "/api/standings" && conference) {
+    primeStandings(conference, data as StandingsData);
+  } else if (pathname === "/api/player" && player) {
+    primePlayer(player, data as PlayerData);
+  } else if (pathname === "/api/win-probability" && team) {
+    primeWinProbability(
+      { date: parameters.get("date"), team },
+      data as WinProbabilityData
+    );
+  }
+}
+
 export function primeCardData({ responsesByUrl }: ChatRecording) {
   if (!responsesByUrl) {
     return;
@@ -100,6 +143,8 @@ export function primeCardData({ responsesByUrl }: ChatRecording) {
       primeBoardingPass(flight, date, data as BoardingPassData);
     } else if (pathname === "/api/crypto" && symbol) {
       primeCrypto(symbol, cryptoRange, data as CryptoData);
+    } else {
+      primeNbaData(pathname, searchParams, data);
     }
   }
 }

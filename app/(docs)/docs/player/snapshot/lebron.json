@@ -1,0 +1,22 @@
+{
+  "asOf": 1792268000000,
+  "player": {
+    "age": 41,
+    "experience": 23,
+    "headshot": "https://a.espncdn.com/i/headshots/nba/players/full/1966.png",
+    "height": "6' 9\"",
+    "id": "1966",
+    "jersey": "23",
+    "name": "LeBron James",
+    "assists": 7.2,
+    "points": 20.933332,
+    "rebounds": 6.0666666,
+    "steals": 1.2
+  },
+  "season": "2026-27",
+  "statsSeason": "2025-26",
+  "team": {
+    "abbreviation": "PHI",
+    "name": "Philadelphia 76ers"
+  }
+}
