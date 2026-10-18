@@ -4,10 +4,12 @@ import quote1d from "@/features/home/snapshot/quote-nvda-1d.json";
 import quote1m from "@/features/home/snapshot/quote-nvda-1m.json";
 import quote1w from "@/features/home/snapshot/quote-nvda-1w.json";
 import quote1y from "@/features/home/snapshot/quote-nvda-1y.json";
+import scoreboardFinalsGame5 from "@/features/home/snapshot/scoreboard-finals-game-5.json";
 import weatherNewYork from "@/features/home/snapshot/weather-new-york.json";
 import type { CryptoData } from "@/features/crypto/crypto-schema";
 import type { BoardingPassData } from "@/features/flights/flight-schema";
 import type { QuoteData, QuoteRange } from "@/features/quote/quote-schema";
+import type { ScoreboardData } from "@/features/scoreboard/scoreboard-schema";
 import type { WeatherData } from "@/features/weather/weather-schema";
 
 export const GALLERY_QUOTES: Record<QuoteRange, QuoteData> = {
@@ -25,3 +27,8 @@ export const GALLERY_BOARDING_PASS = flightBa117 as BoardingPassData;
 Bitcoin over all time, since it first traded in October 2013.
 */
 export const GALLERY_BITCOIN = cryptoBtcAll as CryptoData;
+
+/**
+Game 5 of the 2026 NBA Finals, the Knicks at the Spurs, the game that won the Knicks the title.
+*/
+export const GALLERY_SCOREBOARD = scoreboardFinalsGame5 as ScoreboardData;

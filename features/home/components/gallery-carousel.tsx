@@ -11,8 +11,10 @@ import GalleryQuote from "@/features/home/components/gallery-quote";
 import {
   GALLERY_BITCOIN,
   GALLERY_BOARDING_PASS,
+  GALLERY_SCOREBOARD,
   GALLERY_WEATHER,
 } from "@/features/home/gallery-snapshot";
+import ScoreboardCard from "@/features/scoreboard/components/scoreboard-card";
 import { WeatherCard } from "@/features/weather/components/weather-card";
 import { spring } from "@/lib/springs";
 import { cn } from "@/lib/utils";
@@ -24,6 +26,15 @@ How long each card stays up before the next: long enough to read one.
 const SLIDE_MS = 5000;
 
 /**
+How wide a slide may grow: a tile, the scoreboard (whose matchup row needs room for two full team names), or a ticket.
+*/
+const SLIDE_WIDTH = {
+  scoreboard: "max-w-[500px]",
+  ticket: "max-w-2xl",
+  tile: "max-w-sm",
+} as const;
+
+/**
 The shipped cards, in nav order, each in the one version the gallery shows.
 */
 const SLIDES: readonly {
@@ -31,15 +42,21 @@ const SLIDES: readonly {
   label: string;
   card: ReactNode;
   /**
-  The card is a wide ticket rather than a tile.
+  Omitted, the slide is a tile.
   */
-  isWide?: boolean;
+  width?: keyof typeof SLIDE_WIDTH;
 }[] = [
   { card: <GalleryQuote />, href: "/docs/quote", label: "Quote" },
   {
     card: <CryptoCard state="ready" data={GALLERY_BITCOIN} />,
     href: "/docs/crypto",
     label: "Crypto",
+  },
+  {
+    card: <ScoreboardCard state="ready" data={GALLERY_SCOREBOARD} />,
+    href: "/docs/scoreboard",
+    label: "NBA scoreboard",
+    width: "scoreboard",
   },
   {
     card: <WeatherCard state="ready" data={GALLERY_WEATHER} />,
@@ -49,8 +66,8 @@ const SLIDES: readonly {
   {
     card: <BoardingPassCard state="ready" data={GALLERY_BOARDING_PASS} />,
     href: "/docs/flights",
-    isWide: true,
     label: "Flights",
+    width: "ticket",
   },
 ];
 
@@ -96,7 +113,7 @@ export default function GalleryCarousel() {
               transition={isShown ? spring.slow : spring.slow.exit}
               className={cn(
                 "w-full [grid-area:1/1]",
-                slide.isWide ? "max-w-2xl" : "max-w-sm",
+                SLIDE_WIDTH[slide.width ?? "tile"],
                 !isShown && "pointer-events-none"
               )}
             >
