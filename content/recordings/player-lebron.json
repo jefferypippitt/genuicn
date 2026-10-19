@@ -80,9 +80,7 @@
                 "value": {
                   "type": "PlayerCard",
                   "props": {
-                    "players": [
-                      "LeBron James"
-                    ]
+                    "players": ["LeBron James"]
                   },
                   "children": []
                 }

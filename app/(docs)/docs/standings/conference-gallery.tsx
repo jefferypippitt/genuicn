@@ -7,9 +7,6 @@ import east from "./snapshot/east.json";
 import west from "./snapshot/west.json";
 import type { StandingsData } from "@/features/standings/standings-schema";
 
-/**
-One tab per conference, each as /api/standings answered it on October 17, 2026, before opening night of the 2026-27 season.
-*/
 const CONFERENCES = [
   { data: east, label: "Eastern Conference" },
   { data: west, label: "Western Conference" },

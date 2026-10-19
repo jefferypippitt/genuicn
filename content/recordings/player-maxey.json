@@ -80,9 +80,7 @@
                 "value": {
                   "type": "PlayerCard",
                   "props": {
-                    "players": [
-                      "Tyrese Maxey"
-                    ]
+                    "players": ["Tyrese Maxey"]
                   },
                   "children": []
                 }

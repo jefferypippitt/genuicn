@@ -35,7 +35,10 @@ import {
   SidebarWorkspaceHeader,
   WorkspaceTile,
 } from "@/components/sidebar-app/workspace-header";
-import { SidebarSearchField } from "@/components/sidebar-app/search-field";
+import {
+  DocumentationSearchProvider,
+  SidebarSearchTrigger,
+} from "@/components/sidebar-app/documentation-search";
 import { BUILT_SECTIONS } from "@/components/sidebar-app/nav-data";
 import type { NavItem } from "@/components/sidebar-app/nav-data";
 import type { SidebarProps } from "@/components/ui/sidebar";
@@ -56,7 +59,7 @@ function useMounted() {
 }
 
 /**
-The blue "new" dot after a page the latest release added, the same blue the changelog uses for New.
+The blue "new" dot after a page the latest release added, the same blue dot the changelog puts on each card.
 */
 const NewDot = () => (
   <>
@@ -72,9 +75,6 @@ type NavRow =
   | { kind: "item"; item: NavItem }
   | { kind: "group"; label: string; items: NavItem[] };
 
-/**
-A section's rows: items with a group fold into one row for it, where the first of them stands.
-*/
 function rowsOf(items: readonly NavItem[]): NavRow[] {
   const rows: NavRow[] = [];
   const groups = new Map<string, NavItem[]>();
@@ -95,9 +95,6 @@ function rowsOf(items: readonly NavItem[]): NavRow[] {
   return rows;
 }
 
-/**
-A row that opens to its pages, e.g. NBA under Sports. Starts open, so its pages show without a click; the chevron turns down as it opens.
-*/
 const NavGroup = ({
   label,
   items,
@@ -166,55 +163,59 @@ export const AppSidebar = ({
   const pathname = usePathname();
 
   return (
-    <Sidebar variant="inset" {...properties}>
-      <SidebarHeader>
-        <SidebarWorkspaceHeader
-          name="genuicn"
-          tile={<WorkspaceTile>g</WorkspaceTile>}
-        />
-        <SidebarSearchField placeholder="Search docs…" />
-      </SidebarHeader>
+    <DocumentationSearchProvider>
+      <Sidebar variant="inset" {...properties}>
+        <SidebarHeader>
+          <SidebarWorkspaceHeader
+            name="genuicn"
+            tile={<WorkspaceTile>g</WorkspaceTile>}
+          />
+          <SidebarSearchTrigger />
+        </SidebarHeader>
 
-      <SidebarContent>
-        {BUILT_SECTIONS.map((section, sectionIndex) => (
-          <SidebarGroup key={section.label} collapsible={sectionIndex > 0}>
-            <SidebarGroupLabel>{section.label}</SidebarGroupLabel>
-            <SidebarMenu>
-              {rowsOf(section.items).map((row) => {
-                if (row.kind === "group") {
+        <SidebarContent>
+          {BUILT_SECTIONS.map((section, sectionIndex) => (
+            <SidebarGroup key={section.label} collapsible={sectionIndex > 0}>
+              <SidebarGroupLabel>{section.label}</SidebarGroupLabel>
+              <SidebarMenu>
+                {rowsOf(section.items).map((row) => {
+                  if (row.kind === "group") {
+                    return (
+                      <NavGroup
+                        key={row.label}
+                        label={row.label}
+                        items={row.items}
+                        pathname={pathname}
+                        newSet={newSet}
+                      />
+                    );
+                  }
+                  const { item } = row;
                   return (
-                    <NavGroup
-                      key={row.label}
-                      label={row.label}
-                      items={row.items}
-                      pathname={pathname}
-                      newSet={newSet}
-                    />
+                    <SidebarMenuItem key={item.label}>
+                      <SidebarMenuButton
+                        icon={item.icon ? icons[item.icon] : undefined}
+                        render={
+                          item.href ? <Link href={item.href} /> : undefined
+                        }
+                        isActive={item.href === pathname}
+                      >
+                        {item.label}
+                        {item.href && newSet.has(item.href) ? <NewDot /> : null}
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
                   );
-                }
-                const { item } = row;
-                return (
-                  <SidebarMenuItem key={item.label}>
-                    <SidebarMenuButton
-                      icon={item.icon ? icons[item.icon] : undefined}
-                      render={item.href ? <Link href={item.href} /> : undefined}
-                      isActive={item.href === pathname}
-                    >
-                      {item.label}
-                      {item.href && newSet.has(item.href) ? <NewDot /> : null}
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                );
-              })}
-            </SidebarMenu>
-          </SidebarGroup>
-        ))}
-      </SidebarContent>
+                })}
+              </SidebarMenu>
+            </SidebarGroup>
+          ))}
+        </SidebarContent>
 
-      <SidebarFooter>
-        <ThemeFooter />
-      </SidebarFooter>
-    </Sidebar>
+        <SidebarFooter>
+          <ThemeFooter />
+        </SidebarFooter>
+      </Sidebar>
+    </DocumentationSearchProvider>
   );
 };
 

@@ -9,9 +9,6 @@ import {
 } from "@/features/standings/standings-schema";
 import type { StandingsData } from "@/features/standings/standings-schema";
 
-/**
-What came back for one conference. A result for the other conference reads as still loading, so the card never flashes the wrong table.
-*/
 type Result =
   | { key: string; status: "ready"; data: StandingsData }
   | { key: string; status: "error"; message: string };

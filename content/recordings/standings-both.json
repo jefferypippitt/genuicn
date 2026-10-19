@@ -80,10 +80,7 @@
                 "value": {
                   "type": "CardGroup",
                   "props": {},
-                  "children": [
-                    "east-standings",
-                    "west-standings"
-                  ]
+                  "children": ["east-standings", "west-standings"]
                 }
               }
             }

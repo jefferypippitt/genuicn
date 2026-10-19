@@ -4,10 +4,10 @@ import { parseRelease } from "@/lib/changelog/parse";
 import type { Release } from "@/lib/changelog/parse";
 
 const CHANGELOG_DIR = join(process.cwd(), "content", "changelog");
-const FILE = /^(\d{4}-\d{2}-\d{2})\.md$/;
+const FILE = /^(\d{4}-\d{2})\.md$/;
 
 /**
-Every release, newest first. Each file is named after its release day.
+Every release, newest first. Each file is named after its release month.
 */
 export function loadReleases(): Release[] {
   return readdirSync(CHANGELOG_DIR)
@@ -20,29 +20,37 @@ export function loadReleases(): Release[] {
         readFileSync(join(CHANGELOG_DIR, name), "utf8"),
         file
       );
-      if (release.released !== FILE.exec(name)?.[1]) {
-        throw new Error(`${file}: \`released\` does not match the file name`);
+      if (release.month !== FILE.exec(name)?.[1]) {
+        throw new Error(`${file}: \`month\` does not match the file name`);
+      }
+      return release;
+    })
+    .map((release, index) => {
+      if (index > 0 && release.cards.some((card) => card.isNew)) {
+        throw new Error(
+          `content/changelog/${release.month}.md: only the newest month lists \`new\` cards`
+        );
       }
       return release;
     });
 }
 
 /**
-The pages the latest release lists under New, e.g. ["/docs/crypto"]. The sidebar marks these with a dot.
+The cards the newest month lists under `new`, e.g. ["/docs/area-chart"]. The sidebar marks these with a dot.
 */
 export function latestNewHrefs(): string[] {
   const [latest] = loadReleases();
-  const group = latest?.groups.find((entry) => entry.kind === "new");
-  return group?.entries.flatMap((entry) => entry.href ?? []) ?? [];
+  return (
+    latest?.cards.filter((card) => card.isNew).map((card) => card.href) ?? []
+  );
 }
 
 /**
-"2026-10-16" reads "October 16, 2026".
+"2026-10" reads "October 2026".
 */
-export function releaseLabel(day: string): string {
-  const [year, month, date] = day.split("-").map(Number);
-  return new Date(Date.UTC(year, month - 1, date)).toLocaleDateString("en-US", {
-    day: "numeric",
+export function releaseLabel(yearMonth: string): string {
+  const [year, month] = yearMonth.split("-").map(Number);
+  return new Date(Date.UTC(year, month - 1)).toLocaleDateString("en-US", {
     month: "long",
     timeZone: "UTC",
     year: "numeric",

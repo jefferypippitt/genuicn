@@ -40,4 +40,10 @@ export default [
       ],
     },
   },
+  {
+    // json-render types each registry callback's props from the catalog's
+    // zod schemas, so TypeScript already checks them; prop-types can't see that.
+    files: ["**/chat-registry.tsx"],
+    rules: { "react/prop-types": "off" },
+  },
 ];

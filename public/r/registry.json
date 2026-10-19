@@ -45,6 +45,21 @@
           "target": "features/chat/components/reply-steps.tsx"
         },
         {
+          "path": "features/chat/components/cited-answer.tsx",
+          "type": "registry:component",
+          "target": "features/chat/components/cited-answer.tsx"
+        },
+        {
+          "path": "features/chat/web-search.ts",
+          "type": "registry:lib",
+          "target": "features/chat/web-search.ts"
+        },
+        {
+          "path": "lib/url-host.ts",
+          "type": "registry:lib",
+          "target": "lib/url-host.ts"
+        },
+        {
           "path": "features/chat/lookup.ts",
           "type": "registry:lib",
           "target": "features/chat/lookup.ts"
@@ -723,6 +738,76 @@
         }
       ],
       "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   WinProbabilityCard: winProbabilityCatalogEntry\n  features/chat/chat-registry.tsx: WinProbabilityCard: ({ props, loading }) => <LiveWinProbabilityCard team={props.team || undefined} date={props.date} streaming={loading} />\n  features/chat/chat-steps.ts:     WinProbabilityCard: winProbabilityLookup\n\nChances load from /api/win-probability (installed at app/api/win-probability/route.ts), backed by ESPN's public site API; the game is found with the NBA scoreboard's lookup in features/scoreboard/. No API key needed; a game in progress refreshes every 30 seconds."
+    },
+    {
+      "name": "area-chart",
+      "type": "registry:block",
+      "title": "Area Chart",
+      "description": "A live area chart for any chartable question in json-render chats: free-text topic, web research via Parallel, latest value, change over the window, a filled trend, and a 10Y/25Y/50Y/Max switch, with its API route.",
+      "dependencies": [
+        "zod",
+        "server-only",
+        "ai",
+        "@parallel-web/ai-sdk-tools"
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "features/area-chart/components/area-chart-card.tsx",
+          "type": "registry:component",
+          "target": "features/area-chart/components/area-chart-card.tsx"
+        },
+        {
+          "path": "features/area-chart/components/live-area-chart-card.tsx",
+          "type": "registry:component",
+          "target": "features/area-chart/components/live-area-chart-card.tsx"
+        },
+        {
+          "path": "features/area-chart/area-chart-catalog.ts",
+          "type": "registry:lib",
+          "target": "features/area-chart/area-chart-catalog.ts"
+        },
+        {
+          "path": "features/area-chart/area-chart-requests.ts",
+          "type": "registry:lib",
+          "target": "features/area-chart/area-chart-requests.ts"
+        },
+        {
+          "path": "features/area-chart/area-chart-steps.ts",
+          "type": "registry:lib",
+          "target": "features/area-chart/area-chart-steps.ts"
+        },
+        {
+          "path": "features/area-chart/area-chart-queries.ts",
+          "type": "registry:lib",
+          "target": "features/area-chart/area-chart-queries.ts"
+        },
+        {
+          "path": "features/area-chart/area-chart-schema.ts",
+          "type": "registry:lib",
+          "target": "features/area-chart/area-chart-schema.ts"
+        },
+        {
+          "path": "features/area-chart/area-chart-fake.ts",
+          "type": "registry:lib",
+          "target": "features/area-chart/area-chart-fake.ts"
+        },
+        {
+          "path": "app/api/area-chart/route.ts",
+          "type": "registry:page",
+          "target": "app/api/area-chart/route.ts"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "type": "registry:lib",
+          "target": "lib/card-frame.ts"
+        }
+      ],
+      "envVars": {
+        "PARALLEL_API_KEY": "",
+        "AI_GATEWAY_API_KEY": ""
+      },
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   AreaChartCard: areaChartCatalogEntry\n  features/chat/chat-registry.tsx: AreaChartCard: ({ props, loading }) => <LiveAreaChartCard topic={props.topic || undefined} range={props.range ?? undefined} ranges={props.ranges ?? false} streaming={loading} />\n  features/chat/chat-steps.ts:     AreaChartCard: areaChartLookup\n\nSeries load from /api/area-chart (installed at app/api/area-chart/route.ts). The route uses Parallel web search + extract (PARALLEL_API_KEY) and your AI Gateway model to turn any chartable topic into a yearly series. Keep AI_GATEWAY_API_KEY set (same as chat). The model sets ranges: true only for long multi-decade series that should show 10Y/25Y/50Y/Max tabs — leave it false/null otherwise. Topic is free text from the user's question."
     }
   ]
 }

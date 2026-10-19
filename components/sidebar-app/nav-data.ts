@@ -1,16 +1,10 @@
 import type { IconName } from "@/lib/icon-context";
 
 export interface NavItem {
-  /**
-  The item's name. In a group, the short one ("Scoreboard"): fullLabel adds the group where the page shows outside it.
-  */
   label: string;
   icon?: IconName;
   href?: string;
   description?: string;
-  /**
-  A row in the sidebar that opens to show this item and the others with the same group, e.g. "NBA" under Sports.
-  */
   group?: string;
 }
 
@@ -22,218 +16,245 @@ export interface NavSection {
 
 export const NAV_SECTIONS: NavSection[] = [
   {
-    label: "Getting started",
-    kind: "docs",
     items: [
-      { label: "Gallery", icon: "square-library", href: "/" },
-      { label: "Introduction", icon: "home", href: "/docs" },
-      { label: "Installation", icon: "rocket", href: "/docs/installation" },
-      { label: "Theming", icon: "palette" },
-      { label: "Changelog", icon: "clock", href: "/changelog" },
-      { label: "Roadmap", icon: "lightbulb", href: "/roadmap" },
+      { href: "/", icon: "square-library", label: "Gallery" },
+      { href: "/docs", icon: "home", label: "Introduction" },
+      { href: "/docs/installation", icon: "rocket", label: "Installation" },
+      { icon: "palette", label: "Theming" },
+      { href: "/changelog", icon: "clock", label: "Changelog" },
+      { href: "/roadmap", icon: "lightbulb", label: "Roadmap" },
     ],
+    kind: "docs",
+    label: "Getting started",
   },
   {
-    label: "Finance",
-    kind: "cards",
     items: [
       {
-        label: "Quote",
+        description:
+          "Price, change, and a small trend line, with a 1D, 1W, 1M, and 1Y switch.",
         href: "/docs/quote",
-        description:
-          "Price, change, a small trend line, and a day, week, month and year switch.",
+        label: "Quote",
       },
       {
-        label: "Candlestick chart",
         description: "Candles with volume and timeframe controls.",
+        label: "Candlestick chart",
       },
       {
-        label: "Compare",
         description: "Two to four tickers on one chart, plus key numbers.",
+        label: "Compare",
       },
       {
-        label: "Earnings",
         description: "Expected against actual, history, and the next date.",
+        label: "Earnings",
       },
       {
-        label: "Portfolio",
         description: "Holdings, an allocation donut, and today's gain or loss.",
+        label: "Portfolio",
       },
       {
-        label: "Market movers",
         description: "Top gainers and losers. Tap one for detail.",
+        label: "Market movers",
       },
       {
         description:
-          "Live price, 24-hour change, market cap, volume, and a 24-hour trend line.",
+          "Live price, change, market cap, and volume, with a 24H, 1W, 1M, 1Y, and All switch.",
         href: "/docs/crypto",
         label: "Crypto",
       },
       {
-        label: "Watchlist",
         description: "Add and remove tickers, synced back to the model.",
+        label: "Watchlist",
       },
       {
-        label: "Price alert",
         description: "Set a target price, then confirm it.",
+        label: "Price alert",
       },
     ],
+    kind: "cards",
+    label: "Finance",
   },
   {
-    label: "Sports",
-    kind: "cards",
     items: [
       {
         description:
-          "One NBA game's live score, with both teams and the clock.",
+          "One NBA game's live score, with both teams, their records, the clock, and each quarter.",
         group: "NBA",
         href: "/docs/scoreboard",
         label: "Scoreboard",
       },
       {
-        group: "NBA",
-        label: "Box score",
-        description: "Each player's stats for one game, with the team totals.",
-      },
-      {
-        group: "NBA",
-        label: "Play-by-play",
-        description: "Each play of a live game as it happens, newest first.",
-      },
-      {
         description:
-          "One conference's table, with each team's record, games behind, and recent form.",
+          "One conference's table, with record, games behind, home and away, last ten, and streak.",
         group: "NBA",
         href: "/docs/standings",
         label: "Standings",
       },
       {
         description:
-          "One NBA Cup group's table, with each team's games, wins, losses, and points for and against.",
+          "One NBA Cup group's table, with games, wins, losses, points, and point difference.",
         group: "NBA",
         href: "/docs/nba-cup",
         label: "NBA Cup",
       },
       {
         description:
-          "One player's number, height, age, experience, and per-game averages, with his team now.",
+          "NBA players in one table, with photo, number, per-game averages, and current team.",
         group: "NBA",
         href: "/docs/player",
         label: "Player",
       },
       {
-        group: "NBA",
-        label: "Head-to-head",
         description:
-          "Two teams or players side by side, with their record against each other.",
-      },
-      {
-        group: "NBA",
-        label: "Schedule",
-        description: "Upcoming games, each with an add-to-calendar button.",
-      },
-      {
-        group: "NBA",
-        label: "Playoff bracket",
-        description:
-          "The bracket round by round, with winners moving on as series end.",
-      },
-      {
-        description:
-          "Each team's chance of winning one game, before tip-off and live, with what a win pays back.",
+          "Each team's chance of winning one game, before tip-off, live, and after, with what a win pays back.",
         group: "NBA",
         href: "/docs/win-probability",
         label: "Win probability",
       },
       {
-        group: "NBA",
-        label: "Start or sit",
-        description: "Which player to start in this week's fantasy lineup.",
+        description:
+          "One NFL game's live score, with both teams, the quarter, and the clock.",
+        group: "NFL",
+        label: "Scoreboard",
+      },
+      {
+        description:
+          "One division's table, with each team's record, division record, and streak.",
+        group: "NFL",
+        label: "Standings",
+      },
+      {
+        description:
+          "One player's number, position, and season stats, with his team now.",
+        group: "NFL",
+        label: "Player",
+      },
+      {
+        description:
+          "One MLB game's live score, with both teams, the inning, and the count.",
+        group: "MLB",
+        label: "Scoreboard",
+      },
+      {
+        description:
+          "One division's table, with each team's record, games behind, and recent form.",
+        group: "MLB",
+        label: "Standings",
+      },
+      {
+        description:
+          "One player's number, position, and season averages, with his team now.",
+        group: "MLB",
+        label: "Player",
+      },
+      {
+        description:
+          "One fight night's card, with each bout's fighters, weight class, and result.",
+        group: "MMA",
+        label: "Fight card",
+      },
+      {
+        description: "One fighter's record, reach, stance, and recent fights.",
+        group: "MMA",
+        label: "Fighter",
+      },
+      {
+        description:
+          "One weight class's rankings, with each fighter's record and last fight.",
+        group: "MMA",
+        label: "Rankings",
+      },
+      {
+        description:
+          "One NHL game's live score, with both teams, the period, and the clock.",
+        group: "NHL",
+        label: "Scoreboard",
+      },
+      {
+        description:
+          "One soccer match's live score, with both teams, the minute, and the scorers.",
+        group: "Soccer",
+        label: "Scoreboard",
       },
     ],
+    kind: "cards",
+    label: "Sports",
   },
   {
-    label: "Everyday & travel",
-    kind: "cards",
     items: [
       {
-        label: "Weather",
+        description:
+          "Temperature, conditions, and the next six hours, over a sky drawn for the sun and the weather there.",
         href: "/docs/weather",
-        description:
-          "Current conditions and the next six hours, over a sky drawn for the sun and the weather there.",
+        label: "Weather",
       },
       {
-        label: "Flights",
+        description:
+          "A boarding pass from the flight number, and a travel assistant that books flights and checks you in.",
         href: "/docs/flights",
-        description:
-          "A boarding pass looked up from the flight number, and a check-in assistant that asks for your booking, seat, bags, and extras.",
+        label: "Flights",
       },
       {
-        label: "Hotel",
         description: "A hotel's photos, nightly price, and rating.",
+        label: "Hotel",
       },
       {
-        label: "Itinerary",
         description: "A trip's flights, stays, and plans on one timeline.",
+        label: "Itinerary",
       },
       {
-        label: "Converter",
         description:
           "Converts units, and currencies at the current exchange rate.",
+        label: "Converter",
       },
       {
-        label: "Recipe",
         description:
           "Ingredients, a step-by-step cooking mode, and nutrition facts.",
+        label: "Recipe",
       },
       {
-        label: "News",
         description: "Headlines on a topic, each with its source and time.",
+        label: "News",
       },
       {
-        label: "Movie & TV",
         description: "A title card with where to stream it.",
+        label: "Movie & TV",
       },
       {
-        label: "GitHub repo",
         description: "A repository's stars, open issues, and latest release.",
+        label: "GitHub repo",
       },
       {
-        label: "npm package",
         description:
           "A package's latest version, weekly downloads, and install size.",
+        label: "npm package",
       },
     ],
+    kind: "cards",
+    label: "Everyday & travel",
   },
   {
-    label: "Charts",
-    kind: "cards",
     items: [
       {
-        label: "Smart chart",
         description:
-          "The model sends data and a chart type, and the card draws a line, bar, area, pie or radar chart.",
+          "A filled chart for any chartable question, researched on the web, with an optional range switch and one tab per subject.",
+        href: "/docs/area-chart",
+        label: "Area Chart",
       },
       {
-        label: "Stat tiles",
         description: "A big number, its change, and a small trend line.",
+        label: "Stat tiles",
       },
       {
-        label: "Heatmap",
         description:
           "Values on a grid, shaded by size, like activity by day and hour.",
-      },
-      {
-        label: "Live chart",
-        description: "A chart that draws as the data streams in.",
+        label: "Heatmap",
       },
     ],
+    kind: "cards",
+    label: "Charts",
   },
 ];
 
-/**
-The page's name on its own, outside the sidebar: "NBA scoreboard" for Scoreboard in the NBA group. A label that already names its group ("NBA Cup") stays as it is.
-*/
 export function fullLabel(item: NavItem): string {
   return !item.group || item.label.startsWith(item.group)
     ? item.label

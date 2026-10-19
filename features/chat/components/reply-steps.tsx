@@ -3,8 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   ThinkingStep,
-  ThinkingStepSource,
-  ThinkingStepSources,
+  ThinkingStepDetails,
   ThinkingSteps,
   ThinkingStepsContent,
   ThinkingStepsHeader,
@@ -12,42 +11,51 @@ import {
 import { lookups } from "@/features/chat/chat-steps";
 import { listOf } from "@/features/chat/lookup";
 import { spring } from "@/lib/springs";
+import { hostOf } from "@/lib/url-host";
 import type { CardLookup, Source } from "@/features/chat/lookup";
 import type { Spec } from "@json-render/core";
 import type { IconName } from "@/lib/icon-context";
 import type { ReactNode } from "react";
 
 const DONE_HOLD_MS = 600;
-
+const READ_BEAT_MS = 400;
 const FOLD_MS = Math.round(spring.moderate.duration * 1000);
 
 type Load =
   | { status: "loading" }
-  | { status: "ready" }
+  | { status: "ready"; sources: readonly Source[] }
   | { status: "error"; message: string };
 
 interface Card {
   key: string;
-  type: string;
   subject: string;
   lookup: CardLookup;
   props: Record<string, unknown>;
 }
 
-type StepStatus = "complete" | "active" | "pending";
-
 interface Step {
   key: string;
   icon: IconName;
   label: string;
-  description?: string;
   done: boolean;
   children?: ReactNode;
 }
 
+type StepStatus = "complete" | "active" | "pending";
+
+/**
+The reply's web searches, for the search step.
+*/
+export interface WebSearchProgress {
+  readonly queries: readonly string[];
+  readonly isDone: boolean;
+  readonly sources: readonly { id: string; title: string; url: string }[];
+}
+
 function cardsIn(spec: Spec | null): Card[] {
   const cards: Card[] = [];
-  for (const element of Object.values(spec?.elements ?? {})) {
+  const elements = Object.values(spec?.elements ?? {});
+  for (const element of elements) {
     const lookup = lookups[element.type];
     const properties = (element.props ?? {}) as Record<string, unknown>;
     const subject = lookup?.subject(properties);
@@ -57,50 +65,30 @@ function cardsIn(spec: Spec | null): Card[] {
         lookup,
         props: properties,
         subject,
-        type: element.type,
       });
     }
   }
   return cards;
 }
 
-function hasSameKeys(left: readonly Card[], right: readonly Card[]): boolean {
-  if (left.length !== right.length) {
-    return false;
-  }
-  for (const [index, element] of left.entries()) {
-    if (element?.key !== right[index]?.key) {
-      return false;
-    }
-  }
-  return true;
+function areSameCards(left: readonly Card[], right: readonly Card[]): boolean {
+  return (
+    left.length === right.length &&
+    left.every((card, index) => card.key === right[index]?.key)
+  );
 }
 
-interface LoadPlan {
-  readonly isReady: boolean;
-  readonly cards: readonly Card[];
-}
-
-function useLoadPlan(cards: readonly Card[], isReady: boolean): LoadPlan {
-  const [plan, setPlan] = useState<LoadPlan>({ cards, isReady });
-  if (plan.isReady === isReady && hasSameKeys(plan.cards, cards)) {
-    return plan;
-  }
-  const next = { cards, isReady };
-  setPlan(next);
-  return next;
-}
-
-function useLoads(cards: readonly Card[], ready: boolean) {
+function useLoads(cards: readonly Card[], isReady: boolean) {
   const [loads, setLoads] = useState<Record<string, Load>>({});
-  const plan = useLoadPlan(cards, ready);
+  const [plan, setPlan] = useState({ cards, isReady });
+  if (plan.isReady !== isReady || !areSameCards(plan.cards, cards)) {
+    setPlan({ cards, isReady });
+  }
 
   useEffect(() => {
-    if (!plan.isReady) {
-      return;
-    }
     let isCancelled = false;
-    for (const card of plan.cards) {
+    const toLoad = plan.isReady ? plan.cards : [];
+    for (const card of toLoad) {
       const settle = (load: Load) => {
         if (!isCancelled) {
           setLoads((current) => ({ ...current, [card.key]: load }));
@@ -108,13 +96,18 @@ function useLoads(cards: readonly Card[], ready: boolean) {
       };
       card.lookup
         .load(card.props)
+        .then((result) =>
+          settle({
+            sources: card.lookup.resultSources?.(result) ?? [],
+            status: "ready",
+          })
+        )
         .catch((error: unknown) =>
           settle({
             message: Error.isError(error) ? error.message : "It failed.",
             status: "error",
           })
-        )
-        .then(() => settle({ status: "ready" }));
+        );
     }
     return () => {
       isCancelled = true;
@@ -124,186 +117,244 @@ function useLoads(cards: readonly Card[], ready: boolean) {
   return loads;
 }
 
-function useElapsed(isDone: boolean) {
-  const [startedAt] = useState(() => performance.now());
-  const [seconds, setSeconds] = useState<number | null>(null);
-  useEffect(() => {
-    if (isDone) {
-      setSeconds((performance.now() - startedAt) / 1000);
-    }
-  }, [isDone, startedAt]);
-  return seconds;
-}
-
-function SourceLink({ source }: { readonly source: Source }) {
-  return (
-    <a
-      href={source.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`${source.label} (opens in a new tab)`}
-      className="outline-none after:absolute after:inset-0 after:rounded-[inherit] after:content-[''] hover:underline hover:underline-offset-2 focus-visible:after:ring-1 focus-visible:after:ring-[color:var(--focus-ring,#6B97FF)]"
-    >
-      {source.label}
-    </a>
-  );
-}
-
-function intentOf(cards: readonly Card[]) {
-  const byKind = new Map<CardLookup, string[]>();
-  for (const card of cards) {
-    byKind.set(card.lookup, [...(byKind.get(card.lookup) ?? []), card.subject]);
+/**
+Whether the read beat has passed: a short hold once the sources are in, so "Read N sources" lands as its own step instead of flashing by. Disarming resets it.
+*/
+function useHasReadBeatElapsed(isArmed: boolean): boolean {
+  const [hasElapsed, setHasElapsed] = useState(false);
+  if (!isArmed && hasElapsed) {
+    setHasElapsed(false);
   }
-  return [...byKind]
-    .map(([lookup, subjects]) => lookup.intent(subjects))
-    .join("; ");
+  useEffect(() => {
+    const beat = setTimeout(() => {
+      if (isArmed) {
+        setHasElapsed(true);
+      }
+    }, READ_BEAT_MS);
+    return () => clearTimeout(beat);
+  }, [isArmed]);
+  return hasElapsed;
 }
 
+function uniqueHosts(sources: readonly Source[]): Source[] {
+  const byHost = new Map<string, Source>();
+  for (const source of sources) {
+    const host = hostOf(source.href) || source.label;
+    if (!byHost.has(host)) {
+      byHost.set(host, { href: source.href, label: host });
+    }
+  }
+  return [...byHost.values()];
+}
+
+function pickSources(
+  researched: readonly Source[],
+  fromSearch: readonly Source[],
+  cards: readonly Card[]
+): Source[] {
+  if (researched.length > 0) {
+    return [...researched];
+  }
+  return fromSearch.length > 0
+    ? [...fromSearch]
+    : uniqueHosts(cards.flatMap((card) => card.lookup.sources(card.props)));
+}
+
+function sourceLabel(count: number, verb: "Read" | "Explored"): string {
+  const noun = count === 1 ? "source" : "sources";
+  return `${verb} ${count} ${noun}`;
+}
+
+function buildSteps({
+  isResearching,
+  isSearched,
+  isRead,
+  isDone,
+  cards,
+  sources,
+}: {
+  isResearching: boolean;
+  isSearched: boolean;
+  isRead: boolean;
+  isDone: boolean;
+  cards: readonly Card[];
+  sources: readonly Source[];
+}): Step[] {
+  if (!isResearching) {
+    if (!isDone) {
+      return [];
+    }
+    return [
+      {
+        done: true,
+        icon: "check",
+        key: "done",
+        label: "Done",
+      },
+    ];
+  }
+
+  return [
+    {
+      done: isSearched,
+      icon: "search",
+      key: "search",
+      label:
+        cards.length > 0
+          ? `Looking up ${listOf(cards.map((card) => card.subject))}`
+          : "Searched the web",
+    },
+    {
+      children:
+        isRead && sources.length > 0 ? (
+          <ThinkingStepDetails
+            summary={sourceLabel(sources.length, "Explored")}
+            details={sources.map((source) => `Read ${source.label}`)}
+          />
+        ) : undefined,
+      done: isRead,
+      icon: "globe",
+      key: "read",
+      label:
+        sources.length > 0
+          ? sourceLabel(sources.length, "Read")
+          : "Reading sources",
+    },
+    {
+      done: isDone,
+      icon: "check",
+      key: "done",
+      label: "Done",
+    },
+  ];
+}
+
+function stepStatus(active: number, index: number): StepStatus {
+  if (active === -1 || index < active) {
+    return "complete";
+  }
+  return index === active ? "active" : "pending";
+}
+
+/**
+Basic ThinkingSteps: Searched → Read N sources → Done.
+Card stays last — onFinish runs only after Done.
+*/
 export function ReplySteps({
   spec,
   hasText,
+  search = null,
   streaming,
   onFinish,
 }: {
   readonly spec: Spec | null;
   readonly hasText: boolean;
-  /**
-  The model is still writing this reply.
-  */
+  readonly search?: WebSearchProgress | null;
   readonly streaming: boolean;
-  /**
-  The steps are done and folded: time to show the answer.
-  */
   readonly onFinish: () => void;
 }) {
   const cards = cardsIn(spec);
   const loads = useLoads(cards, !streaming);
   const [open, setOpen] = useState(true);
+  const [startedAt] = useState(() => performance.now());
+  /**
+  Seconds from the first render to Done, set when the steps fold; null until then.
+  */
+  const [foldedAfter, setFoldedAfter] = useState<number | null>(null);
 
-  const isStarted = hasText || spec !== null;
+  const isStarted = hasText || spec !== null || search !== null;
   const isWritten = isStarted && !streaming;
   const isFetched = cards.every((card) => {
     const load = loads[card.key];
     return load && load.status !== "loading";
   });
-  const isDone = isWritten && isFetched;
-  const seconds = useElapsed(isDone);
+  const isSearched =
+    (search ? search.isDone : true) && (cards.length === 0 || isFetched);
+  const isResearching = Boolean(search) || cards.length > 0;
+  const canMarkRead = isStarted && isSearched;
+  const hasBeatElapsed = useHasReadBeatElapsed(canMarkRead && isResearching);
 
-  const [isFolded, setIsFolded] = useState(false);
+  const isRead = canMarkRead && (!isResearching || hasBeatElapsed);
+  const isDone = isWritten && isSearched && isRead;
+
   const onFinishReference = useRef(onFinish);
   onFinishReference.current = onFinish;
   useEffect(() => {
-    if (!isDone) {
-      return;
-    }
+    // Read once Done lands, so the hold before the fold isn't counted.
+    const doneAt = performance.now();
     const fold = setTimeout(() => {
-      setIsFolded(true);
+      if (!isDone) {
+        return;
+      }
+      setFoldedAfter((doneAt - startedAt) / 1000);
       setOpen(false);
     }, DONE_HOLD_MS);
-    const finish = setTimeout(
-      () => onFinishReference.current(),
-      DONE_HOLD_MS + FOLD_MS
-    );
+    const finish = setTimeout(() => {
+      if (isDone) {
+        onFinishReference.current();
+      }
+    }, DONE_HOLD_MS + FOLD_MS);
     return () => {
       clearTimeout(fold);
       clearTimeout(finish);
     };
-  }, [isDone]);
+  }, [isDone, startedAt]);
 
-  const failures = cards.flatMap((card) => {
-    const load = loads[card.key];
-    return load?.status === "error" ? [`${card.subject}: ${load.message}`] : [];
-  });
-  const sources = [
-    ...new Map(
-      cards
-        .flatMap((card) => card.lookup.sources(card.props))
-        .map((source) => [source.href, source])
-    ).values(),
-  ];
-
-  const steps: Step[] = [
-    {
-      description: isWritten && cards.length > 0 ? intentOf(cards) : undefined,
-      done: spec ? isWritten : isStarted,
-      icon: "message-circle",
-      key: "understand",
-      label: "Understanding the question",
-    },
-  ];
-  if (isStarted && !spec) {
-    steps.push({
-      done: isWritten,
-      icon: "pencil",
-      key: "write",
-      label: "Writing an answer",
-    });
+  if (!isStarted) {
+    return null;
   }
-  if (cards.length > 0) {
-    steps.push({
-      children: (
-        <ThinkingStepSources>
-          {sources.map((source, index) => (
-            <ThinkingStepSource
-              key={source.href}
-              delay={0.05 * (index + 1)}
-              className="relative"
-            >
-              <SourceLink source={source} />
-            </ThinkingStepSource>
-          ))}
-        </ThinkingStepSources>
-      ),
-      description: failures.length > 0 ? failures.join(" ") : undefined,
-      done: isFetched,
-      icon: "search",
-      key: "lookup",
-      label: `Looking up ${listOf(cards.map((card) => card.subject))}`,
-    });
-  }
-  steps.push({
-    description:
-      seconds === null ? undefined : `Took ${seconds.toFixed(1)} seconds.`,
-    done: isDone,
-    icon: "check",
-    key: "done",
-    label: "Done",
-  });
 
+  const researched = uniqueHosts(
+    cards.flatMap((card) => {
+      const load = loads[card.key];
+      return load?.status === "ready" ? load.sources : [];
+    })
+  );
+  const fromSearch = search
+    ? uniqueHosts(
+        search.sources.map(({ url }) => ({
+          href: url,
+          label: hostOf(url),
+        }))
+      )
+    : [];
+  const sources = pickSources(researched, fromSearch, cards);
+  const steps = buildSteps({
+    cards,
+    isDone,
+    isRead,
+    isResearching,
+    isSearched,
+    sources,
+  });
   const active = steps.findIndex((step) => !step.done);
   const lastShown = active === -1 ? steps.length - 1 : active;
-  const statusAt = (index: number): StepStatus => {
-    if (active === -1 || index < active) {
-      return "complete";
-    }
-    return index === active ? "active" : "pending";
-  };
-
-  const header =
-    isFolded && seconds !== null
-      ? `Worked for ${seconds.toFixed(1)}s`
-      : "Thinking";
 
   return (
     <ThinkingSteps open={open} onOpenChange={setOpen}>
-      <ThinkingStepsHeader>{header}</ThinkingStepsHeader>
-      <ThinkingStepsContent>
-        {steps.map((step, index) => {
-          const status = statusAt(index);
-          return (
-            <ThinkingStep
-              key={step.key}
-              icon={step.icon}
-              label={step.label}
-              description={step.description}
-              status={status}
-              isLast={index === lastShown}
-            >
-              {status === "complete" ? step.children : undefined}
-            </ThinkingStep>
-          );
-        })}
-      </ThinkingStepsContent>
+      <ThinkingStepsHeader>
+        {foldedAfter === null
+          ? "Thinking"
+          : `Worked for ${foldedAfter.toFixed(1)}s`}
+      </ThinkingStepsHeader>
+      {steps.length > 0 ? (
+        <ThinkingStepsContent>
+          {steps.map((step, index) => {
+            const status = stepStatus(active, index);
+            return (
+              <ThinkingStep
+                key={step.key}
+                icon={step.icon}
+                label={step.label}
+                status={status}
+                isLast={index === lastShown}
+              >
+                {status === "complete" ? step.children : undefined}
+              </ThinkingStep>
+            );
+          })}
+        </ThinkingStepsContent>
+      ) : null}
     </ThinkingSteps>
   );
 }

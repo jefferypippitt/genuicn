@@ -9,18 +9,12 @@ import {
 import { errorMessage } from "@/features/scoreboard/scoreboard-schema";
 import type { ScoreboardData } from "@/features/scoreboard/scoreboard-schema";
 
-/**
-How often a game in progress reads its score again.
-*/
 const POLL_MS = 30_000;
 
 function nextPoll(count: number) {
   return count + 1;
 }
 
-/**
-What came back for one set of props. A result for different props reads as still loading, so a new team never flashes the old one. A recording's score is saved, so it never polls.
-*/
 type Result =
   | { key: string; status: "ready"; data: ScoreboardData; isSaved: boolean }
   | { key: string; status: "error"; message: string };

@@ -80,10 +80,7 @@
                 "value": {
                   "type": "CardGroup",
                   "props": {},
-                  "children": [
-                    "celtics-odds",
-                    "thunder-odds"
-                  ]
+                  "children": ["celtics-odds", "thunder-odds"]
                 }
               }
             }

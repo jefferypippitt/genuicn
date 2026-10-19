@@ -1,3 +1,4 @@
+import areaChartWorldPopulation from "@/features/home/snapshot/area-chart-world-population.json";
 import cryptoBtcAll from "@/features/home/snapshot/crypto-btc-all.json";
 import flightBa117 from "@/features/home/snapshot/flight-ba117.json";
 import quote1d from "@/features/home/snapshot/quote-nvda-1d.json";
@@ -6,6 +7,7 @@ import quote1w from "@/features/home/snapshot/quote-nvda-1w.json";
 import quote1y from "@/features/home/snapshot/quote-nvda-1y.json";
 import scoreboardFinalsGame5 from "@/features/home/snapshot/scoreboard-finals-game-5.json";
 import weatherNewYork from "@/features/home/snapshot/weather-new-york.json";
+import type { AreaChartData } from "@/features/area-chart/area-chart-schema";
 import type { CryptoData } from "@/features/crypto/crypto-schema";
 import type { BoardingPassData } from "@/features/flights/flight-schema";
 import type { QuoteData, QuoteRange } from "@/features/quote/quote-schema";
@@ -28,7 +30,9 @@ Bitcoin over all time, since it first traded in October 2013.
 */
 export const GALLERY_BITCOIN = cryptoBtcAll as CryptoData;
 
-/**
-Game 5 of the 2026 NBA Finals, the Knicks at the Spurs, the game that won the Knicks the title.
-*/
 export const GALLERY_SCOREBOARD = scoreboardFinalsGame5 as ScoreboardData;
+
+/**
+World population every year since 1960, from the World Bank.
+*/
+export const GALLERY_AREA_CHART = areaChartWorldPopulation as AreaChartData;

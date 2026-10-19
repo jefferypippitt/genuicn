@@ -6,9 +6,6 @@ import { loadPlayer } from "@/features/player/player-requests";
 import { errorMessage, normalizeName } from "@/features/player/player-schema";
 import type { PlayerData } from "@/features/player/player-schema";
 
-/**
-What came back for one list of players: the ones found, in the order asked, and the names that weren't. A result for a different list reads as still loading, so the card never flashes the wrong players.
-*/
 type Result =
   | {
       key: string;
@@ -18,9 +15,6 @@ type Result =
     }
   | { key: string; status: "error"; message: string };
 
-/**
-The names the model has written so far, trimmed, without blanks or repeats.
-*/
 function namesOf(players: readonly string[] | undefined) {
   const names = (players ?? []).flatMap((name) => {
     const normalized = normalizeName(name);

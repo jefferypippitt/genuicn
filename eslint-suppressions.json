@@ -76,7 +76,7 @@
   },
   "components/changelog/changelog-view.tsx": {
     "@typescript-eslint/no-use-before-define": {
-      "count": 15
+      "count": 7
     },
     "github/prefer-observers": {
       "count": 2
@@ -87,23 +87,14 @@
     "prefer-destructuring": {
       "count": 1
     },
-    "react-doctor/no-array-index-as-key": {
-      "count": 1
-    },
     "react-doctor/no-layout-property-animation": {
       "count": 2
-    },
-    "react-doctor/no-prevent-default": {
-      "count": 1
     },
     "react-doctor/use-lazy-motion": {
       "count": 1
     },
     "sonarjs/function-name": {
       "count": 2
-    },
-    "unicorn/name-replacements": {
-      "count": 1
     },
     "unicorn/prefer-query-selector": {
       "count": 1
@@ -262,9 +253,6 @@
     }
   },
   "components/sidebar-app/nav-data.ts": {
-    "sort-keys": {
-      "count": 52
-    },
     "unicorn/no-unnecessary-array-flat-map": {
       "count": 1
     }
@@ -301,11 +289,6 @@
   "eslint.config.mjs": {
     "sort-keys": {
       "count": 1
-    }
-  },
-  "features/chat/chat-registry.tsx": {
-    "react/prop-types": {
-      "count": 35
     }
   },
   "features/chat/components/card-group.tsx": {
@@ -357,37 +340,13 @@
     "promise/prefer-await-to-then": {
       "count": 2
     },
-    "react-doctor/js-combine-iterations": {
-      "count": 1
-    },
     "react-doctor/no-ref-current-in-render": {
       "count": 1
     },
     "react-hooks/refs": {
       "count": 1
     },
-    "react-hooks/set-state-in-effect": {
-      "count": 1
-    },
     "react/hook-use-state": {
-      "count": 1
-    },
-    "sonarjs/no-inconsistent-returns": {
-      "count": 2
-    },
-    "unicorn/consistent-boolean-name": {
-      "count": 1
-    },
-    "unicorn/iteration-fallback-style": {
-      "count": 1
-    },
-    "unicorn/no-unnecessary-array-flat-map": {
-      "count": 1
-    },
-    "unicorn/no-unreadable-for-of-expression": {
-      "count": 1
-    },
-    "unicorn/no-unreadable-new-expression": {
       "count": 1
     },
     "unicorn/prefer-await": {
@@ -751,42 +710,24 @@
   },
   "lib/changelog/parse.ts": {
     "@typescript-eslint/no-non-null-assertion": {
-      "count": 6
+      "count": 3
     },
     "@typescript-eslint/no-use-before-define": {
-      "count": 5
-    },
-    "complexity": {
-      "count": 2
-    },
-    "prefer-destructuring": {
-      "count": 1
+      "count": 3
     },
     "prefer-named-capture-group": {
-      "count": 7
+      "count": 4
     },
     "require-unicode-regexp": {
-      "count": 10
-    },
-    "sonarjs/cognitive-complexity": {
-      "count": 2
+      "count": 7
     },
     "sonarjs/no-nested-template-literals": {
       "count": 1
     },
     "sonarjs/super-linear-regex": {
-      "count": 2
-    },
-    "sonarjs/too-many-break-or-continue-in-loop": {
       "count": 1
-    },
-    "sort-keys": {
-      "count": 6
     },
     "unicorn/custom-error-definition": {
-      "count": 1
-    },
-    "unicorn/name-replacements": {
       "count": 1
     },
     "unicorn/no-array-front-mutation": {
@@ -794,12 +735,6 @@
     },
     "unicorn/no-unreadable-for-of-expression": {
       "count": 1
-    },
-    "unicorn/no-unreadable-new-expression": {
-      "count": 1
-    },
-    "unicorn/prefer-simple-condition-first": {
-      "count": 2
     }
   },
   "lib/docs/chat-recording.ts": {
@@ -831,11 +766,6 @@
     },
     "unicorn/prefer-await": {
       "count": 1
-    }
-  },
-  "lib/docs/install-prompt.ts": {
-    "unicorn/no-incorrect-template-string-interpolation": {
-      "count": 15
     }
   },
   "lib/fluid-provider.tsx": {
@@ -934,11 +864,6 @@
       "count": 2
     }
   },
-  "registry/chat/chat-registry.tsx": {
-    "react/prop-types": {
-      "count": 1
-    }
-  },
   "registry/chat/page.tsx": {
     "react-doctor/nextjs-missing-metadata": {
       "count": 1
@@ -947,9 +872,6 @@
   "scripts/card-responses.mjs": {
     "no-await-in-loop": {
       "count": 1
-    },
-    "sonarjs/function-name": {
-      "count": 9
     },
     "unicorn/no-computed-property-existence-check": {
       "count": 1

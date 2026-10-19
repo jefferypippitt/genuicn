@@ -8,9 +8,6 @@ import live from "./snapshot/live.json";
 import pre from "./snapshot/pre.json";
 import type { WinProbabilityData } from "@/features/win-probability/win-probability-schema";
 
-/**
-Real ESPN chances, saved on October 17, 2026. Before tip-off: ESPN's prediction for the 76ers at the Knicks on opening night. Live: ESPN's chance halfway through the 2026 Finals Game 5, the Knicks at the Spurs, shown as the game was on. Final: how that game ended.
-*/
 const STATES = [
   { data: pre, label: "Before tip-off" },
   { data: live, label: "Live" },

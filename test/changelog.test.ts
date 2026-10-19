@@ -6,7 +6,7 @@ import {
 } from "@/lib/changelog/load";
 import { ChangelogFormatError, parseRelease } from "@/lib/changelog/parse";
 
-const FRONT = "---\nreleased: 2026-10-16\ntitle: Cards ship\n---\n";
+const FRONT = "---\nmonth: 2026-10\n---\n";
 
 function release(body: string, front = FRONT) {
   return parseRelease(`${front}\n${body}`, "test.md");
@@ -24,125 +24,91 @@ function failure(body: string, front = FRONT) {
 }
 
 describe(parseRelease, () => {
-  it("parses the intro, sections, labels, and refs", () => {
+  it("parses the month and each card", () => {
     const parsed = release(
       [
-        "The first cards.",
-        "",
-        "## New",
-        "",
-        "- [Quote](/docs/quote): A live `quote` card. (#12, abc1234)",
-        "",
-        "## Breaking",
-        "",
-        "- **Weather**: The `city` prop is required.",
-        "",
-        "  ```diff",
-        "  -<Weather />",
-        '  +<Weather city="London" />',
-        "  ```",
+        "- [Quote](/docs/quote): A live `quote` card.",
+        "- [Weather](/docs/weather): The next six hours.",
       ].join("\n")
     );
 
-    expect(parsed).toMatchObject({
-      intro: [{ type: "text", value: "The first cards." }],
-      month: "2026-10",
-      released: "2026-10-16",
-      title: "Cards ship",
-    });
-    expect(parsed.groups.map((group) => group.kind)).toStrictEqual([
-      "new",
-      "breaking",
+    expect(parsed.month).toBe("2026-10");
+    expect(parsed.cards).toStrictEqual([
+      {
+        href: "/docs/quote",
+        isNew: false,
+        name: "Quote",
+        text: [
+          { type: "text", value: "A live " },
+          { type: "code", value: "quote" },
+          { type: "text", value: " card." },
+        ],
+      },
+      {
+        href: "/docs/weather",
+        isNew: false,
+        name: "Weather",
+        text: [{ type: "text", value: "The next six hours." }],
+      },
     ]);
-    expect(parsed.groups[0].entries[0]).toStrictEqual({
-      diff: null,
-      href: "/docs/quote",
-      kind: "new",
-      name: "Quote",
-      refs: [
-        { number: 12, type: "pr" },
-        { sha: "abc1234", type: "commit" },
-      ],
-      text: [
-        { type: "text", value: "A live " },
-        { type: "code", value: "quote" },
-        { type: "text", value: " card." },
-      ],
-    });
-    expect(parsed.groups[1].entries[0]).toMatchObject({
-      diff: '-<Weather />\n+<Weather city="London" />',
-      href: null,
-      name: "Weather",
-    });
   });
 
-  it.each(["2026-02-31", "2026-10"])("rejects released: %s", (day) => {
-    const front = `---\nreleased: ${day}\ntitle: Cards ship\n---\n`;
-
-    expect(failure("## New\n\n- **A**: B.", front)).toContain(
-      "must be a real YYYY-MM-DD day"
+  it.each(["2026-13", "2026-10-16"])("rejects month: %s", (month) => {
+    expect(failure("- [A](/a): B.", `---\nmonth: ${month}\n---\n`)).toContain(
+      "`month` must be YYYY-MM"
     );
   });
 
-  it("rejects a release with no released day", () => {
+  it("marks the cards listed under new", () => {
+    const parsed = release(
+      "- [Quote](/docs/quote): A.\n- [Weather](/docs/weather): B.",
+      "---\nmonth: 2026-10\nnew: /docs/weather\n---\n"
+    );
+
+    expect(parsed.cards.map((card) => card.isNew)).toStrictEqual([false, true]);
+  });
+
+  it("rejects a new route that no card links to", () => {
     expect(
-      failure("## New\n\n- **A**: B.", "---\ntitle: Cards ship\n---\n")
-    ).toContain("must be a real YYYY-MM-DD day");
+      failure("- [A](/a): B.", "---\nmonth: 2026-10\nnew: /b\n---\n")
+    ).toContain("which no card in this month links to");
   });
 
   it.each([
-    [
-      "sections out of order",
-      "## Updated\n\n- **A**: B.\n\n## New\n\n- **A**: B.",
-      "sections run New, Breaking, Updated",
-    ],
-    [
-      "an empty section",
-      "## New\n\n## Updated\n\n- **A**: B.",
-      "previous section has no entries",
-    ],
-    [
-      "an off-site label link",
-      "## New\n\n- [A](//evil.com): B.",
-      "use a site route",
-    ],
-    ["a missing period", "## New\n\n- **A**: B", "ends with a period"],
-    ["a lowercase sentence", "## New\n\n- **A**: b.", "starts with a capital"],
-    [
-      "a Breaking entry without a diff",
-      "## Breaking\n\n- **A**: B.",
-      "needs a ```diff block",
-    ],
-    ["a bad ref", "## New\n\n- **A**: B. (#x)", "is not a PR"],
+    ["a heading", "## New\n\n- [A](/a): B.", "one `-` bullet list"],
+    ["a numbered list", "1. [A](/a): B.", "one `-` bullet list"],
+    ["text after the list", "- [A](/a): B.\n\nMore.", "nothing goes after"],
+    ["a label with no link", "- **A**: B.", "starts with `[Card]"],
+    ["an off-site link", "- [A](//evil.com): B.", "use a site route"],
+    ["a missing period", "- [A](/a): B", "ends with a period"],
+    ["a lowercase sentence", "- [A](/a): b.", "starts with a capital"],
   ])("rejects %s", (_, body, message) => {
     expect(failure(body)).toContain(message);
   });
 
   it("names the file and line in the error", () => {
-    expect(failure("## New\n\n- **A**: b.")).toMatch(/^test\.md:8: /u);
+    expect(failure("- [A](/a): b.")).toMatch(/^test\.md:5: /u);
   });
 });
 
 describe("content/changelog", () => {
-  it("every release file parses and matches its file name", () => {
+  it("every month file parses and matches its file name", () => {
     expect(loadReleases().length).toBeGreaterThan(0);
   });
 });
 
 describe(latestNewHrefs, () => {
-  it("lists the newest release's New pages and nothing older", () => {
+  it("lists only the newest month's new cards", () => {
     const [latest] = loadReleases();
-    const expected =
-      latest.groups
-        .find((group) => group.kind === "new")
-        ?.entries.flatMap((entry) => entry.href ?? []) ?? [];
 
-    expect(latestNewHrefs()).toStrictEqual(expected);
+    expect(latestNewHrefs()).toStrictEqual(
+      latest.cards.filter((card) => card.isNew).map((card) => card.href)
+    );
   });
 });
 
 describe(releaseLabel, () => {
-  it("formats a release day in UTC", () => {
-    expect(releaseLabel("2026-01-05")).toBe("January 5, 2026");
+  it("formats a release month in UTC", () => {
+    expect(releaseLabel("2026-01")).toBe("January 2026");
   });
 });

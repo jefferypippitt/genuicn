@@ -5,9 +5,6 @@ const sharedScoreboardRequests = new Map<
   string,
   { expiresAt: number; scoreboard: Promise<ScoreboardData> }
 >();
-/**
-Short, since a live score moves: a card polling a game in progress gets a fresh score each time.
-*/
 const REUSE_MS = 20_000;
 
 /**
@@ -18,9 +15,6 @@ export interface ScoreboardRequest {
   readonly date?: string | null;
 }
 
-/**
-One key per team and day. A missing date and a null one both mean the team's current game.
-*/
 function scoreboardKey(request: ScoreboardRequest) {
   const name = (normalizeTeam(request.team) ?? request.team).toLowerCase();
   const day = request.date ?? "current";

@@ -26,23 +26,14 @@ export interface ScoreboardCardProperties {
   readonly className?: string;
 }
 
-/**
-One plain surface for the whole card.
-*/
 const CARD_FRAME = `${SHARED_CARD_FRAME} w-full max-w-[500px]`;
 
 const MUTED = "text-muted-foreground";
 
-/**
-Away team, score, home team in one row. Each team is a column (logo, name, record) as wide as its name, and only truncates when the card runs out of room.
-*/
 const MATCHUP = "flex items-start justify-between gap-3";
 
 const TEAM_COLUMN = "flex min-w-0 flex-col items-stretch gap-1 text-center";
 
-/**
-The score sits level with the logos.
-*/
 const MIDDLE = "flex h-14 shrink-0 items-center justify-center";
 
 const PRE_GAME_SEPARATOR = " - ";
@@ -55,16 +46,10 @@ function startTime(status: string) {
   return rest.join(PRE_GAME_SEPARATOR) || status;
 }
 
-/**
-"3-2" reads "(3 - 2)", as on a scoreboard.
-*/
 function formatRecord(record: string) {
   return `(${record.replaceAll("-", " - ")})`;
 }
 
-/**
-One of the logo's two images: the light one, or the one ESPN draws for dark backgrounds. The theme hides the other.
-*/
 const LogoImage = ({
   src,
   onError,
@@ -124,9 +109,6 @@ const LiveDot = () => (
   </span>
 );
 
-/**
-The top right: "Final", the live clock, or nothing before the game (its time is in the middle).
-*/
 const Status = ({ data }: { readonly data: ScoreboardData }) => {
   if (data.state === "pre") {
     return data.broadcast ? (
@@ -142,9 +124,6 @@ const Status = ({ data }: { readonly data: ScoreboardData }) => {
   );
 };
 
-/**
-The middle of the card: the score once the game starts, the start time before it.
-*/
 const Middle = ({ data }: { readonly data: ScoreboardData }) => {
   if (data.state === "pre") {
     return (
@@ -177,9 +156,6 @@ const TeamName = ({ team }: { readonly team: ScoreboardTeam }) => (
 
 const LINE_CELL = "w-9 py-1 text-right tabular-nums";
 
-/**
-The score of each quarter played so far, as on a box score: one column per period (overtimes after the fourth) and the total. A game in progress only shows the quarters started, and the current one counts up.
-*/
 const LineScore = ({ data }: { readonly data: ScoreboardData }) => {
   const count = Math.max(data.away.periods.length, data.home.periods.length);
   if (count === 0) {
@@ -227,9 +203,6 @@ const LineScore = ({ data }: { readonly data: ScoreboardData }) => {
   );
 };
 
-/**
-"NBA" and the day. A Finals game says "NBA Finals" and its game number instead.
-*/
 const Title = ({ data }: { readonly data: ScoreboardData }) => {
   const { series } = data;
   const game = series?.isFinals && series.game ? ` · Game ${series.game}` : "";
@@ -245,9 +218,6 @@ const Title = ({ data }: { readonly data: ScoreboardData }) => {
   );
 };
 
-/**
-The line under the score. The Finals header already says the stage and game, so a Finals game only shows the series.
-*/
 function stageLine(data: ScoreboardData) {
   return data.series?.isFinals ? data.series.summary : data.stage;
 }

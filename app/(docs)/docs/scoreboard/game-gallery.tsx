@@ -17,9 +17,6 @@ import upcoming from "./snapshot/upcoming.json";
 import westFinals from "./snapshot/west-finals.json";
 import type { ScoreboardData } from "@/features/scoreboard/scoreboard-schema";
 
-/**
-One tab per part of the season, each with two real games as /api/scoreboard answered them on October 17, 2026.
-*/
 const PHASES = [
   {
     games: [

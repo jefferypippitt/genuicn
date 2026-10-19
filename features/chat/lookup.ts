@@ -1,9 +1,9 @@
 /**
-Where a card's data comes from: a source badge that links there.
+Where a card's data comes from, for the "Read N sources" step.
 */
 export interface Source {
   /**
-  What the badge says, e.g. "finance.yahoo.com/quote/NVDA".
+  Host or short name, e.g. "finance.yahoo.com".
   */
   label: string;
   href: string;
@@ -11,7 +11,7 @@ export interface Source {
 
 export interface CardLookup {
   /**
-  What the question asked for, given the cards' subjects: the description under "Understanding the question", e.g. "A stock quote for NVDA" or "The weather in London and Paris".
+  What the question asked for, given the cards' subjects — e.g. "A stock quote for NVDA".
   */
   intent: (subjects: readonly string[]) => string;
   /**
@@ -21,9 +21,16 @@ export interface CardLookup {
   /** The card's own request for these props (shared, so the card reuses it
    *  when it mounts instead of fetching again). */
   load: (properties: Record<string, unknown>) => Promise<unknown>;
-  /** Where this card's data comes from, shown as linked source badges.
-   *  Badges with the same link appear once per reply. */
+  /**
+  Known source(s) for this card (Yahoo, ESPN, …). Used in "Read N sources"
+  when the load doesn't discover a more specific page.
+  */
   sources: (properties: Record<string, unknown>) => readonly Source[];
+  /**
+  Sources discovered only after the card's request lands (e.g. Parallel's
+  extracted page). Wins over `sources` when present.
+  */
+  resultSources?: (result: unknown) => readonly Source[];
 }
 
 /**

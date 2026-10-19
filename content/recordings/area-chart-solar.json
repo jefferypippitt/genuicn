@@ -1,0 +1,572 @@
+{
+  "version": 1,
+  "turns": [
+    {
+      "prompt": "how much of US electricity comes from solar?",
+      "chunks": [
+        {
+          "wait": 0,
+          "chunk": {
+            "type": "start",
+            "messageId": "area-chart-solar-1"
+          }
+        },
+        {
+          "wait": 400,
+          "chunk": {
+            "type": "start-step"
+          }
+        },
+        {
+          "wait": 0,
+          "chunk": {
+            "type": "text-start",
+            "id": "0"
+          }
+        },
+        {
+          "wait": 180,
+          "chunk": {
+            "type": "text-end",
+            "id": "0"
+          }
+        },
+        {
+          "wait": 0,
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "chart"
+              }
+            }
+          }
+        },
+        {
+          "wait": 0,
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/chart",
+                "value": {
+                  "type": "AreaChartCard",
+                  "props": {
+                    "topic": "US solar share of electricity",
+                    "range": "max",
+                    "ranges": false
+                  },
+                  "children": []
+                }
+              }
+            }
+          }
+        },
+        {
+          "wait": 250,
+          "chunk": {
+            "type": "finish-step"
+          }
+        },
+        {
+          "wait": 0,
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          }
+        }
+      ]
+    }
+  ],
+  "responsesByUrl": {
+    "/api/area-chart?topic=US%20solar%20share%20of%20electricity&range=10y": {
+      "asOf": 1792300107322,
+      "change": 150063,
+      "changePercent": 62.80442124911587,
+      "fake": false,
+      "label": "Solar generation, utility-scale plus small-scale (GWh, not a share)",
+      "place": "United States",
+      "points": [
+        {
+          "value": 238937,
+          "year": 2023
+        },
+        {
+          "value": 303752,
+          "year": 2024
+        },
+        {
+          "value": 389000,
+          "year": 2025
+        }
+      ],
+      "range": "10y",
+      "scale": "number",
+      "sourceHref": "https://www.eia.gov/todayinenergy/detail.php?id=67367",
+      "sourceLabel": "U.S. Energy Information Administration",
+      "topic": "US solar share of electricity",
+      "value": 389000
+    },
+    "/api/area-chart?topic=US%20solar%20share%20of%20electricity&range=25y": {
+      "asOf": 1792300118111,
+      "change": 8.588125849999999,
+      "changePercent": 59283.03541536517,
+      "fake": false,
+      "label": "Solar share of electricity generation",
+      "place": "United States",
+      "points": [
+        {
+          "value": 0.01448665,
+          "year": 2001
+        },
+        {
+          "value": 0.014307157,
+          "year": 2002
+        },
+        {
+          "value": 0.013698842,
+          "year": 2003
+        },
+        {
+          "value": 0.014676299,
+          "year": 2004
+        },
+        {
+          "value": 0.0136307655,
+          "year": 2005
+        },
+        {
+          "value": 0.012602114,
+          "year": 2006
+        },
+        {
+          "value": 0.01472516,
+          "year": 2007
+        },
+        {
+          "value": 0.020937158,
+          "year": 2008
+        },
+        {
+          "value": 0.022589864,
+          "year": 2009
+        },
+        {
+          "value": 0.029412195,
+          "year": 2010
+        },
+        {
+          "value": 0.044511076,
+          "year": 2011
+        },
+        {
+          "value": 0.10716045,
+          "year": 2012
+        },
+        {
+          "value": 0.2229011,
+          "year": 2013
+        },
+        {
+          "value": 0.706053,
+          "year": 2014
+        },
+        {
+          "value": 0.955683,
+          "year": 2015
+        },
+        {
+          "value": 1.3423656,
+          "year": 2016
+        },
+        {
+          "value": 1.9070604,
+          "year": 2017
+        },
+        {
+          "value": 2.2220373,
+          "year": 2018
+        },
+        {
+          "value": 2.5704722,
+          "year": 2019
+        },
+        {
+          "value": 3.2330987,
+          "year": 2020
+        },
+        {
+          "value": 3.9584746,
+          "year": 2021
+        },
+        {
+          "value": 4.783654,
+          "year": 2022
+        },
+        {
+          "value": 5.61695,
+          "year": 2023
+        },
+        {
+          "value": 6.917527,
+          "year": 2024
+        },
+        {
+          "value": 8.6026125,
+          "year": 2025
+        }
+      ],
+      "range": "25y",
+      "scale": "percent",
+      "sourceHref": "https://ourworldindata.org/grapher/electricity-mix?frequency=annual&metric=share_of_generation&source=solar",
+      "sourceLabel": "Our World in Data (Ember)",
+      "topic": "US solar share of electricity",
+      "value": 8.6026125
+    },
+    "/api/area-chart?topic=US%20solar%20share%20of%20electricity&range=50y": {
+      "asOf": 1792300143980,
+      "change": 8.602208406379999,
+      "changePercent": 2128766.2018469875,
+      "fake": false,
+      "label": "Solar share of electricity generation",
+      "place": "United States",
+      "points": [
+        {
+          "value": 0.00040409362,
+          "year": 1985
+        },
+        {
+          "value": 0.00052963896,
+          "year": 1986
+        },
+        {
+          "value": 0.00038247637,
+          "year": 1987
+        },
+        {
+          "value": 0.00031518374,
+          "year": 1988
+        },
+        {
+          "value": 0.008022068,
+          "year": 1989
+        },
+        {
+          "value": 0.011469849,
+          "year": 1990
+        },
+        {
+          "value": 0.014622231,
+          "year": 1991
+        },
+        {
+          "value": 0.01244811,
+          "year": 1992
+        },
+        {
+          "value": 0.013956147,
+          "year": 1993
+        },
+        {
+          "value": 0.014511175,
+          "year": 1994
+        },
+        {
+          "value": 0.01442175,
+          "year": 1995
+        },
+        {
+          "value": 0.014777073,
+          "year": 1996
+        },
+        {
+          "value": 0.014333735,
+          "year": 1997
+        },
+        {
+          "value": 0.013606987,
+          "year": 1998
+        },
+        {
+          "value": 0.013168934,
+          "year": 1999
+        },
+        {
+          "value": 0.012887615,
+          "year": 2000
+        },
+        {
+          "value": 0.01448665,
+          "year": 2001
+        },
+        {
+          "value": 0.014307157,
+          "year": 2002
+        },
+        {
+          "value": 0.013698842,
+          "year": 2003
+        },
+        {
+          "value": 0.014676299,
+          "year": 2004
+        },
+        {
+          "value": 0.0136307655,
+          "year": 2005
+        },
+        {
+          "value": 0.012602114,
+          "year": 2006
+        },
+        {
+          "value": 0.01472516,
+          "year": 2007
+        },
+        {
+          "value": 0.020937158,
+          "year": 2008
+        },
+        {
+          "value": 0.022589864,
+          "year": 2009
+        },
+        {
+          "value": 0.029412195,
+          "year": 2010
+        },
+        {
+          "value": 0.044511076,
+          "year": 2011
+        },
+        {
+          "value": 0.10716045,
+          "year": 2012
+        },
+        {
+          "value": 0.2229011,
+          "year": 2013
+        },
+        {
+          "value": 0.706053,
+          "year": 2014
+        },
+        {
+          "value": 0.955683,
+          "year": 2015
+        },
+        {
+          "value": 1.3423656,
+          "year": 2016
+        },
+        {
+          "value": 1.9070604,
+          "year": 2017
+        },
+        {
+          "value": 2.2220373,
+          "year": 2018
+        },
+        {
+          "value": 2.5704722,
+          "year": 2019
+        },
+        {
+          "value": 3.2330987,
+          "year": 2020
+        },
+        {
+          "value": 3.9584746,
+          "year": 2021
+        },
+        {
+          "value": 4.783654,
+          "year": 2022
+        },
+        {
+          "value": 5.61695,
+          "year": 2023
+        },
+        {
+          "value": 6.917527,
+          "year": 2024
+        },
+        {
+          "value": 8.6026125,
+          "year": 2025
+        }
+      ],
+      "range": "50y",
+      "scale": "percent",
+      "sourceHref": "https://ourworldindata.org/grapher/share-electricity-solar",
+      "sourceLabel": "Our World in Data (Ember)",
+      "topic": "US solar share of electricity",
+      "value": 8.6026125
+    },
+    "/api/area-chart?topic=US%20solar%20share%20of%20electricity&range=max": {
+      "asOf": 1792300168013,
+      "change": 8.591142651,
+      "changePercent": 74901.96820376624,
+      "fake": false,
+      "label": "Solar share of electricity generation",
+      "place": "United States",
+      "points": [
+        {
+          "value": 0.011469849,
+          "year": 1990
+        },
+        {
+          "value": 0.014622231,
+          "year": 1991
+        },
+        {
+          "value": 0.01244811,
+          "year": 1992
+        },
+        {
+          "value": 0.013956147,
+          "year": 1993
+        },
+        {
+          "value": 0.014511175,
+          "year": 1994
+        },
+        {
+          "value": 0.01442175,
+          "year": 1995
+        },
+        {
+          "value": 0.014777073,
+          "year": 1996
+        },
+        {
+          "value": 0.014333735,
+          "year": 1997
+        },
+        {
+          "value": 0.013606987,
+          "year": 1998
+        },
+        {
+          "value": 0.013168934,
+          "year": 1999
+        },
+        {
+          "value": 0.012887615,
+          "year": 2000
+        },
+        {
+          "value": 0.01448665,
+          "year": 2001
+        },
+        {
+          "value": 0.014307157,
+          "year": 2002
+        },
+        {
+          "value": 0.013698842,
+          "year": 2003
+        },
+        {
+          "value": 0.014676299,
+          "year": 2004
+        },
+        {
+          "value": 0.0136307655,
+          "year": 2005
+        },
+        {
+          "value": 0.012602114,
+          "year": 2006
+        },
+        {
+          "value": 0.01472516,
+          "year": 2007
+        },
+        {
+          "value": 0.020937158,
+          "year": 2008
+        },
+        {
+          "value": 0.022589864,
+          "year": 2009
+        },
+        {
+          "value": 0.029412195,
+          "year": 2010
+        },
+        {
+          "value": 0.044511076,
+          "year": 2011
+        },
+        {
+          "value": 0.10716045,
+          "year": 2012
+        },
+        {
+          "value": 0.2229011,
+          "year": 2013
+        },
+        {
+          "value": 0.706053,
+          "year": 2014
+        },
+        {
+          "value": 0.955683,
+          "year": 2015
+        },
+        {
+          "value": 1.3423656,
+          "year": 2016
+        },
+        {
+          "value": 1.9070604,
+          "year": 2017
+        },
+        {
+          "value": 2.2220373,
+          "year": 2018
+        },
+        {
+          "value": 2.5704722,
+          "year": 2019
+        },
+        {
+          "value": 3.2330987,
+          "year": 2020
+        },
+        {
+          "value": 3.9584746,
+          "year": 2021
+        },
+        {
+          "value": 4.783654,
+          "year": 2022
+        },
+        {
+          "value": 5.61695,
+          "year": 2023
+        },
+        {
+          "value": 6.917527,
+          "year": 2024
+        },
+        {
+          "value": 8.6026125,
+          "year": 2025
+        }
+      ],
+      "range": "max",
+      "scale": "percent",
+      "sourceHref": "https://ourworldindata.org/grapher/electricity-mix?frequency=annual&metric=share_of_generation&source=solar&country=USA",
+      "sourceLabel": "Our World in Data (Ember)",
+      "topic": "US solar share of electricity",
+      "value": 8.6026125
+    }
+  }
+}

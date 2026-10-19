@@ -27,9 +27,6 @@ export interface WeatherCardProps {
 
 const CARD_FRAME = "relative isolate w-full max-w-sm rounded-2xl p-4";
 
-/**
-The ready card is the sky itself, with white text over it. A faint shadow keeps the text readable on a bright sky.
-*/
 const SCENE = "text-white [text-shadow:0_1px_2px_rgb(0_0_0/0.2)]";
 
 /**

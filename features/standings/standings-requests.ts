@@ -7,9 +7,6 @@ const sharedStandingsRequests = new Map<
   Conference,
   { expiresAt: number; standings: Promise<StandingsData> }
 >();
-/**
-Standings move once a game ends, so a minute is fresh enough.
-*/
 const REUSE_MS = 60_000;
 
 async function fetchStandings(conference: Conference) {

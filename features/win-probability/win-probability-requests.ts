@@ -5,9 +5,6 @@ const sharedWinProbabilityRequests = new Map<
   string,
   { expiresAt: number; chances: Promise<WinProbabilityData> }
 >();
-/**
-Short, since a live game's chances move with every play: a card polling a game in progress gets fresh ones each time.
-*/
 const REUSE_MS = 20_000;
 
 /**
@@ -18,9 +15,6 @@ export interface WinProbabilityRequest {
   readonly date?: string | null;
 }
 
-/**
-One key per team and day. A missing date and a null one both mean the team's current game.
-*/
 function requestKey(request: WinProbabilityRequest) {
   const name = (normalizeTeam(request.team) ?? request.team).toLowerCase();
   return `${name}:${request.date ?? "current"}`;
