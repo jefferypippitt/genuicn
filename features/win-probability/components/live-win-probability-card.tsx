@@ -9,18 +9,12 @@ import {
 import { errorMessage } from "@/features/win-probability/win-probability-schema";
 import type { WinProbabilityData } from "@/features/win-probability/win-probability-schema";
 
-/**
-How often a game in progress reads its chances again.
-*/
 const POLL_MS = 30_000;
 
 function nextPoll(count: number) {
   return count + 1;
 }
 
-/**
-What came back for one set of props. A result for different props reads as still loading, so a new game never flashes the old one. A recording's chances are saved, so it never polls.
-*/
 type Result =
   | {
       key: string;

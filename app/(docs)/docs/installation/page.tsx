@@ -116,7 +116,7 @@ export default function InstallationPage() {
         <p className="text-muted-foreground">
           Get a key from the Vercel dashboard under AI Gateway, API Keys, then
           open <code className="font-mono">/chat</code>. The chat uses{" "}
-          <code className="font-mono">anthropic/claude-haiku-4.5</code> by
+          <code className="font-mono">anthropic/claude-haiku-5.5</code> by
           default. To use another model, set{" "}
           <code className="font-mono">AI_GATEWAY_MODEL</code> to any AI Gateway
           model ID.

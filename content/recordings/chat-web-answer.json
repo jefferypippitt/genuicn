@@ -1,0 +1,6231 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "Jos86jhGgFabx2AN"
+          },
+          "wait": 2
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 917
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011Cg9DHcxSJKNVjXcMqchAN",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 8813,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 6,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 396
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "CAQSmQcKEAgSGAI4AUIIdGhpbmtpbmcSDItB0QW2maZdIvkZuBoMbn5/aWYLWm87YlaJIjCx+5T44UytjCUk7KXasALT2URBbzGAJkRg3SGx/MfOd8PohF4M6MGybwfJHjn20TsqtgYDS1nwU/qdwqNBcz1UTHPV5LpprQV86S0AVBEM7KVOSmIdWhvcD6CTPPm5ZAduLQ1PlVPzFjARjYhKeAKWnuJ1qj+d/I8mH/NaA5W8ohlZ15nB5pXBd+OdLc2eAL0aUz3hufGC7hayYNgyLzJYVlLCqtgnwxMadZJfLb/yT5AACe/iwc23htXW45YcyJ4wIvK8iVFLJyt6k+bOjTR0oeo3sVRZ+zOOiysUDVGr2/9cbvDNArV5LL8/jHwoJn1peZjP+IHkDPe9zEgnZZWDa120XCvPmjw8Xg2I5MSNFge7BBV88RQDgp0GjWZcBrRaA/WXf1fECJ3RVXQPmDAMlttiSQsBpUMaW5NEPNtQEwb5f89n4xrBPTqG6egtCHr6hmLj6c4swN2af4T+xFJoIHkAUxz6gfysQpSK2KcaRjg25BPhRGLjVdoF0vvEEtv0FyrCgEB/ayrM1SFMowG+qMrXvKtyDOxNg4LdIsusAfY/swv7FHPRYolzc2cGcj4/jmg5q9jkO5Pb09cqsduI30ISfJvLMcB6ZLxwL1ZCwQ5DjQ+8rTQAzapgrj6QdD9zbD/aEW4DfbYtb+W4SO9hnQrKLQ9g40/YKTaoXGxEZ6+yNyTT1xjzYizKsfLl7RAxwfeiXBBhfRHfal81S0CK51oEsgkZzbXf/9XTT5MA5IYpeYR5UN2a235VlcOhHXw5+bTVrbPhCFglVlWNIVeFqxm+DJ97fAazQs+Wrbsir/h1+arXYn6q+H8/epkDgTvCg7TOezpzugFEYxbNDEMa6cI4VlAQ0pzt36P9ARmJPwcUvaA+eAHhbjFbDkuMQsiaqjOHrzQrXeHescDiq+psz6wH/1GvzrhxHpoR8xQaEarO24LTGyEsAc7ySA6ygjR+y7EpfAEcsm+AB7fsdU1Vj8arCzB6E0x33SvUopTNO+ymJ2WJti7+Xxxk73Y2yfotpwBN805S8Sk8GN4pnoLRQAvek9SwZbe+1LPOmb9uUIlZijewUNJmBkv+81cPz0h3w4qFiPtztuti4x0QEHOAJeU9Qa4591Ku8bOcXRDX5w+duHProvVHjHp8kNhcP3T0NB8FcJp1pNkYAQ=="
+              }
+            }
+          },
+          "wait": 3
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "tool-input-start",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "toolName": "webSearch",
+            "dynamic": false
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": "{\"objective\": \"Find military"
+          },
+          "wait": 44
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": " death"
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": " to"
+          },
+          "wait": 25
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": "ll of"
+          },
+          "wait": 8
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": " World War 2 in"
+          },
+          "wait": 18
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": " total and by country,"
+          },
+          "wait": 27
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": " from"
+          },
+          "wait": 13
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": " encyclopedic"
+          },
+          "wait": 22
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": " or academ"
+          },
+          "wait": 18
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": "ic sources."
+          },
+          "wait": 22
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": "\", \"queries\": [\"World War II military dea"
+          },
+          "wait": 64
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": "ths by country\","
+          },
+          "wait": 18
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": " \"World"
+          },
+          "wait": 20
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": " War II military cas"
+          },
+          "wait": 20
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": "ualties total estimate\""
+          },
+          "wait": 22
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": "]"
+          },
+          "wait": 23
+        },
+        {
+          "chunk": {
+            "type": "tool-input-delta",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "inputTextDelta": "}"
+          },
+          "wait": 65
+        },
+        {
+          "chunk": {
+            "type": "tool-input-available",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "toolName": "webSearch",
+            "input": {
+              "objective": "Find military death toll of World War 2 in total and by country, from encyclopedic or academic sources.",
+              "queries": [
+                "World War II military deaths by country",
+                "World War II military casualties total estimate"
+              ]
+            },
+            "providerMetadata": {
+              "anthropic": {
+                "caller": {
+                  "type": "direct"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "tool-output-available",
+            "toolCallId": "toolu_01Ki3vicvuh54LV28nDnXXVb",
+            "output": {
+              "results": [
+                {
+                  "excerpts": [
+                    "[](https://en.wikipedia.org/wiki/File:World_War_II_Casualties.svg) World War II deaths by country\n\n[World War II](https://en.wikipedia.org/wiki/World_War_II \"World War II\") (WWII) was the [deadliest military conflict in history](https://en.wikipedia.org/wiki/List_of_wars_by_death_toll \"List of wars by death toll\") . An estimated total of 60–75 million deaths were caused by the conflict, including those who died from deprivation, famine and disease. [[ 1 ]]() [[ 2 ]]() [[ 3 ]]() This represents about 3% of the estimated global population of 2.3 billion in 1940. [[ 4 ]]() Deaths directly caused by the war (including military and civilian fatalities) are estimated at 50–56 million, with an additional estimated 19–28 million deaths from war-related disease and famine. [ _[citation needed](https://en.wikipedia.org/wiki/Wikipedia:Citation_needed \"Wikipedia:Citation needed\")_ ] [Civilian](https://en.wikipedia.org/wiki/Civilian \"Civilian\") deaths totaled 50–55 million.\n\n...\n\nCompiling or estimating the numbers of [deaths and wounded](https://en.wikipedia.org/wiki/Casualty_\\(person\\) \"Casualty (person)\") caused during wars and other violent conflicts is a [controversial subject](https://en.wikipedia.org/wiki/Conflict_epidemiology \"Conflict epidemiology\") . Historians often put forward many different estimates of the numbers killed and wounded during World War II. [[ 21 ]]() The authors of the _Oxford Companion to World War II_ maintain that \"casualty statistics are notoriously unreliable\". [[ 22 ]]() The table below gives data on the number of dead and military wounded for each country, along with population information to show the relative impact of losses. When scholarly sources differ on the number of deaths in a country, a range of war losses is given, in order to inform readers that the death toll is disputed.\n\n...\n\ncrimes](https://en.wikipedia.org/wiki/Japanese_war_crimes \"Japanese war crimes\") , [population transfers in the Soviet Union](https://en.wikipedia.org/wiki/Population_transfer_in_the_Soviet_Union \"Population transfer in the Soviet Union\") , [Allied war crimes](https://en.wikipedia.org/wiki/Allied_war_crimes_during_World_War_II \"Allied war crimes during World War II\") , and deaths due to war-related famine and disease.\n\nThe sources for the casualties of the individual countries do not use the same methods, and civilian deaths due to starvation and disease make up a large proportion of the civilian deaths in China and the Soviet Union. The losses listed here are actual deaths; hypothetical losses due to a decline in births are not included with the total dead. The distinction between military and civilian casualties caused directly by warfare and [collateral damage](https://en.wikipedia.org/wiki/Collateral_damage \"Collateral damage\") is not always clear-cut.\n\n...\n\nThe footnotes give a detailed breakdown of the casualties and their sources, including data on the number of wounded where reliable sources are available. Several categories are used to classify World War II casualties, mainly to separate between military people and civilians. Due to the broad effects of war-induced famines, genocides like the Holocaust, and strategic bombings, civilian casualties frequently outnumbered military fatalities.\n\n## Human losses by country\n\n### Total deaths by country\n\n|Country |Total population  \n1/1/1939 |Military deaths from all causes |Civilian deaths due to military activity and crimes against humanity |Civilian deaths due to war-related famine and disease |Total deaths |Deaths as % of 1939 population |Average deaths as % of 1939 population |Military wounded |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|**[Albania](https://en.wikipedia.org/wiki/Albania \"Albania\")\n\n...\n\n### Soviet Union\n\nMain article: [World War II casualties of the Soviet Union](https://en.wikipedia.org/wiki/World_War_II_casualties_of_the_Soviet_Union \"World War II casualties of the Soviet Union\")\n\n**The estimated breakdown for each Soviet republic"
+                  ],
+                  "id": 1,
+                  "published": "2003-06-05",
+                  "title": "World War II casualties - Wikipedia",
+                  "url": "https://en.wikipedia.org/wiki/World_War_II_casualties"
+                },
+                {
+                  "excerpts": [
+                    "com/how-many-people-died)\n\n* * *\n\n[Our Methodology](https://worldpopulationreview.com/methodology) [View all articles](https://worldpopulationreview.com/categories)\n\nTools\n\n#### Tools\n\nInteractive utilities and generators.\n\n[Random ZIP Code Generator](https://worldpopulationreview.com/tools/random-zip-code) [Random State Generator](https://worldpopulationreview.com/tools/random-state) [What County Am I In?](https://worldpopulationreview.com/tools/county-finder)\n\n[History](https://worldpopulationreview.com/categories/history) > World War II Casualties by Country 2026\n\nWorld War II\n\n# World War II Casualties by Country 2026\n\nmap placeholder\n\nTotal Deaths During WWII (M)\n\n0\n\n5M\n\n10M\n\n15M\n\n20M\n\n25M\n\n## 6Countries with the most World War II Deaths\n\n[Russia Flag](https://worldpopulationreview.com/countries/russia)\n\n## [Russia](https://worldpopulationreview.com/countries/russia)\n\n26\\.6M\n\n[China Flag](https://worldpopulationreview.com/countries/china)\n\n##\n[China](https://worldpopulationreview.com/countries/china)\n\n20M\n\n[Germany Flag](https://worldpopulationreview.com/countries/germany)\n\n## [Germany](https://worldpopulationreview.com/countries/germany)\n\n7\\.4M\n\n[Ukraine Flag](https://worldpopulationreview.com/countries/ukraine)\n\n## [Ukraine](https://worldpopulationreview.com/countries/ukraine)\n\n6\\.8M\n\n[Poland Flag](https://worldpopulationreview.com/countries/poland)\n\n## [Poland](https://worldpopulationreview.com/countries/poland)\n\n6M\n\n[Japan Flag](https://worldpopulationreview.com/countries/japan)\n\n## [Japan](https://worldpopulationreview.com/countries/japan)\n\n3\\.1M Total Casualties Casualty Type Breakdown\n\n| |Country |Total Deaths During WWII (M) ↓ |Casualties as % of Population |Population Estimate 1939 |\n| --- | --- | --- | --- | --- |\n|Russia Flag |[Russia](https://worldpopulationreview.com/countries/russia) |26\\.6M |12\\.67% |110\\.1M |\n|China Flag |[China](https://worldpopulationreview.com/countries/china) |20M |3\\.86% |517\\.6M |\n\n...\n\ncom/countries/switzerland) |100 | |4\\.2M |\n| |**Total** |86\\.6M | | |\n\n* During World War II, several modern countries were part of larger states, including the Soviet Union and Yugoslavia. Casualties are presented in the table according to modern country boundaries.\n* Historical totals for countries such as the Soviet Union are commonly cited as aggregated figures, which reflect the combined losses of their former republics.\n* World War II casualty figures are estimates based on historical research; exact totals remain uncertain due to incomplete wartime records.\n\n#### Snapshot\n\n* The Soviet Union suffered the highest total losses of World War II, with an estimated 20–27 million deaths.\n* Countries such as Mexico, Switzerland, and Turkey recorded some of the lowest total wartime deaths.\n* Several Eastern European countries lost more than 10% of their 1939 population during the war.\nSoviet Union Casualty Estimates During World War II, the Soviet Union existed as a single country and is commonly cited as having suffered 20–27 million deaths. In this dataset, casualties are presented by modern successor states such as Russia, Ukraine, and Belarus, whose combined totals approximate the historical Soviet figure.\n\n[World War II](https://en.wikipedia.org/wiki/World_War_II) was the largest and deadliest armed conflict in the history of mankind. Often abbreviated as WWII or WW2, World War II encircled the globe, forcing [nearly every country on Earth](https://worldpopulationreview.com/country-rankings/countries-involved-in-world-war-two) to align with one of two massive military alliances: the [Axis](https://worldpopulationreview.com/country-rankings/axis-powers-countries) powers, led by Germany, Italy, and Japan; or the Allies, led by Great Britain, the United States, the Soviet Union, France, and China.\nBetween the start of the war in September 1939 and its end in August/September 1945, more than 100 million (and possibly as many as [300 million](https://en.wikipedia.org/wiki/World_War_II_by_country) ) comb"
+                  ],
+                  "id": 2,
+                  "published": "2026-10-14",
+                  "title": "World War II Casualties by Country 2026 - World Population Review",
+                  "url": "https://worldpopulationreview.com/country-rankings/world-war-two-casualties-by-country"
+                },
+                {
+                  "excerpts": [
+                    "in…](https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/research-starters-worldwide-deaths-world-war)\n    + [Research Starters: US Military by the…](https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/research-starters-us-military-numbers)\n    + [Research Starters: The Draft and World…](https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/draft-and-wwii)\n    + [Research Starters: The GI Bill](https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/research-starters-gi-bill)\n    + [Research Starters: Higgins Boats](https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/research-starters-higgins-boats)\n    + [Research Starters: The Battle of Midway](https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/research-starters-battle-midway)\n    + [Research Starters: Women in World War\nII](https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/research-starters-women-world-war-ii)\n    + [Take A Closer Look: Ration Books](https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/take-closer-look-ration-books)\n    + [Take A Closer Look: America Goes to War](https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/america-goes-war-take-closer-look)\n    + [History At a Glance: Women in World War…](https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/women-wwii)\n/5. Research Starters: Worldwide Deaths in…\n\n# Research Starters: Worldwide Deaths in World War II\n\nWWII History\n\n* [](https://www.facebook.com/sharer.php?u=https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/research-starters-worldwide-deaths-world-war)\n* [](https://x.com/intent/post?url=https://www.nationalww2museum.\norg/students-teachers/student-resources/research-starters/research-starters-worldwide-deaths-world-war&text=Research%20Starters%3A%20Worldwide%20Deaths%20in%20World%20War%20II%20%7C%20The%20National%20WWII%20Museum%20%7C%20New%20Orleans%0ASee%20estimates%20for%20worldwide%20deaths%2C%20broken%20down%20by%0A)\n* [](mailto:?Subject=Research%20Starters:%20Worldwide%20Deaths%20in%20World%20War%20II%20|%20The%20National%20WWII%20Museum%20|%20New%20Orleans&Body=See%20estimates%20for%20worldwide%20deaths,%20broken%20down%20by%20country,%20in%20World%20War%20II.&nbsp;%20%0A%20https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/research-starters-worldwide-deaths-world-war)\n\n## Deaths by Country\n\n|Country |Military Deaths |Total Civilian and Military Deaths |\n| --- | --- | --- |\n|Albania |30,000 |30,200 |\n|Australia |39,800 |40,500 |\n|Austria |261,000 |384,700 |\n|Belgium |12,100 |86,100 |\n|Brazil |1,000 |2,000 |\n|Bulgaria |22,000 |25,000 |\n\n...\n\n|United Kingdom |383,600 |450,700 |\n|United States |416,800 |418,500 |\n|Yugoslavia |446,000 |1,000,000 |\n\n* * *\n\n## Worldwide Casualties\\*\n\n|Battle Deaths |15,000,000 |\n| --- | --- |\n|Battle Wounded |25,000,000 |\n|Civilian Deaths |45,000,000 |\n\n\\*Worldwide casualty estimates vary widely in several sources. The number of civilian deaths in China alone might well be more than 50,000,000.\n\nSoldiers viewing graves\n\n## Every day, memories of World War II—its sights and sounds, its terrors and triumphs—disappear.\n\n[Give Today](https://secure3.convio.net/nw2m/site/Donation2?df_id=8047&mfc_pref=T&8047.donation=form1&_ga=2.197693999.1013023893.1499027539-1310154821.1499027539 \"Give Today\")\n\nOpen today 9:00 a.m. - 5:00 p.m.\n\n945 Magazine Street, New Orleans, LA 70130  \n[info@nationalww2museum.org](mailto:info@nationalww2museum.org)  \n504-528-1944\n\n* [Buy Tickets](https://ticketing.nationalww2museum.org/Webstore/shop/ViewItems.aspx?CG=Tickets&C=GA)\n* [Become a"
+                  ],
+                  "id": 3,
+                  "published": "2017-07-01",
+                  "title": "Research Starters: Worldwide Deaths in World War II",
+                  "url": "https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/research-starters-worldwide-deaths-world-war"
+                },
+                {
+                  "excerpts": [
+                    "Shield](https://dcas.dmdc.osd.mil/dcas/conflictCasualties/gulf/shieldsum) [Desert Storm](https://dcas.dmdc.osd.mil/dcas/conflictCasualties/gulf/stormsum) Vietnam War\n\n[Casualty Summary](https://dcas.dmdc.osd.mil/dcas/conflictCasualties/vietnam/vietnamSum) Korean War\n\n[Casualty Summary](https://dcas.dmdc.osd.mil/dcas/conflictCasualties/korea/koreaSum) [Casualty Types by State](https://dcas.dmdc.osd.mil/dcas/conflictCasualties/korea/koreaByState) World War II\n\n[Principal Wars 1775-1991](https://dcas.dmdc.osd.mil/dcas/summaryData/casualties/principalWars) World War I\n\n[Principal Wars 1775-1991](https://dcas.dmdc.osd.mil/dcas/summaryData/casualties/principalWars) [Home](https://dcas.dmdc.osd.mil/dcas/home) > [Conflict Casualties](https://dcas.dmdc.osd.mil/dcas/conflictCasualties) > World War II\n\n# **World War II**\n\nMap of World\n\nWorld War II was the largest and most violent military conflict in human history.\nOfficial casualty sources estimate battle deaths at nearly 15 million military personnel and civilian deaths at over 38 million. Fought largely between two opposing military alliances, the Allies and the Axis, the war engulfed Europe, North Africa, much of Asia and the world's oceans. Germany, Japan, and Italy led the loosely cooperating Axis nations. The major Allies were the United States, Great Britain, and the Soviet Union, although a great many other nations committed forces.\n\nThe worldwide struggle officially began with the German attack on Poland on September 1, 1939, followed quickly by Great Britain, its Commonwealth dominions, and France declaring war on Germany. With the defeat of France in 1940, Great Britain fought off a German air campaign and escaped invasion. The German invasion of the Soviet Union in June 1941 brought that nation into the war and opened a major new theater.\n\nIn Asia, the Japanese had been fighting to take over China since 1931."
+                  ],
+                  "id": 4,
+                  "published": null,
+                  "title": "World War II",
+                  "url": "https://dcas.dmdc.osd.mil/dcas/conflictCasualties/ww2"
+                },
+                {
+                  "excerpts": [
+                    "(Redirected from [Casualties of World War II](https://en.wikipedia.org/w/index.php?title=Casualties_of_World_War_II&redirect=no \"Casualties of World War II\") )\n\n[](https://en.wikipedia.org/wiki/File:World_War_II_Casualties.svg) World War II deaths by country\n\n[World War II](https://en.wikipedia.org/wiki/World_War_II \"World War II\") (WWII) was the [deadliest military conflict in history](https://en.wikipedia.org/wiki/List_of_wars_by_death_toll \"List of wars by death toll\") . An estimated total of 60–75 million deaths were caused by the conflict, including those who died from deprivation, famine and disease. [[ 1 ]]() [[ 2 ]]() [[ 3 ]]() This represents about 3% of the estimated global population of 2.3 billion in 1940. [[ 4 ]]() Deaths directly caused by the war (including military and civilian fatalities) are estimated at 50–56 million, with an additional estimated 19–28 million deaths from war-related disease and famine. [ _[citation\n\n...\n\nfighting](https://en.wikipedia.org/wiki/Battle_of_Tarawa \"Battle of Tarawa\") . Over 1,000 American and ~4,600 Japanese troops died in the fighting.\n\nCompiling or estimating the numbers of [deaths and wounded](https://en.wikipedia.org/wiki/Casualty_\\(person\\) \"Casualty (person)\") caused during wars and other violent conflicts is a [controversial subject](https://en.wikipedia.org/wiki/Conflict_epidemiology \"Conflict epidemiology\") . Historians often put forward many different estimates of the numbers killed and wounded during World War II. [[ 21 ]]() The authors of the _Oxford Companion to World War II_ maintain that \"casualty statistics are notoriously unreliable\". [[ 22 ]]() The table below gives data on the number of dead and military wounded for each country, along with population information to show the relative impact of losses. When scholarly sources differ on the number of deaths in a country, a range of war losses is given, in order to inform readers that the death toll is disputed.\n\n...\n\ncrimes](https://en.wikipedia.org/wiki/Japanese_war_crimes \"Japanese war crimes\") , [population transfers in the Soviet Union](https://en.wikipedia.org/wiki/Population_transfer_in_the_Soviet_Union \"Population transfer in the Soviet Union\") , [Allied war crimes](https://en.wikipedia.org/wiki/Allied_war_crimes_during_World_War_II \"Allied war crimes during World War II\") , and deaths due to war-related famine and disease.\n\nThe sources for the casualties of the individual countries do not use the same methods, and civilian deaths due to starvation and disease make up a large proportion of the civilian deaths in China and the Soviet Union. The losses listed here are actual deaths; hypothetical losses due to a decline in births are not included with the total dead. The distinction between military and civilian casualties caused directly by warfare and [collateral damage](https://en.wikipedia.org/wiki/Collateral_damage \"Collateral damage\") is not always clear-cut.\n\n...\n\nThe footnotes give a detailed breakdown of the casualties and their sources, including data on the number of wounded where reliable sources are available. Several categories are used to classify World War II casualties, mainly to separate between military people and civilians. Due to the broad effects of war-induced famines, genocides like the Holocaust, and strategic bombings, civilian casualties frequently outnumbered military fatalities.\n\n## Human losses by country\n\n### Total deaths by country\n\n|Country |Total population  \n1/1/1939 |Military deaths from all causes |Civilian deaths due to military activity and crimes against humanity |Civilian deaths due to war-related famine and disease |Total deaths |Deaths as % of 1939 population |Average deaths as % of 1939 population |Military wounded |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|**[Albania](https://en.wikipedia.org/wiki/Albania \"Albania\")\n\n...\n\n### Soviet Union\n\nMain article: [World War II casualties of the Soviet Union](https://en.wikipedia.org/wiki/World_War_II_casualt"
+                  ],
+                  "id": 5,
+                  "published": "2003-06-05",
+                  "title": "World War II casualties - Wikipedia",
+                  "url": "https://en.wikipedia.org/wiki/Casualties_of_World_War_II"
+                },
+                {
+                  "excerpts": [
+                    "1. Home\n2. U.S.\n3. Military\n4. Casualties in World War II\n\n# Casualties in World War II\n\nUpdated December 27, 2021 | Infoplease Staff Information\n\nTable of contents\n\n## Military Losses in WWII\n\nThis page provides information about the number of deaths among servicemen in World War II, including how many were wounded or killed in action battle among the Allied and Axis forces. The data is divided by each nation that participated in the war. It does not include civilian deaths, only military deaths. This means that the number of casualties exclude deaths related to the Holocaust or among prisoners of war.\n\n|Country |Military Personnel |Battle deaths |Wounded |\n| --- | --- | --- | --- |\n|Australia |1,000,000 |26,976 |180,864 |\n|Austria |800,000 |280,000 |350,117 |\n|Belgium |625,000 |8,460 |55,513 ¹ |\n|Brazil ² |40,334 |943 |4,222 |\n|Bulgaria |339,760 |6,671 |21,878 |\n|Canada |1,086,343 ⁷ |42,042 ⁷ |53,145 |\n|China ³ |17,250,521 |1,324,516 |1,762,006 |\n|Czechoslovakia |— |6,683 ⁴ |8,017 |\n|Denmark |— |4,339 |— |\n|Finland |500,000 |79,047 |50,000 |\n|France |— |201,568 |400,000 |\n|Germany |20,000,000 |3,250,000 ⁴ |7,250,000 |\n|Greece |— |17,024 |47,290 |\n|Hungary |— |147,435 |89,313 |\n|India |2,393,891 |32,121 |64,354 |\n|Italy |3,100,000 |149,496 ⁴ |66,716 |\n|Japan |9,700,000 |1,270,000 |140,000 |\n|Netherlands |280,000 |6,500 |2,860 |\n|New Zealand |194,000 |11,625 ⁴ |17,000 |\n|Norway |75,000 |2,000 |— |\n|Poland |— |664,000 |530,000 |\n|Romania |650,000 ⁵ |350,000 ⁶ |— |\n|South Africa |410,056 |2,473 |— |\n|U.S.S.R. |— |6,115,000 ⁴ |14,012,000 |\n|United Kingdom |5,896,000 |357,116 ⁴ |369,267 |\n|United States |16,112,566 |291,557 |670,846 |\n|Yugoslavia |3,741,000 |305,000 |425,000 |\n\n1\\. Civilians only.\n\n2\\. Army and navy figures.\n\n3\\. Figures cover period July 7, 1937–Sept. 2, 1945, and concern only Chinese military personnel.\nThey do not include casualties suffered by guerrillas and local military corps; if included, China suffered many more military casualties than listed above.\n\n4\\. Deaths from all causes.\n\n5\\. Against Soviet Union; 385,847 against Nazi Germany.\n\n6\\. Against Soviet Union; 169,822 against Nazi Germany.\n\n7\\. National Defense Ctr., Canadian Forces Hq., Director of History.\n\nNOTE: The figures in this table are unofficial estimates obtained from various sources.\n\n|Casualties in World War I |American Wars |Post-Vietnam Combat Casualties |\n| --- | --- | --- |\n\nCasualties in World War I\n\nAmerican Wars\n\nPost-Vietnam Combat Casualties¹\n\n### Trending\n\nHere are the facts and trivia that people are buzzing about.\n\nCorruption\n\nWorld's Most Corrupt Leaders & Politicians\n\nChristian calendar\n\nWestern Christian Holidays, 2010-2030\n\nText box\n\nThe Best Movie Quotes of All Time!\n\nWaterfall\n\nTop 10 Biggest Waterfalls in the World (Tallest, Widest, & Most Volume!)\n\nBible\nBooks of the Bible: New Testament Books in Order\n\nGroup of penguins\n\nAnimal Group Terminology\n\n✖\n\n## Most Recent Quizzes\n\n1\\. How Well Do You Know Polynomial Classification?\n\n* * *\n\n2\\. The Ultimate Geometry Quiz\n\n* * *\n\n3\\. Latin Roots, Prefixes, and Suffixes Quiz\n\n* * *\n\n4\\. The U.S. States Population Puzzler\n\n* * *\n\n5\\. U.S. Leaders: Offices and Salaries\n\n## Recent content\n\n* 60 Best Animated Movie Quotes of All Time\n* 62 Top Western Movie Quotes\n* 40 Best Marvel Movie Quotes (& 10 Quotes from Marvel TV Shows)\n* Fiji Map: Regions, Geography, Facts & Figures\n* Central African Republic Map: Regions, Geography, Facts & Figures\n* Baker Island Map: Regions, Geography, Facts & Figures\n* Papua New Guinea Map: Regions, Geography, Facts & Figures\n* Estonia Map: Regions, Geography, Facts & Figures\n* Tanzania Map\n* The World's 14 Highest Mountain Peaks (Above 8,000 Meters)\n\nEncouraging curious minds for nearly a century .\n\nInfoplease logo\n\nInfoplease knows the value of having sources you can trust.\nInfoplease is a reference and learning site, combining the contents of an encyclopedia, a dictionary, an atlas and several almanacs loaded with facts. Our editors update and regularly "
+                  ],
+                  "id": 6,
+                  "published": "2021-04-29",
+                  "title": "Casualties in World War II - Military",
+                  "url": "https://www.infoplease.com/us/military/casualties-world-war-ii"
+                }
+              ]
+            },
+            "providerMetadata": {
+              "anthropic": {
+                "caller": {
+                  "type": "direct"
+                }
+              }
+            },
+            "dynamic": false
+          },
+          "wait": 1500
+        },
+        {
+          "chunk": {
+            "sourceId": "1",
+            "title": "World War II casualties - Wikipedia",
+            "type": "source-url",
+            "url": "https://en.wikipedia.org/wiki/World_War_II_casualties"
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "sourceId": "2",
+            "title": "World War II Casualties by Country 2026 - World Population Review",
+            "type": "source-url",
+            "url": "https://worldpopulationreview.com/country-rankings/world-war-two-casualties-by-country"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "sourceId": "3",
+            "title": "Research Starters: Worldwide Deaths in World War II",
+            "type": "source-url",
+            "url": "https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/research-starters-worldwide-deaths-world-war"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "sourceId": "4",
+            "title": "World War II",
+            "type": "source-url",
+            "url": "https://dcas.dmdc.osd.mil/dcas/conflictCasualties/ww2"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "sourceId": "5",
+            "title": "World War II casualties - Wikipedia",
+            "type": "source-url",
+            "url": "https://en.wikipedia.org/wiki/Casualties_of_World_War_II"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "sourceId": "6",
+            "title": "Casualties in World War II - Military",
+            "type": "source-url",
+            "url": "https://www.infoplease.com/us/military/casualties-world-war-ii"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 1500
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011Cg9DHtjD8AdSmQhG4sJcE",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 18896,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 7,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "aitxt-D2kVwCxiNuOgVfaguLvxRTje"
+          },
+          "wait": 166
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "aitxt-D2kVwCxiNuOgVfaguLvxRTje",
+            "delta": ""
+          },
+          "wait": 1500
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "aitxt-D2kVwCxiNuOgVfaguLvxRTje",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "CAQShhUKEAgSGAI4AUIIdGhpbmtpbmcSDJDCjXZHGRyDUQ1kzhoMGQHfibNhtUPu+qCnIjCiF9fj69BnOb22dx3/i/WYK6Jc+BuQ1yABdGlR2QRSa4GPQT8QeSV2XuyZ3NcVlmIqoxR1AUPep81i0FzOJdwot9Ai8QTnV/m2V76PBZ0GP7YtGgwDI6ltiShpJZWWeQvMR6D84MqYsYAUcEkNuRjz1Yi1DQObego1ELp7pkQqWFsqg3B29bSX7vNVOU/lHJO7cftijaPPTM1cnRcTBFz7je+BdwGjHvVMptkj2dirt0oqUPRiMyYXkJWzZzL/FCrgsd2BaMPpLw/8/jLte7x5htx00CJw6sR0ZLMEPGKbpNJTW69wsnMn1zIPeB8H/p1lZ/6moXd+zAtMhFBb/9SJVzssIy2sy7qLe5gw6i95gkIcgiARckIyORoxAJcwOowhXVMGCvL+frjFHagCGL0yHD6YJGAZrnUFFlFa3AuEyJlz90UJ7LaFASThzMWcgTVEQtVTiVasWEANZhB99o4GQRoU2uT3Kf6nmXT+yHwl3wBn5q1KU2bz6XGDXzFh1GPmL8edYoRJCtUL6/nnpMTZMrwY0aeXY3hWGjdy1KovBkIPFbQ0ZnryPkvugjlM2yOPWJGvLnn8ZXDTjYmgVYWwAb4dp/VyqMbCxVXQVIcrYGYYprpCdTQ59VYhpg0PvF9geC+l1/ZUVL68gv9duc1XIr5EaT0fRrrnF7yejFu2FdOQO9fb1F7MvlERvv9E0TcJHSLQPYrkeS/lPSm/V7EK0wqadPzMvCWNontbs6dFUZ3QRHqm9aegwKIb0Rcl1E4FePDtwoHfhAoFbV0TttHW1LT+Jvca3AWhMsBakfnJ1TK7WMB0gOqYY6vlHmmoqvV8qYEFf+ogsfIq4p7DAaxtf0Bac9GAF/0xwY31P46Vd/XljJlIHb9+GGVmYa7ljqVNhTeivbhTX+Brh/NgC6wK4aD4LvjSSSell2HlIy0Xlu/AvvTpsWkyHFn/BXOy0uPODHST9g9PqxENcgZMZacPTEOFcAgAonPpTdYA7VPoQ2ambZxGtilevipIz0P6N+PF552Ft19eLYeOzPTzygFyC/3ZSuzg0S6qDHwvC20/NzXmGXLZSUnAps7OsBQbFmxWvdLwxfs+DnILbfpsS8U8noD/a4ZTZPU0ZgUvCkSsvJ/1AI89lSF1yNXqUi1tHM0AiHhvsHVgI44Q5T4413YZ1rvzoKp7JzAY21E3AjTB49jwcJqvYkhmcoJc5UVzow1L/lWJctowG9ygOlDpMBRzd8VYnw3lLvua5PvH8MgGQWo7keFOdSwgJxRvEDe4AZZ2VT6J2uAK3Ack9N1G0K42aoSpt+hflHpYrHTuTautO/f4KLUnoIWxNGqxbDDqpfxqh06XBuxjQtG/oKyIA7I2igohXPlu3fiNm5OoAqdMmH0HaPb15lgBsS/r4LSKdtdjSwxiN+Hm2v5bFLan8zFOszP9U2hlMjmTKErdwBRUFLsPCvpSQDwZITBiwPNjHS3uDWqAXwhEbGwcIAZZPXsRmgg+8i8iFhF8mIFkyPV1AMMeveEjd8zPbR9EeJ8kqh8FtSEGCNVU/gQAbpTKiy+Py/KIJGhAig3OkhZKm5f1jNefoi5VNasvKJtREHSJQ95aPs3B4pElr6s13fGtALTVPXGr6G8eY6BwuoMe3lfdX/oXsJbuqFBpyFmmsrFXLeisx5rWsfPRiH2kaFqdS7/pmqmYyGVHRMieKpwk9RrP64WqHxdAbmTprRwyk8Tbo5RAzZWCzwoMoJ1hC+T4outApecFX81e1UFvXYUhxaRPeXq8N2lroE2MwLqrUPLv/R1brlAoTUGaEgGOnBmutnE1gyIjkObPYgOkkOuABfdAikx5KgXMX8bFJcJLDpgOr5sInHG5JTx2hMyyxrIO9OugkR7TcileynNapw7HsWh+zvP4voDIe9E02PUEa/J4hE90Q7I9nhPauWD4vDmVkLMDJKaGNABKpz8o+e4kBL0vdNOet4MQDI7aPF7UoZK/rn//13b+WLq66Oajv5tLgJA3cxExRekkVpow/sAg6+C13p+O0/pG1oKz5i4Ga0OUEC2dCq+cxiugJWhVi/cfo3nDwFhagnU+mnhmWoerY9mBxJMea6du6dyHMAlOcfrzZiIVb9i4HnmYnDWw9cvSaJYgut5/4NedVuv31hnBIu4eerYXBp2m7hF0eN4uuell2CzF2cn/xORnVnMRmR10GIvw43+8YV+CkOFUBG3bGOnB+/2CrpUtNEKtWWSzSiDf4A1wjNTa9KjKa4RvI95cK+wYfbDHySVrxEEOsglKNhdWC2NZOAKNLpQzp2uGiQPdrGy3gVXCywVJ5OrclHr8lXmpJ3Osm5kA9m2My5+3R1wExqLkpGvm/K+Z2Oi/WsdjRIx0GA0ohrR6KxMvJjb5YCsGmkaiVxsks8KeIllff/RBXkKhe9+mKEm+lYU/Wuuz2NNliwueKxi5vX0vtRXyuoe5zJmy/La/6OFgjxt5f8lC/Kv89PxRIxVokmCn+0sFppR76AQRUPtCe6C1Xtl3BYRuLHUaSJX0BQtFBF76NQBSmX6rIG0CwjEH5lNh8Iq0OLGI1qDEPuTBuW+UHW6g6JmpuqKeEGg433hRMAkCCF9DNStovqXll3UD95jH4JSlwPwgPEIgKbOWUJ1uDJTQX+vJ5WmuBC2F97yyEEvLeW8Z5tGwRV4TxEj7skI7TXiuxtInbFV9TxgkRksuD8WSpctUMB94RXdu7DcyX9o6nlH8dR8UX/MjZ9YX5CAyenbRQeUvQ1iH/XmDYPZziGmBBprn5CF9dHiEjLbU6NnWS7UNX8SVKmMRZNnxaD4GPhfy+ZxoE5fepRlmQHOjjLDd5JIJFSc6F6URVQivHdJKg4B3f0+5pCjCGk/+eflT+QhbYNkpikjRBu/MmeEneUbFmFaAQoUgFXmxZBV3Pt7w0hjvWu3/K5MQdzw7UaTOBRDMgjnAr8ZljWyZQ9k2/Zfg1USIDe90IBk7KP1tNkt1gap0VtIIfKxKdKxdz9zZrQXMAKmQsiXGIyr0V96PMoJ22uXebg8Aho08+ZtWK5gkzppDt0Xq9u3ktLM9SARpsITOKtnUz5BRmi1S6DQpw8Um6fRcyjWB1xVdhBUP8sSE8YEHfK5TzlTgsbsq6vjoLPHTgSEtschziiLcXRsqpodUcqTsd2/QyBaGWrsvOM1sPd0tXPujubDXeslGYWEs3eYc3QGVQ3aeLcwXk9TiSIiEnbyfNUU6gTJB3K66axGb5l4zQDsR+g41ubtXthVuOkjzxiskHRIQdWlT5F00QrwydiwVPI1kG88YQvHgHrpWwk8f9YQEfZRkkClXBwoaurHMXXePSkLCUgLSte4qpcP9prJ0jGGYokFSkEUh+SeJX+Pt2FUTgEsTCZUpzs8yLjAQfrOxmU4FcuRGDhfnXS33A9y2o4LHxNZ1a7gETHYuZAL8rV3XfFMppUb86VO5jJMnOhqKQVsFuiqzySLx3KFAkVwUQvPu10Q8qtbWJrBzUR1LSOPWV47p3UuvX3PXQjlfC+mX9myPTFUYAQ=="
+              }
+            }
+          },
+          "wait": 12
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "aitxt-D2kVwCxiNuOgVfaguLvxRTje"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "R"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 9
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "g"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "h"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "y"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "5"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "m"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "m"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "y"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "p"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 27
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "b"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 17
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "W"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "W"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "I"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "I"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ","
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "c"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "c"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "g"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 18
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "f"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "f"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "c"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "U"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "."
+          },
+          "wait": 17
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "S"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "."
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "c"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "y"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 21
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "m"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "["
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "4"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "]"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "."
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "M"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "y"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 19
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "h"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 24
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "f"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "f"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "b"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "y"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "c"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ","
+          },
+          "wait": 19
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "h"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 19
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "f"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "g"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 23
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "b"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "w"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 33
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "b"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 17
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 13
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "h"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 16
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 25
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "h"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "f"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "m"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "c"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ","
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "p"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 20
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "g"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "h"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "c"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "["
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "6"
+          },
+          "wait": 16
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "]"
+          },
+          "wait": 20
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "["
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "3"
+          },
+          "wait": 22
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "]"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "."
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "-"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "S"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "v"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 21
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "U"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ":"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "b"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 49
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "6"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "."
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "m"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "["
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "6"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "]"
+          },
+          "wait": 3
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "-"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "G"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "m"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "y"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ":"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "b"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 19
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "3"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "."
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "2"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "5"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "m"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "["
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "6"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "]"
+          },
+          "wait": 13
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "-"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "C"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "h"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ":"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "b"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "."
+          },
+          "wait": 18
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "3"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "2"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "m"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "["
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "6"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "]"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\n"
+          },
+          "wait": 22
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "-"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "J"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "p"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ":"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "b"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "."
+          },
+          "wait": 20
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "2"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "7"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "m"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "["
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "6"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "]"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\n"
+          },
+          "wait": 20
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "-"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "P"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ":"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "b"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "6"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "6"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "4"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ","
+          },
+          "wait": 20
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "["
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "6"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "]"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "-"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 19
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "Y"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "g"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "v"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ":"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 22
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "3"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "5"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ","
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 20
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "4"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "4"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "6"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ","
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "["
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "6"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "]"
+          },
+          "wait": 22
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "["
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "3"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "]"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "-"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "U"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "S"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ":"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 20
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "b"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "4"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "7"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ","
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "["
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "3"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "]"
+          },
+          "wait": 18
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "-"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "U"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "K"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "g"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 22
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "m"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ":"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "b"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "3"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "8"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "4"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ","
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "["
+          },
+          "wait": 20
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "3"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "]"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "["
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "3"
+          },
+          "wait": 23
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "]"
+          },
+          "wait": 17
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "N"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 22
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "W"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "W"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "I"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "I"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "M"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "m"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ","
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 20
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\""
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "R"
+          },
+          "wait": 33
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "c"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "h"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "S"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ":"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "W"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 9
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "w"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "D"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "h"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 20
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "W"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "W"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "I"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "I"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\""
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "["
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "4"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "]"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 19
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "U"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "."
+          },
+          "wait": 19
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "S"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "."
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "D"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "f"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 24
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "C"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 21
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "y"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "A"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "y"
+          },
+          "wait": 24
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "S"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "y"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "m"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ","
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\""
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "W"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "W"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "I"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "I"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\""
+          },
+          "wait": 13
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "["
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "6"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "]"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "I"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "f"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "p"
+          },
+          "wait": 29
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": ","
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\""
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "C"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "u"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "t"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "e"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "s"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 12
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "i"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "n"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "W"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "o"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "l"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "d"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "W"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "a"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "r"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": " "
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "I"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "I"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-delta",
+            "id": "1",
+            "delta": "\""
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 5
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "How many soldiers died in World War 2? Show each country"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {}
+}

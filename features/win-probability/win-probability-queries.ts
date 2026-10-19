@@ -44,9 +44,6 @@ interface EspnSummary {
   winprobability?: { homeWinPercentage: number }[];
 }
 
-/**
-"1d428a" reads "#1d428a"; anything else is null.
-*/
 function hex(color: string | undefined) {
   return color && /^[\da-f]{6}$/iu.test(color)
     ? `#${color.toLowerCase()}`
@@ -59,30 +56,18 @@ function channels(color: string) {
   return [(value >> 16) & 255, (value >> 8) & 255, value & 255];
 }
 
-/**
-How far apart two colors are, 0 to about 440.
-*/
 function distance(first: string, second: string) {
   const [r1, g1, b1] = channels(first);
   const [r2, g2, b2] = channels(second);
   return Math.hypot(r1 - r2, g1 - g2, b1 - b2);
 }
 
-/**
-Under this, two bars read as the same color: the shared #1d428a, or two near-identical navies. Celtics green against Pistons navy (about 97) still reads apart.
-*/
 const CLASH_DISTANCE = 60;
 const WHITE = "#ffffff";
 const BLACK = "#000000";
-/**
-A second color this close to white or black can't stand in: white disappears on a light card, black on a dark one.
-*/
 const EDGE_DISTANCE = 60;
 const NEUTRAL = "#71717a";
 
-/**
-Each team's color, away first. When both teams wear the same color (the Knicks, 76ers and Pistons all use #1d428a), the away team takes its second color, so the two bars read apart, unless that color is near white or black or clashes too.
-*/
 function colorsOf(away: EspnCompetitor, home: EspnCompetitor) {
   const homeColor = hex(home.team.color) ?? NEUTRAL;
   const awayColor = hex(away.team.color) ?? NEUTRAL;
@@ -96,9 +81,6 @@ function colorsOf(away: EspnCompetitor, home: EspnCompetitor) {
   return [isClash && isUsable ? awayAlternate : awayColor, homeColor] as const;
 }
 
-/**
-The home team's chance, 0 to 100: the result once the game is over, the latest play's chance while it's on, ESPN's prediction before it starts.
-*/
 function homeChance(
   event: EspnEvent,
   summary: EspnSummary,

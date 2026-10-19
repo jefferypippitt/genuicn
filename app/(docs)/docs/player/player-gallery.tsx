@@ -8,9 +8,6 @@ import rookie from "./snapshot/rookie.json";
 import wembanyama from "./snapshot/wembanyama.json";
 import type { PlayerData } from "@/features/player/player-schema";
 
-/**
-Players as /api/player answered on October 17, 2026: a veteran on a new team, two players from different teams compared, and a rookie with no NBA games yet.
-*/
 const EXAMPLES = [
   { data: [lebron], label: "LeBron James" },
   { data: [lebron, wembanyama], label: "Compare two players" },

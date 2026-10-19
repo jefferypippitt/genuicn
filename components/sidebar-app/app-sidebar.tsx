@@ -59,7 +59,7 @@ function useMounted() {
 }
 
 /**
-The blue "new" dot after a page the latest release added, the same blue the changelog uses for New.
+The blue "new" dot after a page the latest release added, the same blue dot the changelog puts on each card.
 */
 const NewDot = () => (
   <>
@@ -75,9 +75,6 @@ type NavRow =
   | { kind: "item"; item: NavItem }
   | { kind: "group"; label: string; items: NavItem[] };
 
-/**
-A section's rows: items with a group fold into one row for it, where the first of them stands.
-*/
 function rowsOf(items: readonly NavItem[]): NavRow[] {
   const rows: NavRow[] = [];
   const groups = new Map<string, NavItem[]>();
@@ -98,9 +95,6 @@ function rowsOf(items: readonly NavItem[]): NavRow[] {
   return rows;
 }
 
-/**
-A row that opens to its pages, e.g. NBA under Sports. Starts open, so its pages show without a click; the chevron turns down as it opens.
-*/
 const NavGroup = ({
   label,
   items,

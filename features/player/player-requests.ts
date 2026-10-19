@@ -5,14 +5,8 @@ const sharedPlayerRequests = new Map<
   string,
   { expiresAt: number; player: Promise<PlayerData> }
 >();
-/**
-A player's averages move at most once a game, so five minutes is fresh enough.
-*/
 const REUSE_MS = 300_000;
 
-/**
-"LeBron James" and " lebron  james" share one request.
-*/
 function playerKey(name: string) {
   return (normalizeName(name) ?? name).toLowerCase();
 }

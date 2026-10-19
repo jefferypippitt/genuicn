@@ -1,34 +1,17 @@
 # Changelog format
 
-Each release gets one Markdown file named after its release day, `YYYY-MM-DD.md`. Add a new file for each push instead of editing an older one. The parser in `lib/changelog/parse.ts` reads these files for `/changelog`, and it fails the build on anything outside the shape below.
+The changelog lists the cards genuicn adds, one release per month. Each release is a Markdown file named `YYYY-MM.md`. A card goes into the month file when you decide it ships, not on every push, and a new month starts a new file. The parser in `lib/changelog/parse.ts` reads these files for `/changelog` and fails the build on anything outside this shape:
 
-````md
+```md
 ---
-released: 2026-11-04
-title: Quote, Candlestick chart, and streaming fill-in for every card
+month: 2026-11
+new: /docs/quote
 ---
 
-One optional line that says what the release was about.
+- [Quote](/docs/quote): A stock's price and change, with a trend line you can switch between 1D, 1W, 1M, and 1Y.
+```
 
-## New
-
-- [Quote](/docs/quote): Price, change, and a trend line with a day to year switch. (#12)
-
-## Breaking
-
-- [Quote](/docs/quote): `symbol` is renamed `ticker`. (a1b2c3d)
-
-  ```diff
-  - <QuoteCard symbol="NVDA" />
-  + <QuoteCard ticker="NVDA" />
-  ```
-
-## Updated
-
-- **All cards**: Loading states hold their final height, so nothing jumps. (#14, 9f8e7d6)
-````
-
-- **Frontmatter.** The `released` day matches the file name. The `title` runs 90 characters at most and has no closing period.
-- **Sections.** Only `## New`, `## Breaking`, and `## Updated` are allowed, in that order. Leave out a section that has no entries.
-- **Kinds.** New is a card or page that just landed. The changelog page lists the newest release's New entries at the top, and the sidebar puts a blue dot on each page they link to, so list a card under New only in the release that ships it. Updated is a change to something that already exists. Breaking means readers have to change their code, so the entry carries one ` ```diff ` block that shows the call site before and after.
-- **Entries.** An entry starts with `[Name](/route)` when it has a page, or `**Name**` when it spans several pages. A colon and one or two sentences follow, in plain text and inline code only. The entry ends with up to 3 refs in parentheses, `#12` for a PR or a 7-character SHA for a commit. Leave the refs out for work that isn't committed yet.
+- **Frontmatter.** A `month` line that matches the file name, and an optional `new` line that lists the routes of the cards you just built, separated by commas.
+- **Entries.** One bullet per new card, newest at the top, starting with `[Name](/docs/slug)`. A colon and one or two sentences follow, in plain text and inline code only, ending with a period.
+- **What goes in.** Only cards that just shipped. Changes to existing cards and pages stay in the commit history.
+- **The blue dot.** The cards in `new` get a blue dot in the sidebar and on the changelog. Every other card gets a grey dot. Only the newest month can have a `new` line, so take a card out of it once it is no longer new.

@@ -12,9 +12,6 @@ const COMMON =
 const SEARCH = "https://site.web.api.espn.com/apis/search/v2";
 
 const TIMEOUT_MS = 8000;
-/**
-Averages only move after a game, and the answer covers every player in the league, so it's kept for an hour.
-*/
 const AVERAGES_FRESH_MS = 3_600_000;
 const NOT_FOUND = 404;
 
@@ -86,9 +83,6 @@ async function fetchAverages() {
   }
 }
 
-/**
-Every player's averages in one answer, kept for an hour and forgotten if the request fails.
-*/
 function leagueAverages() {
   const hit = averagesCache.current;
   if (hit && Date.now() < hit.expiresAt) {
@@ -99,9 +93,6 @@ function leagueAverages() {
   return value;
 }
 
-/**
-The NBA player ESPN's search finds first for a name, and the team he plays for now.
-*/
 async function findPlayer(query: string) {
   const parameters = new URLSearchParams({
     limit: "5",

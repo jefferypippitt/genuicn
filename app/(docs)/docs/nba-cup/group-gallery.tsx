@@ -11,9 +11,6 @@ import westB from "./snapshot/west-b.json";
 import westC from "./snapshot/west-c.json";
 import type { CupGroupData } from "@/features/nba-cup/nba-cup-schema";
 
-/**
-One tab per group, each as /api/nba-cup answered it on October 17, 2026, before the 2026-27 group stage.
-*/
 const GROUPS = [
   { data: eastA, label: "East A" },
   { data: eastB, label: "East B" },

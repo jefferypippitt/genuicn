@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const winProbabilityCatalogEntry = {
   description:
-    "Each team's chance of winning one NBA game, in one card: both teams with their logos, a bar in each team's color showing its chance (the percent appears on hover), and what a win would pay back (1.9x for 53%). Before the game it shows ESPN's prediction, during the game the live chance, which it keeps current, and after it the result. Use it whenever the user asks who will win an NBA game, a team's odds or chances of winning, or the win probability of a game. Send the full name of one of the two teams. When the user names a day (\"tonight\", \"on Tuesday\", \"October 20\"), set date to that day as YYYY-MM-DD, worked out from today's date; otherwise date is null and the card shows today's game, or the one closest to now.",
+    "Each team's chance of winning one NBA game, in one card: both teams with their logos, a bar in each team's color showing its chance (the percent in the bar), and what a win would pay back (1.9x for 53%). Before the game it shows ESPN's prediction, during the game the live chance, which it keeps current, and after it the result. Use it whenever the user asks who will win an NBA game, a team's odds or chances of winning, or the win probability of a game. Send the full name of one of the two teams. When the user names a day (\"tonight\", \"on Tuesday\", \"October 20\"), set date to that day as YYYY-MM-DD, worked out from today's date; otherwise date is null and the card shows today's game, or the one closest to now.",
   props: z.object({
     date: z
       .string()

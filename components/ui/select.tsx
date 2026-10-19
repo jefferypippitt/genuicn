@@ -273,6 +273,15 @@ const triggerVariants = cva(
   }
 );
 
+// Multiline rows keep the size ladder's height as a floor and grow past it
+// as the text wraps. The vertical padding is what spaces wrapped lines from
+// the edges, since the trimmed text box no longer fills a fixed height.
+function multilineControl(isCompact: boolean) {
+  return isCompact ? "min-h-7 py-1.5" : "min-h-9 py-2";
+}
+
+const multilineText = "text-pretty break-words";
+
 interface SelectTriggerProperties
   extends
     Omit<HTMLAttributes<HTMLButtonElement>, "children">,
@@ -283,6 +292,9 @@ interface SelectTriggerProperties
   /** Size override for the trigger alone. Prefer the `size` prop on <Select>
    *  (or a surrounding SizeProvider) so the popup matches. */
   readonly size?: SizeVariant;
+  /** Wrap a long value onto more lines instead of truncating it; the
+   *  trigger grows from its usual height. Pair with `multiline` on the items. */
+  readonly multiline?: boolean;
 }
 
 const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProperties>(
@@ -294,6 +306,7 @@ const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProperties>(
       placeholder = "Select…",
       error,
       size,
+      multiline = false,
       ...properties
     },
     reference
@@ -309,7 +322,7 @@ const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProperties>(
           aria-invalid={!!error || undefined}
           className={cn(
             triggerVariants({ variant }),
-            sizeClasses.control,
+            multiline ? multilineControl(isCompact) : sizeClasses.control,
             sizeClasses.text,
             sizeClasses.px,
             sizeClasses.gap,
@@ -336,7 +349,10 @@ const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProperties>(
               // box, and the trimmed box excludes ascenders/descenders — the
               // padding gives glyphs room while the negative margin keeps the
               // trimmed layout box.
-              className="data-[placeholder]:text-muted-foreground -my-1 min-w-0 flex-1 truncate py-1 text-left [text-box:trim-both_cap_alphabetic]"
+              className={cn(
+                "data-[placeholder]:text-muted-foreground min-w-0 flex-1 text-left [text-box:trim-both_cap_alphabetic]",
+                multiline ? multilineText : "-my-1 truncate py-1"
+              )}
             />
           </span>
 
@@ -665,6 +681,8 @@ interface SelectItemProperties extends HTMLAttributes<HTMLDivElement> {
   readonly index: number;
   readonly value: string;
   readonly disabled?: boolean;
+  /** Wrap a long label instead of truncating it; the row grows to fit. */
+  readonly multiline?: boolean;
 }
 
 const SelectItem = forwardRef<HTMLDivElement, SelectItemProperties>(
@@ -676,6 +694,7 @@ const SelectItem = forwardRef<HTMLDivElement, SelectItemProperties>(
       value,
       index,
       disabled = false,
+      multiline = false,
       ...properties
     },
     reference
@@ -724,7 +743,8 @@ const SelectItem = forwardRef<HTMLDivElement, SelectItemProperties>(
               // the text-box trim on the item text doesn't shrink the row.
               // shrink-0: the popup is a max-height flex column, so without it
               // a long list compresses rows to fit instead of scrolling.
-              `relative z-10 flex ${sizeClasses.control} shrink-0 items-center ${sizeClasses.gap} ${shape.item} ${sizeClasses.itemPx} ${sizeClasses.text} cursor-pointer outline-none select-none`,
+              `relative z-10 flex shrink-0 items-center ${sizeClasses.gap} ${shape.item} ${sizeClasses.itemPx} ${sizeClasses.text} cursor-pointer outline-none select-none`,
+              multiline ? multilineControl(isCompact) : sizeClasses.control,
               "transition-[color] duration-80",
               isActive || isChecked
                 ? "text-foreground"
@@ -748,7 +768,12 @@ const SelectItem = forwardRef<HTMLDivElement, SelectItemProperties>(
           // py-1/-my-1 keeps truncate's overflow:hidden from clipping
           // ascenders/descenders outside the trimmed box.
           render={
-            <span className="-my-1 min-w-0 flex-1 truncate py-1 [text-box:trim-both_cap_alphabetic]" />
+            <span
+              className={cn(
+                "min-w-0 flex-1 [text-box:trim-both_cap_alphabetic]",
+                multiline ? multilineText : "-my-1 truncate py-1"
+              )}
+            />
           }
         >
           {children}

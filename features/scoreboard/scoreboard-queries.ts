@@ -121,9 +121,6 @@ async function fetchTeams() {
   return body.sports[0]?.leagues[0]?.teams.map(({ team }) => team) ?? [];
 }
 
-/**
-Every NBA team, kept for a day: the league's teams barely change.
-*/
 function nbaTeams() {
   const hit = teamList.current;
   if (hit && Date.now() < hit.expiresAt) {
@@ -138,9 +135,6 @@ function simplify(text = "") {
   return text.toLowerCase().replaceAll(NOT_LETTERS, " ").trim();
 }
 
-/**
-"LAL", "Lakers", "Los Angeles Lakers" and "LA Lakers" all find the Lakers. An exact name wins over a partial one.
-*/
 async function findTeam(query: string) {
   const wanted = simplify(query);
   const teams = await nbaTeams();
@@ -201,18 +195,12 @@ function teamOf(competitor: EspnCompetitor, state: GameState): ScoreboardTeam {
   };
 }
 
-/**
-What ESPN calls each part of the season. The regular season has no label: most of its games need none.
-*/
 const PHASE_LABEL: Record<string, string> = {
   "play-in-season": "Play-In",
   "post-season": "Playoffs",
   preseason: "Preseason",
 };
 
-/**
-The line under the score. ESPN notes special games in every part of the season ("NBA Cup Championship", "NBA Play-In - East - 9th Place vs 10th Place", "NBA Finals - Game 4"), and the note says it best. A preseason note ("NBA China Game") keeps "Preseason" in front, since the note alone doesn't say it. A game with no note gets its phase, or nothing in the regular season. A playoff game adds the series score ("NY leads series 3-1").
-*/
 function stageOf(event: EspnEvent) {
   const phase = PHASE_LABEL[event.season?.slug ?? ""] ?? null;
   const note = event.competitions[0]?.notes?.[0]?.headline || null;
@@ -231,9 +219,6 @@ function stageOf(event: EspnEvent) {
 const FINALS_NOTE = /^NBA Finals\b/u;
 const BEST_OF_SEVEN = 7;
 
-/**
-The playoff series as of this game, with each side's wins. Only playoff games get one, as in stageOf.
-*/
 function seriesOf(event: EspnEvent): ScoreboardSeries | null {
   const [competition] = event.competitions;
   const { series } = competition;
@@ -247,7 +232,6 @@ function seriesOf(event: EspnEvent): ScoreboardSeries | null {
     return series.competitors?.find((team) => team.id === id)?.wins ?? 0;
   };
   const note = competition.notes?.[0]?.headline ?? "";
-  // "NBA Finals - Game 4" is game 4.
   const game = Math.trunc(Number(note.split("Game ", 2)[1] ?? NaN));
   return {
     awayWins: winsOf("away"),
@@ -296,9 +280,6 @@ function playing(teamId: string) {
     ) ?? false;
 }
 
-/**
-The game to show when no date was asked for: one being played, else one that ended in the last day and a half, else the next one, else the last one.
-*/
 async function pickFromSchedule(team: EspnTeam) {
   const { events = [] } = await espn<EspnSchedule>(`teams/${team.id}/schedule`);
   const games = events

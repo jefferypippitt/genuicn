@@ -20,9 +20,6 @@ export function cupGroupName(group: CupGroup): string {
   return `${conference.charAt(0).toUpperCase()}${conference.slice(1)} Group ${letter.toUpperCase()}`;
 }
 
-/**
-The words a group's name can carry beyond its conference and letter, and everything that isn't a letter.
-*/
 const FILLER = /\b(?:the|conference|group)\b|ern\b|[^a-z]/gu;
 
 /**

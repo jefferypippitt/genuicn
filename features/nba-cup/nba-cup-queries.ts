@@ -24,9 +24,6 @@ const HEADERS = {
 };
 
 const TIMEOUT_MS = 10_000;
-/**
-One answer holds all six groups, so the card for each group reuses it.
-*/
 const FRESH_MS = 60_000;
 
 interface IstTeam {
@@ -47,9 +44,6 @@ interface IstStandings {
   teams?: IstTeam[];
 }
 
-/**
-The season the NBA Cup is in: from August on, the one starting that fall, so "2026-27" in October 2026.
-*/
 function currentSeason(now = new Date()) {
   const AUGUST = 7;
   const start =

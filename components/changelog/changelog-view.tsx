@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { createPortal } from "react-dom";
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import {
   useFluidHover,
   useRegisterFluidHoverItem,
@@ -16,36 +16,18 @@ import { useSize } from "@/lib/size-context";
 import { fontWeights } from "@/lib/font-weight";
 import { spring } from "@/lib/springs";
 import { cn } from "@/lib/utils";
-import { KIND_LABEL } from "@/lib/changelog/parse";
 import type { RefObject } from "react";
-import type {
-  ChangeEntry,
-  ChangeKind,
-  ChangeRef,
-  Inline,
-  Release,
-} from "@/lib/changelog/parse";
-
-const REPO = "https://github.com/jefferypippitt/genuicn";
-
-const KIND_DOT: Record<ChangeKind, string> = {
-  breaking: "bg-[var(--destructive)]",
-  new: "bg-[var(--info)]",
-  updated: "bg-border",
-};
+import type { CardEntry, Inline, Release } from "@/lib/changelog/parse";
 
 const FOCUS_RING =
   "outline-none focus-visible:ring-1 focus-visible:ring-[color:var(--focus-ring,#6B97FF)]";
 
 export interface ReleaseView extends Release {
   /**
-  The release day for people, e.g. "October 16, 2026".
+  The release month for people, e.g. "October 2026".
   */
   label: string;
 }
-
-const MONTH_PAD = "4rem";
-const HAIRLINE = "1px";
 
 export const ChangelogView = ({
   releases,
@@ -54,38 +36,22 @@ export const ChangelogView = ({
 }) => {
   const sectionsReference = useRef(new Map<string, HTMLElement>());
   const activeMonth = useScrollSpy(releases, sectionsReference);
-  const [latest] = releases;
-  const latestNew =
-    latest?.groups.find((group) => group.kind === "new")?.entries ?? [];
   return (
     <>
-      {latest && latestNew.length > 0 ? (
-        <LatestNew release={latest} entries={latestNew} />
-      ) : null}
       <div className="flex flex-col">
         {releases.map((release, index) => (
-          <div key={release.released} className="relative pl-6">
-            <TimelineMark first={index === 0} />
-            {index > 0 && (
-              <div aria-hidden style={{ paddingTop: MONTH_PAD }}>
-                <div
-                  className="border-border -ml-[22px] border-solid"
-                  style={{ borderTopWidth: HAIRLINE }}
-                />
-              </div>
-            )}
-            <ReleaseSection
-              release={release}
-              divided={index > 0}
-              sectionRef={(element) => {
-                if (element) {
-                  sectionsReference.current.set(release.released, element);
-                } else {
-                  sectionsReference.current.delete(release.released);
-                }
-              }}
-            />
-          </div>
+          <ReleaseSection
+            key={release.month}
+            release={release}
+            latest={index === 0}
+            sectionRef={(element) => {
+              if (element) {
+                sectionsReference.current.set(release.month, element);
+              } else {
+                sectionsReference.current.delete(release.month);
+              }
+            }}
+          />
         ))}
       </div>
       <ReleaseIndex releases={releases} activeMonth={activeMonth} />
@@ -93,379 +59,123 @@ export const ChangelogView = ({
   );
 };
 
-/**
-What the latest release added, above the history: the same entries the sidebar marks with a dot.
-*/
-const LatestNew = ({
-  release,
-  entries,
-}: {
-  readonly release: ReleaseView;
-  readonly entries: ChangeEntry[];
-}) => {
-  const { type } = useSize();
-  return (
-    <section aria-labelledby="latest-new-title" className="pb-16">
-      <h2
-        id="latest-new-title"
-        className={type.title}
-        style={{ fontVariationSettings: fontWeights.semibold }}
-      >
-        New
-      </h2>
-      <p className={cn(type.body, "text-muted-foreground mt-2")}>
-        Added in the{" "}
-        <a
-          href={`#${release.released}`}
-          className={cn(
-            "text-foreground underline-offset-2 hover:underline",
-            FOCUS_RING
-          )}
-        >
-          {release.label}
-        </a>{" "}
-        release.
-      </p>
-      <div className="mt-2 flex flex-col pl-6">
-        {entries.map((entry, index) => (
-          <Entry
-            key={entry.href ?? entry.name}
-            entry={entry}
-            first={index === 0}
-          />
-        ))}
-      </div>
-      <div aria-hidden className="border-border mt-16 border-t" />
-    </section>
-  );
-};
-
-const TimelineMark = ({ first }: { readonly first: boolean }) => {
-  const { variant } = useSize();
-  const half =
-    variant === "compact"
-      ? "var(--lh-title-compact, 20px) / 2"
-      : "var(--lh-title, 22px) / 2";
-  const dotY = first
-    ? `calc(${half})`
-    : `calc(${MONTH_PAD} + ${HAIRLINE} + ${MONTH_PAD} + ${half})`;
-  return (
-    <>
-      <span
-        aria-hidden
-        className="bg-border absolute bottom-0 left-[2px] w-px"
-        style={{ top: first ? dotY : 0 }}
-      />
-      <span
-        aria-hidden
-        className="bg-foreground ring-background absolute left-0 size-[5px] -translate-y-1/2 rounded-full ring-[3px]"
-        style={{ top: dotY }}
-      />
-    </>
-  );
-};
-
 const ReleaseSection = ({
   release,
-  divided,
+  latest,
   sectionRef,
 }: {
   readonly release: ReleaseView;
-  readonly divided: boolean;
+  readonly latest: boolean;
   readonly sectionRef: (element: HTMLElement | null) => void;
 }) => {
   const { type } = useSize();
   return (
     <section
       ref={sectionRef}
-      id={release.released}
-      aria-labelledby={`${release.released}-title`}
-      className="scroll-mt-16"
-      style={divided ? { paddingTop: MONTH_PAD } : undefined}
+      id={release.month}
+      aria-labelledby={`${release.month}-title`}
+      className={cn(
+        "scroll-mt-16",
+        !latest && "border-border mt-10 border-t pt-10"
+      )}
     >
-      <MonthHeading release={release} />
-      <h3
-        className={cn(type.subtitle, "text-foreground mt-2")}
+      <h2
+        id={`${release.month}-title`}
+        className={cn(type.title, "text-foreground")}
         style={{ fontVariationSettings: fontWeights.semibold }}
       >
-        {release.title}
-      </h3>
-      {release.intro ? (
-        <p className={cn(type.body, "text-muted-foreground mt-2")}>
-          <InlineText inline={release.intro} />
-        </p>
-      ) : null}
-      {release.groups.map((group) => (
-        <KindGroup key={group.kind} kind={group.kind} entries={group.entries} />
-      ))}
+        <time dateTime={release.month}>{release.label}</time>
+      </h2>
+      <ul className="mt-4 flex flex-col gap-6">
+        {release.cards.map((card) => (
+          <Card key={card.href} card={card} />
+        ))}
+      </ul>
     </section>
   );
 };
 
-const MonthHeading = ({ release }: { readonly release: ReleaseView }) => {
-  const { type } = useSize();
-  const icons = useIcons();
-  const LinkIcon = icons.link;
-  const CheckIcon = icons.check;
-  const [copied, setCopied] = useState(false);
-  const timeoutReference = useRef<ReturnType<typeof setTimeout>>(null);
-  useEffect(
-    () => () => {
-      if (timeoutReference.current) {
-        clearTimeout(timeoutReference.current);
-      }
-    },
-    []
-  );
-
-  const copy = async () => {
-    const url = `${window.location.origin}/changelog#${release.released}`;
-    try {
-      await navigator.clipboard.writeText(url);
-    } catch {
-      return;
-    }
-    setCopied(true);
-    if (timeoutReference.current) {
-      clearTimeout(timeoutReference.current);
-    }
-    timeoutReference.current = setTimeout(() => setCopied(false), 2000);
-  };
-
-  return (
-    <div className="group/month flex items-center gap-2">
-      <h2
-        id={`${release.released}-title`}
-        className={cn(type.title, "text-foreground")}
-        style={{ fontVariationSettings: fontWeights.semibold }}
-      >
-        <time dateTime={release.released}>{release.label}</time>
-      </h2>
-      <a
-        href={`#${release.released}`}
-        onClick={(event) => {
-          event.preventDefault();
-          window.history.replaceState(
-            window.history.state,
-            "",
-            `${window.location.search}#${release.released}`
-          );
-          copy();
-        }}
-        aria-label={`Copy link to ${release.label}`}
-        className={cn(
-          "text-muted-foreground hover:text-foreground relative grid size-5 place-items-center rounded-md opacity-0 transition-opacity duration-80 group-hover/month:opacity-100 focus-visible:opacity-100 max-sm:opacity-100",
-          FOCUS_RING
-        )}
-      >
-        <AnimatePresence initial={false} mode="popLayout">
-          <motion.span
-            key={copied ? "check" : "link"}
-            className="grid place-items-center"
-            initial={{ filter: "blur(4px)", opacity: 0, scale: 0.6 }}
-            animate={{
-              filter: "blur(0px)",
-              opacity: 1,
-              scale: 1,
-              transition: spring.fast,
-            }}
-            exit={{
-              filter: "blur(4px)",
-              opacity: 0,
-              scale: 0.6,
-              transition: spring.fast.exit,
-            }}
-          >
-            {copied ? (
-              <CheckIcon size={14} strokeWidth={1.5} />
-            ) : (
-              <LinkIcon size={14} strokeWidth={1.5} />
-            )}
-          </motion.span>
-        </AnimatePresence>
-        <span className="sr-only" aria-live="polite">
-          {copied ? "Link copied" : ""}
-        </span>
-      </a>
-    </div>
-  );
-};
-
-const KindGroup = ({
-  kind,
-  entries,
-}: {
-  readonly kind: ChangeKind;
-  readonly entries: ChangeEntry[];
-}) => {
-  const { type } = useSize();
-  return (
-    <div className="pt-10">
-      <div aria-hidden className="border-border border-t" />
-      <h4
-        className={cn(
-          type.subtitle,
-          "text-foreground flex items-baseline gap-2 pt-10"
-        )}
-        style={{ fontVariationSettings: fontWeights.semibold }}
-      >
-        {KIND_LABEL[kind]}
-        <span
-          className={cn(type.caption, "text-muted-foreground tabular-nums")}
-          style={{ fontVariationSettings: fontWeights.normal }}
-        >
-          {entries.length}
-        </span>
-      </h4>
-      <div className="mt-2 flex flex-col">
-        {entries.map((entry, index) => (
-          <Entry
-            key={`${entry.name}-${index}`}
-            entry={entry}
-            first={index === 0}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const KindDot = ({ kind }: { readonly kind: ChangeKind }) => (
-  <span
-    aria-hidden
-    className="bg-background ring-background absolute top-1/2 -left-6 size-[5px] -translate-y-1/2 rounded-full ring-[3px]"
-  >
-    <span className={cn("block size-full rounded-full", KIND_DOT[kind])} />
-  </span>
-);
-
-const Entry = ({
-  entry,
-  first,
-}: {
-  readonly entry: ChangeEntry;
-  readonly first: boolean;
-}) => {
+const Card = ({ card }: { readonly card: CardEntry }) => {
   const { type } = useSize();
   const ArrowRight = useIcons()["arrow-right"];
   return (
-    <article className={cn(!first && "pt-6")}>
-      <div className="flex items-center justify-between gap-4 pt-2">
-        <h5 className={cn(type.body, "text-foreground relative")}>
-          <KindDot kind={entry.kind} />
-          {entry.href ? (
-            <Link
-              href={entry.href}
-              className={cn(
-                "group/name inline-flex items-center gap-1.5 rounded-md",
-                FOCUS_RING
-              )}
-            >
-              {entry.name}
-              <ArrowRight
-                size={14}
-                strokeWidth={1.5}
-                className="text-muted-foreground group-hover/name:text-foreground transition-[color,translate] duration-80 group-hover/name:translate-x-0.5"
-              />
-            </Link>
-          ) : (
-            entry.name
-          )}
-        </h5>
-        {entry.refs.length > 0 && (
-          <div className="-mr-1.5 flex items-center">
-            {entry.refs.map((reference) => (
-              <RefChip
-                key={reference.type === "pr" ? reference.number : reference.sha}
-                gitRef={reference}
-              />
-            ))}
-          </div>
+    <li>
+      <Link
+        href={card.href}
+        className={cn(
+          type.body,
+          "group/name text-foreground inline-flex items-center gap-1.5 rounded-md",
+          FOCUS_RING
         )}
-      </div>
+      >
+        <span
+          aria-hidden
+          className={cn(
+            "mr-1 size-1.5 shrink-0 rounded-full",
+            card.isNew ? "bg-[var(--info)]" : "bg-border"
+          )}
+        />
+        {card.name}
+        <ArrowRight
+          size={14}
+          strokeWidth={1.5}
+          className="text-muted-foreground group-hover/name:text-foreground transition-[color,translate] duration-80 group-hover/name:translate-x-0.5"
+        />
+      </Link>
       <p className={cn(type.body, "text-muted-foreground mt-1")}>
-        <InlineText inline={entry.text} />
+        <InlineText inline={card.text} />
       </p>
-      {entry.diff ? <Diff diff={entry.diff} /> : null}
-    </article>
+    </li>
   );
 };
 
-const RefChip = ({ gitRef }: { readonly gitRef: ChangeRef }) => {
-  const { type } = useSize();
-  const isPr = gitRef.type === "pr";
-  return (
-    <a
-      href={
-        isPr ? `${REPO}/pull/${gitRef.number}` : `${REPO}/commit/${gitRef.sha}`
-      }
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={
-        isPr
-          ? `Pull request ${gitRef.number} on GitHub`
-          : `Commit ${gitRef.sha} on GitHub`
-      }
-      className={cn(
-        type.caption,
-        "text-muted-foreground hover:bg-active hover:text-foreground flex h-5 items-center rounded-md px-1.5 font-mono tabular-nums transition-colors duration-80",
-        FOCUS_RING
-      )}
-    >
-      {isPr ? `#${gitRef.number}` : gitRef.sha.slice(0, 7)}
-    </a>
-  );
-};
-
-const Diff = ({ diff }: { readonly diff: string }) => {
-  const { type } = useSize();
-  return (
-    <pre
-      className={cn(
-        type.caption,
-        "border-border mt-3 overflow-x-auto rounded-lg border py-2 font-mono"
-      )}
-    >
-      <code className="flex w-max min-w-full flex-col">
-        {diff.split("\n").map((line, index) => (
-          <span
-            key={index}
-            className={cn(
-              "px-3 whitespace-pre",
-              line.startsWith("+") &&
-                "bg-[color-mix(in_oklab,var(--success)_12%,transparent)]",
-              line.startsWith("-") &&
-                "bg-[color-mix(in_oklab,var(--destructive)_12%,transparent)]"
-            )}
-          >
-            {line || " "}
-          </span>
-        ))}
+const InlineText = ({ inline }: { readonly inline: Inline[] }) =>
+  inline.map((part, index) =>
+    part.type === "code" ? (
+      <code key={index} className="font-mono">
+        {part.value}
       </code>
-    </pre>
+    ) : (
+      <span key={index}>{part.value}</span>
+    )
   );
-};
+
+/**
+The element the docs page scrolls in. The site shell scrolls an inner column, not the window.
+*/
+function scrollParent(element: HTMLElement): HTMLElement {
+  for (let node = element.parentElement; node; node = node.parentElement) {
+    const { overflowY } = getComputedStyle(node);
+    if (overflowY === "auto" || overflowY === "scroll") {
+      return node;
+    }
+  }
+  return document.documentElement;
+}
 
 function useScrollSpy(
   releases: ReleaseView[],
   sectionsReference: RefObject<Map<string, HTMLElement>>
 ) {
   const [active, setActive] = useState<string | null>(
-    releases[0]?.released ?? null
+    releases[0]?.month ?? null
   );
 
   useEffect(() => {
     let frame = 0;
     const update = () => {
       frame = 0;
-      const months = releases.map((release) => release.released);
+      const months = releases.map((release) => release.month);
       if (months.length === 0) {
         setActive(null);
         return;
       }
+      const first = sectionsReference.current.get(months[0]);
+      const scroller = first ? scrollParent(first) : document.documentElement;
+      // A page short enough to start at the bottom still opens on the newest release.
       const isAtBottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 2;
+        scroller.scrollTop > 0 &&
+        scroller.clientHeight + scroller.scrollTop >= scroller.scrollHeight - 2;
       if (isAtBottom) {
         setActive(months.at(-1) ?? null);
         return;
@@ -532,7 +242,7 @@ const ReleaseIndexCard = ({
   const hover = useFluidHover(containerReference);
 
   const activeIndex = releases.findIndex(
-    (release) => release.released === activeMonth
+    (release) => release.month === activeMonth
   );
   const activeRect =
     activeIndex !== -1 && hover.isMeasured
@@ -575,10 +285,10 @@ const ReleaseIndexCard = ({
         <FluidHoverHighlight hover={hover} className={shape.bg} />
         {releases.map((release, index) => (
           <IndexRow
-            key={release.released}
+            key={release.month}
             release={release}
             index={index}
-            active={release.released === activeMonth}
+            active={release.month === activeMonth}
             registerItem={hover.registerItem}
           />
         ))}
@@ -607,18 +317,18 @@ const IndexRow = ({
   return (
     <a
       ref={reference}
-      href={`#${release.released}`}
+      href={`#${release.month}`}
       aria-current={active ? "location" : undefined}
       onClick={(event) => {
         event.preventDefault();
-        document.getElementById(release.released)?.scrollIntoView({
+        document.getElementById(release.month)?.scrollIntoView({
           behavior: reduceMotion ? "auto" : "smooth",
           block: "start",
         });
         window.history.replaceState(
           window.history.state,
           "",
-          `${window.location.search}#${release.released}`
+          `${window.location.search}#${release.month}`
         );
       }}
       className={cn(
@@ -651,14 +361,3 @@ const IndexRow = ({
     </a>
   );
 };
-
-const InlineText = ({ inline }: { readonly inline: Inline[] }) =>
-  inline.map((part, index) =>
-    part.type === "code" ? (
-      <code key={index} className="font-mono">
-        {part.value}
-      </code>
-    ) : (
-      <span key={index}>{part.value}</span>
-    )
-  );

@@ -9,6 +9,8 @@ import {
   summarizeWinProbability,
 } from "@/features/win-probability/win-probability-schema";
 import { CARD_FRAME as SHARED_CARD_FRAME } from "@/lib/card-frame";
+import { fontWeights } from "@/lib/font-weight";
+import { typeClass } from "@/lib/type-scale";
 import { cn } from "@/lib/utils";
 import type {
   WinProbabilityData,
@@ -20,6 +22,10 @@ import type {
   MouseEvent,
   PointerEvent,
 } from "react";
+
+const TYPE_SUBTITLE = typeClass("subtitle", "default");
+const TYPE_CAPTION = typeClass("caption", "default");
+const TYPE_MICRO = typeClass("micro", "default");
 
 export type WinProbabilityCardState =
   "streaming" | "loading" | "ready" | "error";
@@ -40,15 +46,12 @@ const CARD_FRAME = `${SHARED_CARD_FRAME} w-full max-w-[500px]`;
 const MUTED = "text-muted-foreground";
 
 /**
-The Slider is read-only here: it shows the chance and takes no input.
+The Slider requires onChange; presses are stopped before it sees them, so this never runs.
 */
 function ignoreChange() {
-  // Presses and arrow keys are stopped before the Slider sees them, so this never runs; Slider requires the handler.
+  // Nothing to do: the card shows a chance, it doesn't take one.
 }
 
-/**
-The keys the Slider would move its thumb with.
-*/
 const MOVE_KEYS = new Set([
   "ArrowDown",
   "ArrowLeft",
@@ -60,17 +63,11 @@ const MOVE_KEYS = new Set([
   "PageUp",
 ]);
 
-/**
-Stops a press or drag before it reaches the Slider, so the thumb can't move.
-*/
 function blockPress(event: PointerEvent<HTMLDivElement>) {
   event.preventDefault();
   event.stopPropagation();
 }
 
-/**
-Stops the arrow keys and their kin, so a focused thumb can't move either.
-*/
 function blockMoveKeys(event: KeyboardEvent<HTMLDivElement>) {
   if (!MOVE_KEYS.has(event.key)) {
     return;
@@ -79,24 +76,16 @@ function blockMoveKeys(event: KeyboardEvent<HTMLDivElement>) {
   event.stopPropagation();
 }
 
-/**
-Stops the pointer's movement from reaching the Slider, which would otherwise draw its preview of a change from the thumb to the cursor. Hovering still shows the percent over the thumb: that runs on pointer enter and leave.
-*/
 function blockPreview(event: MouseEvent<HTMLDivElement>) {
   event.stopPropagation();
 }
 
-const STEP_DOTS_EVERY = 10;
-
 /**
-The team's color, set on its row as --team, and the bar's shade of it, --team-bar: the color as it is on a light card, lighter on a dark one, or a black team's bar would vanish.
+The team's color as --team, and --team-bar for the scrubber fill (via --active on the Slider: Fluid's scrubber paints with that token). Lighter on a dark card so a black team's bar still shows.
 */
 const TEAM_SHADES =
   "[--team-bar:var(--team)] dark:[--team-bar:color-mix(in_oklab,var(--team)_60%,white)]";
 
-/**
-One of the logo's two images: the light one, or the one ESPN draws for dark backgrounds. The theme hides the other.
-*/
 const LogoImage = ({
   src,
   onError,
@@ -126,8 +115,10 @@ const TeamLogo = ({ team }: { readonly team: WinProbabilityTeam }) => {
         aria-hidden
         className={cn(
           MUTED,
-          "flex size-10 shrink-0 items-center justify-center text-xs font-semibold"
+          TYPE_MICRO,
+          "flex size-10 shrink-0 items-center justify-center"
         )}
+        style={{ fontVariationSettings: fontWeights.semibold }}
       >
         {team.abbreviation}
       </span>
@@ -150,9 +141,7 @@ const TeamLogo = ({ team }: { readonly team: WinProbabilityTeam }) => {
 };
 
 /**
-One team: logo, then its name over Fluid's Slider filled to its chance, then what a win pays back.
-
-The Slider is the steps design, read-only: a dot every 10% along the track, the fill in the team's color, and its white thumb, which shows the percent in a bubble while hovered. It isn't disabled, since a disabled slider ignores hover; instead the wrapper stops presses, drags and arrow keys before they reach it, so the thumb never moves. It moves on its own springs, so a live game's swings glide.
+The app's FluidProvider is size="compact", which would pick the other Slider engine and ignore scrubber — so size is pinned to "default". Not `disabled`: that greys the fill.
 */
 const TeamRow = ({ team }: { readonly team: WinProbabilityTeam }) => (
   <li
@@ -160,42 +149,66 @@ const TeamRow = ({ team }: { readonly team: WinProbabilityTeam }) => (
     style={{ "--team": team.color } as CSSProperties}
   >
     <TeamLogo team={team} />
-    <div className="flex min-w-0 flex-1 flex-col gap-2">
-      <p className="truncate text-base">{team.name}</p>
-      {/* -mt-3 takes back most of the room tooltip mode leaves above the track: the bubble floats over the name only while hovered. */}
+    <div className="flex min-w-0 flex-1 flex-col gap-1.5">
+      <div className="flex items-baseline justify-between gap-3">
+        <p
+          className={cn(TYPE_SUBTITLE, "min-w-0 truncate")}
+          style={{ fontVariationSettings: fontWeights.normal }}
+        >
+          {team.name}
+        </p>
+        <p
+          className={cn(
+            MUTED,
+            TYPE_CAPTION,
+            "shrink-0 text-right tabular-nums"
+          )}
+          style={{ fontVariationSettings: fontWeights.normal }}
+        >
+          {formatMultiplier(team.probability)}
+        </p>
+      </div>
       <div
-        className="-mt-3"
         onPointerDownCapture={blockPress}
         onKeyDownCapture={blockMoveKeys}
         onMouseMoveCapture={blockPreview}
       >
         <Slider
+          size="default"
+          variant="scrubber"
           value={team.probability}
           onChange={ignoreChange}
           min={0}
           max={100}
-          step={STEP_DOTS_EVERY}
-          showSteps
-          valuePosition="tooltip"
           formatValue={formatPercent}
-          label={`${team.name}'s chance of winning`}
-          fillStyle={{ backgroundColor: "var(--team-bar)" }}
+          style={{ "--active": "var(--team-bar)" } as CSSProperties}
+          className={cn(
+            "cursor-default [&_.cursor-ew-resize]:cursor-default",
+            "[&>span]:text-[length:var(--fs-subtitle,14px)] [&>span]:leading-[var(--lh-subtitle,20px)]"
+          )}
         />
       </div>
     </div>
-    <p className={cn(MUTED, "w-11 shrink-0 text-right text-sm tabular-nums")}>
-      {formatMultiplier(team.probability)}
-    </p>
   </li>
 );
 
 const Header = ({ data }: { readonly data: WinProbabilityData }) => (
-  <header className="flex items-center justify-between gap-3 text-sm">
-    <p className="min-w-0 truncate">
+  <header
+    className={cn(TYPE_CAPTION, "flex items-center justify-between gap-3")}
+  >
+    <p
+      className="min-w-0 truncate"
+      style={{ fontVariationSettings: fontWeights.normal }}
+    >
       <span className="text-blue-600 dark:text-blue-400">NBA</span>
       <span className={MUTED}> · {gameDayLabel(data)}</span>
     </p>
-    <p className={cn(MUTED, "shrink-0 tabular-nums")}>{data.season}</p>
+    <p
+      className={cn(MUTED, "shrink-0 tabular-nums")}
+      style={{ fontVariationSettings: fontWeights.normal }}
+    >
+      {data.season}
+    </p>
   </header>
 );
 
@@ -207,12 +220,20 @@ const WinProbabilityError = ({
   readonly message?: string;
 }) => (
   <div role="alert" className="flex flex-col gap-1">
-    <p className="text-sm font-semibold">
+    <p
+      className={TYPE_SUBTITLE}
+      style={{ fontVariationSettings: fontWeights.semibold }}
+    >
       {team
         ? `Couldn't load the ${team} game's win probability`
         : "Couldn't load the win probability"}
     </p>
-    <p className={cn(MUTED, "text-xs")}>{message}</p>
+    <p
+      className={cn(MUTED, TYPE_CAPTION)}
+      style={{ fontVariationSettings: fontWeights.normal }}
+    >
+      {message}
+    </p>
   </div>
 );
 
@@ -248,20 +269,23 @@ export const WinProbabilityCardSkeleton = ({
       {SKELETON_ROWS.map((side, index) => (
         <div key={side} className="flex items-center gap-3">
           <Bar className="size-10 rounded-full" />
-          <div className="flex min-w-0 flex-1 flex-col gap-2">
-            {index === 0 && team ? (
-              <p className="truncate text-base">
-                {team}
-                {streaming ? <span className={MUTED}>…</span> : null}
-              </p>
-            ) : (
-              <div className="flex h-6 items-center">
-                <Bar className="h-4 w-36" />
-              </div>
-            )}
-            <Bar className="h-1.5 w-full rounded-full" />
+          <div className="flex min-w-0 flex-1 flex-col gap-1.5">
+            <div className="flex items-center justify-between gap-3">
+              {index === 0 && team ? (
+                <p
+                  className={cn(TYPE_SUBTITLE, "min-w-0 truncate")}
+                  style={{ fontVariationSettings: fontWeights.normal }}
+                >
+                  {team}
+                  {streaming ? <span className={MUTED}>…</span> : null}
+                </p>
+              ) : (
+                <Bar className="h-5 w-36" />
+              )}
+              <Bar className="h-3.5 w-9 shrink-0" />
+            </div>
+            <Bar className="h-8 w-full rounded-md" />
           </div>
-          <Bar className="h-3.5 w-9" />
         </div>
       ))}
     </div>

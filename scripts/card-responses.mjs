@@ -2,6 +2,24 @@ import { setTimeout } from "node:timers/promises";
 
 const QUOTE_RANGES = ["1d", "1w", "1m", "1y"];
 const CRYPTO_RANGES = ["24h", "1w", "1m", "1y", "all"];
+const AREA_CHART_RANGES = ["10y", "25y", "50y", "max"];
+const MAX_COMPARE = 6;
+const MIN_COMPARE = 2;
+
+function compareSubjects(value) {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+  const subjects = [
+    ...new Set(
+      value
+        .filter((item) => typeof item === "string")
+        .map((item) => item.trim())
+        .filter(Boolean)
+    ),
+  ].filter((_, index) => index < MAX_COMPARE);
+  return subjects.length >= MIN_COMPARE ? subjects : [];
+}
 const BUSY = 503;
 const BUSY_WAIT_SECONDS = 20;
 const BUSY_RETRIES = 3;
@@ -11,7 +29,34 @@ const BUSY_WAITS_SECONDS = Array.from(
 );
 const MS_PER_SECOND = 1000;
 
+function areaChartSubject({ topic, place }) {
+  if (typeof topic === "string" && topic) {
+    return topic;
+  }
+  return typeof place === "string" && place ? place : "";
+}
+
+// Keys are the catalog's component names, so they stay PascalCase.
+/* eslint-disable sonarjs/function-name */
 const CARD_URLS = {
+  AreaChartCard: ({ topic, place, compare }) => {
+    const subject = areaChartSubject({ place, topic });
+    if (!subject) {
+      return [];
+    }
+    const subjects = compareSubjects(compare);
+    if (subjects.length >= MIN_COMPARE) {
+      const parameters = new URLSearchParams({ range: "max", topic: subject });
+      for (const name of subjects) {
+        parameters.append("compare", name);
+      }
+      return [`/api/area-chart?${parameters}`];
+    }
+    return AREA_CHART_RANGES.map(
+      (range) =>
+        `/api/area-chart?topic=${encodeURIComponent(subject)}&range=${range}`
+    );
+  },
   BoardingPass: ({ flight, date }) => {
     if (!(typeof flight === "string" && flight)) {
       return [];
@@ -81,6 +126,7 @@ const CARD_URLS = {
     return [`/api/win-probability?${parameters}`];
   },
 };
+/* eslint-enable sonarjs/function-name */
 
 function cardUrls(recording) {
   const elements = new Map();

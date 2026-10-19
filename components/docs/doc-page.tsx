@@ -82,7 +82,9 @@ const PageArrows = ({ href }: { readonly href: string }) => {
   return (
     <div className="-my-2 flex shrink-0 items-center gap-1">
       {previous ? (
-        <Tooltip content={<ArrowHint label={previous.label} keyGlyph="←" />}>
+        <Tooltip
+          content={<ArrowHint label={previous.label} direction="left" />}
+        >
           <Button
             variant="ghost"
             size={size}
@@ -103,7 +105,7 @@ const PageArrows = ({ href }: { readonly href: string }) => {
         </Button>
       )}
       {next ? (
-        <Tooltip content={<ArrowHint label={next.label} keyGlyph="→" />}>
+        <Tooltip content={<ArrowHint label={next.label} direction="right" />}>
           <Button
             variant="ghost"
             size={size}
@@ -124,16 +126,25 @@ const PageArrows = ({ href }: { readonly href: string }) => {
 
 const ArrowHint = ({
   label,
-  keyGlyph,
+  direction,
 }: {
   readonly label: string;
-  readonly keyGlyph: string;
-}) => (
-  <span>
-    {label}&ensp;
-    <kbd className="text-muted-foreground font-mono">{keyGlyph}</kbd>
-  </span>
-);
+  readonly direction: "left" | "right";
+}) => {
+  const Arrow = useIcons()[`arrow-${direction}`];
+  return (
+    <span className="inline-flex items-center gap-2">
+      {label}
+      <kbd className="text-muted-foreground inline-flex items-center">
+        <Arrow
+          size={12}
+          strokeWidth={1.5}
+          aria-label={`${direction} arrow key`}
+        />
+      </kbd>
+    </span>
+  );
+};
 
 function renderPrinciple(
   item: { readonly title: string; readonly body: ReactNode },

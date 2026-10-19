@@ -146,16 +146,30 @@ const PlaygroundControls = ({
       >
         Playground
       </h2>
-      <div className="mt-2 flex items-center justify-between gap-2 px-1">
-        <span className={cn(type.body, "text-muted-foreground")}>Prompt</span>
+      {/* Label above a full-width picker: prompts can be whole questions, so
+          the trigger and its rows wrap instead of truncating. */}
+      <div className="mt-2 flex flex-col gap-1">
+        <span className={cn(type.body, "text-muted-foreground px-1")}>
+          Prompt
+        </span>
         <Select
           value={String(value)}
           onValueChange={(next) => onChange(Number(next))}
         >
-          <SelectTrigger variant="borderless" className="w-auto min-w-0" />
-          <SelectContent>
+          <SelectTrigger
+            variant="borderless"
+            multiline
+            aria-label="Prompt"
+            className="w-full min-w-0"
+          />
+          <SelectContent className="w-[var(--anchor-width)]">
             {runs.map((run, index) => (
-              <SelectItem key={run.label} value={String(index)} index={index}>
+              <SelectItem
+                key={run.label}
+                value={String(index)}
+                index={index}
+                multiline
+              >
                 {run.label}
               </SelectItem>
             ))}

@@ -41,19 +41,19 @@ export interface PlayerCardProperties {
 }
 
 const CARD_FRAME = `${SHARED_CARD_FRAME} w-full max-w-[720px]`;
+const HEADER_ROW_HEIGHT = "h-[37px]";
+const PLAYER_ROW_HEIGHT = "h-[73px]";
 
-/**
-One empty list for every default, so a card without names doesn't get a new array each render.
-*/
+function streamingPlayerKey(name: string, index: number): string {
+  return `${name}-${index}`;
+}
+
 const NO_NAMES: readonly string[] = [];
 
 const MUTED = "text-muted-foreground";
 
 const STAT = "text-center whitespace-nowrap tabular-nums";
 
-/**
-The columns after the photo, number and name, left to right, as on a team's roster page.
-*/
 const COLUMNS = [
   {
     label: "Ht",
@@ -121,9 +121,6 @@ function headshotSources(url: string): { src: string; srcSet?: string } {
   };
 }
 
-/**
-The player's cut-out photo in a circle, cropped to his head and shoulders. An empty circle when ESPN has none or it fails to load.
-*/
 const Headshot = ({ player }: { readonly player: PlayerInfo }) => {
   const [failed, setFailed] = useState(false);
   const photo = player.headshot ? headshotSources(player.headshot) : null;
@@ -173,9 +170,6 @@ const Header = ({
   </header>
 );
 
-/**
-The team everyone plays for, or null when the players come from more than one: then each row names its own team instead.
-*/
 function sharedTeam(data: readonly PlayerData[]) {
   const [first] = data;
   return first && data.every((entry) => entry.team.name === first.team.name)
@@ -183,9 +177,6 @@ function sharedTeam(data: readonly PlayerData[]) {
     : null;
 }
 
-/**
-One row per player under one header row, so every stat lines up in its column for comparing. The rows read in full color: they're there to be compared, so muting them until hovered would only make that harder.
-*/
 const PlayerTable = ({
   data,
   showTeam,
@@ -293,15 +284,13 @@ export const PlayerCardSkeleton = ({
           <Bar className="h-3.5 w-44" />
         </div>
         <div className="flex flex-col">
-          {/* The header row is 37px (36 on the ladder plus a 1px rule); each player's row is 73px, the 64px photo plus 4px above and below and a 1px rule. */}
-          <div className="flex h-[37px] items-center px-3">
+          <div className={cn("flex items-center px-3", HEADER_ROW_HEIGHT)}>
             <Bar className="h-3.5 w-12" />
           </div>
           {rows.map((name, index) => (
             <div
-              // The names can repeat while the model is still writing them.
-              key={`${name}-${index}`}
-              className="flex h-[73px] items-center gap-3 px-3"
+              key={streamingPlayerKey(name, index)}
+              className={cn("flex items-center gap-3 px-3", PLAYER_ROW_HEIGHT)}
             >
               <Bar className="size-16 rounded-full" />
               {name ? (

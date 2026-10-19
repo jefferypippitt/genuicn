@@ -18,12 +18,9 @@ import { fullLabel, NAV_SECTIONS } from "@/components/sidebar-app/nav-data";
 import { SidebarSearchField } from "@/components/sidebar-app/search-field";
 import type { CommandMenuItemData } from "@/components/ui/command-menu";
 import type { IconComponent, IconName } from "@/lib/icon-context";
-import type { NavSection } from "@/components/sidebar-app/nav-data";
+import type { NavItem, NavSection } from "@/components/sidebar-app/nav-data";
 import type { ReactNode } from "react";
 
-/**
-Pages listed first while the field is empty — entry points, not a sidebar dump.
-*/
 const SUGGESTED_HREFS = [
   "/docs/installation",
   "/docs/quote",
@@ -51,14 +48,15 @@ function useDocumentationSearch(): DocumentationSearchContextValue {
   return value;
 }
 
-function plannedValue(section: NavSection, label: string): string {
-  return `planned:${section.label}:${label}`;
+function plannedValue(section: NavSection, item: NavItem): string {
+  const parts = ["planned", section.label];
+  if (item.group) {
+    parts.push(item.group);
+  }
+  parts.push(item.label);
+  return parts.join(":");
 }
 
-/**
-Every nav row, including cards that are not built yet. Search is discovery
-(type what a card does); the sidebar stays navigation of what is ready.
-*/
 function searchItems(
   icons: Record<IconName, IconComponent>
 ): CommandMenuItemData[] {
@@ -75,7 +73,7 @@ function searchItems(
         icon: item.icon ? icons[item.icon] : undefined,
         keywords: item.group ? [item.group, section.label] : [section.label],
         label,
-        value: item.href ?? plannedValue(section, item.label),
+        value: item.href ?? plannedValue(section, item),
       });
     }
   }
@@ -93,11 +91,7 @@ function sectionTabs(): { label: string; value: string }[] {
 }
 
 /**
-One command menu for the site. The dialog is a sibling of the sidebar, so the mobile sheet — which mounts the sidebar's children a second time — does not register a second shortcut listener.
-
-Shape: descriptions + suggestions + section tabs (CommandMenu "discovery"
-preset), so search answers "what does this card do?" and scales as sections
-grow. https://www.fluidfunctionalism.com/docs/command-menu
+The dialog is a sibling of the sidebar, so the mobile sheet — which mounts the sidebar's children a second time — does not register a second shortcut listener.
 */
 export const DocumentationSearchProvider = ({
   children,
@@ -156,9 +150,6 @@ export const DocumentationSearchProvider = ({
   );
 };
 
-/**
-The sidebar control that opens the docs command menu.
-*/
 export const SidebarSearchTrigger = () => {
   const { isOpen, setIsOpen } = useDocumentationSearch();
   const isMac = useIsMac();

@@ -9,7 +9,7 @@ import type { ChatRecording } from "@/lib/docs/chat-recording";
 import type { Metadata } from "next";
 
 const DESCRIPTION =
-  "Each team's chance of winning one NBA game: both teams' logos, a bar in each team's color with the percent on hover, and what a win pays back. ESPN's prediction before tip-off, the live chance during the game, the result after.";
+  "Each team's chance of winning one NBA game: both teams' logos, a bar in each team's color with the percent in the bar, and what a win pays back. ESPN's prediction before tip-off, the live chance during the game, the result after.";
 
 export const metadata: Metadata = {
   description: DESCRIPTION,
@@ -27,7 +27,7 @@ const STATES = [
   ],
   [
     "Ready.",
-    "Both teams, away then home, each with its logo and name over Fluid's steps Slider filled to its chance in its color (read-only; hover the bar to see the percent), then what a win pays back (1.9x for 53%). When both teams share a color, the away team takes its second one. While the game is on, the card reads the chances again every 30 seconds.",
+    "Both teams, away then home, each with its logo and name over Fluid's scrubber Slider filled to its chance in its color (read-only — you can't scrub the odds; the percent sits in the bar), then what a win pays back (1.9x for 53%). When both teams share a color, the away team takes its second one. While the game is on, the card reads the chances again every 30 seconds.",
   ],
   [
     "Error.",

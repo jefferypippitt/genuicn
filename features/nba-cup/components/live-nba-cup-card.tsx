@@ -6,9 +6,6 @@ import { loadCupGroup } from "@/features/nba-cup/nba-cup-requests";
 import { errorMessage, parseCupGroup } from "@/features/nba-cup/nba-cup-schema";
 import type { CupGroupData } from "@/features/nba-cup/nba-cup-schema";
 
-/**
-What came back for one group. A result for another group reads as still loading, so the card never flashes the wrong table.
-*/
 type Result =
   | { key: string; status: "ready"; data: CupGroupData }
   | { key: string; status: "error"; message: string };

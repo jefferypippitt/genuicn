@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/no-incorrect-template-string-interpolation -- the prompts quote JSX like {loading} and {props.date} for the reader's code, not as template slots */
+
 function chatSetup(origin: string) {
   return `1. If the project doesn't have the genuicn chat yet (no features/chat/chat-catalog.ts), install it once:
 npx shadcn@latest add ${origin}/r/chat.json --overwrite
@@ -254,13 +256,13 @@ Docs: ${origin}/docs/player`;
 }
 
 function winProbabilityInstallPrompt(origin: string): string {
-  return `Add the NBA win probability card from genuicn to my Next.js app. It's one card for one NBA game: each team's logo and name over a bar in its color (Fluid's steps Slider, read-only, with the percent over its thumb on hover) and what a win pays back (1.9x for 53%), that the chat's model can show. Before tip-off it shows ESPN's prediction, during the game the live chance (read again every 30 seconds), and after it the result.
+  return `Add the NBA win probability card from genuicn to my Next.js app. It's one card for one NBA game: each team's logo and name over a bar in its color (Fluid's scrubber Slider, read-only — you can't scrub the odds — with the percent in the bar) and what a win pays back (1.9x for 53%), that the chat's model can show. Before tip-off it shows ESPN's prediction, during the game the live chance (read again every 30 seconds), and after it the result.
 
 ${chatSetup(origin)}
 
 2. Install the card:
 npx shadcn@latest add ${origin}/r/win-probability.json
-It adds features/win-probability/ and app/api/win-probability/route.ts, which the card loads the chances from (ESPN's public site API, no API key), the NBA scoreboard's game lookup in features/scoreboard/, which finds the game, and Fluid Functionalism's Slider (the steps design, shown read-only as each team's bar). Team logos load as plain <img> tags from a.espncdn.com: if my app sets a Content-Security-Policy, add it to img-src.
+It adds features/win-probability/ and app/api/win-probability/route.ts, which the card loads the chances from (ESPN's public site API, no API key), the NBA scoreboard's game lookup in features/scoreboard/, which finds the game, and Fluid Functionalism's Slider (the scrubber design, shown read-only as each team's bar). Team logos load as plain <img> tags from a.espncdn.com: if my app sets a Content-Security-Policy, add it to img-src.
 
 3. Turn the card on, one entry in each file, next to the CardGroup entry that is already there (keep it: it lets one reply show several games):
 features/chat/chat-catalog.ts
@@ -284,6 +286,38 @@ The model only writes the card's props; the card fetches the chances itself:
 Docs: ${origin}/docs/win-probability`;
 }
 
+function areaChartInstallPrompt(origin: string): string {
+  return `Add the Area Chart card from genuicn to my Next.js app. It's a live area chart for any chartable question (latest value, change over the window, a filled trend). The model writes a free-text topic from the user's ask; the card searches the web with Parallel and draws the series — like the boarding pass resolves a flight number. For long multi-decade series only, the model can set ranges: true to show a 10Y/25Y/50Y/Max switch.
+
+${chatSetup(origin)}
+
+2. Install the card:
+npx shadcn@latest add ${origin}/r/area-chart.json
+It adds features/area-chart/ and app/api/area-chart/route.ts. The route uses Parallel web search + extract (@parallel-web/ai-sdk-tools) and the same AI Gateway model as chat to research the topic. Add PARALLEL_API_KEY to .env.local (https://ai-sdk.dev/resources/tools/parallel) and keep AI_GATEWAY_API_KEY set. Don't edit the API routes.
+
+3. Turn the card on, one entry in each file, next to the CardGroup entry that is already there (keep it: it lets one reply show several cards):
+features/chat/chat-catalog.ts
+  import { areaChartCatalogEntry } from "@/features/area-chart/area-chart-catalog";
+  AreaChartCard: areaChartCatalogEntry,
+features/chat/chat-registry.tsx
+  import { LiveAreaChartCard } from "@/features/area-chart/components/live-area-chart-card";
+  AreaChartCard: ({ props, loading }) => (
+    <LiveAreaChartCard topic={props.topic || undefined} range={props.range ?? undefined} ranges={props.ranges ?? false} compare={props.compare ?? undefined} streaming={loading} />
+  ),
+features/chat/chat-steps.ts (the reply's thinking steps for this card)
+  import { areaChartLookup } from "@/features/area-chart/area-chart-steps";
+  AreaChartCard: areaChartLookup,
+
+4. Check it: run the dev server, open /chat and ask "what is the current world population", then "how much of US electricity comes from solar?" or "how has global temperature changed?".
+
+The model only writes the card's props; the card fetches the numbers itself:
+- topic: string, the user's chartable ask, e.g. "world population", "US solar share of electricity", or "global mean temperature anomaly"
+- ranges: boolean | null — true only for long multi-decade series that should show 10Y/25Y/50Y/Max tabs; false/null hides them
+- range: "10y" | "25y" | "50y" | "max" | null (with ranges true, null means 50y; otherwise null means max)
+
+Docs: ${origin}/docs/area-chart`;
+}
+
 function chatInstallPrompt(origin: string): string {
   return `Set up the genuicn chat in my Next.js app: a json-render chat where the model shows live cards (stock quotes and more) instead of plain text.
 
@@ -299,6 +333,7 @@ Docs: ${origin}/docs/installation`;
 }
 
 export const INSTALL_PROMPTS = {
+  "area-chart": areaChartInstallPrompt,
   chat: chatInstallPrompt,
   crypto: cryptoInstallPrompt,
   flights: flightsInstallPrompt,

@@ -5,6 +5,11 @@ import { primeBoardingPass } from "@/features/flights/flight-requests";
 import { primeCupGroup } from "@/features/nba-cup/nba-cup-requests";
 import { parseCupGroup } from "@/features/nba-cup/nba-cup-schema";
 import { primePlayer } from "@/features/player/player-requests";
+import { primeAreaChart } from "@/features/area-chart/area-chart-requests";
+import {
+  AREA_CHART_RANGES,
+  compareSubjects,
+} from "@/features/area-chart/area-chart-schema";
 import { primeQuote } from "@/features/quote/quote-requests";
 import { QUOTE_RANGES } from "@/features/quote/quote-schema";
 import { primeScoreboard } from "@/features/scoreboard/scoreboard-requests";
@@ -13,6 +18,7 @@ import { parseConference } from "@/features/standings/standings-schema";
 import { primeWinProbability } from "@/features/win-probability/win-probability-requests";
 import { primeWeather } from "@/features/weather/weather-requests";
 import { WEATHER_UNITS } from "@/features/weather/weather-schema";
+import type { AreaChartData } from "@/features/area-chart/area-chart-schema";
 import type { CryptoData } from "@/features/crypto/crypto-schema";
 import type { BoardingPassData } from "@/features/flights/flight-schema";
 import type { CupGroupData } from "@/features/nba-cup/nba-cup-schema";
@@ -83,9 +89,6 @@ export class ReplayTransport implements ChatTransport<UIMessage> {
 
 const URL_BASE = "http://localhost";
 
-/**
-Saves one NBA card's recorded response, keyed the way its card asks for it.
-*/
 function primeNbaData(
   pathname: string,
   parameters: URLSearchParams,
@@ -135,8 +138,19 @@ export function primeCardData({ responsesByUrl }: ChatRecording) {
     const units = WEATHER_UNITS.find(
       (value) => value === searchParams.get("units")
     );
+    const topic = searchParams.get("topic") ?? searchParams.get("place");
+    const areaRange = AREA_CHART_RANGES.find(
+      (value) => value === searchParams.get("range")
+    );
     if (pathname === "/api/quote" && ticker && range) {
       primeQuote(ticker, range, data as QuoteData);
+    } else if (pathname === "/api/area-chart" && topic && areaRange) {
+      primeAreaChart(
+        topic,
+        areaRange,
+        data as AreaChartData,
+        compareSubjects(searchParams.getAll("compare"))
+      );
     } else if (pathname === "/api/weather" && location) {
       primeWeather(location, units, data as WeatherData);
     } else if (pathname === "/api/flights" && flight) {

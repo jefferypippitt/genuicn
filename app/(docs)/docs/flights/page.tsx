@@ -183,19 +183,6 @@ export default function FlightsDocument() {
       <DocSection title="Travel assistant">
         <CheckInAgentPlayground code={AGENT_CODE} />
         <List items={CHECK_IN} />
-        <p>
-          To book, the assistant runs the search, then baggage, seat, extras,
-          and review. The review adds the fare, and the booking ends with a new
-          booking reference. To check in, the assistant finds the booking, then
-          runs baggage, seat, extras, and review. Both end with your boarding
-          pass in the airline&apos;s colors, with your name, seat, and extras.
-        </p>
-        <p>
-          The assistant checks each typed answer when you submit it. A wrong
-          answer stays on its step, with a message that says what the assistant
-          expects. In this demo, any 6-character reference like K7QD2M finds a
-          booking on a real flight.
-        </p>
       </DocSection>
 
       <DocSection title="Tickets">

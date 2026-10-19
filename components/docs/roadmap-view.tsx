@@ -39,7 +39,7 @@ export function RoadmapView() {
         <DocSection key={section.label} title={section.label}>
           <ul className="flex flex-col gap-4">
             {section.items.map((item) => (
-              <PlannedCard key={item.label} item={item} />
+              <PlannedCard key={fullLabel(item)} item={item} />
             ))}
           </ul>
         </DocSection>

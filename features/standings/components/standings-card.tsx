@@ -35,18 +35,14 @@ export interface StandingsCardProperties {
   readonly className?: string;
 }
 
-/**
-One plain surface for the whole card, wide enough for every column. The table scrolls sideways when the card is narrower.
-*/
 const CARD_FRAME = `${SHARED_CARD_FRAME} w-full max-w-[720px]`;
+const HEADER_ROW_HEIGHT = "h-[37px]";
+const TEAM_ROW_HEIGHT = "h-[37px]";
 
 const MUTED = "text-muted-foreground";
 
 const STAT = "text-center whitespace-nowrap tabular-nums";
 
-/**
-The stat columns after the team, left to right, as on a standings page.
-*/
 const COLUMNS = [
   { key: "wins", label: "W", title: "Wins" },
   { key: "losses", label: "L", title: "Losses" },
@@ -65,9 +61,6 @@ const COLUMNS = [
 
 const TEAMS_PER_CONFERENCE = 15;
 
-/**
-One of the logo's two images: the light one, or the one ESPN draws for dark backgrounds. The theme hides the other.
-*/
 const LogoImage = ({
   src,
   onError,
@@ -135,9 +128,6 @@ const Header = ({
   </header>
 );
 
-/**
-The table runs to the card's edges, so its rows line up with the header text, and scrolls sideways on a narrow screen.
-*/
 const StandingsTable = ({ data }: { readonly data: StandingsData }) => (
   <ScrollArea orientation="horizontal" className="-mx-1">
     <Table className="min-w-[560px] text-sm">
@@ -233,12 +223,14 @@ export const StandingsCardSkeleton = ({
         </div>
       )}
       <div className="flex flex-col">
-        {/* The header row and each team row are 37px: 36 on the ladder plus a 1px rule. */}
-        <div className="flex h-[37px] items-center px-3">
+        <div className={cn("flex items-center px-3", HEADER_ROW_HEIGHT)}>
           <Bar className="h-3.5 w-12" />
         </div>
         {SKELETON_ROWS.map((row) => (
-          <div key={row} className="flex h-[37px] items-center gap-3 px-3">
+          <div
+            key={row}
+            className={cn("flex items-center gap-3 px-3", TEAM_ROW_HEIGHT)}
+          >
             <Bar className="size-6 rounded-full" />
             <Bar className="h-3.5 w-28" />
           </div>

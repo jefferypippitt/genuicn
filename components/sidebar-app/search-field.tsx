@@ -8,23 +8,12 @@ import { cn } from "@/lib/utils";
 import type { ComponentProps } from "react";
 
 // ---------------------------------------------------------------------------
-// The header's search trigger, on the menu rows' own rhythm. The leading
-// icon sits on the rows' 16px leading axis; pl-8 starts the label on the
-// rows' 32px text axis; and the shortcut chip waits at the trailing edge,
-// revealed on hover/focus — the label owns the control at rest.
-//
-// It is a button, not a field: typing happens in the command menu this
-// opens. The chrome follows SidebarInput so the trigger sits on the same
-// size and shape ladder as a field would.
 // ---------------------------------------------------------------------------
 
 export interface SidebarSearchFieldProps extends Omit<
   ComponentProps<"button">,
   "className" | "children" | "type"
 > {
-  /**
-  Label shown in the control, in the muted color.
-  */
   readonly placeholder?: string;
   /**
   Keystroke shown in the trailing chip. Pass null to drop the chip.

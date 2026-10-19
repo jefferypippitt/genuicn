@@ -8,17 +8,20 @@ import {
   buildSpecFromParts,
   useJsonRenderMessage,
 } from "@json-render/react";
+import { getToolName, isToolUIPart } from "ai";
 import { motion } from "motion/react";
 import { ChatDevtools } from "@/features/chat/components/chat-devtools";
 import { ChatMessage } from "@/components/ui/chat-message";
 import { InputMessage } from "@/components/ui/input-message";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { catalog } from "@/features/chat/chat-catalog";
+import CitedAnswer from "@/features/chat/components/cited-answer";
 import { ReplySteps } from "@/features/chat/components/reply-steps";
 import { registry } from "@/features/chat/chat-registry";
 import { useSize } from "@/lib/size-context";
 import { spring } from "@/lib/springs";
 import { cn } from "@/lib/utils";
+import type { WebSearchProgress } from "@/features/chat/components/reply-steps";
 import type { Chat as ChatInstance } from "@ai-sdk/react";
 import type { UIMessage } from "ai";
 
@@ -73,10 +76,8 @@ export const Chat = ({
   const contentReference = useRef<HTMLDivElement>(null);
   const pinnedReference = useRef(true);
   const bottomReference = useRef<HTMLDivElement>(null);
-  // Follows the reply as it grows, unless the reader scrolled up to read:
-  // the chat stays pinned while the marker at its end is within PINNED_PX of
-  // the view. Resize observers run before intersection observers in a frame,
-  // so growth scrolls first and the marker is still in view when it's checked.
+  // Resize observers run before intersection observers in a frame, so growth
+  // scrolls first and the marker is still in view when it's checked.
   useEffect(() => {
     const element = viewportOf(scrollReference.current);
     const content = contentReference.current;
@@ -206,6 +207,38 @@ function turnsOf(messages: readonly UIMessage[]): Turn[] {
 
 const NO_PARTS: UIMessage["parts"] = [];
 
+function queriesOf(input: unknown): string[] {
+  const queries =
+    typeof input === "object" && input !== null && "queries" in input
+      ? input.queries
+      : undefined;
+  return Array.isArray(queries)
+    ? queries.filter((query): query is string => typeof query === "string")
+    : [];
+}
+
+function webSearchOf(parts: UIMessage["parts"]): WebSearchProgress | null {
+  const queries: string[] = [];
+  const sources: { id: string; title: string; url: string }[] = [];
+  let calls = 0;
+  let isDone = true;
+  for (const part of parts) {
+    if (part.type === "source-url") {
+      sources.push({
+        id: part.sourceId,
+        title: part.title ?? part.url,
+        url: part.url,
+      });
+    } else if (isToolUIPart(part) && getToolName(part) === "webSearch") {
+      calls += 1;
+      queries.push(...queriesOf(part.input));
+      isDone &&=
+        part.state === "output-available" || part.state === "output-error";
+    }
+  }
+  return calls > 0 ? { isDone, queries, sources } : null;
+}
+
 const AssistantMessage = ({
   message,
   streaming,
@@ -213,24 +246,37 @@ const AssistantMessage = ({
   readonly message?: UIMessage;
   readonly streaming: boolean;
 }) => {
-  const { spec, text } = useJsonRenderMessage(message?.parts ?? NO_PARTS);
+  const parts = message?.parts ?? NO_PARTS;
+  const { spec, text } = useJsonRenderMessage(parts);
   const [isAnswerShown, setIsAnswerShown] = useState(false);
+  const search = webSearchOf(parts);
+  const isShown = isAnswerShown || (!spec && text.length > 0);
   return (
     <div className="flex flex-col gap-3">
       <ReplySteps
         spec={spec}
         hasText={text.length > 0}
+        search={search}
         streaming={streaming}
         onFinish={() => setIsAnswerShown(true)}
       />
-      {isAnswerShown ? (
+      {isShown ? (
         <motion.div
           className="flex flex-col gap-3"
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={spring.slow}
         >
-          {text ? <ChatMessage from="assistant">{text}</ChatMessage> : null}
+          {text && search ? (
+            <CitedAnswer
+              text={text}
+              sources={search.sources}
+              isComplete={!streaming}
+            />
+          ) : null}
+          {text && !search ? (
+            <ChatMessage from="assistant">{text}</ChatMessage>
+          ) : null}
           {spec ? (
             <Renderer spec={spec} registry={registry} loading={streaming} />
           ) : null}

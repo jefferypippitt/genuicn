@@ -4,12 +4,14 @@ import { nbaCupLookup } from "@/features/nba-cup/nba-cup-steps";
 import { playerLookup } from "@/features/player/player-steps";
 import { quoteLookup } from "@/features/quote/quote-steps";
 import { scoreboardLookup } from "@/features/scoreboard/scoreboard-steps";
+import { areaChartLookup } from "@/features/area-chart/area-chart-steps";
 import { standingsLookup } from "@/features/standings/standings-steps";
 import { winProbabilityLookup } from "@/features/win-probability/win-probability-steps";
 import { weatherLookup } from "@/features/weather/weather-steps";
 import type { CardLookup } from "@/features/chat/lookup";
 
 export const lookups: Record<string, CardLookup> = {
+  AreaChartCard: areaChartLookup,
   BoardingPass: boardingPassLookup,
   CryptoCard: cryptoLookup,
   NbaCupCard: nbaCupLookup,

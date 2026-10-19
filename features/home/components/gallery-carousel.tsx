@@ -5,10 +5,12 @@ import { motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
 import { CarouselDots } from "@/components/ui/carousel-dots";
+import { AreaChartCard } from "@/features/area-chart/components/area-chart-card";
 import { CryptoCard } from "@/features/crypto/components/crypto-card";
 import { BoardingPassCard } from "@/features/flights/components/boarding-pass-card";
 import GalleryQuote from "@/features/home/components/gallery-quote";
 import {
+  GALLERY_AREA_CHART,
   GALLERY_BITCOIN,
   GALLERY_BOARDING_PASS,
   GALLERY_SCOREBOARD,
@@ -25,9 +27,6 @@ How long each card stays up before the next: long enough to read one.
 */
 const SLIDE_MS = 5000;
 
-/**
-How wide a slide may grow: a tile, the scoreboard (whose matchup row needs room for two full team names), or a ticket.
-*/
 const SLIDE_WIDTH = {
   scoreboard: "max-w-[500px]",
   ticket: "max-w-2xl",
@@ -68,6 +67,13 @@ const SLIDES: readonly {
     href: "/docs/flights",
     label: "Flights",
     width: "ticket",
+  },
+  {
+    card: (
+      <AreaChartCard state="ready" data={GALLERY_AREA_CHART} showAsOf={false} />
+    ),
+    href: "/docs/area-chart",
+    label: "Area Chart",
   },
 ];
 

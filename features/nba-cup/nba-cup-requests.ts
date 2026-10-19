@@ -4,9 +4,6 @@ const sharedCupRequests = new Map<
   CupGroup,
   { expiresAt: number; table: Promise<CupGroupData> }
 >();
-/**
-A group's table moves once one of its games ends, so a minute is fresh enough.
-*/
 const REUSE_MS = 60_000;
 
 async function fetchCupGroup(group: CupGroup) {
