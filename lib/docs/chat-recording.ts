@@ -12,6 +12,9 @@ import {
 } from "@/features/area-chart/area-chart-schema";
 import { primeBarChart } from "@/features/bar-chart/bar-chart-requests";
 import { barLimit } from "@/features/bar-chart/bar-chart-schema";
+import { primePieChart } from "@/features/pie-chart/pie-chart-requests";
+import { primeRadarChart } from "@/features/radar-chart/radar-chart-requests";
+import { primeRadialChart } from "@/features/radial-chart/radial-chart-requests";
 import { primeQuote } from "@/features/quote/quote-requests";
 import { QUOTE_RANGES } from "@/features/quote/quote-schema";
 import { primeScoreboard } from "@/features/scoreboard/scoreboard-requests";
@@ -22,6 +25,9 @@ import { primeWeather } from "@/features/weather/weather-requests";
 import { WEATHER_UNITS } from "@/features/weather/weather-schema";
 import type { AreaChartData } from "@/features/area-chart/area-chart-schema";
 import type { BarChartData } from "@/features/bar-chart/bar-chart-schema";
+import type { PieChartData } from "@/features/pie-chart/pie-chart-schema";
+import type { RadarChartData } from "@/features/radar-chart/radar-chart-schema";
+import type { RadialChartData } from "@/features/radial-chart/radial-chart-schema";
 import type { CryptoData } from "@/features/crypto/crypto-schema";
 import type { BoardingPassData } from "@/features/flights/flight-schema";
 import type { CupGroupData } from "@/features/nba-cup/nba-cup-schema";
@@ -120,6 +126,57 @@ function primeNbaData(
   }
 }
 
+/**
+Seeds a chart card (area, bar, pie, radar, radial) from a saved response. False when the URL isn't one of theirs.
+*/
+function didPrimeChart(
+  pathname: string,
+  parameters: URLSearchParams,
+  data: unknown
+): boolean {
+  const topic = parameters.get("topic") ?? parameters.get("place");
+  if (!topic) {
+    return false;
+  }
+  const limit = Number(parameters.get("limit"));
+  const areaRange = AREA_CHART_RANGES.find(
+    (value) => value === parameters.get("range")
+  );
+  switch (pathname) {
+    case "/api/area-chart": {
+      if (!areaRange) {
+        return false;
+      }
+      primeAreaChart(
+        topic,
+        areaRange,
+        data as AreaChartData,
+        compareSubjects(parameters.getAll("compare"))
+      );
+      return true;
+    }
+    case "/api/bar-chart": {
+      primeBarChart(topic, barLimit(limit), data as BarChartData);
+      return true;
+    }
+    case "/api/pie-chart": {
+      primePieChart(topic, data as PieChartData);
+      return true;
+    }
+    case "/api/radar-chart": {
+      primeRadarChart(topic, data as RadarChartData);
+      return true;
+    }
+    case "/api/radial-chart": {
+      primeRadialChart(topic, data as RadialChartData);
+      return true;
+    }
+    default: {
+      return false;
+    }
+  }
+}
+
 export function primeCardData({ responsesByUrl }: ChatRecording) {
   if (!responsesByUrl) {
     return;
@@ -127,6 +184,9 @@ export function primeCardData({ responsesByUrl }: ChatRecording) {
   const savedResponses = Object.entries(responsesByUrl);
   for (const [requestUrl, data] of savedResponses) {
     const { pathname, searchParams } = new URL(requestUrl, URL_BASE);
+    if (didPrimeChart(pathname, searchParams, data)) {
+      continue;
+    }
     const ticker = searchParams.get("ticker");
     const range = QUOTE_RANGES.find(
       (value) => value === searchParams.get("range")
@@ -141,25 +201,8 @@ export function primeCardData({ responsesByUrl }: ChatRecording) {
     const units = WEATHER_UNITS.find(
       (value) => value === searchParams.get("units")
     );
-    const topic = searchParams.get("topic") ?? searchParams.get("place");
-    const areaRange = AREA_CHART_RANGES.find(
-      (value) => value === searchParams.get("range")
-    );
     if (pathname === "/api/quote" && ticker && range) {
       primeQuote(ticker, range, data as QuoteData);
-    } else if (pathname === "/api/area-chart" && topic && areaRange) {
-      primeAreaChart(
-        topic,
-        areaRange,
-        data as AreaChartData,
-        compareSubjects(searchParams.getAll("compare"))
-      );
-    } else if (pathname === "/api/bar-chart" && topic) {
-      primeBarChart(
-        topic,
-        barLimit(Number(searchParams.get("limit"))),
-        data as BarChartData
-      );
     } else if (pathname === "/api/weather" && location) {
       primeWeather(location, units, data as WeatherData);
     } else if (pathname === "/api/flights" && flight) {

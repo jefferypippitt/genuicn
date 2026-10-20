@@ -1,0 +1,168 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "VMEO5fHTAiHQ1BEV"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 736
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgCqYMnkLdSf5L8RYrPeG",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 9732,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 6,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 428
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "CAQSqgcKEAgTGAI4AUIIdGhpbmtpbmcSDAFWLt7h+gE4Pzb9ixoM82+C1I6OellU+LftIjCspuW0m3qDX66gKAbHnv9ND7kb6gEVxiFBrMquMwuQT3np4oPKJnUFHR0b4BAfvOUqxwZnvXQ9JfpR0KwQS6QOuSUQn1ORv4zP3uWZBGoTpULRK63AhYHw50iOmsvYmoqgBDIpdWcw7e3bMkVW9fyQo9I6+Avi3f0c9S/fEQ/Nc9zWPgVtSoszDocW/5928y2Eve5/FYYhwekIpSPSss4FosKOLvN+Mwq2o9v/PMFkUTL5jur7coZ//lN8S1jo9tUjw+AYrHmcpz1bW7Dzj3FN0veWm7NSOKef6hOeYQ7Mjk7EGNSkOTmsBdRorNIEj6gcsAOeax0mL5jWpop5oUqNARY1PjV9e12PnDBy5g9NU5wb6cHi5olJigScDpdZ4C5zR0em6JZXkMz1r+s9UckvnnfmkGkQ8rGfGhqVpYVENPgNPtoRa8RBIqU4a9WGBfuMSUv9LhvT4pQtrUXE/T6ZAGBr2PACreYeDeun8W+myT0HSWZV21FnxnAKbgIiXc7V6YENqJJzZkSKLygo5zWeGVM980BQpOw2KRRW71qQeSB/nz0J112iUyh9Bt3vcb4+1NAOpT+twb4xY8XQiewq4P2bxlMllzBXEvsYXLgtENQG0IH3UE7n9HFyQU4BRK07sonPeotbhZGkXlyGo65vU/Ed3LXOSeAJC+9umbXCc05t5x7yo6F5RMLL0HkvfCJWJocesCUE460olmxGpCPsimZJ9esscFyRrN/XbfVoTJfEmuuahRxk2f40mDNAZ9khXcuF9tyFQPTB8f8y/2ICG/O2hMsMlGFVP0hWqZhtCbieiPDu4AwX4lTy0wr9LhZfwa4TiOa4ZHZS+5RIyTrDv6MsLKn9GMGAXclzVZeXUcSpvMM9PXrhIq7aVT8SF5eXZTCukX2VayP/vx39gDh36kb5ImKtD/yQ7LzC8qZ8Nzie5U5N0TaO+ZT367f7UerJ+7VQwF+nB/5Pd5gjucw0zzLhXzspOMZ6WYDpsT5VogWu3IkwLK4DmjGM8K2013WesGrz6A4Crrkc0JCcbQ7CwN7rlACy8a3VTlEB+yAYt4mGFHDlJBLntEa7keqsOt7UsSnTND0jpJ5Mryq+C3MoYUV1nwLHDfewKmMbirNXOWv++gkub96HO+eq6rAwHeCughvMZHkJuBCL//COF+faakfeE27MC394vxgB"
+              }
+            }
+          },
+          "wait": 12
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 50
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "radar"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/radar",
+                "value": {
+                  "type": "RadarChartCard",
+                  "props": {
+                    "topic": "Apple vs banana nutrition"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 154
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 2
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "Compare the nutrition of an apple and a banana"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/radar-chart?topic=Apple+vs+banana+nutrition": {
+      "asOf": 1792469618410,
+      "axes": ["Fiber", "Potassium", "Vitamin C", "Carbs", "Protein", "Fat"],
+      "fake": false,
+      "label": "Percent Daily Value (per 100 g)",
+      "max": null,
+      "scale": "percent",
+      "series": [
+        {
+          "name": "Apple",
+          "values": [8.6, 2.3, 5.1, 5, 0.5, 0.2]
+        },
+        {
+          "name": "Banana",
+          "values": [9.3, 7.6, 9.7, 8.3, 2.2, 0.4]
+        }
+      ],
+      "sourceHref": "https://resources.finalsite.net/images/v1703097875/chambersburgk12paus/mpitvq0yks6xou0i25os/apple__fresh.pdf",
+      "sourceLabel": "USDA SR Release 26 (per-100 g values); FDA Daily Values",
+      "topic": "Apple vs banana nutrition"
+    }
+  }
+}

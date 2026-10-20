@@ -247,13 +247,22 @@ export const NAV_SECTIONS: NavSection[] = [
         label: "Bar Chart",
       },
       {
-        description: "A big number, its change, and a small trend line.",
-        label: "Stat tiles",
+        description:
+          "A donut for how one whole splits into its parts, like an electricity mix or market share, researched on the web.",
+        href: "/docs/pie-chart",
+        label: "Pie Chart",
       },
       {
         description:
-          "Values on a grid, shaded by size, like activity by day and hour.",
-        label: "Heatmap",
+          "One to three subjects profiled across the same measures on one web, like countries on a well-being index.",
+        href: "/docs/radar-chart",
+        label: "Radar Chart",
+      },
+      {
+        description:
+          "A few items as rings against the same full mark, like reservoir levels or renewable shares.",
+        href: "/docs/radial-chart",
+        label: "Radial Chart",
       },
     ],
     kind: "cards",

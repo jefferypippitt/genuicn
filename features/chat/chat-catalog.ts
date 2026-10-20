@@ -9,6 +9,9 @@ import { quoteCatalogEntry } from "@/features/quote/quote-catalog";
 import { scoreboardCatalogEntry } from "@/features/scoreboard/scoreboard-catalog";
 import { areaChartCatalogEntry } from "@/features/area-chart/area-chart-catalog";
 import { barChartCatalogEntry } from "@/features/bar-chart/bar-chart-catalog";
+import { pieChartCatalogEntry } from "@/features/pie-chart/pie-chart-catalog";
+import { radarChartCatalogEntry } from "@/features/radar-chart/radar-chart-catalog";
+import { radialChartCatalogEntry } from "@/features/radial-chart/radial-chart-catalog";
 import { standingsCatalogEntry } from "@/features/standings/standings-catalog";
 import { winProbabilityCatalogEntry } from "@/features/win-probability/win-probability-catalog";
 import { weatherCatalogEntry } from "@/features/weather/weather-catalog";
@@ -22,8 +25,11 @@ export const catalog = defineCatalog(schema, {
     CardGroup: cardGroupCatalogEntry,
     CryptoCard: cryptoCatalogEntry,
     NbaCupCard: nbaCupCatalogEntry,
+    PieChartCard: pieChartCatalogEntry,
     PlayerCard: playerCatalogEntry,
     QuoteCard: quoteCatalogEntry,
+    RadarChartCard: radarChartCatalogEntry,
+    RadialChartCard: radialChartCatalogEntry,
     ScoreboardCard: scoreboardCatalogEntry,
     StandingsCard: standingsCatalogEntry,
     WeatherCard: weatherCatalogEntry,

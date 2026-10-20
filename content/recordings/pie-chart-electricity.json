@@ -1,0 +1,183 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "o3oMvw6pB0j8yFaX"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 903
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgCqRzuyEJs3cNdi47RJg",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 9728,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 6,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 329
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "CAQSigcKEAgTGAI4AUIIdGhpbmtpbmcSDC8udK3bIHNY9CFVaRoMeAQDJZO5OlomCw5cIjAaWvJgwPp90djqwhnoccDVk2M8UCa7VGHM0ikpOettkgbcQBQ9NWpBZzHfK43L4H8qpwYyiM4wSZbZMMMAcAP7hC6WdjqiqMKvZ1R8KciVGTxBhkpA904eqydku7OErSwueHN8Rn601b3sSeDI3B0Vd7JgNXGod0YL/6O7WIo0yDzxGSsp73MO2smOtxmXRHqRlf1FhUX2kvYP6YaJ/PY2KYOmZbkg+xs2HnxN5arYVjOx4EWDxJ41ggJ6GieEwLu8IIe95BbVYS+pZRezGpwzTjAGQogRRaddqCQHKZeWBdmN+TBKH8KRYkALksY0T5J5vEsMviGueilm34+1o6oYxPenNdBivcJBMSn6sJNNTnwkTEdkp034SaDFh7qhlS2oqiqmxxa46taQFm0h2FPlAmk6Ox+70Ku4CdJAZPi4a02OKT5/0uKjgvbqPeiPk1mimg0+Dkq1sYxf+J3V0GArGtx2hcz7P5SaylqWvj98Rcs6ZJ3+oQ/ykbCZZQKGEAKtr30VMFg4gG+dJZk4rDfytl8KXB+iB9IAAIB/NWAMkyBBZyMYITKnL0kK8PtoCqyL076/IeABzv1iZ0mK+J3i0fhCkjZ9pCIsSFkxUMU5hKEh3ia+NQZdeCW2Xcc4lMIb0hY7RwuGdppGk2Nu1U7d1TSB6gJa0eA4Tw50f/FxhIlsKjZ3hhBUfq+t1lbISXRiP/F1kIAPb1Rb5kLp9NYCKK72K6uodYJQGDjC5lhKGmckU/iN9Z/h8ECdgQRhBUJvnXpYiZtP4j4iQXQIbvPswaqSYqjuhJBSvHk294frBYCUbTf5SWr5w08kawuBB8ZPklaPzEJTQWnirnd/dM0O2+XUsbTwtis/Np3Kw5tzLasBIH8lvbnogoZCLlsfZWCxzw+qDR1oTw8GWQGFwk0ShE1MG9VA4aFrrKGyz2UuEkZyKQx2lqAqBmvpWxJeC4gC4/KaNmoYIlSSnktwKTtSM/ngzik6fyxuBYDTCdj2rpm4AcBt5P6d7TEGKxs8zY8Kg/uks4XxpDtOkfSCcfSknthb/BqhbtldBi7BdAE9nD7IfMpWrxi9wmmRjWLK0MV9gH31IfGnBuS5ZyDlZYrHo0eC0GfCPo2nsgY9NFy+71t5vu4x+EyppmoYAQ=="
+              }
+            }
+          },
+          "wait": 14
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 93
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "mix"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/mix",
+                "value": {
+                  "type": "PieChartCard",
+                  "props": {
+                    "topic": "US electricity generation by source"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 153
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "What's the US electricity mix by source?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/pie-chart?topic=US+electricity+generation+by+source": {
+      "asOf": 1792469512096,
+      "fake": false,
+      "label": "Net generation (MWh)",
+      "period": "2025",
+      "scale": "number",
+      "slices": [
+        {
+          "label": "Natural gas",
+          "value": 1807338000
+        },
+        {
+          "label": "Nuclear",
+          "value": 784781000
+        },
+        {
+          "label": "Coal",
+          "value": 737151000
+        },
+        {
+          "label": "Wind and other renewables",
+          "value": 526246000
+        },
+        {
+          "label": "Solar",
+          "value": 295671000
+        },
+        {
+          "label": "Other",
+          "value": 283633000
+        }
+      ],
+      "sourceHref": "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_1_01",
+      "sourceLabel": "US EIA",
+      "topic": "US electricity generation by source"
+    }
+  }
+}

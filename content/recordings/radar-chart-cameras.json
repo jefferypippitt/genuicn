@@ -1,0 +1,168 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "V8t5rmQqQBGruJEE"
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 834
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgCqRzsyqfUFnLy3awgHn",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 9745,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 6,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 420
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "CAQS7wYKEAgTGAI4AUIIdGhpbmtpbmcSDLPFozVfMQ3q0ie1yxoM3Ezbc7cw6rDlLJKBIjC1bdpptOiGm0ThnrVH9DpsckB1IUkTFZSWy7jo9Le0GXHS1vRTzwmHWiui0yU1LGcqjAYUHkpIwjasJadd99XpGuTO6q2iLg2Z7DRQ472zzadOp3wPvzTtQCRvq+9Ytiejd6tCDj3/1x4uD9RPGjcg1rHBIgl4rFlz3oo7AA3awsqr6CbX5gNY+iJdUK4cbIPDihSeJoNbqniz1kvho3QREmjJ1d1U4DIXYDS5DiEwLd7u+TwvJPrH4i40ds+mUZ2qgLMk9BimG1WQxawPTgclelzDmocW3ml/1HwpFaA5rNKPqZskuVa+Dxl1gUDU2YIHhFkstVW77MyWGS4mpib0mgsTccqoyt/cGNKbGpDUc9/nIfmc7vNYqUygg2aCnTin3p6zSXFR20t6j6Hm3B/ix0HTo8hIB16RLKMqPeTOBdLpbn7psFdcX1MkerBoiGG2qcoew4OrOFDb/Bibp75X+22w6Hwiy05Rrc9SJCiqVfI1pWnN3w4KW8LZ4wKZ97FipolQoj3bXoGnetqNLHcn2tCV1iYv5eLP7/ckzXImspO5OyB0dapH1QQAmHTDHRhQAIuusUxb9Qsxko/6yIMTYv14qZ1r0BRJ5M8nBhZ50Kz9+Jms6iCkk62HtGCIU6c5VH1mwrNbC+DorwF1MIsz3BCfXvIRtGbfsKbKtIlz5v24b6yQECp7Jyf5m44+gW8Mllfh/1wFld3ifhKbZnvqvLJr0p6ufQHn9eOREoZFdrfwq+qcwrun1I48qNCJN7marHrzSXP7cJKXz2T/jCYcEIdfY5oQAfsjb2DmHDSgn9F6IyK1RdVAIFQnVsjmslYbqIMIQOAujcPOJxxFSPWoLLsNIMOwm6RP9JdOkHyQRO5iy53cU02muCWk/doNkGZOnyxE9pba3ZFPHjZlLq9LMwKSh0621pQdppZy+zHoqG18S8nbtdjhBHoIALqpoN2ZhG1ttUw2ZcARrCHqPHZf3t8inb4ALzQvG2KGWfpuorVdywcXM6D2COhbERwz61XT4DZx2sPhwVn9LQv2DGuI0dvUSC4HVfjbTzB2Gs0rbOiFqOxKIsWAvmemueZRYgGff3LOwPHkdFi5mlaxqCEYAQ=="
+              }
+            }
+          },
+          "wait": 10
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 63
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "radar"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/radar",
+                "value": {
+                  "type": "RadarChartCard",
+                  "props": {
+                    "topic": "iPhone 17 Pro vs Pixel 10 Pro camera scores"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 184
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "Compare the iPhone 17 Pro and Pixel 10 Pro camera scores"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/radar-chart?topic=iPhone+17+Pro+vs+Pixel+10+Pro+camera+scores": {
+      "asOf": 1792469506516,
+      "axes": ["Overall", "Photo", "Video", "Bokeh", "Ultra-Wide", "Tele"],
+      "fake": false,
+      "label": "DXOMARK score (points)",
+      "max": null,
+      "scale": "number",
+      "series": [
+        {
+          "name": "iPhone 17 Pro",
+          "values": [168, 166, 172, 170, 150, 141]
+        },
+        {
+          "name": "Pixel 10 Pro XL",
+          "values": [163, 165, 160, 160, 158, 141]
+        }
+      ],
+      "sourceHref": "https://www.dxomark.com/apple-iphone-17-pro-camera-test/",
+      "sourceLabel": "DXOMARK",
+      "topic": "iPhone 17 Pro vs Pixel 10 Pro camera scores"
+    }
+  }
+}

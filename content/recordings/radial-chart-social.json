@@ -1,0 +1,180 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "vQfdaD6t8QLyz8FX"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 778
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgCqSWFpMXsLpWpxfJkSm",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 9730,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 6,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 761
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "CAQS0QgKEAgTGAI4AUIIdGhpbmtpbmcSDEPUGwDmzRbu9ufP4RoMs2wY8f8lwbxs1yPtIjBHpsRUe9oM5LS8LCVaUtP/m23U1uW0sz334fw7bpNHmxjQkLJDCSa9OpC+KjSexyMq7gerUfnWdLbRloAPluLu46SV3/xPXg58avA4gHpCgRv6WvTwdYPE1ya6Ej7RladdDzGvdRi3iSUAolbyUcphViwSVQK/qv0RAkMtoe4adTl/PNDz7EHMJhWPseKZX5SIdrM/Xk3lkir5g9wcSMumlHaTDHxM2upcIB2Mog4qagAxjuetHSc8BuN1qC5FRI+/BqObm7+pQM1shvJgcMKqYktQuxdyEy+NJFop+KmEF96BInJi+49d4qA/n/Ql0k8xZnNJLipEicyDJgvsqGpuhRxgyf+ILlWh7zW4ueb3iQ91nCLVB2cJ65q3xu030i4nJbH4uUcXHxOkSnRsZjShCZb7KvUApG5GMiqkw7U76tJyo1wb3hBx2DygZ92XJHcD96oO4/ZYdwv83XAqAj2GhwndLr28RxX8yymKAj4kdKsc11wGXFnkhdk+99H9xKcuYJlOmms8KLF5SdYCziqnFQweAMj+CBloTc4cvNGMWgRPCHYNX5qk8exRfmAxlrMyUlc5QhXkbm81MtBRgjmGS2BWYSfhkxNGMxJu7ckZbEUa6dmSt2lSIiUjUJfnM7SPZLzEBLsSfV9D4CKVRvi21Vyl9zDlk4ao7HdTMi0WXLVMbDwM9GYyTrFunvfWHwQonbAVghGsQPo8Cstc2SdALCRZmpLt7VGv7Lqb+BubtlkK9vsSOCRABQ1NOLTlW7s8mte3IPyf9PqwAZodo3tZLRfhHDo75+7vNpN1+t3BGosJ4KXBINe5a1rclNe4kS7s/Ye8dapBTqsHCzsgzcgWEKACJ4YFMuyH5kXYn6KnnGuuh1ekdi+tdHmXYvUlSPwAiFKBh1ZNLp/60pBf7eiUbW20dpmVFD8RaMGOgPDzvqg9sYFU59rS1yuD+dRRwMxRstOTUxKBDyYB7JLiBcCCEctkIhY70ytVj4RkGx398pVDCwIxMMa5lQPpl3x2dNhR/KpixiyUBRyBrizAhKzgVeUauPCsQDwJGD+NEeusMeVj6P1oB9/ZfkqdNGsWXdNRw6fch+GL7ffeUG8XYFOqm1YQtvAbYiQKI9YU9hbi3TNwsYhWheUHHzmSNnNK3Og7JjuZQ6+Du0yp2qHKh5Buox37pAa8OKU7xNlpqdsAK4W9+qaie2UbmO89zJ28d6sg0fv1bEfI057VxiWJJOQPjW1XFw9dL/rR9KzAqXaUf0l6cqY+HHD3OTKf9i+Q6z/ZEoQCfql0hx91hZzm1yDj+x7Ttzez0dRzZLV3c6uYrP7xBIDdozRB7T0amI0O5EhkqpH7tDz+bDDVCTv3GgtovnGFRPwbDVytIdH+mNFhkxsCuNXAuaDsi+BP+svhPi6yGAE="
+              }
+            }
+          },
+          "wait": 11
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 30
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "social-usage"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/social-usage",
+                "value": {
+                  "type": "RadialChartCard",
+                  "props": {
+                    "topic": "Share of US adults who use each social media platform"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 187
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 2
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "What percent of US adults use each social media platform?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/radial-chart?topic=Share+of+US+adults+who+use+each+social+media+platform": {
+      "asOf": 1792469510163,
+      "fake": false,
+      "label": "Share of US adults who use platform",
+      "max": 100,
+      "period": "Jan 30-Jun 18, 2026",
+      "rings": [
+        {
+          "name": "YouTube",
+          "value": 84
+        },
+        {
+          "name": "Facebook",
+          "value": 70
+        },
+        {
+          "name": "Instagram",
+          "value": 51
+        },
+        {
+          "name": "TikTok",
+          "value": 37
+        },
+        {
+          "name": "X",
+          "value": 18
+        }
+      ],
+      "scale": "percent",
+      "sourceHref": "https://www.pewresearch.org/internet/fact-sheet/social-media",
+      "sourceLabel": "Pew Research Center",
+      "topic": "Share of US adults who use each social media platform"
+    }
+  }
+}

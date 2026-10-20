@@ -44,6 +44,21 @@ const CARD_PAGES = [
     prompt: "Which countries have the largest economies?",
     title: "Bar Chart",
   },
+  {
+    path: "/docs/pie-chart",
+    prompt: "What's the US electricity mix by source?",
+    title: "Pie Chart",
+  },
+  {
+    path: "/docs/radar-chart",
+    prompt: "Compare the nutrition of an apple and a banana",
+    title: "Radar Chart",
+  },
+  {
+    path: "/docs/radial-chart",
+    prompt: "How full are California's major reservoirs?",
+    title: "Radial Chart",
+  },
 ] as const;
 
 test.describe("Card playgrounds", () => {

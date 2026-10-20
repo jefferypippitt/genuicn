@@ -1,0 +1,183 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "hPpx97tVBZHJCDMC"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 915
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgCqSWGp77aT6RKVoZkFN",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 9728,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 2,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 344
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "CAQS5AYKEAgTGAI4AUIIdGhpbmtpbmcSDGk+4D+v45A84BpUGBoMjsxsafiREI58Vs/uIjAPEhfCyZyBViRxPjMWUmYn3nXv6fDgHWw8+YapR5dHV5mbcHtdfmWQsLtoNmftw3oqgQYRGuA9Pzz98go4BAh5rfsj9o+FBUqiuJk3bIA7X54trcnB9RGzgucmDpdeHUVjuH7lvJHUsWMRGgy+ERmYMiYBBBx9XLLHalvC0SwzqCsnc0xa5Mnrc7G4Y0DiH9EVWJR6mqK5HOzfcLAUSJbeP9FafQWpWl3hLnDGu+aczpiojmfecHDWGvx6eP+m2erWbbXrxWF7g8aW//9yMV3OVxkoxerhRHp4sgXYw6GkZi1+uFTPKRg7EPic6Fa/ZrtcAmaP/FBgTjNiLBjPVHURnxspluHDa74t31IW1zoP35RcDEBLJgs8ONlim7SmsHZoAGpDm8HwW/aDyzuwqIZCh9ho3mW5mHNSCD+7t/rSKQAG/7OkSORCimcZuXvYVFXwyAU/RUP3kHjdq4dx7WNXUdgUk1fxz03+Xjv6qg+dTtjNSjKK9sCpznFf86gYOGChDGvaC63WovtUtMz4BAzT1tJqhjBdj8NUoaaH9RUue3PlPBFS3czrwEEHO/W+elD32vgpaFtp3yh0CxB6slv5ykOzqopbikvBiPkEBlIurAHZDE6YKQX+M1OJk3oeJFbGM+bdVSJjvEsKd9EU2boQHgsjXbWCj90hNWsQKkJHH+si1C547i8PyVgibKnLP7Bkm7Ik1BCUZXWIL6SaLrYwkWP1Y2F6IvwJKCkvAeUXwozyN0yFcYG5coRrTPQ0M62km1+iR4OiPbAJLU63/UJsYWrPXw/2fSWtujf+wQpecUjnmY3dy4B0wEXx/R06ajeLIHqCjmIg6hA6rd+xBAwbUMyD2R7ptTFh1fLoXXVoTsacaxnM4bCpkezb5Lmcf4waG9uWxSB9c9Uw3jQzgCE0MbEr7Yw21yB6WEC83Hf7g+QL2p9l80mUeMLCKcdq2zMRCGMgNkBC9KVzf7FR10ci16OzwDFaNJRZHOav1oGO3VheIumbHJbkhPVoAKQonvWEAGUQ0G8R5ez36xW/a9sCi3puaoHEFjnSrYlcp17XLSEbQxtju7ehyJhgff2ox7Y+W5SFGAE="
+              }
+            }
+          },
+          "wait": 11
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 90
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "share"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/share",
+                "value": {
+                  "type": "PieChartCard",
+                  "props": {
+                    "topic": "Global smartphone market share by vendor"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 157
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 2
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "Global smartphone market share by vendor"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/pie-chart?topic=Global+smartphone+market+share+by+vendor": {
+      "asOf": 1792469514667,
+      "fake": false,
+      "label": "Smartphone shipments (units)",
+      "period": "Q2 2026",
+      "scale": "number",
+      "slices": [
+        {
+          "label": "Samsung",
+          "value": 62700000
+        },
+        {
+          "label": "Apple",
+          "value": 55700000
+        },
+        {
+          "label": "Xiaomi",
+          "value": 31200000
+        },
+        {
+          "label": "OPPO",
+          "value": 28900000
+        },
+        {
+          "label": "vivo",
+          "value": 21200000
+        },
+        {
+          "label": "Other",
+          "value": 76600000
+        }
+      ],
+      "sourceHref": "https://www.idc.com/promo/smartphone-market-share/market-share",
+      "sourceLabel": "IDC",
+      "topic": "Global smartphone market share by vendor"
+    }
+  }
+}

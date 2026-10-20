@@ -801,6 +801,11 @@
           "path": "lib/card-frame.ts",
           "type": "registry:lib",
           "target": "lib/card-frame.ts"
+        },
+        {
+          "path": "lib/chart-themes.ts",
+          "type": "registry:lib",
+          "target": "lib/chart-themes.ts"
         }
       ],
       "envVars": {
@@ -871,6 +876,11 @@
           "path": "lib/card-frame.ts",
           "type": "registry:lib",
           "target": "lib/card-frame.ts"
+        },
+        {
+          "path": "lib/chart-themes.ts",
+          "type": "registry:lib",
+          "target": "lib/chart-themes.ts"
         }
       ],
       "envVars": {
@@ -878,6 +888,231 @@
         "AI_GATEWAY_API_KEY": ""
       },
       "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   BarChartCard: barChartCatalogEntry\n  features/chat/chat-registry.tsx: BarChartCard: ({ props, loading }) => <LiveBarChartCard topic={props.topic || undefined} limit={props.limit ?? undefined} streaming={loading} />\n  features/chat/chat-steps.ts:     BarChartCard: barChartLookup\n\nFigures load from /api/bar-chart (installed at app/api/bar-chart/route.ts). The route uses Parallel web search + extract (PARALLEL_API_KEY) and your AI Gateway model to turn any comparison into one value per category. Keep AI_GATEWAY_API_KEY set (same as chat). The model sets limit (2–12) for how many bars; null means 8. Topic is free text from the user's question."
+    },
+    {
+      "name": "pie-chart",
+      "type": "registry:block",
+      "title": "Pie Chart",
+      "description": "A live pie (donut) chart for json-render chats: how one whole splits into its parts, biggest first with the smallest folded into Other, researched via Parallel, with its API route.",
+      "dependencies": [
+        "zod",
+        "server-only",
+        "ai",
+        "@parallel-web/ai-sdk-tools"
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "features/pie-chart/components/pie-chart-card.tsx",
+          "target": "features/pie-chart/components/pie-chart-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "features/pie-chart/components/live-pie-chart-card.tsx",
+          "target": "features/pie-chart/components/live-pie-chart-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "features/pie-chart/pie-chart-catalog.ts",
+          "target": "features/pie-chart/pie-chart-catalog.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/pie-chart/pie-chart-requests.ts",
+          "target": "features/pie-chart/pie-chart-requests.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/pie-chart/pie-chart-steps.ts",
+          "target": "features/pie-chart/pie-chart-steps.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/pie-chart/pie-chart-queries.ts",
+          "target": "features/pie-chart/pie-chart-queries.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/pie-chart/pie-chart-schema.ts",
+          "target": "features/pie-chart/pie-chart-schema.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/pie-chart/pie-chart-fake.ts",
+          "target": "features/pie-chart/pie-chart-fake.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "app/api/pie-chart/route.ts",
+          "target": "app/api/pie-chart/route.ts",
+          "type": "registry:page"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "target": "lib/card-frame.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "lib/chart-themes.ts",
+          "target": "lib/chart-themes.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "envVars": {
+        "PARALLEL_API_KEY": "",
+        "AI_GATEWAY_API_KEY": ""
+      },
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   PieChartCard: pieChartCatalogEntry\n  features/chat/chat-registry.tsx: PieChartCard: ({ props, loading }) => <LivePieChartCard topic={props.topic || undefined} streaming={loading} />\n  features/chat/chat-steps.ts:     PieChartCard: pieChartLookup\n\nFigures load from /api/pie-chart (installed at app/api/pie-chart/route.ts). The route uses Parallel web search + extract (PARALLEL_API_KEY) and your AI Gateway model to turn the topic into the parts of one whole. Keep AI_GATEWAY_API_KEY set (same as chat). Topic is free text from the user's question."
+    },
+    {
+      "name": "radar-chart",
+      "type": "registry:block",
+      "title": "Radar Chart",
+      "description": "A live radar (spider) chart for json-render chats: one to three subjects profiled across the same 3–8 measures on one scale, researched via Parallel, with its API route.",
+      "dependencies": [
+        "zod",
+        "server-only",
+        "ai",
+        "@parallel-web/ai-sdk-tools"
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "features/radar-chart/components/radar-chart-card.tsx",
+          "target": "features/radar-chart/components/radar-chart-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "features/radar-chart/components/live-radar-chart-card.tsx",
+          "target": "features/radar-chart/components/live-radar-chart-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "features/radar-chart/radar-chart-catalog.ts",
+          "target": "features/radar-chart/radar-chart-catalog.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/radar-chart/radar-chart-requests.ts",
+          "target": "features/radar-chart/radar-chart-requests.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/radar-chart/radar-chart-steps.ts",
+          "target": "features/radar-chart/radar-chart-steps.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/radar-chart/radar-chart-queries.ts",
+          "target": "features/radar-chart/radar-chart-queries.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/radar-chart/radar-chart-schema.ts",
+          "target": "features/radar-chart/radar-chart-schema.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/radar-chart/radar-chart-fake.ts",
+          "target": "features/radar-chart/radar-chart-fake.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "app/api/radar-chart/route.ts",
+          "target": "app/api/radar-chart/route.ts",
+          "type": "registry:page"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "target": "lib/card-frame.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "lib/chart-themes.ts",
+          "target": "lib/chart-themes.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "envVars": {
+        "PARALLEL_API_KEY": "",
+        "AI_GATEWAY_API_KEY": ""
+      },
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   RadarChartCard: radarChartCatalogEntry\n  features/chat/chat-registry.tsx: RadarChartCard: ({ props, loading }) => <LiveRadarChartCard topic={props.topic || undefined} streaming={loading} />\n  features/chat/chat-steps.ts:     RadarChartCard: radarChartLookup\n\nFigures load from /api/radar-chart (installed at app/api/radar-chart/route.ts). The route uses Parallel web search + extract (PARALLEL_API_KEY) and your AI Gateway model to score each subject on the same measures. Keep AI_GATEWAY_API_KEY set (same as chat). Topic is free text from the user's question."
+    },
+    {
+      "name": "radial-chart",
+      "type": "registry:block",
+      "title": "Radial Chart",
+      "description": "A live radial chart for json-render chats: 2–5 items as concentric rings against the same full mark (100%, a capacity or a target), researched via Parallel, with its API route.",
+      "dependencies": [
+        "zod",
+        "server-only",
+        "ai",
+        "@parallel-web/ai-sdk-tools"
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "features/radial-chart/components/radial-chart-card.tsx",
+          "target": "features/radial-chart/components/radial-chart-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "features/radial-chart/components/live-radial-chart-card.tsx",
+          "target": "features/radial-chart/components/live-radial-chart-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "features/radial-chart/radial-chart-catalog.ts",
+          "target": "features/radial-chart/radial-chart-catalog.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/radial-chart/radial-chart-requests.ts",
+          "target": "features/radial-chart/radial-chart-requests.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/radial-chart/radial-chart-steps.ts",
+          "target": "features/radial-chart/radial-chart-steps.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/radial-chart/radial-chart-queries.ts",
+          "target": "features/radial-chart/radial-chart-queries.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/radial-chart/radial-chart-schema.ts",
+          "target": "features/radial-chart/radial-chart-schema.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "features/radial-chart/radial-chart-fake.ts",
+          "target": "features/radial-chart/radial-chart-fake.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "app/api/radial-chart/route.ts",
+          "target": "app/api/radial-chart/route.ts",
+          "type": "registry:page"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "target": "lib/card-frame.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "lib/chart-themes.ts",
+          "target": "lib/chart-themes.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "envVars": {
+        "PARALLEL_API_KEY": "",
+        "AI_GATEWAY_API_KEY": ""
+      },
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   RadialChartCard: radialChartCatalogEntry\n  features/chat/chat-registry.tsx: RadialChartCard: ({ props, loading }) => <LiveRadialChartCard topic={props.topic || undefined} streaming={loading} />\n  features/chat/chat-steps.ts:     RadialChartCard: radialChartLookup\n\nFigures load from /api/radial-chart (installed at app/api/radial-chart/route.ts). The route uses Parallel web search + extract (PARALLEL_API_KEY) and your AI Gateway model to measure each item against the same full mark. Keep AI_GATEWAY_API_KEY set (same as chat). Topic is free text from the user's question."
     }
   ]
 }

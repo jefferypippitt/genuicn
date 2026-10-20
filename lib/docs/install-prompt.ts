@@ -349,6 +349,96 @@ The model only writes the card's props; the card fetches the numbers itself:
 Docs: ${origin}/docs/bar-chart`;
 }
 
+function pieChartInstallPrompt(origin: string): string {
+  return `Add the Pie Chart card from genuicn to my Next.js app. It's a live donut chart for how one whole splits into its parts (an electricity mix, market share, a budget), each slice with its share. The model writes a free-text topic from the user's ask; the card searches the web with Parallel and draws the slices, biggest first, folding the smallest into Other.
+
+${chatSetup(origin)}
+
+2. Install the card:
+npx shadcn@latest add ${origin}/r/pie-chart.json
+It adds features/pie-chart/ and app/api/pie-chart/route.ts. The route uses Parallel web search + extract (@parallel-web/ai-sdk-tools) and the same AI Gateway model as chat to research the topic. Add PARALLEL_API_KEY to .env.local (https://ai-sdk.dev/resources/tools/parallel) and keep AI_GATEWAY_API_KEY set. Don't edit the API routes.
+
+3. Turn the card on, one entry in each file, next to the CardGroup entry that is already there (keep it: it lets one reply show several cards):
+features/chat/chat-catalog.ts
+  import { pieChartCatalogEntry } from "@/features/pie-chart/pie-chart-catalog";
+  PieChartCard: pieChartCatalogEntry,
+features/chat/chat-registry.tsx
+  import { LivePieChartCard } from "@/features/pie-chart/components/live-pie-chart-card";
+  PieChartCard: ({ props, loading }) => (
+    <LivePieChartCard topic={props.topic || undefined} streaming={loading} />
+  ),
+features/chat/chat-steps.ts (the reply's thinking steps for this card)
+  import { pieChartLookup } from "@/features/pie-chart/pie-chart-steps";
+  PieChartCard: pieChartLookup,
+
+4. Check it: run the dev server, open /chat and ask "what's the US electricity mix by source?", then "global smartphone market share by vendor".
+
+The model only writes the card's props; the card fetches the numbers itself:
+- topic: string, from the user's question, e.g. "US electricity generation by source" or "global smartphone market share by vendor"
+
+Docs: ${origin}/docs/pie-chart`;
+}
+
+function radarChartInstallPrompt(origin: string): string {
+  return `Add the Radar Chart card from genuicn to my Next.js app. It's a live radar (spider) chart that profiles one to three subjects across the same few measures on one scale (an index, benchmark scores, nutrition), one shape per subject. The model writes a free-text topic from the user's ask; the card searches the web with Parallel and draws the web.
+
+${chatSetup(origin)}
+
+2. Install the card:
+npx shadcn@latest add ${origin}/r/radar-chart.json
+It adds features/radar-chart/ and app/api/radar-chart/route.ts. The route uses Parallel web search + extract (@parallel-web/ai-sdk-tools) and the same AI Gateway model as chat to research the topic. Add PARALLEL_API_KEY to .env.local (https://ai-sdk.dev/resources/tools/parallel) and keep AI_GATEWAY_API_KEY set. Don't edit the API routes.
+
+3. Turn the card on, one entry in each file, next to the CardGroup entry that is already there (keep it: it lets one reply show several cards):
+features/chat/chat-catalog.ts
+  import { radarChartCatalogEntry } from "@/features/radar-chart/radar-chart-catalog";
+  RadarChartCard: radarChartCatalogEntry,
+features/chat/chat-registry.tsx
+  import { LiveRadarChartCard } from "@/features/radar-chart/components/live-radar-chart-card";
+  RadarChartCard: ({ props, loading }) => (
+    <LiveRadarChartCard topic={props.topic || undefined} streaming={loading} />
+  ),
+features/chat/chat-steps.ts (the reply's thinking steps for this card)
+  import { radarChartLookup } from "@/features/radar-chart/radar-chart-steps";
+  RadarChartCard: radarChartLookup,
+
+4. Check it: run the dev server, open /chat and ask "how do Norway and Japan compare on the OECD Better Life Index?", then "compare the nutrition of an apple and a banana".
+
+The model only writes the card's props; the card fetches the numbers itself:
+- topic: string, from the user's question, e.g. "Better Life Index: Norway vs Japan" or "apple vs banana nutrition"
+
+Docs: ${origin}/docs/radar-chart`;
+}
+
+function radialChartInstallPrompt(origin: string): string {
+  return `Add the Radial Chart card from genuicn to my Next.js app. It's a live radial chart for how full or how far along a few items are against the same mark (reservoir levels, renewable shares, adoption rates), one ring per item. The model writes a free-text topic from the user's ask; the card searches the web with Parallel and draws the rings, the largest outermost.
+
+${chatSetup(origin)}
+
+2. Install the card:
+npx shadcn@latest add ${origin}/r/radial-chart.json
+It adds features/radial-chart/ and app/api/radial-chart/route.ts. The route uses Parallel web search + extract (@parallel-web/ai-sdk-tools) and the same AI Gateway model as chat to research the topic. Add PARALLEL_API_KEY to .env.local (https://ai-sdk.dev/resources/tools/parallel) and keep AI_GATEWAY_API_KEY set. Don't edit the API routes.
+
+3. Turn the card on, one entry in each file, next to the CardGroup entry that is already there (keep it: it lets one reply show several cards):
+features/chat/chat-catalog.ts
+  import { radialChartCatalogEntry } from "@/features/radial-chart/radial-chart-catalog";
+  RadialChartCard: radialChartCatalogEntry,
+features/chat/chat-registry.tsx
+  import { LiveRadialChartCard } from "@/features/radial-chart/components/live-radial-chart-card";
+  RadialChartCard: ({ props, loading }) => (
+    <LiveRadialChartCard topic={props.topic || undefined} streaming={loading} />
+  ),
+features/chat/chat-steps.ts (the reply's thinking steps for this card)
+  import { radialChartLookup } from "@/features/radial-chart/radial-chart-steps";
+  RadialChartCard: radialChartLookup,
+
+4. Check it: run the dev server, open /chat and ask "how full are California's reservoirs?", then "what share of electricity is renewable in Germany, the UK and the US?".
+
+The model only writes the card's props; the card fetches the numbers itself:
+- topic: string, from the user's question, e.g. "California reservoir levels" or "renewable share of electricity in Germany, the UK and the US"
+
+Docs: ${origin}/docs/radial-chart`;
+}
+
 function chatInstallPrompt(origin: string): string {
   return `Set up the genuicn chat in my Next.js app: a json-render chat where the model shows live cards (stock quotes and more) instead of plain text.
 
@@ -370,8 +460,11 @@ export const INSTALL_PROMPTS = {
   crypto: cryptoInstallPrompt,
   flights: flightsInstallPrompt,
   "nba-cup": nbaCupInstallPrompt,
+  "pie-chart": pieChartInstallPrompt,
   player: playerInstallPrompt,
   quote: quoteInstallPrompt,
+  "radar-chart": radarChartInstallPrompt,
+  "radial-chart": radialChartInstallPrompt,
   scoreboard: scoreboardInstallPrompt,
   standings: standingsInstallPrompt,
   weather: weatherInstallPrompt,

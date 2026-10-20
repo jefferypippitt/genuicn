@@ -1,0 +1,21 @@
+{
+  "asOf": 1792469618410,
+  "axes": ["Fiber", "Potassium", "Vitamin C", "Carbs", "Protein", "Fat"],
+  "fake": false,
+  "label": "Percent Daily Value (per 100 g)",
+  "max": null,
+  "scale": "percent",
+  "series": [
+    {
+      "name": "Apple",
+      "values": [8.6, 2.3, 5.1, 5, 0.5, 0.2]
+    },
+    {
+      "name": "Banana",
+      "values": [9.3, 7.6, 9.7, 8.3, 2.2, 0.4]
+    }
+  ],
+  "sourceHref": "https://resources.finalsite.net/images/v1703097875/chambersburgk12paus/mpitvq0yks6xou0i25os/apple__fresh.pdf",
+  "sourceLabel": "USDA SR Release 26 (per-100 g values); FDA Daily Values",
+  "topic": "Apple vs banana nutrition"
+}
