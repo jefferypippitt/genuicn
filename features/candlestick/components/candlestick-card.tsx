@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import {
   CANDLE_SPAN,
   CANDLESTICK_RANGE_LABEL,
@@ -639,16 +639,29 @@ export const CandlestickCard = ({
   );
   const [rangeError, setRangeError] = useState<string | null>(null);
   const shown = override ?? data;
+  const rangeRequest = useRef(0);
 
   const selectRange = async (range: CandlestickRange) => {
-    if (!(loadRange && shown) || range === shown.range) {
+    if (!(loadRange && shown)) {
+      return;
+    }
+    const request = ++rangeRequest.current;
+    setRangeError(null);
+    if (range === shown.range) {
+      setPendingRange(null);
       return;
     }
     setPendingRange(range);
-    setRangeError(null);
     try {
-      setOverride(await loadRange(shown.ticker, range));
+      const next = await loadRange(shown.ticker, range);
+      if (request !== rangeRequest.current) {
+        return;
+      }
+      setOverride(next);
     } catch {
+      if (request !== rangeRequest.current) {
+        return;
+      }
       setRangeError("Couldn't load that range.");
     }
     setPendingRange(null);
