@@ -5,6 +5,15 @@ const CRYPTO_RANGES = ["24h", "1w", "1m", "1y", "all"];
 const AREA_CHART_RANGES = ["10y", "25y", "50y", "max"];
 const MAX_COMPARE = 6;
 const MIN_COMPARE = 2;
+const MIN_BARS = 2;
+const MAX_BARS = 12;
+const DEFAULT_BARS = 8;
+
+function barLimit(value) {
+  return typeof value !== "number" || !Number.isFinite(value)
+    ? DEFAULT_BARS
+    : Math.min(Math.max(Math.round(value), MIN_BARS), MAX_BARS);
+}
 
 function compareSubjects(value) {
   if (!Array.isArray(value)) {
@@ -56,6 +65,16 @@ const CARD_URLS = {
       (range) =>
         `/api/area-chart?topic=${encodeURIComponent(subject)}&range=${range}`
     );
+  },
+  BarChartCard: ({ topic, limit }) => {
+    if (!(typeof topic === "string" && topic.trim())) {
+      return [];
+    }
+    const parameters = new URLSearchParams({
+      limit: String(barLimit(limit)),
+      topic: topic.trim(),
+    });
+    return [`/api/bar-chart?${parameters}`];
   },
   BoardingPass: ({ flight, date }) => {
     if (!(typeof flight === "string" && flight)) {

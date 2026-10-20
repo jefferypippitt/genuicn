@@ -84,6 +84,12 @@
       "skillPath": "skills/fluid-functionalism/SKILL.md",
       "computedHash": "a191059dce60d96bf02aed1581460a193ce30ed29b01df57c39ee784743d524b"
     },
+    "frontend-design": {
+      "source": "vercel-labs/agent-eval",
+      "sourceType": "github",
+      "skillPath": "packages/playground/.agents/skills/frontend-design/SKILL.md",
+      "computedHash": "537c1df9d0c694ecf9139a911f9ad0bd111a7ebc173a55457568459e543fe75b"
+    },
     "how": {
       "source": "cursor/plugins",
       "ref": "main",

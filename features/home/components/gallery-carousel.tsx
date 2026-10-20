@@ -6,11 +6,13 @@ import Link from "next/link";
 import { useState } from "react";
 import { CarouselDots } from "@/components/ui/carousel-dots";
 import { AreaChartCard } from "@/features/area-chart/components/area-chart-card";
+import { BarChartCard } from "@/features/bar-chart/components/bar-chart-card";
 import { CryptoCard } from "@/features/crypto/components/crypto-card";
 import { BoardingPassCard } from "@/features/flights/components/boarding-pass-card";
 import GalleryQuote from "@/features/home/components/gallery-quote";
 import {
   GALLERY_AREA_CHART,
+  GALLERY_BAR_CHART,
   GALLERY_BITCOIN,
   GALLERY_BOARDING_PASS,
   GALLERY_SCOREBOARD,
@@ -30,7 +32,7 @@ const SLIDE_MS = 5000;
 const SLIDE_WIDTH = {
   scoreboard: "max-w-[500px]",
   ticket: "max-w-2xl",
-  tile: "max-w-sm",
+  tile: "max-w-md",
 } as const;
 
 /**
@@ -74,6 +76,13 @@ const SLIDES: readonly {
     ),
     href: "/docs/area-chart",
     label: "Area Chart",
+  },
+  {
+    card: (
+      <BarChartCard state="ready" data={GALLERY_BAR_CHART} showAsOf={false} />
+    ),
+    href: "/docs/bar-chart",
+    label: "Bar Chart",
   },
 ];
 

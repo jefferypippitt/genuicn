@@ -8,6 +8,7 @@ import { playerCatalogEntry } from "@/features/player/player-catalog";
 import { quoteCatalogEntry } from "@/features/quote/quote-catalog";
 import { scoreboardCatalogEntry } from "@/features/scoreboard/scoreboard-catalog";
 import { areaChartCatalogEntry } from "@/features/area-chart/area-chart-catalog";
+import { barChartCatalogEntry } from "@/features/bar-chart/bar-chart-catalog";
 import { standingsCatalogEntry } from "@/features/standings/standings-catalog";
 import { winProbabilityCatalogEntry } from "@/features/win-probability/win-probability-catalog";
 import { weatherCatalogEntry } from "@/features/weather/weather-catalog";
@@ -16,6 +17,7 @@ export const catalog = defineCatalog(schema, {
   actions: {},
   components: {
     AreaChartCard: areaChartCatalogEntry,
+    BarChartCard: barChartCatalogEntry,
     BoardingPass: boardingPassCatalogEntry,
     CardGroup: cardGroupCatalogEntry,
     CryptoCard: cryptoCatalogEntry,

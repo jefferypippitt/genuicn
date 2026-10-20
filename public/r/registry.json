@@ -808,6 +808,76 @@
         "AI_GATEWAY_API_KEY": ""
       },
       "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   AreaChartCard: areaChartCatalogEntry\n  features/chat/chat-registry.tsx: AreaChartCard: ({ props, loading }) => <LiveAreaChartCard topic={props.topic || undefined} range={props.range ?? undefined} ranges={props.ranges ?? false} streaming={loading} />\n  features/chat/chat-steps.ts:     AreaChartCard: areaChartLookup\n\nSeries load from /api/area-chart (installed at app/api/area-chart/route.ts). The route uses Parallel web search + extract (PARALLEL_API_KEY) and your AI Gateway model to turn any chartable topic into a yearly series. Keep AI_GATEWAY_API_KEY set (same as chat). The model sets ranges: true only for long multi-decade series that should show 10Y/25Y/50Y/Max tabs — leave it false/null otherwise. Topic is free text from the user's question."
+    },
+    {
+      "name": "bar-chart",
+      "type": "registry:block",
+      "title": "Bar Chart",
+      "description": "A live bar chart for any comparison across categories in json-render chats: free-text topic, web research via Parallel, one bar per category with its value, biggest first, with its API route.",
+      "dependencies": [
+        "zod",
+        "server-only",
+        "ai",
+        "@parallel-web/ai-sdk-tools"
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "features/bar-chart/components/bar-chart-card.tsx",
+          "type": "registry:component",
+          "target": "features/bar-chart/components/bar-chart-card.tsx"
+        },
+        {
+          "path": "features/bar-chart/components/live-bar-chart-card.tsx",
+          "type": "registry:component",
+          "target": "features/bar-chart/components/live-bar-chart-card.tsx"
+        },
+        {
+          "path": "features/bar-chart/bar-chart-catalog.ts",
+          "type": "registry:lib",
+          "target": "features/bar-chart/bar-chart-catalog.ts"
+        },
+        {
+          "path": "features/bar-chart/bar-chart-requests.ts",
+          "type": "registry:lib",
+          "target": "features/bar-chart/bar-chart-requests.ts"
+        },
+        {
+          "path": "features/bar-chart/bar-chart-steps.ts",
+          "type": "registry:lib",
+          "target": "features/bar-chart/bar-chart-steps.ts"
+        },
+        {
+          "path": "features/bar-chart/bar-chart-queries.ts",
+          "type": "registry:lib",
+          "target": "features/bar-chart/bar-chart-queries.ts"
+        },
+        {
+          "path": "features/bar-chart/bar-chart-schema.ts",
+          "type": "registry:lib",
+          "target": "features/bar-chart/bar-chart-schema.ts"
+        },
+        {
+          "path": "features/bar-chart/bar-chart-fake.ts",
+          "type": "registry:lib",
+          "target": "features/bar-chart/bar-chart-fake.ts"
+        },
+        {
+          "path": "app/api/bar-chart/route.ts",
+          "type": "registry:page",
+          "target": "app/api/bar-chart/route.ts"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "type": "registry:lib",
+          "target": "lib/card-frame.ts"
+        }
+      ],
+      "envVars": {
+        "PARALLEL_API_KEY": "",
+        "AI_GATEWAY_API_KEY": ""
+      },
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   BarChartCard: barChartCatalogEntry\n  features/chat/chat-registry.tsx: BarChartCard: ({ props, loading }) => <LiveBarChartCard topic={props.topic || undefined} limit={props.limit ?? undefined} streaming={loading} />\n  features/chat/chat-steps.ts:     BarChartCard: barChartLookup\n\nFigures load from /api/bar-chart (installed at app/api/bar-chart/route.ts). The route uses Parallel web search + extract (PARALLEL_API_KEY) and your AI Gateway model to turn any comparison into one value per category. Keep AI_GATEWAY_API_KEY set (same as chat). The model sets limit (2–12) for how many bars; null means 8. Topic is free text from the user's question."
     }
   ]
 }

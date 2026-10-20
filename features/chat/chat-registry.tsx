@@ -10,6 +10,7 @@ import LivePlayerCard from "@/features/player/components/live-player-card";
 import { LiveQuoteCard } from "@/features/quote/components/live-quote-card";
 import LiveScoreboardCard from "@/features/scoreboard/components/live-scoreboard-card";
 import { LiveAreaChartCard } from "@/features/area-chart/components/live-area-chart-card";
+import { LiveBarChartCard } from "@/features/bar-chart/components/live-bar-chart-card";
 import LiveStandingsCard from "@/features/standings/components/live-standings-card";
 import LiveWinProbabilityCard from "@/features/win-probability/components/live-win-probability-card";
 import { LiveWeatherCard } from "@/features/weather/components/live-weather-card";
@@ -22,6 +23,13 @@ export const { registry } = defineRegistry(catalog, {
         range={props.range ?? undefined}
         ranges={props.ranges ?? false}
         compare={props.compare ?? undefined}
+        streaming={loading}
+      />
+    ),
+    BarChartCard: ({ props, loading }) => (
+      <LiveBarChartCard
+        topic={props.topic || undefined}
+        limit={props.limit ?? undefined}
         streaming={loading}
       />
     ),

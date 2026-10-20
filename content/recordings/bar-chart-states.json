@@ -1,0 +1,181 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "0E5P6mV46G8WYfO4"
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 1500
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgAuY7XhyhVo8fw8Vgezc",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 8990,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 8,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 487
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "CAQS8QcKEAgSGAI4AUIIdGhpbmtpbmcSDK5QDLN3qfwmc/R/9xoMxShdYG9LKE/unw1BIjD+24N+Dtdk7pMvAj7VzNRHhUORu1Pp+GvnIA+H6rZpzoL04R4dpmyGxrfqfs7JCIUqjgfiJ2VD2bQv719bObEvEKKSQkoLGJ28tEI+AUbJD2sw0apcvdqqk3RpOKTuIVLXMSWG1hSqRsB2e21DLuDwlXDukdi3s4yBSDYe0ppuxxRlMwTMyRg1MAvCV2/k3y/xjT1QsU2zFS9VCL5H4ZCQZ4/N7ajkGjKF3zBqQgAngxgzXI+DTyfCPLSK/pCUxH1SDwCQqp4jlaPZrYLcqnxvRpx5ut6iisSBr6A62sbNo0uhp1IKxjVIwMiNUQsJSDTtbTwjZX+aLSGWE6hIN/zJ5v8Rw+L7/cTSyO9aKwSVHwpVQTUSyciCz7TWCLp3qsH24XCnXFDwO7tqMNN0jQUQocjlWJ1JR7BJL8wXCV2wnViUWjY5aaL7B1+IPDAlDaVkSzRquimIAYJURe6AyO//OGv1BQNglN7dpH2JD3DhehxkkvT5VJIyqrncOAHGPINumrMHguVHbsuYTNK+NGSqBCfiz/j8lCNwc0CxNSs1tKfBY4XanMI/ObVO3zAo4iFH01c7X6WsFAZwPRxUzOO2NVbBXYHQSe4g1ufTooNxgdgQpNVln25yRuzcGKQ+yfDYFJT4TObO46Apzy1abdPTFQ7Sm8nQv5Udy63xReJlPBuH/DwLmgzRB5XN5mM7hNHMT2uFNjJyoEU81Sfzf17NbRiL2/WCF1esWZpfSlNqu/QDFs2xKe99y2/BzpSUqeyxtbYmJ8hxzo3VNQmcn2dUQk56KXS5s0XreJ1GpZMuk3zLBUPKWo0Op5LkaQYmhASV8dNwVCL7Yed6eMM6a4cIvcHAQdzdIXr7DCGW7oEpnzmS8bO2n+HmVn/+iEbOrs90UX0Y3JlnqdJpte0DlnUsUqv5eDrbPTRaq7YfJpReUagvwLRGgi7AEHMRFpXuZ5ysjMvqZ0GFsCoFZD79ZRD+LeWDaO+WRvJvdmU1oPZOMnqvLXWeqS3hAygJROnsE1Sb+S7dqDWEALTtjOdk10aJH57ZSjvd+p0XfrGHhYPyruDFMvNXP5/ZLXm6Bd7jDOe6f+XMbKcLhsTf5ULDlrRU3NZhknPUwFYxf69KO75LUQEFOtv5zwu6y0L/4QIyCoYTcDTq02ay7no+FBCrJMIO1lA5Oa7xiG9P/QLF8xHD0I5SAlhiUe4AJ4GCkWsILrN8urprh/9fN0JJkWgfwn0rIfxBTvO+YGKVx9H0KYSPnfhxHB5HwdhMQsUB3H6up9hYGAE="
+              }
+            }
+          },
+          "wait": 7
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 93
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "chart-states"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/chart-states",
+                "value": {
+                  "type": "BarChartCard",
+                  "props": {
+                    "topic": "most populous US states",
+                    "limit": 5
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 152
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 9
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "What are the 5 most populous US states?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/bar-chart?limit=5&topic=most+populous+US+states": {
+      "asOf": 1792381464625,
+      "bars": [
+        {
+          "name": "California",
+          "value": 39355309
+        },
+        {
+          "name": "Texas",
+          "value": 31709821
+        },
+        {
+          "name": "Florida",
+          "value": 23462518
+        },
+        {
+          "name": "New York",
+          "value": 20002427
+        },
+        {
+          "name": "Pennsylvania",
+          "value": 13059432
+        }
+      ],
+      "fake": false,
+      "isPartsOfWhole": false,
+      "label": "Resident population",
+      "period": "2025",
+      "scale": "number",
+      "sourceHref": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/state/totals/NST-EST2025-POPCHG2020-2025.csv",
+      "sourceLabel": "US Census Bureau",
+      "topic": "most populous US states"
+    }
+  }
+}

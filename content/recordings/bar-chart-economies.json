@@ -1,0 +1,192 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "QmnJKFmzYywCUug5"
+          },
+          "wait": 2
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 726
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgAucQWmtspuWRrACZHWd",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 8989,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 6,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 1199
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "CAQS+QoKEAgSGAI4AUIIdGhpbmtpbmcSDPgqEEvXCGfkA2BsmRoMNK50rMjY+3QUjH9xIjBn6bb61qy0ujrxyQ2NgQu/IT3IWgVW40aEMhyCI89BsJq/1ApA92svwGif98lDvu8qlgqtOeXQuqtZ8HirQC3+0anYefRO2qG7bxbgfvefyD0lempmexuBmnO7W+2/LQ2lLLVoT5lMrCfTNIyhLoXt7ZBuUprOKPOro+PUe3JQUl1KlJzQPgWOP1uJyn0UvzJVXyU5LV5E00tzczlZcZJNQIfp34Uhne7iBKBtuy8rWuXyk/5fWaPTtzPfKMh80ho6VTQObPxhqFnVRXztzOw+H5tBex9j+iYZ5FXytflyk1fAT0BUgMFKnLVqNCopBG1v/Vr+msXNLldg0tIM+sIqRjZIIJU4gWsGXSjfsswpNVMW9tP3ZWiABkKqiAzLGGEo5oh/MIp6aZt2OVdGVI9tXAeDWJy6T8zRaqI20VecS+Yo6d9XbDRbcb8zype4MCV4REYkiAoi2NTKzj+bcrYZFXZFRplEGdwTUeq6o7ModIFAaGb0jCOq7KgtDrdvpMaPNQj92xeSjk/8e3IGAslldvTXMSwcBexy6gk0fvcJx6LttMhKB6eVdPPWylW0rrg9nuWLoG+pNOBH9tzdLeiaJDoEkHefr+xspDvDqoOcXq+43Eut1nY+1YCAaoCSMyYrgHgPWdilI++kkoinL409mHRQHVkv6c086Sqi9Khzw9FCWC+fe67pFhQ9tqU7X7xrx0//tIjRgcAe+DEHqnNM3C53wD53F4OUqjUFSxh42jK/PAgl5jq5AaXw5BGvNkMqvT1qimTQtpEuL0Oqhn8uesX8MmStHyL0+0PDDHXT4aMW8y8mXfPz875UJ+NMZOfGAmZ4+rCWOBb4dbteF80eTuUJ4dyC6h/Is/eSmelcoiAisLlK5uVz77ZjhOM4qKUvsOeHLHsbk023rSA9KEj3d5quLE/ZpDwz2HdeSTdmFigbtM/4UfE9htt2PZTsQM9O9GUWx5UrQpXssALaZ5w+LrkA1nuet7zZe/Mvqwju3vthh3qIeGfcUvPACzeXAQVQVscRq9PDn/AWxnLOqH75GqwEGA7vPVa5yJEjQCWnpV6Vf9kFHLDoYdIWuMcwjRaC2CcF+rNmWSu4aq1eJgCwqZYZS0mFjWCYZmKPwOmH7c5HvEWg8XS5EfSsJ0ZznYCPsGd3QCrujxEv8APqejEQgF7t6LFvP1FJtjPwVJHHQXH6o1fIOn0IUmj/g5kqTqyKT+Z7rjGCZ4RaNzK7V9LkE1rMSayeAlKsuCuzAXZpSpgjQmEydgIujg0/lwdCt4j+qswkRT08w+mP7kpH9JCJ54SbO9Ezmg3h1/zo79M1ZTqWzmI48UVftAifMnFG9CYM8oQzQasMgGDYjPVOi2EjtOEYNoeEmmYjxpJK0uFFfAt0Mwo4lsT+wZEU0sRz9pUdVLWryrIHmyj5JzpgCCM7tmgI5hcNI63lAg8eSfhyytf4D4ppnW8vfWGxUbum32eJRsQGDxEf26jGlOdzRLuAcc2E74Lp/CFltOj+pgmEF7WTuOTjsHRSezrx+r1wYuvvSDJmBiIv/mLl8/O4DrQxlRR287fklPG20t/RBrGDQV7+2BklXtz1dy5EcaWQKAdH3s6BD92mDTEgkforGLu3by+255mdUYMxrauEkFM72h7tIBzWkf7pOxhLubHGMtUu9oxQigsDC45QsNYdS3ibX+WJLUo3QhJQJpXdgZW8kwAWea4ZjMgr9G3ZTLkMtox2kCOSOrwuMX2egLqJkUGHw3lgB05Jp3+1esSRo2msr6XRg/xsDiERXyHVMgOp/vOSg9IAtPXD1YoYAQ=="
+              }
+            }
+          },
+          "wait": 12
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 10
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "chart"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/chart",
+                "value": {
+                  "type": "BarChartCard",
+                  "props": {
+                    "topic": "largest economies by GDP, countries"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 150
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 2
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "Which countries have the largest economies?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/bar-chart?limit=8&topic=largest+economies+by+GDP%2C+countries": {
+      "asOf": 1792381521880,
+      "bars": [
+        {
+          "name": "United States",
+          "value": 30769700000000
+        },
+        {
+          "name": "China",
+          "value": 19498039388042
+        },
+        {
+          "name": "Germany",
+          "value": 5050922925047
+        },
+        {
+          "name": "Japan",
+          "value": 4435162999976
+        },
+        {
+          "name": "United Kingdom",
+          "value": 4002587541846
+        },
+        {
+          "name": "India",
+          "value": 3956067115771
+        },
+        {
+          "name": "France",
+          "value": 3366315927447
+        },
+        {
+          "name": "Italy",
+          "value": 2551556954100
+        }
+      ],
+      "fake": false,
+      "isPartsOfWhole": false,
+      "label": "GDP (current US$)",
+      "period": "2025",
+      "scale": "currency",
+      "sourceHref": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.MKTP.CD?format=json&date=2025&per_page=300",
+      "sourceLabel": "World Bank",
+      "topic": "largest economies by GDP, countries"
+    }
+  }
+}

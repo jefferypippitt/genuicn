@@ -25,7 +25,12 @@ export interface WeatherCardProps {
   readonly className?: string;
 }
 
-const CARD_FRAME = "relative isolate w-full max-w-sm rounded-2xl p-4";
+const CARD_FRAME = "relative isolate w-full max-w-md rounded-2xl p-4";
+
+/**
+How long each hour waits after the one before it to fade in, so the forecast reads left to right.
+*/
+const HOUR_STAGGER_MS = 60;
 
 const SCENE = "text-white [text-shadow:0_1px_2px_rgb(0_0_0/0.2)]";
 
@@ -87,7 +92,7 @@ function WeatherReady({
             <h3 className="truncate text-[15px] leading-5 font-semibold">
               {data.location}
             </h3>
-            <p className="mt-1 text-5xl leading-none font-light tracking-tight tabular-nums">
+            <p className="mt-1 font-mono text-5xl leading-none font-light tracking-tighter tabular-nums">
               {formatTemperature(data.temperature)}
             </p>
           </div>
@@ -99,16 +104,20 @@ function WeatherReady({
               className="drop-shadow-sm"
             />
             <p className="mt-1.5">{data.label}</p>
-            <p className="tabular-nums">
+            <p className="font-mono font-medium tabular-nums">
               H:{formatTemperature(data.high)} L:{formatTemperature(data.low)}
             </p>
           </div>
         </header>
 
         <ol className="grid grid-cols-6 text-center">
-          {data.hours.map((hour) => (
-            <li key={hour.time} className="flex flex-col items-center gap-1.5">
-              <span className="text-[11px] leading-4 font-medium text-white/80">
+          {data.hours.map((hour, index) => (
+            <li
+              key={hour.time}
+              className="animate-in fade-in slide-in-from-bottom-1 fill-mode-both flex flex-col items-center gap-1.5 duration-500 ease-out motion-reduce:animate-none"
+              style={{ animationDelay: `${index * HOUR_STAGGER_MS}ms` }}
+            >
+              <span className="text-xs leading-4 font-medium text-white/80">
                 {formatHour(hour.time, data.timeZone)}
               </span>
               <WeatherIcon
@@ -117,7 +126,7 @@ function WeatherReady({
                 size={22}
                 className="drop-shadow-sm"
               />
-              <span className="text-[13px] leading-5 font-semibold tabular-nums">
+              <span className="font-mono text-[13px] leading-5 font-semibold tabular-nums">
                 {formatTemperature(hour.temperature)}
               </span>
             </li>

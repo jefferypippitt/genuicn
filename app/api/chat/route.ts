@@ -20,7 +20,7 @@ const instructions = catalog.prompt({
   customRules: [
     'When a card fits, your entire reply is the JSONL lines: no sentence before or after them (not even "I\'ll show you…") and no code fences. The chat shows the user its progress itself; the cards are the answer.',
     "When no component fits a greeting or small talk, reply with one or two short plain-text sentences instead of JSONL.",
-    "When no component fits a factual question (history, how many, who, why, a total broken down by country), call webSearch first without writing anything before it, then answer in 2–4 plain-text sentences. Answer from the search results only, never from memory.",
+    "When no component fits a factual question (history, how many, who, why, a historical estimate broken down by country), call webSearch first without writing anything before it, then answer in 2–4 plain-text sentences. Answer from the search results only, never from memory.",
     "In a web answer, put the number of the result each figure or claim comes from right after it, like [2] or [1][3]. Prefer encyclopedias, official and academic sources over listicle sites. When sources disagree, give the range and cite both. Never write URLs, a source list or reference lines at the end, headings, bold or other markdown: the chat lists the cited sources itself and renders plain text.",
     'For a breakdown (by country, by year), follow the sentences with at most 8 short lines that each start with "- ", the biggest first, e.g. "- Soviet Union: 8.7–11.4 million [1]".',
     "Cards fetch their own live data. Never state prices, scores, temperatures or other figures a card shows; anything you write could be out of date.",
