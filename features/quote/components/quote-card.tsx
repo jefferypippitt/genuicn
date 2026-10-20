@@ -36,7 +36,18 @@ export interface QuoteCardProps {
   readonly className?: string;
 }
 
-const CARD_FRAME = `${SHARED_CARD_FRAME} w-full max-w-sm`;
+const CARD_FRAME = `${SHARED_CARD_FRAME} w-full max-w-md`;
+
+/**
+Faint rules at each quarter of the chart's height, the print-chart grid the area and bar charts share.
+*/
+const GRIDLINES =
+  "bg-[image:repeating-linear-gradient(to_bottom,var(--border)_0_1px,transparent_1px_25%)]";
+
+/**
+Spacing of the diagonal hatching under the line, in chart units.
+*/
+const HATCH_GAP = 4;
 
 export const QuoteCard = ({
   state,
@@ -132,17 +143,25 @@ const QuoteReady = ({
           </div>
         </div>
         {data.fake ? (
-          <span className="text-muted-foreground rounded-md border px-1.5 py-0.5 text-[11px]">
+          <span className="text-muted-foreground rounded-sm border px-1.5 py-0.5 text-xs tracking-wide uppercase">
             Demo data
           </span>
         ) : null}
       </header>
 
-      <div className="flex items-baseline gap-2">
-        <p className="text-2xl font-semibold tabular-nums">
+      <div className="flex h-9 items-baseline gap-2.5">
+        <p className="font-mono text-3xl font-semibold tracking-tighter tabular-nums">
           {formatPrice(data.price, data.currency)}
         </p>
-        <p className={cn("text-sm font-medium tabular-nums", tone)}>
+        <p
+          className={cn(
+            "flex items-center gap-1 font-mono text-sm font-medium tabular-nums",
+            tone
+          )}
+        >
+          <span aria-hidden className="text-xs">
+            {isUp ? "▲" : "▼"}
+          </span>
           {sign}
           {formatPrice(Math.abs(data.change), data.currency)} ({sign}
           {Math.abs(data.changePercent).toFixed(2)}%)
@@ -205,13 +224,15 @@ const Sparkline = ({
   readonly data: QuoteData;
   readonly className?: string;
 }) => {
-  const gradientId = useId();
+  const fillId = useId();
+  const hatchId = useId();
+  const fadeId = useId();
   const [active, setActive] = useState<number | null>(null);
   const width = 300;
-  const height = 64;
+  const height = 80;
   const { points } = data;
   if (points.length < 2) {
-    return <div className="h-16" />;
+    return <div className="h-20" />;
   }
   const prices = points.map((point) => point.price);
   const min = Math.min(...prices);
@@ -236,7 +257,8 @@ const Sparkline = ({
 
   const point = active === null ? null : points[active];
   const xPercent = active === null ? 0 : (active / last) * 100;
-  const yPercent = active === null ? 0 : (coords[active][1] / height) * 100;
+  const marker = active ?? last;
+  const area = `${line} L${width},${height} L0,${height} Z`;
   const labelAlign =
     xPercent < 20
       ? "translate-x-0"
@@ -278,7 +300,8 @@ const Sparkline = ({
         );
       }}
       className={cn(
-        "focus-visible:ring-ring relative h-16 w-full cursor-crosshair touch-pan-y rounded outline-none focus-visible:ring-2",
+        "focus-visible:ring-ring border-foreground/25 relative h-20 w-full cursor-crosshair touch-pan-y border-b outline-none focus-visible:ring-2",
+        GRIDLINES,
         className
       )}
     >
@@ -289,53 +312,88 @@ const Sparkline = ({
         className="size-full"
       >
         <defs>
-          <linearGradient id={gradientId} x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stopColor="currentColor" stopOpacity={0.18} />
-            <stop offset="100%" stopColor="currentColor" stopOpacity={0} />
+          <pattern
+            id={hatchId}
+            width={HATCH_GAP}
+            height={HATCH_GAP}
+            patternUnits="userSpaceOnUse"
+            patternTransform="rotate(45)"
+          >
+            <line
+              x1={0}
+              y1={0}
+              x2={0}
+              y2={HATCH_GAP}
+              stroke="currentColor"
+              strokeWidth={1.25}
+            />
+          </pattern>
+          <linearGradient id={fadeId} x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stopColor="white" stopOpacity={0.7} />
+            <stop offset="100%" stopColor="white" stopOpacity={0.1} />
           </linearGradient>
+          <mask id={fillId}>
+            <rect width={width} height={height} fill={`url(#${fadeId})`} />
+          </mask>
         </defs>
-        <path
-          d={`${line} L${width},${height} L0,${height} Z`}
-          fill={`url(#${gradientId})`}
-        />
+        <g mask={`url(#${fillId})`}>
+          <path d={area} fill="currentColor" fillOpacity={0.12} />
+          <path d={area} fill={`url(#${hatchId})`} />
+        </g>
         <path
           d={line}
           fill="none"
           stroke="currentColor"
-          strokeWidth={1.5}
+          strokeWidth={2}
           strokeLinejoin="round"
+          strokeLinecap="round"
           vectorEffect="non-scaling-stroke"
         />
       </svg>
 
+      {/* A card-colored sheet that slides off to the right, so the line
+          draws in left to right; keyed so a new range redraws. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 overflow-hidden motion-reduce:hidden"
+      >
+        <div
+          key={data.range}
+          className="bg-background animate-out slide-out-to-right-full fill-mode-forwards size-full duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
+        />
+      </div>
+
       {point ? (
-        <>
-          <div
-            aria-hidden
-            className="bg-border pointer-events-none absolute inset-y-0 w-px"
-            style={{ left: `${xPercent}%` }}
-          />
-          <div
-            aria-hidden
-            className="ring-card pointer-events-none absolute size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-current ring-2"
-            style={{ left: `${xPercent}%`, top: `${yPercent}%` }}
-          />
-          <div
-            aria-hidden
-            className={cn(
-              "bg-popover text-popover-foreground pointer-events-none absolute top-0 rounded-md border px-2 py-1 text-xs whitespace-nowrap shadow-sm",
-              labelAlign
-            )}
-            style={{ left: `${xPercent}%` }}
-          >
-            <span className="font-semibold tabular-nums">
-              {formatPrice(point.price, data.currency)}
-            </span>
-            <span className="text-muted-foreground ml-2 tabular-nums">
-              {formatPointTime(point.time, data.range)}
-            </span>
-          </div>
-        </>
+        <div
+          aria-hidden
+          className="border-foreground/40 pointer-events-none absolute inset-y-0 border-l border-dashed"
+          style={{ left: `${xPercent}%` }}
+        />
+      ) : null}
+      <div
+        aria-hidden
+        className="ring-background pointer-events-none absolute size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-current ring-2"
+        style={{
+          left: `${(marker / last) * 100}%`,
+          top: `${(coords[marker][1] / height) * 100}%`,
+        }}
+      />
+      {point ? (
+        <div
+          aria-hidden
+          className={cn(
+            "bg-popover text-popover-foreground pointer-events-none absolute -top-1 rounded-sm border px-2 py-1 text-xs whitespace-nowrap shadow-sm",
+            labelAlign
+          )}
+          style={{ left: `${xPercent}%` }}
+        >
+          <span className="font-mono font-semibold tabular-nums">
+            {formatPrice(point.price, data.currency)}
+          </span>
+          <span className="text-muted-foreground ml-2 tabular-nums">
+            {formatPointTime(point.time, data.range)}
+          </span>
+        </div>
       ) : null}
     </div>
   );
@@ -456,8 +514,16 @@ export const QuoteCardSkeleton = ({
         </div>
       </div>
     </div>
-    <div aria-hidden className="bg-muted h-8 w-40 animate-pulse rounded" />
-    <div aria-hidden className="bg-muted h-16 w-full animate-pulse rounded" />
+    <div aria-hidden className="flex h-9 items-center">
+      <div className="bg-muted h-8 w-40 animate-pulse rounded" />
+    </div>
+    <div
+      aria-hidden
+      className={cn(
+        "border-foreground/10 h-20 w-full animate-pulse border-b",
+        GRIDLINES
+      )}
+    />
     <div aria-hidden className="bg-muted h-6 w-36 animate-pulse rounded-lg" />
   </div>
 );

@@ -39,6 +39,11 @@ const CARD_PAGES = [
     prompt: "Who's going to win the Knicks game on October 20?",
     title: "NBA win probability",
   },
+  {
+    path: "/docs/bar-chart",
+    prompt: "Which countries have the largest economies?",
+    title: "Bar Chart",
+  },
 ] as const;
 
 test.describe("Card playgrounds", () => {

@@ -1,0 +1,45 @@
+{
+  "asOf": 1792381521880,
+  "bars": [
+    {
+      "name": "United States",
+      "value": 30769700000000
+    },
+    {
+      "name": "China",
+      "value": 19498039388042
+    },
+    {
+      "name": "Germany",
+      "value": 5050922925047
+    },
+    {
+      "name": "Japan",
+      "value": 4435162999976
+    },
+    {
+      "name": "United Kingdom",
+      "value": 4002587541846
+    },
+    {
+      "name": "India",
+      "value": 3956067115771
+    },
+    {
+      "name": "France",
+      "value": 3366315927447
+    },
+    {
+      "name": "Italy",
+      "value": 2551556954100
+    }
+  ],
+  "fake": false,
+  "isPartsOfWhole": false,
+  "label": "GDP (current US$)",
+  "period": "2025",
+  "scale": "currency",
+  "sourceHref": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.MKTP.CD?format=json&date=2025&per_page=300",
+  "sourceLabel": "World Bank",
+  "topic": "largest economies by GDP, countries"
+}

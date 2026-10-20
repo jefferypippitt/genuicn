@@ -241,6 +241,12 @@ export const NAV_SECTIONS: NavSection[] = [
         label: "Area Chart",
       },
       {
+        description:
+          "One bar per category for any comparison, researched on the web: countries, states, companies, or sources.",
+        href: "/docs/bar-chart",
+        label: "Bar Chart",
+      },
+      {
         description: "A big number, its change, and a small trend line.",
         label: "Stat tiles",
       },

@@ -10,6 +10,8 @@ import {
   AREA_CHART_RANGES,
   compareSubjects,
 } from "@/features/area-chart/area-chart-schema";
+import { primeBarChart } from "@/features/bar-chart/bar-chart-requests";
+import { barLimit } from "@/features/bar-chart/bar-chart-schema";
 import { primeQuote } from "@/features/quote/quote-requests";
 import { QUOTE_RANGES } from "@/features/quote/quote-schema";
 import { primeScoreboard } from "@/features/scoreboard/scoreboard-requests";
@@ -19,6 +21,7 @@ import { primeWinProbability } from "@/features/win-probability/win-probability-
 import { primeWeather } from "@/features/weather/weather-requests";
 import { WEATHER_UNITS } from "@/features/weather/weather-schema";
 import type { AreaChartData } from "@/features/area-chart/area-chart-schema";
+import type { BarChartData } from "@/features/bar-chart/bar-chart-schema";
 import type { CryptoData } from "@/features/crypto/crypto-schema";
 import type { BoardingPassData } from "@/features/flights/flight-schema";
 import type { CupGroupData } from "@/features/nba-cup/nba-cup-schema";
@@ -150,6 +153,12 @@ export function primeCardData({ responsesByUrl }: ChatRecording) {
         areaRange,
         data as AreaChartData,
         compareSubjects(searchParams.getAll("compare"))
+      );
+    } else if (pathname === "/api/bar-chart" && topic) {
+      primeBarChart(
+        topic,
+        barLimit(Number(searchParams.get("limit"))),
+        data as BarChartData
       );
     } else if (pathname === "/api/weather" && location) {
       primeWeather(location, units, data as WeatherData);

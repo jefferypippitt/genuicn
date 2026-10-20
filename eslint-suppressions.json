@@ -413,9 +413,6 @@
     "react-doctor/no-locale-format-in-render": {
       "count": 2
     },
-    "react-doctor/no-tiny-text": {
-      "count": 1
-    },
     "react-hooks/todo": {
       "count": 1
     },

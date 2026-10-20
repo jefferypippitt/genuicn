@@ -33,9 +33,20 @@ export interface CryptoCardProperties {
   readonly className?: string;
 }
 
-const CARD_FRAME = `${SHARED_CARD_FRAME} w-full max-w-sm`;
+const CARD_FRAME = `${SHARED_CARD_FRAME} w-full max-w-md`;
 
 const LABEL = "text-muted-foreground text-xs";
+
+/**
+Faint rules at each quarter of the chart's height, the print-chart grid the area and bar charts share.
+*/
+const GRIDLINES =
+  "bg-[image:repeating-linear-gradient(to_bottom,var(--border)_0_1px,transparent_1px_25%)]";
+
+/**
+Spacing of the diagonal hatching under the line, in chart units.
+*/
+const HATCH_GAP = 4;
 
 const UP = "text-emerald-600 dark:text-emerald-400";
 const DOWN = "text-red-600 dark:text-red-400";
@@ -96,7 +107,7 @@ const ChangePill = ({ data }: { readonly data: CryptoData }) => {
   return (
     <p
       className={cn(
-        "inline-flex w-fit items-center gap-1 rounded-md px-1.5 py-0.5 text-sm font-semibold tabular-nums",
+        "inline-flex w-fit items-center gap-1 rounded-sm px-1.5 py-0.5 font-mono text-sm font-semibold tabular-nums",
         isUp ? UP_PILL : DOWN_PILL
       )}
     >
@@ -118,7 +129,9 @@ const Stat = ({
 }) => (
   <div className="flex min-w-0 flex-col">
     <dt className={LABEL}>{label}</dt>
-    <dd className="truncate text-sm font-semibold tabular-nums">{value}</dd>
+    <dd className="truncate font-mono text-sm font-semibold tabular-nums">
+      {value}
+    </dd>
   </div>
 );
 
@@ -162,7 +175,9 @@ const Sparkline = ({
   readonly data: CryptoData;
   readonly className?: string;
 }) => {
-  const gradientId = useId();
+  const fillId = useId();
+  const hatchId = useId();
+  const fadeId = useId();
   const [active, setActive] = useState<number | null>(null);
   const { points } = data;
   if (points.length < 2) {
@@ -191,8 +206,8 @@ const Sparkline = ({
 
   const point = active === null ? null : points[active];
   const xPercent = active === null ? 0 : (active / last) * 100;
-  const yPercent =
-    active === null ? 0 : (coords[active][1] / CHART_HEIGHT) * 100;
+  const marker = active ?? last;
+  const area = `${line} L${CHART_WIDTH},${CHART_HEIGHT} L0,${CHART_HEIGHT} Z`;
 
   return (
     // eslint-disable-next-line jsx-a11y/prefer-tag-over-role -- a native range input can't follow the pointer on hover, which is how the chart is read; this keeps the slider semantics and arrow keys
@@ -233,7 +248,8 @@ const Sparkline = ({
         );
       }}
       className={cn(
-        "focus-visible:ring-ring relative h-20 w-full cursor-crosshair touch-pan-y rounded outline-none focus-visible:ring-2",
+        "focus-visible:ring-ring border-foreground/25 relative h-20 w-full cursor-crosshair touch-pan-y border-b outline-none focus-visible:ring-2",
+        GRIDLINES,
         className
       )}
     >
@@ -244,53 +260,92 @@ const Sparkline = ({
         className="size-full"
       >
         <defs>
-          <linearGradient id={gradientId} x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stopColor="currentColor" stopOpacity={0.18} />
-            <stop offset="100%" stopColor="currentColor" stopOpacity={0} />
+          <pattern
+            id={hatchId}
+            width={HATCH_GAP}
+            height={HATCH_GAP}
+            patternUnits="userSpaceOnUse"
+            patternTransform="rotate(45)"
+          >
+            <line
+              x1={0}
+              y1={0}
+              x2={0}
+              y2={HATCH_GAP}
+              stroke="currentColor"
+              strokeWidth={1.25}
+            />
+          </pattern>
+          <linearGradient id={fadeId} x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stopColor="white" stopOpacity={0.7} />
+            <stop offset="100%" stopColor="white" stopOpacity={0.1} />
           </linearGradient>
+          <mask id={fillId}>
+            <rect
+              width={CHART_WIDTH}
+              height={CHART_HEIGHT}
+              fill={`url(#${fadeId})`}
+            />
+          </mask>
         </defs>
-        <path
-          d={`${line} L${CHART_WIDTH},${CHART_HEIGHT} L0,${CHART_HEIGHT} Z`}
-          fill={`url(#${gradientId})`}
-        />
+        <g mask={`url(#${fillId})`}>
+          <path d={area} fill="currentColor" fillOpacity={0.12} />
+          <path d={area} fill={`url(#${hatchId})`} />
+        </g>
         <path
           d={line}
           fill="none"
           stroke="currentColor"
-          strokeWidth={1.5}
+          strokeWidth={2}
           strokeLinejoin="round"
+          strokeLinecap="round"
           vectorEffect="non-scaling-stroke"
         />
       </svg>
 
+      {/* A card-colored sheet that slides off to the right, so the line
+          draws in left to right; keyed so a new range redraws. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 overflow-hidden motion-reduce:hidden"
+      >
+        <div
+          key={data.range}
+          className="bg-background animate-out slide-out-to-right-full fill-mode-forwards size-full duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
+        />
+      </div>
+
       {point ? (
-        <>
-          <div
-            aria-hidden
-            className="bg-border pointer-events-none absolute inset-y-0 w-px"
-            style={{ left: `${xPercent}%` }}
-          />
-          <div
-            aria-hidden
-            className="ring-card pointer-events-none absolute size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-current ring-2"
-            style={{ left: `${xPercent}%`, top: `${yPercent}%` }}
-          />
-          <div
-            aria-hidden
-            className={cn(
-              "bg-popover text-popover-foreground pointer-events-none absolute -top-2 flex -translate-y-full flex-col rounded-md border px-2 py-1 text-xs whitespace-nowrap shadow-sm",
-              labelAlignment(xPercent)
-            )}
-            style={{ left: `${xPercent}%` }}
-          >
-            <span className="font-semibold tabular-nums">
-              {formatCryptoPrice(point.price, data.currency)}
-            </span>
-            <span className="text-muted-foreground tabular-nums">
-              {formatPointTime(point.time, data.range)}
-            </span>
-          </div>
-        </>
+        <div
+          aria-hidden
+          className="border-foreground/40 pointer-events-none absolute inset-y-0 border-l border-dashed"
+          style={{ left: `${xPercent}%` }}
+        />
+      ) : null}
+      <div
+        aria-hidden
+        className="ring-background pointer-events-none absolute size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-current ring-2"
+        style={{
+          left: `${(marker / last) * 100}%`,
+          top: `${(coords[marker][1] / CHART_HEIGHT) * 100}%`,
+        }}
+      />
+      {point ? (
+        <div
+          aria-hidden
+          className={cn(
+            "bg-popover text-popover-foreground pointer-events-none absolute -top-2 flex -translate-y-full flex-col rounded-sm border px-2 py-1 text-xs whitespace-nowrap shadow-sm",
+            labelAlignment(xPercent)
+          )}
+          style={{ left: `${xPercent}%` }}
+        >
+          <span className="font-mono font-semibold tabular-nums">
+            {formatCryptoPrice(point.price, data.currency)}
+          </span>
+          <span className="text-muted-foreground tabular-nums">
+            {formatPointTime(point.time, data.range)}
+          </span>
+        </div>
       ) : null}
     </div>
   );
@@ -351,14 +406,12 @@ const CryptoReady = ({
           <CoinLogo data={data} />
           <p className="truncate text-xl font-semibold">{data.name}</p>
         </div>
-        <p className="text-muted-foreground shrink-0 font-mono text-lg">
-          {data.symbol}
-        </p>
+        <p className="text-muted-foreground shrink-0 text-lg">{data.symbol}</p>
       </header>
       <div className="grid grid-cols-[auto_minmax(0,1fr)] items-end gap-4">
         <div className="flex flex-col gap-3">
           <div className="flex flex-col gap-1">
-            <p className="text-2xl font-semibold tabular-nums">
+            <p className="font-mono text-3xl leading-9 font-semibold tracking-tighter tabular-nums">
               {formatCryptoPrice(data.price, data.currency)}
             </p>
             <ChangePill data={data} />
@@ -444,7 +497,7 @@ export const CryptoCardSkeleton = ({
           <Bar className="h-5 w-24" />
         </div>
         {symbol ? (
-          <p className="text-muted-foreground font-mono text-lg">
+          <p className="text-muted-foreground text-lg">
             {symbol.toUpperCase()}
             {streaming ? <span>…</span> : null}
           </p>
@@ -455,10 +508,10 @@ export const CryptoCardSkeleton = ({
       <div className="grid grid-cols-[auto_minmax(0,1fr)] items-end gap-4">
         <div className="flex flex-col gap-3">
           <div className="flex flex-col gap-1">
-            <div className="flex h-8 items-center">
-              <Bar className="h-6 w-32" />
+            <div className="flex h-9 items-center">
+              <Bar className="h-7 w-36" />
             </div>
-            <Bar className="h-6 w-16 rounded-md" />
+            <Bar className="h-6 w-16 rounded-sm" />
           </div>
           <div className="grid grid-cols-2 gap-x-4">
             {["Market Cap", "24h Volume"].map((label) => (
@@ -471,7 +524,12 @@ export const CryptoCardSkeleton = ({
             ))}
           </div>
         </div>
-        <Bar className="h-20 w-full" />
+        <div
+          className={cn(
+            "border-foreground/10 h-20 w-full animate-pulse border-b",
+            GRIDLINES
+          )}
+        />
       </div>
       <Bar className="h-6 w-44 rounded-lg" />
     </div>

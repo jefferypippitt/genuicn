@@ -318,6 +318,37 @@ The model only writes the card's props; the card fetches the numbers itself:
 Docs: ${origin}/docs/area-chart`;
 }
 
+function barChartInstallPrompt(origin: string): string {
+  return `Add the Bar Chart card from genuicn to my Next.js app. It's a live bar chart for any comparison across categories (countries, states, companies, energy sources), one bar per category with its value. The model writes a free-text topic from the user's ask; the card searches the web with Parallel and draws the bars, biggest first.
+
+${chatSetup(origin)}
+
+2. Install the card:
+npx shadcn@latest add ${origin}/r/bar-chart.json
+It adds features/bar-chart/ and app/api/bar-chart/route.ts. The route uses Parallel web search + extract (@parallel-web/ai-sdk-tools) and the same AI Gateway model as chat to research the topic. Add PARALLEL_API_KEY to .env.local (https://ai-sdk.dev/resources/tools/parallel) and keep AI_GATEWAY_API_KEY set. Don't edit the API routes.
+
+3. Turn the card on, one entry in each file, next to the CardGroup entry that is already there (keep it: it lets one reply show several cards):
+features/chat/chat-catalog.ts
+  import { barChartCatalogEntry } from "@/features/bar-chart/bar-chart-catalog";
+  BarChartCard: barChartCatalogEntry,
+features/chat/chat-registry.tsx
+  import { LiveBarChartCard } from "@/features/bar-chart/components/live-bar-chart-card";
+  BarChartCard: ({ props, loading }) => (
+    <LiveBarChartCard topic={props.topic || undefined} limit={props.limit ?? undefined} streaming={loading} />
+  ),
+features/chat/chat-steps.ts (the reply's thinking steps for this card)
+  import { barChartLookup } from "@/features/bar-chart/bar-chart-steps";
+  BarChartCard: barChartLookup,
+
+4. Check it: run the dev server, open /chat and ask "which countries have the largest economies?", then "what are the 5 most populous US states?".
+
+The model only writes the card's props; the card fetches the numbers itself:
+- topic: string, the user's comparison, e.g. "GDP by country", "most populous US states", or "US electricity generation by source"
+- limit: number | null — how many bars, 2–12 (null means 8)
+
+Docs: ${origin}/docs/bar-chart`;
+}
+
 function chatInstallPrompt(origin: string): string {
   return `Set up the genuicn chat in my Next.js app: a json-render chat where the model shows live cards (stock quotes and more) instead of plain text.
 
@@ -334,6 +365,7 @@ Docs: ${origin}/docs/installation`;
 
 export const INSTALL_PROMPTS = {
   "area-chart": areaChartInstallPrompt,
+  "bar-chart": barChartInstallPrompt,
   chat: chatInstallPrompt,
   crypto: cryptoInstallPrompt,
   flights: flightsInstallPrompt,
