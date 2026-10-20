@@ -393,7 +393,7 @@
   },
   "features/quote/components/quote-card.tsx": {
     "@typescript-eslint/no-use-before-define": {
-      "count": 8
+      "count": 7
     },
     "jsx-a11y/no-noninteractive-element-interactions": {
       "count": 2
@@ -424,9 +424,6 @@
     },
     "unicorn/no-declarations-before-early-exit": {
       "count": 3
-    },
-    "unicorn/no-unreadable-new-expression": {
-      "count": 1
     },
     "unicorn/prefer-default-parameters": {
       "count": 1

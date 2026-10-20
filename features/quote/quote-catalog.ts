@@ -3,7 +3,7 @@ import { QUOTE_RANGES } from "@/features/quote/quote-schema";
 
 export const quoteCatalogEntry = {
   description:
-    "A live stock quote card: current price, change, a small trend line and a 1D/1W/1M/1Y switch. It fetches its own data. Use it whenever the user asks how a stock, ETF or company's shares are doing. Convert company names to their ticker.",
+    "A live stock quote card: where a stock, ETF or company's shares stand right now, with the price, the change, a small trend line and a 1D/1W/1M/1Y switch. It fetches its own data. Use it for the everyday check-in: how a stock is doing, what it's trading at, whether it's up or down, how it has done over a week, month or year, and for checking several tickers at once. Convert company names to their ticker.",
   props: z.object({
     range: z
       .enum(QUOTE_RANGES)

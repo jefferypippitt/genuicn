@@ -9,7 +9,7 @@ import type { ChatRecording } from "@/lib/docs/chat-recording";
 import type { Metadata } from "next";
 
 const DESCRIPTION =
-  "Price, change, and a small trend line with a 1D, 1W, 1M, and 1Y switch.";
+  "A card that shows where a stock stands: the price, the change over the range, and a small trend line, with a switch for 1D, 1W, 1M, and 1Y.";
 
 export const metadata: Metadata = {
   title: "Quote · genuicn",
@@ -19,14 +19,20 @@ export const metadata: Metadata = {
 const STATES = [
   [
     "Streaming.",
-    "The model is still writing the card, so the ticker fills in as it arrives.",
+    "The model is still writing the card. The ticker appears as soon as the model writes it.",
   ],
-  ["Loading.", "The card is complete and the quote is on its way."],
+  [
+    "Loading.",
+    "The model has finished the card. The card is waiting for the quote from Yahoo Finance.",
+  ],
   [
     "Ready.",
-    "Price, change, and the trend line. The range switch redraws the trend line on the card.",
+    "The card shows the price, the change, and the trend line. The range switch redraws the trend line.",
   ],
-  ["Error.", "The ticker wasn't found, or the quote service didn't answer."],
+  [
+    "Error.",
+    "Yahoo Finance has no ticker with that symbol, or Yahoo Finance did not respond.",
+  ],
 ] as const;
 
 const RUNS = [
@@ -88,7 +94,7 @@ export default function QuoteDocument() {
       description={DESCRIPTION}
       install={{
         card: "quote",
-        note: "Copy one prompt that tells your coding agent how to install the card, turn it on in the chat, and which props the model writes.",
+        note: "Copy one prompt for your coding agent. It says how to install the card, how to turn it on in the chat, and which props the model writes.",
       }}
     >
       <DocSection title="Playground">
@@ -99,10 +105,10 @@ export default function QuoteDocument() {
         />
       </DocSection>
 
-      <DocSection title="States">
+      <DocSection title="The card has four states">
         <p>
-          The card has a state for each step, from the model writing it to the
-          quote arriving:
+          The state depends on how much of the card the model has written and
+          whether the quote has arrived.
         </p>
         <List items={STATES} />
       </DocSection>

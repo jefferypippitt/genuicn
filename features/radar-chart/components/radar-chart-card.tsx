@@ -21,26 +21,10 @@ export interface RadarChartCardProperties {
   readonly topic?: string;
   readonly data?: RadarChartData;
   readonly error?: string;
-  /**
-  Shows when the figures were looked up. Turn it off for saved data, where the time is the save date, not the reader's now.
-  */
-  readonly showAsOf?: boolean;
   readonly className?: string;
 }
 
 const CARD_FRAME = `${SHARED_CARD_FRAME} w-full max-w-md`;
-
-const AS_OF_FORMAT = new Intl.DateTimeFormat("en-US", {
-  day: "numeric",
-  month: "short",
-  // Fixed, so the server render and the browser agree on the date.
-  timeZone: "UTC",
-  year: "numeric",
-});
-
-function formatAsOf(time: number) {
-  return AS_OF_FORMAT.format(time);
-}
 
 function titleCase(value: string) {
   return value
@@ -423,13 +407,7 @@ const DataTable = ({ data }: { readonly data: RadarChartData }) => (
   </table>
 );
 
-const RadarChartReady = ({
-  data,
-  showAsOf,
-}: {
-  readonly data: RadarChartData;
-  readonly showAsOf: boolean;
-}) => {
+const RadarChartReady = ({ data }: { readonly data: RadarChartData }) => {
   const [activeSeries, setActiveSeries] = useState<number | null>(null);
   return (
     <div className="flex flex-col gap-3">
@@ -453,11 +431,6 @@ const RadarChartReady = ({
         <p className="text-muted-foreground min-w-0 truncate text-xs">
           {data.label}
         </p>
-        {showAsOf ? (
-          <p className="text-muted-foreground shrink-0 text-xs">
-            As of {formatAsOf(data.asOf)}
-          </p>
-        ) : null}
       </footer>
     </div>
   );
@@ -538,7 +511,6 @@ export const RadarChartCard = ({
   topic,
   data,
   error,
-  showAsOf = true,
   className,
 }: RadarChartCardProperties) => {
   if (state === "error") {
@@ -562,7 +534,7 @@ export const RadarChartCard = ({
       aria-label={summarizeRadarChart(data)}
       className={cn(CARD_FRAME, className)}
     >
-      <RadarChartReady data={data} showAsOf={showAsOf} />
+      <RadarChartReady data={data} />
     </section>
   );
 };

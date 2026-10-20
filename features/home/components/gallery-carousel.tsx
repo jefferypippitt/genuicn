@@ -7,6 +7,7 @@ import { useState } from "react";
 import { CarouselDots } from "@/components/ui/carousel-dots";
 import { AreaChartCard } from "@/features/area-chart/components/area-chart-card";
 import { BarChartCard } from "@/features/bar-chart/components/bar-chart-card";
+import { CandlestickCard } from "@/features/candlestick/components/candlestick-card";
 import { CryptoCard } from "@/features/crypto/components/crypto-card";
 import { BoardingPassCard } from "@/features/flights/components/boarding-pass-card";
 import GalleryQuote from "@/features/home/components/gallery-quote";
@@ -15,6 +16,7 @@ import {
   GALLERY_BAR_CHART,
   GALLERY_BITCOIN,
   GALLERY_BOARDING_PASS,
+  GALLERY_CANDLESTICK,
   GALLERY_PIE_CHART,
   GALLERY_RADAR_CHART,
   GALLERY_RADIAL_CHART,
@@ -55,6 +57,11 @@ const SLIDES: readonly {
 }[] = [
   { card: <GalleryQuote />, href: "/docs/quote", label: "Quote" },
   {
+    card: <CandlestickCard state="ready" data={GALLERY_CANDLESTICK} />,
+    href: "/docs/candlestick",
+    label: "Candlestick",
+  },
+  {
     card: <CryptoCard state="ready" data={GALLERY_BITCOIN} />,
     href: "/docs/crypto",
     label: "Crypto",
@@ -77,45 +84,27 @@ const SLIDES: readonly {
     width: "ticket",
   },
   {
-    card: (
-      <AreaChartCard state="ready" data={GALLERY_AREA_CHART} showAsOf={false} />
-    ),
+    card: <AreaChartCard state="ready" data={GALLERY_AREA_CHART} />,
     href: "/docs/area-chart",
     label: "Area Chart",
   },
   {
-    card: (
-      <BarChartCard state="ready" data={GALLERY_BAR_CHART} showAsOf={false} />
-    ),
+    card: <BarChartCard state="ready" data={GALLERY_BAR_CHART} />,
     href: "/docs/bar-chart",
     label: "Bar Chart",
   },
   {
-    card: (
-      <PieChartCard state="ready" data={GALLERY_PIE_CHART} showAsOf={false} />
-    ),
+    card: <PieChartCard state="ready" data={GALLERY_PIE_CHART} />,
     href: "/docs/pie-chart",
     label: "Pie Chart",
   },
   {
-    card: (
-      <RadarChartCard
-        state="ready"
-        data={GALLERY_RADAR_CHART}
-        showAsOf={false}
-      />
-    ),
+    card: <RadarChartCard state="ready" data={GALLERY_RADAR_CHART} />,
     href: "/docs/radar-chart",
     label: "Radar Chart",
   },
   {
-    card: (
-      <RadialChartCard
-        state="ready"
-        data={GALLERY_RADIAL_CHART}
-        showAsOf={false}
-      />
-    ),
+    card: <RadialChartCard state="ready" data={GALLERY_RADIAL_CHART} />,
     href: "/docs/radial-chart",
     label: "Radial Chart",
   },

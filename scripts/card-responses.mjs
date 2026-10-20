@@ -1,6 +1,7 @@
 import { setTimeout } from "node:timers/promises";
 
 const QUOTE_RANGES = ["1d", "1w", "1m", "1y"];
+const CANDLESTICK_RANGES = ["1d", "1w", "1m", "6m", "1y"];
 const CRYPTO_RANGES = ["24h", "1w", "1m", "1y", "all"];
 const AREA_CHART_RANGES = ["10y", "25y", "50y", "max"];
 const MAX_COMPARE = 6;
@@ -95,6 +96,13 @@ const CARD_URLS = {
     }
     return [`/api/flights?${parameters}`];
   },
+  CandlestickCard: ({ ticker }) =>
+    typeof ticker === "string" && ticker
+      ? CANDLESTICK_RANGES.map(
+          (range) =>
+            `/api/candlestick?${new URLSearchParams({ range, ticker })}`
+        )
+      : [],
   CryptoCard: ({ symbol }) =>
     typeof symbol === "string" && symbol
       ? CRYPTO_RANGES.map(

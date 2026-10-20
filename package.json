@@ -14,7 +14,8 @@
     "test:e2e": "playwright test",
     "registry:build": "shadcn build",
     "record": "node scripts/record-chat.mjs",
-    "record:data": "node scripts/snapshot-recordings.mjs"
+    "record:data": "node scripts/snapshot-recordings.mjs",
+    "route:check": "node scripts/route-check.mjs"
   },
   "dependencies": {
     "@ai-sdk/react": "^4.0.143",

@@ -9,7 +9,7 @@ import type { ChatRecording } from "@/lib/docs/chat-recording";
 import type { Metadata } from "next";
 
 const DESCRIPTION =
-  "Each team's chance of winning one NBA game: both teams' logos, a bar in each team's color with the percent in the bar, and what a win pays back. ESPN's prediction before tip-off, the live chance during the game, the result after.";
+  "A card that shows the chance of each team to win one NBA game, with a bar in each team's color and what a win pays back. Before tip-off the card shows ESPN's prediction, during the game the live chance, and after the game the result.";
 
 export const metadata: Metadata = {
   description: DESCRIPTION,
@@ -19,19 +19,19 @@ export const metadata: Metadata = {
 const STATES = [
   [
     "Streaming.",
-    "The model is still writing the card. The team appears as the model writes it.",
+    "The model is still writing the card. The team appears as soon as the model writes it.",
   ],
   [
     "Loading.",
-    "The model has finished the card, and the chances request is in flight.",
+    "The model has finished the card. The card is waiting for the chances from ESPN.",
   ],
   [
     "Ready.",
-    "Both teams, away then home, each with its logo and name over Fluid's scrubber Slider filled to its chance in its color (read-only — you can't scrub the odds; the percent sits in the bar), then what a win pays back (1.9x for 53%). When both teams share a color, the away team takes its second one. While the game is on, the card reads the chances again every 30 seconds.",
+    "The card shows the away team, then the home team. Each team has its logo, its name, and a bar filled to its chance in its color, with the percent inside the bar. The bar only shows the chance, so you cannot drag it. Under the bars, the card shows what a win pays back, for example 1.9x for a 53% chance. When both teams use the same color, the away team uses its second color. During the game, the card gets the chances again every 30 seconds.",
   ],
   [
     "Error.",
-    "ESPN has no NBA team by that name, the team has no game on that date, ESPN hasn't predicted the game yet, or ESPN didn't answer.",
+    "ESPN has no NBA team with that name, the team has no game on that date, ESPN has no prediction for the game yet, or ESPN did not respond.",
   ],
 ] as const;
 
@@ -123,14 +123,14 @@ export default function WinProbabilityDocument() {
         />
       </DocSection>
 
-      <DocSection title="Game states">
+      <DocSection title="The card changes before, during, and after the game">
         <GameGallery />
       </DocSection>
 
-      <DocSection title="States">
+      <DocSection title="The card has four states">
         <p>
-          The card moves through four states as the model writes it and the
-          chances arrive.
+          The state depends on how much of the card the model has written and
+          whether the chances have arrived.
         </p>
         <List items={STATES} />
       </DocSection>

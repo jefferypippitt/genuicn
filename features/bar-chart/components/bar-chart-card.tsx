@@ -27,31 +27,15 @@ export interface BarChartCardProperties {
   readonly limit?: number;
   readonly data?: BarChartData;
   readonly error?: string;
-  /**
-  Shows when the figures were looked up. Turn it off for saved data, where the time is the save date, not the reader's now.
-  */
-  readonly showAsOf?: boolean;
   readonly className?: string;
 }
 
 const CARD_FRAME = `${SHARED_CARD_FRAME} w-full max-w-md`;
 
-const AS_OF_FORMAT = new Intl.DateTimeFormat("en-US", {
-  day: "numeric",
-  month: "short",
-  // Fixed, so the server render and the browser agree on the date.
-  timeZone: "UTC",
-  year: "numeric",
-});
-
 /**
 The narrowest a bar gets, in percent of its track, so a tiny value still shows a sliver.
 */
 const MIN_BAR_PERCENT = 1;
-
-function formatAsOf(time: number) {
-  return AS_OF_FORMAT.format(time);
-}
 
 function titleCase(value: string) {
   return value
@@ -205,13 +189,7 @@ const BarRows = ({ data }: { readonly data: BarChartData }) => {
   );
 };
 
-const BarChartReady = ({
-  data,
-  showAsOf,
-}: {
-  readonly data: BarChartData;
-  readonly showAsOf: boolean;
-}) => (
+const BarChartReady = ({ data }: { readonly data: BarChartData }) => (
   <div className="flex flex-col gap-3">
     <header className="flex h-5 min-w-0 items-center">
       <p className="truncate text-sm font-semibold">{titleCase(data.topic)}</p>
@@ -225,11 +203,6 @@ const BarChartReady = ({
       <p className="text-muted-foreground min-w-0 truncate text-xs">
         {data.label}
       </p>
-      {showAsOf ? (
-        <p className="text-muted-foreground shrink-0 text-xs">
-          As of {formatAsOf(data.asOf)}
-        </p>
-      ) : null}
     </footer>
   </div>
 );
@@ -307,7 +280,6 @@ export const BarChartCard = ({
   limit,
   data,
   error,
-  showAsOf = true,
   className,
 }: BarChartCardProperties) => {
   if (state === "error") {
@@ -332,7 +304,7 @@ export const BarChartCard = ({
       aria-label={summarizeBarChart(data)}
       className={cn(CARD_FRAME, className)}
     >
-      <BarChartReady data={data} showAsOf={showAsOf} />
+      <BarChartReady data={data} />
     </section>
   );
 };

@@ -9,7 +9,7 @@ import type { ChatRecording } from "@/lib/docs/chat-recording";
 import type { Metadata } from "next";
 
 const DESCRIPTION =
-  "A card with a coin's live price, change, market cap, and volume, and a price line you switch between 24H, 1W, 1M, 1Y, and All.";
+  "A card that shows the live price, change, market cap, and volume of a coin, with a price line and a switch for 24H, 1W, 1M, 1Y, and All.";
 
 export const metadata: Metadata = {
   description: DESCRIPTION,
@@ -19,19 +19,19 @@ export const metadata: Metadata = {
 const STATES = [
   [
     "Streaming.",
-    "The model is still writing the card. The symbol appears as the model writes it.",
+    "The model is still writing the card. The symbol appears as soon as the model writes it.",
   ],
   [
     "Loading.",
-    "The model has finished the card, and the price request is in flight.",
+    "The model has finished the card. The card is waiting for the price from CoinGecko.",
   ],
   [
     "Ready.",
-    "The card shows the price, change, market cap, volume, and price line. The range switch redraws the line and the change. All starts the line at the week the coin first traded. To read the price at a point, point at the line, drag across it, or focus it and press the arrow keys.",
+    "The card shows the price, the change, the market cap, the volume, and the price line. The range switch redraws the line and the change. The All range starts the line at the week the coin first traded. To read the price at one point, point at the line, drag across it, or focus the line and press the arrow keys.",
   ],
   [
     "Error.",
-    "CoinGecko has no coin with that symbol, or CoinGecko didn't answer. A busy CoinGecko shows the error only when the card has no earlier answer to fall back on.",
+    "CoinGecko has no coin with that symbol, or CoinGecko did not respond. If CoinGecko is busy and the card has an earlier answer, the card keeps that answer and shows no error.",
   ],
 ] as const;
 
@@ -123,14 +123,14 @@ export default function CryptoDocument() {
         />
       </DocSection>
 
-      <DocSection title="Ranges">
+      <DocSection title="Each range sets how far back the line goes">
         <RangeGallery />
       </DocSection>
 
-      <DocSection title="States">
+      <DocSection title="The card has four states">
         <p>
-          The card moves through four states as the model writes it and the
-          price arrives.
+          The state depends on how much of the card the model has written and
+          whether the price has arrived.
         </p>
         <List items={STATES} />
       </DocSection>

@@ -8,7 +8,7 @@ import type { ChatRecording } from "@/lib/docs/chat-recording";
 import type { Metadata } from "next";
 
 const DESCRIPTION =
-  "One to three subjects profiled across the same measures. The model writes a free-text topic, the card searches online for real public figures using Parallel, and draws one shape per subject on a shared web.";
+  "A card that compares one to three subjects on the same measures, for any topic. The model writes the topic, the card searches the web for real public figures with Parallel, and then the card draws one shape for each subject on a shared web.";
 
 export const metadata: Metadata = {
   description: DESCRIPTION,
@@ -58,19 +58,19 @@ export const { registry } = defineRegistry(catalog, {
 const STATES = [
   [
     "Streaming.",
-    "The model is still writing the card, so the topic fills in as it arrives.",
+    "The model is still writing the card. The topic appears as soon as the model writes it.",
   ],
   [
     "Loading.",
-    "The card is researching the web for each subject's score on each measure.",
+    "The model has finished the card. The card is searching the web for the score of each subject on each measure.",
   ],
   [
     "Ready.",
-    "A web with one spoke per measure and one shape per subject: the first in solid teal, the others dashed and dotted. Hovering a measure shows every subject's value; hovering a name in the key brings its shape forward.",
+    "The card shows a web with one spoke for each measure and one shape for each subject. The first shape is solid teal, and the others are dashed and dotted. Point at a measure to show the value of every subject. Point at a name in the key to bring its shape to the front.",
   ],
   [
     "Error.",
-    "Fewer than three shared measures were found for the topic, or Parallel / the gateway didn't answer.",
+    "The search found fewer than three measures that all the subjects share, or Parallel or the AI Gateway did not respond.",
   ],
 ] as const;
 
@@ -93,7 +93,7 @@ export default function RadarChartPage() {
       description={DESCRIPTION}
       install={{
         card: "radar-chart",
-        note: "Copy one prompt that tells your coding agent how to install the card, turn it on in the chat, and which props the model writes.",
+        note: "Copy one prompt for your coding agent. It says how to install the card, how to turn it on in the chat, and which props the model writes.",
       }}
     >
       <DocSection title="Playground">
@@ -104,10 +104,10 @@ export default function RadarChartPage() {
         />
       </DocSection>
 
-      <DocSection title="States">
+      <DocSection title="The card has four states">
         <p>
-          The card has a state for each step, from the model writing it to the
-          figures arriving:
+          The state depends on how much of the card the model has written and
+          whether the search has finished.
         </p>
         <ul className="flex list-disc flex-col gap-1 pl-5">
           {STATES.map(renderState)}

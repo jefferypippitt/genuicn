@@ -29,10 +29,6 @@ export interface QuoteCardProps {
     ticker: string,
     range: QuoteRange
   ) => Promise<QuoteData>;
-  /**
-  Shows when the price was taken. Turn it off for saved data, where the time is the save date, not the reader's now.
-  */
-  readonly showAsOf?: boolean;
   readonly className?: string;
 }
 
@@ -55,7 +51,6 @@ export const QuoteCard = ({
   data,
   error,
   loadRange,
-  showAsOf = true,
   className,
 }: QuoteCardProps) => {
   const [override, setOverride] = useState<QuoteData | null>(null);
@@ -103,7 +98,6 @@ export const QuoteCard = ({
         data={shown}
         pendingRange={pendingRange}
         rangeError={rangeError}
-        showAsOf={showAsOf}
         onSelectRange={loadRange ? selectRange : undefined}
       />
     </section>
@@ -114,13 +108,11 @@ const QuoteReady = ({
   data,
   pendingRange,
   rangeError,
-  showAsOf,
   onSelectRange,
 }: {
   readonly data: QuoteData;
   readonly pendingRange: QuoteRange | null;
   readonly rangeError: string | null;
-  readonly showAsOf: boolean;
   readonly onSelectRange?: (range: QuoteRange) => void;
 }) => {
   const isUp = data.change >= 0;
@@ -210,7 +202,7 @@ const QuoteReady = ({
           </span>
         )}
         <p className="text-muted-foreground text-xs" aria-live="polite">
-          {rangeError ?? (showAsOf ? `As of ${formatTime(data.asOf)}` : null)}
+          {rangeError}
         </p>
       </div>
     </div>
@@ -465,15 +457,6 @@ const QuoteError = ({
     </p>
   </div>
 );
-
-function formatTime(time: number) {
-  return new Date(time).toLocaleString("en-US", {
-    day: "numeric",
-    hour: "numeric",
-    minute: "2-digit",
-    month: "short",
-  });
-}
 
 /** The card while its data is on the way: the same frame and rows as the
  *  ready card, so nothing moves when the quote lands. Shows the ticker as

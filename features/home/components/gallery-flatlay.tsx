@@ -27,7 +27,6 @@ const quote = (range: QuoteRange) => (
     state="ready"
     data={GALLERY_QUOTES[range]}
     loadRange={showSavedRange}
-    showAsOf={false}
   />
 );
 

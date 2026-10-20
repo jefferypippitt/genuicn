@@ -1,4 +1,6 @@
 import { DefaultChatTransport } from "ai";
+import { primeCandlestick } from "@/features/candlestick/candlestick-requests";
+import { isCandlestickRange } from "@/features/candlestick/candlestick-schema";
 import { primeCrypto } from "@/features/crypto/crypto-requests";
 import { CRYPTO_RANGES } from "@/features/crypto/crypto-schema";
 import { primeBoardingPass } from "@/features/flights/flight-requests";
@@ -28,6 +30,7 @@ import type { BarChartData } from "@/features/bar-chart/bar-chart-schema";
 import type { PieChartData } from "@/features/pie-chart/pie-chart-schema";
 import type { RadarChartData } from "@/features/radar-chart/radar-chart-schema";
 import type { RadialChartData } from "@/features/radial-chart/radial-chart-schema";
+import type { CandlestickData } from "@/features/candlestick/candlestick-schema";
 import type { CryptoData } from "@/features/crypto/crypto-schema";
 import type { BoardingPassData } from "@/features/flights/flight-schema";
 import type { CupGroupData } from "@/features/nba-cup/nba-cup-schema";
@@ -207,6 +210,13 @@ export function primeCardData({ responsesByUrl }: ChatRecording) {
       primeWeather(location, units, data as WeatherData);
     } else if (pathname === "/api/flights" && flight) {
       primeBoardingPass(flight, date, data as BoardingPassData);
+    } else if (pathname === "/api/candlestick" && ticker) {
+      const candleRange = searchParams.get("range");
+      primeCandlestick(
+        ticker,
+        isCandlestickRange(candleRange) ? candleRange : "1m",
+        data as CandlestickData
+      );
     } else if (pathname === "/api/crypto" && symbol) {
       primeCrypto(symbol, cryptoRange, data as CryptoData);
     } else {

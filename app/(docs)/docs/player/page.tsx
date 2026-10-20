@@ -9,7 +9,7 @@ import type { ChatRecording } from "@/lib/docs/chat-recording";
 import type { Metadata } from "next";
 
 const DESCRIPTION =
-  "NBA players this season, one row each: photo, number, height, age and experience, with points, assists, rebounds and steals per game, and the team each plays for now. Compare several in one table.";
+  "A card that shows NBA players this season, one row for each player. Each row has the photo, number, height, age, and experience, the points, assists, rebounds, and steals per game, and the current team. One table can compare several players.";
 
 export const metadata: Metadata = {
   description: DESCRIPTION,
@@ -19,19 +19,19 @@ export const metadata: Metadata = {
 const STATES = [
   [
     "Streaming.",
-    "The model is still writing the card. Each player's name appears as soon as the model writes it.",
+    "The model is still writing the card. The name of each player appears as soon as the model writes it.",
   ],
   [
     "Loading.",
-    "The model has finished the card, and the player requests are in flight. The header and a row per player hold the card's height.",
+    "The model has finished the card. The card is waiting for the players from ESPN. The header and one empty row for each player keep the card at its full height.",
   ],
   [
     "Ready.",
-    "One row per player on Fluid Functionalism's Table, in the order asked, so every stat lines up for comparing: photo, number, name, height, age, seasons in the league (R for a rookie), and points, assists, rebounds and steals per game. The header names the team when they share one; otherwise each name has its team under it. On a narrow screen the table scrolls sideways.",
+    "The table has one row for each player, in the order of the question, so every stat lines up for comparison. Each row has the photo, number, name, height, age, seasons in the league (R for a rookie), and points, assists, rebounds, and steals per game. When all the players are on one team, the header names the team. If not, each name has its team under it. On a narrow screen, the table scrolls sideways.",
   ],
   [
     "Error.",
-    "None of the players could be found: ESPN has no NBA player by that name, he isn't on a team, or ESPN didn't answer. When only some are missing, the others show and a line names the ones that weren't found.",
+    "The card found none of the players. ESPN has no NBA player with that name, the player is not on a team, or ESPN did not respond. When only some players are missing, the card shows the others and names the missing players in one line.",
   ],
 ] as const;
 
@@ -119,14 +119,14 @@ export default function PlayerDocument() {
         />
       </DocSection>
 
-      <DocSection title="Players">
+      <DocSection title="One table compares several players">
         <PlayerGallery />
       </DocSection>
 
-      <DocSection title="States">
+      <DocSection title="The card has four states">
         <p>
-          The card moves through four states as the model writes it and the
-          player arrives.
+          The state depends on how much of the card the model has written and
+          whether the players have arrived.
         </p>
         <List items={STATES} />
       </DocSection>

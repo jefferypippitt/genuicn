@@ -1,5 +1,6 @@
 import { defineCatalog } from "@json-render/core";
 import { schema } from "@json-render/react/schema";
+import { candlestickCatalogEntry } from "@/features/candlestick/candlestick-catalog";
 import { cardGroupCatalogEntry } from "@/features/chat/components/card-group";
 import { cryptoCatalogEntry } from "@/features/crypto/crypto-catalog";
 import { boardingPassCatalogEntry } from "@/features/flights/flight-catalog";
@@ -22,6 +23,7 @@ export const catalog = defineCatalog(schema, {
     AreaChartCard: areaChartCatalogEntry,
     BarChartCard: barChartCatalogEntry,
     BoardingPass: boardingPassCatalogEntry,
+    CandlestickCard: candlestickCatalogEntry,
     CardGroup: cardGroupCatalogEntry,
     CryptoCard: cryptoCatalogEntry,
     NbaCupCard: nbaCupCatalogEntry,

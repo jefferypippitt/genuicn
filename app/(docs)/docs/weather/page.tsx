@@ -10,7 +10,7 @@ import type { ChatRecording } from "@/lib/docs/chat-recording";
 import type { Metadata } from "next";
 
 const DESCRIPTION =
-  "The temperature, conditions, and the next six hours over a sky drawn from where the sun is and what the weather is doing there, so the clouds, haze, stars, and moon change with both.";
+  "A card that shows the temperature, the conditions, and the next six hours. The sky behind them follows the time of day and the weather at that place, so the clouds, haze, stars, and moon change with both.";
 
 export const metadata: Metadata = {
   description: DESCRIPTION,
@@ -54,14 +54,20 @@ export const { registry } = defineRegistry(catalog, {
 const STATES = [
   [
     "Streaming.",
-    "The model is still writing the card, so the place fills in as it arrives.",
+    "The model is still writing the card. The place appears as soon as the model writes it.",
   ],
-  ["Loading.", "The card is complete and the forecast is on its way."],
+  [
+    "Loading.",
+    "The model has finished the card. The card is waiting for the forecast from Open-Meteo.",
+  ],
   [
     "Ready.",
-    "The temperature, conditions, high and low, and the next six hours, over a sky drawn for the sun and the weather there.",
+    "The card shows the temperature, the conditions, the high and low, and the next six hours. The sky matches the time of day and the weather at that place.",
   ],
-  ["Error.", "The place wasn't found, or the weather service didn't answer."],
+  [
+    "Error.",
+    "Open-Meteo has no place with that name, or Open-Meteo did not respond.",
+  ],
 ] as const;
 
 function renderState([name, detail]: (typeof STATES)[number]) {
@@ -83,7 +89,7 @@ export default function WeatherPage() {
       description={DESCRIPTION}
       install={{
         card: "weather",
-        note: "Copy one prompt that tells your coding agent how to install the card, turn it on in the chat, and which props the model writes.",
+        note: "Copy one prompt for your coding agent. It says how to install the card, how to turn it on in the chat, and which props the model writes.",
       }}
     >
       <DocSection title="Playground">
@@ -94,14 +100,14 @@ export default function WeatherPage() {
         />
       </DocSection>
 
-      <DocSection title="Skies">
+      <DocSection title="The sky follows the time of day">
         <SkyGallery />
       </DocSection>
 
-      <DocSection title="States">
+      <DocSection title="The card has four states">
         <p>
-          The card has a state for each step, from the model writing it to the
-          forecast arriving:
+          The state depends on how much of the card the model has written and
+          whether the forecast has arrived.
         </p>
         <ul className="flex list-disc flex-col gap-1 pl-5">
           {STATES.map(renderState)}

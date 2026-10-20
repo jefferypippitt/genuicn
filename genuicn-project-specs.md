@@ -94,3 +94,4 @@ Positioning: competitors give you the chat; genuicn gives you what goes inside i
 | `pnpm check` / `pnpm fix` | Ultracite lint / format and auto-fix |
 | `pnpm record <name> "<prompt>"` | Record a playground chat and its card data (needs `pnpm dev` and a Gateway key in `.env.local`) |
 | `pnpm record:data [name...]` | Refresh the saved card data in recordings, no model call (needs `pnpm dev`) |
+| `pnpm route:check [CardName...]` | Ask the chat everyday questions and check which card the model picks for each, and the range it opens on. Run it after changing a catalog description (needs `pnpm dev` and a Gateway key; it makes real model calls) |

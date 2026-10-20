@@ -1,5 +1,6 @@
 import areaChartWorldPopulation from "@/features/home/snapshot/area-chart-world-population.json";
 import barChartLargestEconomies from "@/features/home/snapshot/bar-chart-largest-economies.json";
+import candlestickNvda1m from "@/features/home/snapshot/candlestick-nvda-1m.json";
 import cryptoBtcAll from "@/features/home/snapshot/crypto-btc-all.json";
 import flightBa117 from "@/features/home/snapshot/flight-ba117.json";
 import pieChartUsElectricity from "@/features/home/snapshot/pie-chart-us-electricity.json";
@@ -13,6 +14,7 @@ import scoreboardFinalsGame5 from "@/features/home/snapshot/scoreboard-finals-ga
 import weatherNewYork from "@/features/home/snapshot/weather-new-york.json";
 import type { AreaChartData } from "@/features/area-chart/area-chart-schema";
 import type { BarChartData } from "@/features/bar-chart/bar-chart-schema";
+import type { CandlestickData } from "@/features/candlestick/candlestick-schema";
 import type { CryptoData } from "@/features/crypto/crypto-schema";
 import type { BoardingPassData } from "@/features/flights/flight-schema";
 import type { PieChartData } from "@/features/pie-chart/pie-chart-schema";
@@ -28,6 +30,11 @@ export const GALLERY_QUOTES: Record<QuoteRange, QuoteData> = {
   "1w": quote1w as QuoteData,
   "1y": quote1y as QuoteData,
 };
+
+/**
+NVIDIA's daily candles over the past month, from Yahoo Finance.
+*/
+export const GALLERY_CANDLESTICK = candlestickNvda1m as CandlestickData;
 
 export const GALLERY_WEATHER = weatherNewYork as WeatherData;
 

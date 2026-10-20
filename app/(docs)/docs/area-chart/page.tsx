@@ -8,7 +8,7 @@ import type { ChatRecording } from "@/lib/docs/chat-recording";
 import type { Metadata } from "next";
 
 const DESCRIPTION =
-  "A filled area chart for any chartable question. The model writes a free-text topic, the card searches online for real public data using Parallel, and draws the series.";
+  "A card that charts a trend over time for any topic. The model writes the topic, the card searches the web for real public data with Parallel, and then the card draws a filled area chart.";
 
 export const metadata: Metadata = {
   description: DESCRIPTION,
@@ -64,16 +64,19 @@ export const { registry } = defineRegistry(catalog, {
 const STATES = [
   [
     "Streaming.",
-    "The model is still writing the card, so the topic fills in as it arrives.",
+    "The model is still writing the card. The topic appears as soon as the model writes it.",
   ],
-  ["Loading.", "The card is researching the web for a numeric time series."],
+  [
+    "Loading.",
+    "The model has finished the card. The card is searching the web for a series of numbers over time.",
+  ],
   [
     "Ready.",
-    "Latest value, change over the window, and a filled area chart. When the model sets ranges to true, the 10Y/25Y/50Y/Max switch filters the series without another search.",
+    "The card shows the latest value, the change over the period, and a filled area chart. When the model sets ranges to true, a switch for 10Y, 25Y, 50Y, and Max filters the series without a new search.",
   ],
   [
     "Error.",
-    "No honest series was found for the topic, or Parallel / the gateway didn't answer.",
+    "The search found no reliable series for the topic, or Parallel or the AI Gateway did not respond.",
   ],
 ] as const;
 
@@ -96,7 +99,7 @@ export default function AreaChartPage() {
       description={DESCRIPTION}
       install={{
         card: "area-chart",
-        note: "Copy one prompt that tells your coding agent how to install the card, turn it on in the chat, and which props the model writes.",
+        note: "Copy one prompt for your coding agent. It says how to install the card, how to turn it on in the chat, and which props the model writes.",
       }}
     >
       <DocSection title="Playground">
@@ -107,10 +110,10 @@ export default function AreaChartPage() {
         />
       </DocSection>
 
-      <DocSection title="States">
+      <DocSection title="The card has four states">
         <p>
-          The card has a state for each step, from the model writing it to the
-          series arriving:
+          The state depends on how much of the card the model has written and
+          whether the search has finished.
         </p>
         <ul className="flex list-disc flex-col gap-1 pl-5">
           {STATES.map(renderState)}

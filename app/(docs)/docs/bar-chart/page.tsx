@@ -8,7 +8,7 @@ import type { ChatRecording } from "@/lib/docs/chat-recording";
 import type { Metadata } from "next";
 
 const DESCRIPTION =
-  "A bar chart for any comparison across categories. The model writes a free-text topic, the card searches online for real public figures using Parallel, and draws one bar per category.";
+  "A card that compares one figure across categories, for any topic. The model writes the topic, the card searches the web for real public figures with Parallel, and then the card draws one bar for each category.";
 
 export const metadata: Metadata = {
   description: DESCRIPTION,
@@ -62,19 +62,19 @@ export const { registry } = defineRegistry(catalog, {
 const STATES = [
   [
     "Streaming.",
-    "The model is still writing the card, so the topic fills in as it arrives.",
+    "The model is still writing the card. The topic appears as soon as the model writes it.",
   ],
   [
     "Loading.",
-    "The card is researching the web for one figure per category, holding a row for each bar it asked for.",
+    "The model has finished the card. The card is searching the web for one figure for each category. One empty row for each bar keeps the card at its full height.",
   ],
   [
     "Ready.",
-    "The biggest value, or the total when the bars are parts of one whole, then one bar per category with its value, biggest first unless the categories have their own order.",
+    "The card shows the biggest value, or the total when the bars are parts of one whole. Under it is one bar for each category, with its value. The bars go from biggest to smallest, unless the categories have their own order.",
   ],
   [
     "Error.",
-    "No honest figures were found for the topic, or Parallel / the gateway didn't answer.",
+    "The search found no reliable figures for the topic, or Parallel or the AI Gateway did not respond.",
   ],
 ] as const;
 
@@ -97,7 +97,7 @@ export default function BarChartPage() {
       description={DESCRIPTION}
       install={{
         card: "bar-chart",
-        note: "Copy one prompt that tells your coding agent how to install the card, turn it on in the chat, and which props the model writes.",
+        note: "Copy one prompt for your coding agent. It says how to install the card, how to turn it on in the chat, and which props the model writes.",
       }}
     >
       <DocSection title="Playground">
@@ -108,10 +108,10 @@ export default function BarChartPage() {
         />
       </DocSection>
 
-      <DocSection title="States">
+      <DocSection title="The card has four states">
         <p>
-          The card has a state for each step, from the model writing it to the
-          figures arriving:
+          The state depends on how much of the card the model has written and
+          whether the search has finished.
         </p>
         <ul className="flex list-disc flex-col gap-1 pl-5">
           {STATES.map(renderState)}

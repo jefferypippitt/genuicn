@@ -27,26 +27,10 @@ export interface PieChartCardProperties {
   readonly topic?: string;
   readonly data?: PieChartData;
   readonly error?: string;
-  /**
-  Shows when the figures were looked up. Turn it off for saved data, where the time is the save date, not the reader's now.
-  */
-  readonly showAsOf?: boolean;
   readonly className?: string;
 }
 
 const CARD_FRAME = `${SHARED_CARD_FRAME} w-full max-w-md`;
-
-const AS_OF_FORMAT = new Intl.DateTimeFormat("en-US", {
-  day: "numeric",
-  month: "short",
-  // Fixed, so the server render and the browser agree on the date.
-  timeZone: "UTC",
-  year: "numeric",
-});
-
-function formatAsOf(time: number) {
-  return AS_OF_FORMAT.format(time);
-}
 
 function titleCase(value: string) {
   return value
@@ -286,13 +270,7 @@ const Legend = ({
   );
 };
 
-const PieChartReady = ({
-  data,
-  showAsOf,
-}: {
-  readonly data: PieChartData;
-  readonly showAsOf: boolean;
-}) => {
+const PieChartReady = ({ data }: { readonly data: PieChartData }) => {
   const [active, setActive] = useState<number | null>(null);
   return (
     <div className="@container flex flex-col gap-3">
@@ -319,11 +297,6 @@ const PieChartReady = ({
             </>
           ) : null}
         </p>
-        {showAsOf ? (
-          <p className="text-muted-foreground shrink-0 text-xs">
-            As of {formatAsOf(data.asOf)}
-          </p>
-        ) : null}
       </footer>
     </div>
   );
@@ -405,7 +378,6 @@ export const PieChartCard = ({
   topic,
   data,
   error,
-  showAsOf = true,
   className,
 }: PieChartCardProperties) => {
   if (state === "error") {
@@ -429,7 +401,7 @@ export const PieChartCard = ({
       aria-label={summarizePieChart(data)}
       className={cn(CARD_FRAME, className)}
     >
-      <PieChartReady data={data} showAsOf={showAsOf} />
+      <PieChartReady data={data} />
     </section>
   );
 };
