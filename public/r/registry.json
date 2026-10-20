@@ -425,6 +425,16 @@
           "path": "lib/card-frame.ts",
           "type": "registry:lib",
           "target": "lib/card-frame.ts"
+        },
+        {
+          "path": "lib/font-weight.ts",
+          "type": "registry:lib",
+          "target": "lib/font-weight.ts"
+        },
+        {
+          "path": "lib/type-scale.ts",
+          "type": "registry:lib",
+          "target": "lib/type-scale.ts"
         }
       ],
       "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   CandlestickCard: candlestickCatalogEntry\n  features/chat/chat-registry.tsx: CandlestickCard: ({ props, loading }) => <LiveCandlestickCard ticker={props.ticker || undefined} range={props.range ?? \"1m\"} streaming={loading} />\n  features/chat/chat-steps.ts:     CandlestickCard: candlestickLookup\n\nCandles load from /api/candlestick (installed at app/api/candlestick/route.ts), backed by Yahoo Finance's public chart endpoint. No API key needed."
