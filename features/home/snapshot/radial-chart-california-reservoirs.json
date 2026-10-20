@@ -1,0 +1,33 @@
+{
+  "asOf": 1792469517594,
+  "fake": false,
+  "label": "Percent of capacity",
+  "max": 100,
+  "period": "Oct 18, 2026",
+  "rings": [
+    {
+      "name": "San Luis",
+      "value": 71
+    },
+    {
+      "name": "New Melones",
+      "value": 63
+    },
+    {
+      "name": "Shasta",
+      "value": 52
+    },
+    {
+      "name": "Oroville",
+      "value": 44
+    },
+    {
+      "name": "Folsom",
+      "value": 40
+    }
+  ],
+  "scale": "percent",
+  "sourceHref": "http://cdec.water.ca.gov/reportapp/javareports?name=rescond.pdf",
+  "sourceLabel": "California DWR CDEC",
+  "topic": "California major reservoir levels"
+}

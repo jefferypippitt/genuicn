@@ -1,0 +1,175 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "HhfyPFShyCHz2bXJ"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 975
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgCqXGkbS9k1MPTkCRvd4",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 9732,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 2,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 930
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "CAQS+AkKEAgTGAI4AUIIdGhpbmtpbmcSDKHpLbS5heG9/t1WlhoMqqMNDp6dnPbr1diNIjDjSyk+/dWPC+1fr34jRMBc52Y9bL+6NWogQzVNiUEJ9w9s2V6dS3fgzCO3iWHMgMAqlQlkdSq2EtQ3r5k/hMnDnW7Yv5BbckZNhrOGJ7yIdWUHlYAgAiyxvzvMdUocKlofhvO1EvP6yiCV15Gdt6Qep5kdqj4tFxg2ewRT+67OxURVkVRzCbgoJYsDMgh2lacZgeeVSfmjExqpmp1HFzoEz9UX3aJnxQOtltasZS4yrPDUSWoc7mQBmpFJVB+xuh2FJLbYSWEixNZkIjvPXy+QqN0qf8i7F5BhsFAhz2yJmHREeZ9myiQimGRKhpG4NH2qrA3P9CPKu4IdoE9sTf6hHuwq7ROU4VacZsTwuLP69EDOgv1KMdis1Zw6Vgz2Ngrl61J9OG04183ieU/ZDbYB68675vUzz2/UogeyK8DRW2JPvJmVT7X3i93rrEB9qQAuR50q/zdFwrP/gae5tWECTPfMRTAxMQAD0Ahlfx4yA30JZP126c2QKSWNTMir9yzA08RVr6JbUjnzpShEqQ61uxURQ12w0eB4QsJkzPnKeWc9UrmU14/qGKMsH1plz4yZAEEJ4A8TkFq+wubEeZEogEl1YfVgsgG9LXGrgedyJL0UVM9vLt/nIWizsh8yQSbdKx/XCpyiKFIHngbWdRT2hXMQP+k4wz8NONSAz/HyWnEZ44viwRDjF4BGtavIFrlA3VaRxC7b5IOdRO5461Rlo1SfyX2+hBetiCaEicp9luwlTZACNh4TceSH22bSkIqMBVEtgTELsDuVQSWxTTYfJwao459NRSC8RnAzbGJTuGUewAoRIB5yNxmsp/Y1fG2sAYHrV0A8rNVMPYIpHAS5P6gKq9PQVjEjeyxsKtABgjfTWSjC5muQ5w/4pwE6+mUhX4h/P8/iE3KW8qVpXlQwGlwCVD73o8Qy97R52AafgwpxccF3b8A8njMIt58zCObtSFRD8fMPZB+G5xm54kW4OLdFencpb9BgDgL45MerlPQrPNqHHjxdz8Cg02p7/78hzLoqKE7t+Oz38I6cRlc/Irh8CUZlvy4GllLCKRkDlEwbraivq1WwbIpyu1RSapOhB3X6+thQ/R4HlxJ2TipuBo/cBUz0mMQdjD5Pu/8bul1DGS5NSazTMosfWAimEoAm67RciqaLtcmS63ZHqlN6Ct3K2qsM8Q2u3J1KYgwohUlxKHQ0b82OPPv23sJ/C0fBAuQmvzfvOPU9RMll6x1uNJeKxKDMPq4VtE4bgV9Tvf42q8RIQNI+1CXHElM6X02nKVdi4XMUnDLcXs2GDTKuSy/JQEN92/s1hiSCAkjGYyx8SQPXKaa6KiLObw3kxySepbnZEZbv53g+/L7/GocyDwbte3YNZFAcHR7Rv4uHwdGGfp1nnP/3mcJCxbk5SBl77VhbSR/gn0LnJ0Ec4aoTJ4AWR60NAlNqHnHI/tfWwunSi0IZ6mO7+8AnlxgvCyir4z0By1clteifziyL8RS0U7qKhFJWQkXgYM62nZvr05iadXtu9YquLeHQCJA/JBtWsJ6laPpw3J8D9N2ksHqw3ctjtT15TW0NhRnOGvbiTF+5Thrtpt3KP32Rai7UYqcy4pUW1Mu+uW/ZK6pijiwL4GAjurirrA4YAQ=="
+              }
+            }
+          },
+          "wait": 12
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 90
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "cloud-share"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/cloud-share",
+                "value": {
+                  "type": "PieChartCard",
+                  "props": {
+                    "topic": "Cloud infrastructure market share by provider"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 167
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 2
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "Who has the most cloud infrastructure market share?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/pie-chart?topic=Cloud+infrastructure+market+share+by+provider": {
+      "asOf": 1792469585736,
+      "fake": false,
+      "label": "Market share",
+      "period": "Q2 2026",
+      "scale": "percent",
+      "slices": [
+        {
+          "label": "AWS",
+          "value": 28
+        },
+        {
+          "label": "Microsoft",
+          "value": 20
+        },
+        {
+          "label": "Google",
+          "value": 15
+        },
+        {
+          "label": "Other",
+          "value": 37
+        }
+      ],
+      "sourceHref": "https://www.srgresearch.com/articles/q2-cloud-market-passes-143-billion-highest-growth-rate-in-eight-years",
+      "sourceLabel": "Synergy Research Group",
+      "topic": "Cloud infrastructure market share by provider"
+    }
+  }
+}

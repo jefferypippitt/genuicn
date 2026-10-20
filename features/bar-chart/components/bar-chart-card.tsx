@@ -1,6 +1,7 @@
 "use client";
 
 import { CARD_FRAME as SHARED_CARD_FRAME } from "@/lib/card-frame";
+import { CHART_THEMES } from "@/lib/chart-themes";
 import { cn } from "@/lib/utils";
 import {
   DEFAULT_BARS,
@@ -88,13 +89,16 @@ Print-style diagonal hatching for every bar but the leader, which stays solid. H
 const HATCH =
   "bg-[image:repeating-linear-gradient(-45deg,currentColor_0_1.5px,transparent_1.5px_4.5px)] group-hover/row:bg-none group-hover/row:bg-current";
 
+/**
+This card's colors: amber. Every chart card has its own, so a reply with several charts tells them apart at a glance.
+*/
+const THEME = CHART_THEMES.bar;
+
 function barTone(value: number, isTop: boolean) {
   if (value < 0) {
     return cn("text-red-500 dark:text-red-400", isTop ? "bg-current" : HATCH);
   }
-  return isTop
-    ? "bg-current text-sky-600 dark:text-sky-400"
-    : cn("text-sky-500/80 dark:text-sky-400/70", HATCH);
+  return isTop ? cn("bg-current", THEME.solid) : cn(THEME.soft, HATCH);
 }
 
 /**

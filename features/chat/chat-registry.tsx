@@ -11,6 +11,9 @@ import { LiveQuoteCard } from "@/features/quote/components/live-quote-card";
 import LiveScoreboardCard from "@/features/scoreboard/components/live-scoreboard-card";
 import { LiveAreaChartCard } from "@/features/area-chart/components/live-area-chart-card";
 import { LiveBarChartCard } from "@/features/bar-chart/components/live-bar-chart-card";
+import { LivePieChartCard } from "@/features/pie-chart/components/live-pie-chart-card";
+import { LiveRadarChartCard } from "@/features/radar-chart/components/live-radar-chart-card";
+import { LiveRadialChartCard } from "@/features/radial-chart/components/live-radial-chart-card";
 import LiveStandingsCard from "@/features/standings/components/live-standings-card";
 import LiveWinProbabilityCard from "@/features/win-probability/components/live-win-probability-card";
 import { LiveWeatherCard } from "@/features/weather/components/live-weather-card";
@@ -52,6 +55,9 @@ export const { registry } = defineRegistry(catalog, {
     NbaCupCard: ({ props, loading }) => (
       <LiveNbaCupCard group={props.group || undefined} streaming={loading} />
     ),
+    PieChartCard: ({ props, loading }) => (
+      <LivePieChartCard topic={props.topic || undefined} streaming={loading} />
+    ),
     PlayerCard: ({ props, loading }) => (
       <LivePlayerCard players={props.players} streaming={loading} />
     ),
@@ -59,6 +65,18 @@ export const { registry } = defineRegistry(catalog, {
       <LiveQuoteCard
         ticker={props.ticker || undefined}
         range={props.range ?? "1d"}
+        streaming={loading}
+      />
+    ),
+    RadarChartCard: ({ props, loading }) => (
+      <LiveRadarChartCard
+        topic={props.topic || undefined}
+        streaming={loading}
+      />
+    ),
+    RadialChartCard: ({ props, loading }) => (
+      <LiveRadialChartCard
+        topic={props.topic || undefined}
         streaming={loading}
       />
     ),

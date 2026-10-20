@@ -15,9 +15,15 @@ import {
   GALLERY_BAR_CHART,
   GALLERY_BITCOIN,
   GALLERY_BOARDING_PASS,
+  GALLERY_PIE_CHART,
+  GALLERY_RADAR_CHART,
+  GALLERY_RADIAL_CHART,
   GALLERY_SCOREBOARD,
   GALLERY_WEATHER,
 } from "@/features/home/gallery-snapshot";
+import { PieChartCard } from "@/features/pie-chart/components/pie-chart-card";
+import { RadarChartCard } from "@/features/radar-chart/components/radar-chart-card";
+import { RadialChartCard } from "@/features/radial-chart/components/radial-chart-card";
 import ScoreboardCard from "@/features/scoreboard/components/scoreboard-card";
 import { WeatherCard } from "@/features/weather/components/weather-card";
 import { spring } from "@/lib/springs";
@@ -83,6 +89,35 @@ const SLIDES: readonly {
     ),
     href: "/docs/bar-chart",
     label: "Bar Chart",
+  },
+  {
+    card: (
+      <PieChartCard state="ready" data={GALLERY_PIE_CHART} showAsOf={false} />
+    ),
+    href: "/docs/pie-chart",
+    label: "Pie Chart",
+  },
+  {
+    card: (
+      <RadarChartCard
+        state="ready"
+        data={GALLERY_RADAR_CHART}
+        showAsOf={false}
+      />
+    ),
+    href: "/docs/radar-chart",
+    label: "Radar Chart",
+  },
+  {
+    card: (
+      <RadialChartCard
+        state="ready"
+        data={GALLERY_RADIAL_CHART}
+        showAsOf={false}
+      />
+    ),
+    href: "/docs/radial-chart",
+    label: "Radial Chart",
   },
 ];
 

@@ -2,17 +2,23 @@ import areaChartWorldPopulation from "@/features/home/snapshot/area-chart-world-
 import barChartLargestEconomies from "@/features/home/snapshot/bar-chart-largest-economies.json";
 import cryptoBtcAll from "@/features/home/snapshot/crypto-btc-all.json";
 import flightBa117 from "@/features/home/snapshot/flight-ba117.json";
+import pieChartUsElectricity from "@/features/home/snapshot/pie-chart-us-electricity.json";
 import quote1d from "@/features/home/snapshot/quote-nvda-1d.json";
 import quote1m from "@/features/home/snapshot/quote-nvda-1m.json";
 import quote1w from "@/features/home/snapshot/quote-nvda-1w.json";
 import quote1y from "@/features/home/snapshot/quote-nvda-1y.json";
+import radarChartAppleBanana from "@/features/home/snapshot/radar-chart-apple-banana.json";
+import radialChartCaliforniaReservoirs from "@/features/home/snapshot/radial-chart-california-reservoirs.json";
 import scoreboardFinalsGame5 from "@/features/home/snapshot/scoreboard-finals-game-5.json";
 import weatherNewYork from "@/features/home/snapshot/weather-new-york.json";
 import type { AreaChartData } from "@/features/area-chart/area-chart-schema";
 import type { BarChartData } from "@/features/bar-chart/bar-chart-schema";
 import type { CryptoData } from "@/features/crypto/crypto-schema";
 import type { BoardingPassData } from "@/features/flights/flight-schema";
+import type { PieChartData } from "@/features/pie-chart/pie-chart-schema";
 import type { QuoteData, QuoteRange } from "@/features/quote/quote-schema";
+import type { RadarChartData } from "@/features/radar-chart/radar-chart-schema";
+import type { RadialChartData } from "@/features/radial-chart/radial-chart-schema";
 import type { ScoreboardData } from "@/features/scoreboard/scoreboard-schema";
 import type { WeatherData } from "@/features/weather/weather-schema";
 
@@ -43,3 +49,19 @@ export const GALLERY_AREA_CHART = areaChartWorldPopulation as AreaChartData;
 The eight largest economies by 2025 GDP, from the World Bank.
 */
 export const GALLERY_BAR_CHART = barChartLargestEconomies as BarChartData;
+
+/**
+US electricity generation by source in 2025, from the US EIA.
+*/
+export const GALLERY_PIE_CHART = pieChartUsElectricity as PieChartData;
+
+/**
+An apple and a banana by percent of daily value, from USDA FoodData Central.
+*/
+export const GALLERY_RADAR_CHART = radarChartAppleBanana as RadarChartData;
+
+/**
+California's major reservoirs as a percent of capacity, from the state's CDEC.
+*/
+export const GALLERY_RADIAL_CHART =
+  radialChartCaliforniaReservoirs as RadialChartData;

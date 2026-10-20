@@ -1,0 +1,172 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "K9YeJJSVSbPy36No"
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 789
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgCqRzq1XWiqzGV3to5cm",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 9730,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 6,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 479
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "CAQS+wcKEAgTGAI4AUIIdGhpbmtpbmcSDOkxvc5QlzWQaC3r6BoMmLxWwNnmlGdGysboIjDVyVST4OFoxi0YdA9O3XL+4rgXJSpEJ70KjcUL5Rbvq1VP8/u9Y9drTzfqCV9Yli0qmAfiFgkqzF3hxPgeGZKaClr0vPOjvrPtFCwcfA6pmuuMokVOzwnr2IfaYy98A0CaHEM1iLKCk4LQNLlqpX4TzxwDsWwRpacdGYAEhDXo+/xGAZxWW9r1WuP33vTdNKv1w7mIArtxGT/zA/xDBboIDyH4YBHiWKxFGYnlnXjwsTRi1wSsZWzVU6rb6uWTGTfYrUexixa7Q9EQbIFFu6PpnC3d+Kk2run0Dg4Wgi+2/EtpcBYsgVruR++YLwFSaE7mafzN7ummkWYNjdGR0mkOHWxwSXdXhSxImmb8F2FW1V5dMNdRG0yHj219hZi+2RKC2ZIPagkTxwfXrdhMPEbkD6docwkbReX+mpzOYr2jOa2KQ0YulFu6Hhyee+vkQI+yKIXZkE7BG01fbqcgArw4fcbLneEJ6585MBp5qE96bHJa4c5NX5q65+mzOWClHl4G9kfTQf3pPB8xsXHMWehKlWp/pc7LTsR5x63t237Gv+fcV6toQ6RZn4xhX8IiAU/yLhafLTOwOuj3VHS1WYplUsfri6ZhtR3j1dxd3rE8UfPADWnKBVzasWPYG/UFwooBUbLOmfX5Us5HJtV2qgNM+NHilxguCoRPGd/YtzkXtsfnaijMWwIKr1f10qEWf1KTQZzhlqD3onb8CTnORGjO1m7RyLJDhZE/Dd/i1iZpiPBwM40l9qSkoExJoE/hb6RkUdZvJ1/w8C2QAWlxVpNZDWcAMmZH6kKOPLAMTrqXLUv3wqT3L89hOCyfz2tmmHGx9f0nP1KuPrn1q9FTM2gfDZu3EsWaaqay7IhpsT2kIT+hJy1J8QnXKcpne5EXAWojlagW3k6JLruphALY2kzZGKdhN3GMOz046HATEGqUT4N5i3+fsMGbtU/7OtUXLq7JP/pcKH8CoIzk7nUPpruzwQ/KR4UhUfJbIjSbmojyl4Yp2krfcTRvSldE0M52KJDEdTiTs6i0m/sn02wZ1cLZlf3TJIt6y6XMycl5XhFT/aaIjbQla1hSpHZ3iWDoNzuSkIPqYdQb0n8QZlsXp4jnEh+EsFh2/8CdCOea0fYTcc05DV3n46C7cE0rfzjDN57pJDaLdWQnawouZxX9OGkhlt3QhdvcJxeWcvef1PtIsK12kWY3T5b+YBj7v241X0tbF/MrqmVRVcI1PRrmlLi3lwdcOazUbBV+HanC0DWJsGXUr/cW0Nq5jaXH/tOW0tWyFiwdMqgdkZNv6RgB"
+              }
+            }
+          },
+          "wait": 11
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 116
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "radar-ai-benchmarks"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/radar-ai-benchmarks",
+                "value": {
+                  "type": "RadarChartCard",
+                  "props": {
+                    "topic": "Top AI models compared on benchmarks"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 169
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 4
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "Compare the top AI models on benchmarks"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/radar-chart?topic=Top+AI+models+compared+on+benchmarks": {
+      "asOf": 1792469505750,
+      "axes": ["MMLU", "HumanEval", "MATH", "GPQA", "SWE-bench"],
+      "fake": false,
+      "label": "Benchmark score (0–100%)",
+      "max": 100,
+      "scale": "percent",
+      "series": [
+        {
+          "name": "Claude Opus 5",
+          "values": [94.1, 95.8, 94.2, 83.1, 78.1]
+        },
+        {
+          "name": "GPT-5.6 Sol",
+          "values": [93.8, 94.7, 97.8, 89.6, 74.6]
+        },
+        {
+          "name": "Gemini 3.6 Pro",
+          "values": [92.4, 92.8, 92.1, 78.4, 70.3]
+        }
+      ],
+      "sourceHref": "https://tokencalculator.com/llm-benchmarks",
+      "sourceLabel": "TokenCalculator (model-card aggregate, July 2026)",
+      "topic": "Top AI models compared on benchmarks"
+    }
+  }
+}

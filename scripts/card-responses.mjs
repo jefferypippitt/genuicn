@@ -45,6 +45,15 @@ function areaChartSubject({ topic, place }) {
   return typeof place === "string" && place ? place : "";
 }
 
+/**
+The one URL a card that only takes a free-text topic loads from.
+*/
+function topicUrls(route, topic) {
+  return typeof topic === "string" && topic.trim()
+    ? [`${route}?${new URLSearchParams({ topic: topic.trim() })}`]
+    : [];
+}
+
 // Keys are the catalog's component names, so they stay PascalCase.
 /* eslint-disable sonarjs/function-name */
 const CARD_URLS = {
@@ -97,6 +106,7 @@ const CARD_URLS = {
     typeof group === "string" && group
       ? [`/api/nba-cup?group=${encodeURIComponent(group)}`]
       : [],
+  PieChartCard: ({ topic }) => topicUrls("/api/pie-chart", topic),
   PlayerCard: ({ players }) =>
     Array.isArray(players)
       ? players
@@ -110,6 +120,8 @@ const CARD_URLS = {
             `/api/quote?ticker=${encodeURIComponent(ticker)}&range=${range}`
         )
       : [],
+  RadarChartCard: ({ topic }) => topicUrls("/api/radar-chart", topic),
+  RadialChartCard: ({ topic }) => topicUrls("/api/radial-chart", topic),
   ScoreboardCard: ({ team, date }) => {
     if (!(typeof team === "string" && team)) {
       return [];

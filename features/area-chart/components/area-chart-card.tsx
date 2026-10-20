@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import { CARD_FRAME as SHARED_CARD_FRAME } from "@/lib/card-frame";
+import { CHART_THEMES } from "@/lib/chart-themes";
 import { cn } from "@/lib/utils";
 import {
   AREA_CHART_RANGES,
@@ -139,7 +140,10 @@ function tabsFor(
   };
 }
 
-const NEUTRAL_TONE = "text-sky-600 dark:text-sky-400";
+/**
+This card's colors: indigo. Every chart card has its own, so a reply with several charts tells them apart at a glance.
+*/
+const THEME = CHART_THEMES.area;
 
 /**
 Faint rules at each quarter of the plot's height, the same print-chart grid the bar chart draws.
@@ -343,7 +347,6 @@ const AreaChartReady = ({
   const changeTone = isUp
     ? "text-emerald-600 dark:text-emerald-400"
     : "text-red-600 dark:text-red-400";
-  const tone = data.isPeriodTotal ? NEUTRAL_TONE : changeTone;
   const firstYear = data.points[0]?.year;
   const lastYear = data.points.at(-1)?.year;
 
@@ -370,7 +373,7 @@ const AreaChartReady = ({
           <p
             className={cn(
               "flex items-center gap-1 font-mono text-sm font-medium tabular-nums",
-              tone
+              changeTone
             )}
           >
             <span aria-hidden className="text-xs">
@@ -383,7 +386,7 @@ const AreaChartReady = ({
       )}
 
       <div className="flex flex-col gap-1.5">
-        <AreaPlot data={data} className={tone} />
+        <AreaPlot data={data} className={THEME.solid} />
         <div
           aria-hidden
           className="text-muted-foreground flex h-4 items-center justify-between font-mono text-xs tabular-nums"

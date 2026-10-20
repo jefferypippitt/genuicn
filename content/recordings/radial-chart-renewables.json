@@ -1,0 +1,176 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "RwH49Y0Ms96W7O9m"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 855
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgCqALp5vEYTnNfRerZDh",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 9753,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 6,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 837
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "CAQS9gkKEAgTGAI4AUIIdGhpbmtpbmcSDGbya6luh/bNWmC7yRoM+P5ISscixPZEPeZsIjCps9ogiBcevPPIxTA3tZLi+C9m6H+2FmitXGp1Z1diYL9u549nGGzUe1OEM99ay4kqkwlO1etepSjuK2Dp4vq6P6tRz7hkxhzk2hPkStDdE8cYsVfNkanucsKJb3FCX9zDp8TBH6a6e6IqLzJ5md845P7Bibrt3LHcJwjPtI+aCBYjFszI47v+1Yi1K2XVwXACXg09bXtABjhzcaZi+qfSW3I0lHDkVmrT+t9C9+h3xkgBplPhemqiG1khe9xUMhIdTVxMbslBk32oiaMFmokhB3T5hExHHGY0AODlYD/4dJUvI9x8rMBoJw2Bsxy2meoBr3iLtG5X8RTNBIeRMeWKTMOjB8JVSMHzKP+ON99SJUY5nhC1kq1YuoKZgeJfPQGdLr7IYG9kyUE33210R26TA29G+SZsl3QZj2NTASErDBuFHNk+io5BTtpJ46vorH1Rw62F36n/jHTBj3NkgYwInOMwIULRPkDiETKJY6RvcFDJiNBfXMbA9SgubkE1+o37N/xKRyVAkdKiGH/4heDN0ENOmG56OnNTj6FtPAOGV39pcUcspWccI84V4k5+Y5MnMtXNZcjjR+ichSOmbA56VcHGdn4i+uPXM2mVH298opUBrSxZCVTeJIFkGn80EQ6OG7R880l2fjTOGcoX7+OzdvifRIQML3jHJ/1wjiUOApkh3ZZgvdztSKcdQP+fW0DRzt354H6B8jLcsetQp2VarwSKlUpAkCjlg+92r00DQDWnv+2Swm+cPduZYIhJeg1hCkISYQ2LHnjwPSj11fqJ3tUMZVJkpkVECbTXZ2U61hU8PdXp3YNVG/gR8GPe7AIPxXUAHgc3XcSGS92EfjWOk/aYm5ExSeCFiRd4tqxVqgZnXbAc4GNjtSmOmo53Z8OpTQAAu8w74MmS3O5JwNNO252/TbXGEW7Ze/++XWySFMcEAVGgCEpkOSBDryvIhO8EOwb1NIFdgadE4+H3nMdFVwWWSSYvEmVT3GtAMhIrqerdktAfGXLp8Rk3UAU9f30F96LY1lCmUg7JCg4cf0nQY6UFMYoEFUc7I1i2mxPMa1m1u1O+dqzssAyHlXUhq06FRpanRwoU1EQ4pmT1fR6RHu44QnZ/pHWBo2DSx2DFZvAt3AHwJWvA/vcoWZxn1GEuFdDg+YFnZQCJxH4Zd1VtfQ6wn+KueBUZ6dCPbpRhmM69pxzu5sHkClmKlRESQbutdLvQaqAG9kRbmxdzZLk+lV80365Beli24bFLCwttSA3rCff2C4rlQDdIizJubj+VNJTaWhS8XT0F1+yjRExwrT/SUQBHf3U/5+Xz3Ojzy8muD0jFM0vLjs4ba/G69GD2BJXiJ6QwIC1PvkMJ8WHYxa9wNE1x6YP1peZfuqPCK6UV3XLb87n1hNNEoK8uyljShN7BlPFOsVJU6cHYaV++c9Wz5ZF3LxEeAd903K4UCA29qosi6qCTfJXPM/0eiunU3PI99LY2MgFKs3SM1lKUKc2QoO6trwdHBdZysOp8MluCWCKTb/lyMcKrK6YhkPXRhzngRMqRuctyhfbOq+LqZXHvAQKJXxkvjxAMUnwr1Ut8sDUFHSqhwmR9F3a9LAc6TI4CZ+buFSFugd60i+0Jw/fbNvIIGAE="
+              }
+            }
+          },
+          "wait": 2
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 37
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "chart"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/chart",
+                "value": {
+                  "type": "RadialChartCard",
+                  "props": {
+                    "topic": "Renewable share of electricity: Germany, UK, France, US"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 198
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 2
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "What share of electricity is renewable in Germany, the UK, France and the US?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/radial-chart?topic=Renewable+share+of+electricity%3A+Germany%2C+UK%2C+France%2C+US": {
+      "asOf": 1792469292464,
+      "fake": false,
+      "label": "Renewable share of electricity generation",
+      "max": 100,
+      "period": "2025",
+      "rings": [
+        {
+          "name": "Germany",
+          "value": 59.09
+        },
+        {
+          "name": "UK",
+          "value": 51.97
+        },
+        {
+          "name": "France",
+          "value": 26.06
+        },
+        {
+          "name": "US",
+          "value": 25.64
+        }
+      ],
+      "scale": "percent",
+      "sourceHref": "https://ourworldindata.org/grapher/electricity-mix?frequency=annual&metric=share_of_generation&source=renewables",
+      "sourceLabel": "Our World in Data (Ember 2026)",
+      "topic": "Renewable share of electricity: Germany, UK, France, US"
+    }
+  }
+}

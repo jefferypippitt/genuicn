@@ -1,0 +1,36 @@
+{
+  "asOf": 1792469512096,
+  "fake": false,
+  "label": "Net generation (MWh)",
+  "period": "2025",
+  "scale": "number",
+  "slices": [
+    {
+      "label": "Natural gas",
+      "value": 1807338000
+    },
+    {
+      "label": "Nuclear",
+      "value": 784781000
+    },
+    {
+      "label": "Coal",
+      "value": 737151000
+    },
+    {
+      "label": "Wind and other renewables",
+      "value": 526246000
+    },
+    {
+      "label": "Solar",
+      "value": 295671000
+    },
+    {
+      "label": "Other",
+      "value": 283633000
+    }
+  ],
+  "sourceHref": "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_1_01",
+  "sourceLabel": "US EIA",
+  "topic": "US electricity generation by source"
+}

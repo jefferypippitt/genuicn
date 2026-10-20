@@ -1,0 +1,180 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "Z6DBLjw7qxCIF9h9"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 938
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgCqSWvzsT5m6meK6UzrD",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 9728,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 6,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 495
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "CAQSlggKEAgTGAI4AUIIdGhpbmtpbmcSDK0bA6Tyc16sG9D0PhoMQzjb6zrS9KBIMv1lIjDdAztKqRMcuEexlG1INQVZePTwG8WPuDTfLcnl7rfy8W+zxz5+KYaoNCQWXDS+fZcqswflpPjRcjCfUQLhW55/7b5QUf+mVsjyUSUDf+v4a2WOidrzaDv9dIk+EsSycq4rXxbceumV0eNSaaFK0hMI0gStWmtsv/Gb+uWzXpACgb4xE6GDePsXtryHi9cwTMCU+XYaffLHEXGLSg4EnseglGHE4KbpoOabDIVGPx1m31YT1YJPdyzAaceCTgSvXeWpDlPbVZ8dnR2RC4I13b7+bpA2nRy0fiN8d4xcfPfWV0t/fTNl5OzjpoS0b7YjB8qNylmIOJN3bljQQVGR/l75sAuaTcvBsJ21MbQy/qo7G4++aYm+GJHoRq/KJqvZoAzVis2u9PQyO32c1NqCF6CeHJv8P5oNpgwMXWtgxHbnLBe7Je0RWrmqIXU2xxeo9JEBeHJyCoxsuXTJtbEC8UNLzACAey+WYQoDB8CUH3XRgEK/tWcx5jditCU2/hlZjv5UgybrBAdhLbiEpvcsYUhJongeJLzmd0yuZwH0br8c1uxN/yq7i5JLwC3SL+QQgEFaEf3RQfS2LxhmAStmuOHPJwCmHhgfd7Kx4HdI3+doHP5nBADUu87kRCLixMdGlDCc3adshlLbn2AvidlXtwwbb5vjRaMYJcvDnrkcV2FI/0gRz843Fsq8V6DDNEFZFQip5VN7Wl+b4vZ2xgd7Mdz1k8fjqGN803ntZitctBb2tR5sDuFu2VA4eINdKRPkpXiVlHBQveYBBJU/DGhCB8gxx8cfR1Tnl+IMcO5tkGkK6K8q67bTF33G1fGHZvnFnoTi+0vHJz15YgZWWjhbHuwxM/hTCH5dxrR7XKq/WJoENrCXdy2gBzPzDjnDkHRYKDwn0Wb7Tb+qQ4KHsZXyg+Oyc/UYwyOpKx+VgeubE/WS2y9BZBa5uLbE5/mLURfvxTqhTj9f/8sSPrpTLkwLsB2fL6Y6woKtn2nX+asO1NuWYlQTJoUpRTVjUw+KRY9im/4QI2BY6Qi8CPPcmc4Qf3YYjBVeao0Vax9Of9FOCf56AjPS3IBCsn1P+fADN5b0uCnJsRXwbZcJFEchnxvYu9KTHEcLrO+FuBTnAxmTPKspHQu64hnTX0U2FHGovjD7EH2aWpgzNZTIMye5l/zPgss4NnjpxXrmIPlQD03ri7frdfM0Vrn4c9zEvEPS+2VWyWlna2YgVcVrrvta3XPVRxxOD9Q0tXgmc4/yIQM7dx9JvyQgsc5upLgSmonAFmEQlAu1VAI8O1MRwHalx77y8XdrT6Xw44hXiBFWysT9PGfuApoDHJ44JhgB"
+              }
+            }
+          },
+          "wait": 4
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 52
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "reservoirs"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/reservoirs",
+                "value": {
+                  "type": "RadialChartCard",
+                  "props": {
+                    "topic": "California major reservoir levels"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 172
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "How full are California's major reservoirs?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/radial-chart?topic=California+major+reservoir+levels": {
+      "asOf": 1792469517594,
+      "fake": false,
+      "label": "Percent of capacity",
+      "max": 100,
+      "period": "Oct 18, 2026",
+      "rings": [
+        {
+          "name": "San Luis",
+          "value": 71
+        },
+        {
+          "name": "New Melones",
+          "value": 63
+        },
+        {
+          "name": "Shasta",
+          "value": 52
+        },
+        {
+          "name": "Oroville",
+          "value": 44
+        },
+        {
+          "name": "Folsom",
+          "value": 40
+        }
+      ],
+      "scale": "percent",
+      "sourceHref": "http://cdec.water.ca.gov/reportapp/javareports?name=rescond.pdf",
+      "sourceLabel": "California DWR CDEC",
+      "topic": "California major reservoir levels"
+    }
+  }
+}
