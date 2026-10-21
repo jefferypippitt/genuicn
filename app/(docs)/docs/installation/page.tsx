@@ -138,6 +138,28 @@ export default function InstallationPage() {
           {CHAT_FILES.map(renderChatFile)}
         </ul>
       </DocSection>
+
+      <DocDivider />
+
+      <DocSection title="Public apps need bot protection">
+        <p className="text-muted-foreground">
+          The chat route and the chart card routes call a model with your key.
+          The chart routes also use your Parallel key. Anyone who can reach
+          these routes can spend your credits.
+        </p>
+        <p className="text-muted-foreground">
+          Before you deploy a public app, protect these routes. On Vercel, use{" "}
+          <a
+            className="text-foreground underline underline-offset-4"
+            href="https://vercel.com/docs/botid"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            BotID
+          </a>
+          . On other hosts, add a rate limit.
+        </p>
+      </DocSection>
     </DocPage>
   );
 }

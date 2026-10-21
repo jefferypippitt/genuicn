@@ -26,6 +26,7 @@
     "@parallel-web/ai-sdk-tools": "^1.0.0",
     "@untitledui/icons": "^0.0.23",
     "ai": "^7.0.140",
+    "botid": "^1.5.11",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.4.0",
     "lightweight-charts": "^5.2.1",
