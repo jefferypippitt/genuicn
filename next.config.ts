@@ -1,6 +1,7 @@
+import { withBotId } from "botid/next/config";
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
+const baseConfig: NextConfig = {
   /*
   config options here
   */
@@ -18,5 +19,7 @@ const nextConfig: NextConfig = {
     },
   },
 };
+
+const nextConfig = withBotId(baseConfig);
 
 export default nextConfig;
