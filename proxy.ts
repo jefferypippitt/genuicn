@@ -16,6 +16,7 @@ export async function proxy() {
     : NextResponse.next();
 }
 
+// Only the routes that spend credits. The other card routes call free public APIs with no key, so a bot can't run up a bill through them.
 // Keep in sync with the protect list in instrumentation-client.ts.
 export const config = {
   matcher: [
