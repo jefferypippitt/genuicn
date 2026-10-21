@@ -15,6 +15,12 @@
       "skillPath": "pstack/skills/poteto-mode/SKILL.md",
       "computedHash": "31bd5bfcb13bb2ac97fd69ede835b97cbe6059520de1390600c13c40f38df841"
     },
+    "ai-sdk": {
+      "source": "vercel/ai",
+      "sourceType": "github",
+      "skillPath": "skills/use-ai-sdk/SKILL.md",
+      "computedHash": "12672e7c040c99b182ceb86517f36f6409e7e22e101178cf554767b0f5d9dd0a"
+    },
     "architect": {
       "source": "cursor/plugins",
       "ref": "main",

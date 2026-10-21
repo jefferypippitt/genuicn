@@ -10,7 +10,7 @@ import type { ChatRecording } from "@/lib/docs/chat-recording";
 import type { Metadata } from "next";
 
 const DESCRIPTION =
-  "A boarding pass card that looks up a flight number and shows the route, passenger, cabin, extras, boarding time, terminal, gate, group, and seat. A travel assistant that books flights and checks you in, with no chat box.";
+  "A boarding pass card. It looks up a flight number and shows the route, passenger, cabin, extras, boarding time, terminal, gate, group, and seat. The page also has a travel assistant that books flights and checks you in without a chat box.";
 
 export const metadata: Metadata = {
   description: DESCRIPTION,
@@ -20,11 +20,11 @@ export const metadata: Metadata = {
 const STATES = [
   [
     "Streaming.",
-    "The model is still writing the card. The flight number appears as the model writes it.",
+    "The model is still writing the card. The flight number appears as soon as the model writes it.",
   ],
   [
     "Loading.",
-    "The model has finished the card, and the pass request is in flight.",
+    "The model has finished the card. The card is waiting for the pass from the flight service.",
   ],
   [
     "Ready.",
@@ -32,7 +32,7 @@ const STATES = [
   ],
   [
     "Error.",
-    "The flight service has no flight with that number, or it didn't answer.",
+    "The flight service has no flight with that number, or the flight service did not respond.",
   ],
 ] as const;
 
@@ -45,31 +45,31 @@ const RUNS = [
 const CHECK_IN = [
   [
     "Task.",
-    "Pick one: book a flight, check in, change your seat, or get your boarding pass.",
+    "Pick one task: book a flight, check in, change your seat, or get your boarding pass.",
   ],
   [
     "Search.",
-    "A route card replaces the question. Search From and To by city or airport code. To lists only the cities with flights from your From city. Pick a date on the calendar, then a flight from the results, which list times and fares.",
+    "A route card replaces the question. Search From and To by city or airport code. To lists only the cities that have flights from your From city. Pick a date on the calendar. Then pick a flight from the results, which show times and fares.",
   ],
   [
     "Find the booking.",
-    "Type the booking reference, then the passenger's last name.",
+    "Type the booking reference, then the last name of the passenger.",
   ],
   [
     "Baggage.",
-    "Pick no checked bag, one 50 lb bag, or two. Then say whether you bring the free 18 lb cabin bag.",
+    "Pick no checked bag, one 50 lb bag, or two. Then say if you bring the free 18 lb cabin bag.",
   ],
   [
     "Seat.",
-    "A seat map replaces the question. It shows your cabin front to back, with taken seats crossed out, a price on each seat, and extra legroom on the first row. Tap a seat, then confirm it.",
+    "A seat map replaces the question. It shows your cabin from front to back. Taken seats are crossed out, each seat shows a price, and the first row has extra legroom. Tap a seat, then confirm it.",
   ],
   [
     "Extras.",
-    "Pick any of Fast Track, lounge access, and lower-impact fuel, or skip them. Each shows its price.",
+    "Pick any of Fast Track, lounge access, and lower-impact fuel, or skip them. Each extra shows its price.",
   ],
   [
     "Review.",
-    "Check what you pay, line by line. Type the passenger's first name to confirm, or go back and change your choices.",
+    "Check what you pay, line by line. To confirm, type the first name of the passenger. To change your choices, go back.",
   ],
 ] as const;
 
@@ -180,19 +180,19 @@ export default function FlightsDocument() {
         />
       </DocSection>
 
-      <DocSection title="Travel assistant">
+      <DocSection title="The travel assistant asks one step at a time">
         <CheckInAgentPlayground code={AGENT_CODE} />
         <List items={CHECK_IN} />
       </DocSection>
 
-      <DocSection title="Tickets">
+      <DocSection title="Each airline has its own pass">
         <TicketGallery />
       </DocSection>
 
-      <DocSection title="States">
+      <DocSection title="The card has four states">
         <p>
-          The card has a state for each step, from the model writing it to the
-          pass arriving:
+          The state depends on how much of the card the model has written and
+          whether the pass has arrived.
         </p>
         <List items={STATES} />
       </DocSection>

@@ -6,6 +6,37 @@ npx shadcn@latest add ${origin}/r/chat.json --overwrite
 It adds a json-render chat (Vercel AI SDK, Fluid Functionalism UI) with app/api/chat/route.ts, a /chat page, and features/chat/chat-catalog.ts, features/chat/chat-registry.tsx and features/chat/chat-steps.ts where cards are turned on. Each reply shows Fluid Functionalism's ThinkingSteps (understanding the question, looking up each card's data with linked sources, done), then folds them away and shows the cards as the final answer. --overwrite lets it replace stock shadcn files of the same name (button.tsx, tooltip.tsx); check those first if they were customized. It adds AI_GATEWAY_API_KEY to .env.local: ask me for the key (Vercel dashboard > AI Gateway > API Keys) instead of inventing one.`;
 }
 
+function candlestickInstallPrompt(origin: string): string {
+  return `Add the Candlestick card from genuicn to my Next.js app. It's a live candlestick chart (open, high, low and close per period, volume, a price axis and a 1D/1W/1M/6M/1Y switch) that the chat's model can show.
+
+${chatSetup(origin)}
+
+2. Install the card:
+npx shadcn@latest add ${origin}/r/candlestick.json
+It adds features/candlestick/ and app/api/candlestick/route.ts, which the card loads candles from (Yahoo Finance, no API key). Don't edit the API routes.
+
+3. Turn the card on, one entry in each file, next to the CardGroup entry that is already there (keep it: it lets one reply show several cards):
+features/chat/chat-catalog.ts
+  import { candlestickCatalogEntry } from "@/features/candlestick/candlestick-catalog";
+  CandlestickCard: candlestickCatalogEntry,
+features/chat/chat-registry.tsx
+  import { LiveCandlestickCard } from "@/features/candlestick/components/live-candlestick-card";
+  CandlestickCard: ({ props, loading }) => (
+    <LiveCandlestickCard ticker={props.ticker || undefined} range={props.range ?? "1m"} streaming={loading} />
+  ),
+features/chat/chat-steps.ts (the reply's thinking steps for this card)
+  import { candlestickLookup } from "@/features/candlestick/candlestick-steps";
+  CandlestickCard: candlestickLookup,
+
+4. Check it: run the dev server, open /chat and ask "How did NVDA trade this month?", then "How choppy were Apple and Microsoft this week?" for several cards in one reply. People rarely say "candlestick": the model picks this card when a question is about how a stock moved (how it traded, swings, highs and lows, volume, the chart) and the Quote card when it is about where a stock stands.
+
+The model only writes the card's props; the card fetches the candles itself:
+- ticker: string, e.g. "NVDA"
+- range: "1d" | "1w" | "1m" | "6m" | "1y" | null (null means the past month)
+
+Docs: ${origin}/docs/candlestick`;
+}
+
 function cryptoInstallPrompt(origin: string): string {
   return `Add the Crypto card from genuicn to my Next.js app. It's a live crypto price card (price, change, market cap, 24-hour volume and a trend line with a 24H/1W/1M/1Y/All switch) that the chat's model can show.
 
@@ -456,6 +487,7 @@ Docs: ${origin}/docs/installation`;
 export const INSTALL_PROMPTS = {
   "area-chart": areaChartInstallPrompt,
   "bar-chart": barChartInstallPrompt,
+  candlestick: candlestickInstallPrompt,
   chat: chatInstallPrompt,
   crypto: cryptoInstallPrompt,
   flights: flightsInstallPrompt,

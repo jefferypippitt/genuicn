@@ -35,22 +35,10 @@ export interface AreaChartCardProperties {
   The full (Max) series behind `data`. When given, the 10Y/25Y/50Y/Max switch shows and filters it in place, with no second search. Without it, the switch is hidden and the card shows the range it was given.
   */
   readonly series?: AreaChartData;
-  /**
-  Shows when the series was taken. Turn it off for saved data, where the time is the save date, not the reader's now.
-  */
-  readonly showAsOf?: boolean;
   readonly className?: string;
 }
 
 const CARD_FRAME = `${SHARED_CARD_FRAME} w-full max-w-md`;
-
-const AS_OF_FORMAT = new Intl.DateTimeFormat("en-US", {
-  day: "numeric",
-  month: "short",
-  // Fixed, so the server render and the browser agree on the date.
-  timeZone: "UTC",
-  year: "numeric",
-});
 
 /**
 The plot's drawing box; the SVG stretches it to the card's width.
@@ -61,10 +49,6 @@ const PLOT_HEIGHT = 96;
 How close to either edge, in percent, the hover label stops centering on the point and hugs that edge instead.
 */
 const LABEL_EDGE_PERCENT = 20;
-
-function formatAsOf(time: number) {
-  return AS_OF_FORMAT.format(time);
-}
 
 function labelAlignFor(xPercent: number) {
   if (xPercent < LABEL_EDGE_PERCENT) {
@@ -333,12 +317,10 @@ const AreaPlot = ({
 
 const AreaChartReady = ({
   data,
-  showAsOf,
   tabs,
   onSelectTab,
 }: {
   readonly data: AreaChartData;
-  readonly showAsOf: boolean;
   readonly tabs?: Tabs;
   readonly onSelectTab: (id: string) => void;
 }) => {
@@ -400,7 +382,7 @@ const AreaChartReady = ({
         className={cn(
           "flex items-center gap-2",
           tabs ? "justify-between" : "justify-end",
-          !(tabs || (showAsOf && !data.subjects)) && "hidden"
+          !tabs && "hidden"
         )}
       >
         {tabs ? (
@@ -427,11 +409,6 @@ const AreaChartReady = ({
               );
             })}
           </fieldset>
-        ) : null}
-        {showAsOf && !data.subjects ? (
-          <p className="text-muted-foreground shrink-0 text-xs">
-            As of {formatAsOf(data.asOf)}
-          </p>
         ) : null}
       </div>
     </div>
@@ -503,7 +480,6 @@ export const AreaChartCard = ({
   data,
   error,
   series,
-  showAsOf = true,
   className,
 }: AreaChartCardProperties) => {
   const [selectedRange, setSelectedRange] = useState<AreaChartRange | null>(
@@ -535,7 +511,6 @@ export const AreaChartCard = ({
     >
       <AreaChartReady
         data={shown}
-        showAsOf={showAsOf}
         tabs={tabsFor(shown, series)}
         onSelectTab={(id) => {
           if (hasSubjectTabs(shown)) {

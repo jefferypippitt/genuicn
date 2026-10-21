@@ -2,6 +2,7 @@
 
 import { defineRegistry } from "@json-render/react";
 import { catalog } from "@/features/chat/chat-catalog";
+import { LiveCandlestickCard } from "@/features/candlestick/components/live-candlestick-card";
 import { CardGroup } from "@/features/chat/components/card-group";
 import { LiveCryptoCard } from "@/features/crypto/components/live-crypto-card";
 import { LiveBoardingPassCard } from "@/features/flights/components/live-boarding-pass-card";
@@ -41,6 +42,13 @@ export const { registry } = defineRegistry(catalog, {
         flight={props.flight || undefined}
         date={props.date}
         variant={props.variant ?? "map"}
+        streaming={loading}
+      />
+    ),
+    CandlestickCard: ({ props, loading }) => (
+      <LiveCandlestickCard
+        ticker={props.ticker || undefined}
+        range={props.range ?? "1m"}
         streaming={loading}
       />
     ),

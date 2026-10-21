@@ -14,7 +14,6 @@ export default function GalleryQuote() {
       state="ready"
       data={GALLERY_QUOTES["1d"]}
       loadRange={loadSavedRange}
-      showAsOf={false}
     />
   );
 }

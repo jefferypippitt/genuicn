@@ -36,8 +36,10 @@ export const NAV_SECTIONS: NavSection[] = [
         label: "Quote",
       },
       {
-        description: "Candles with volume and timeframe controls.",
-        label: "Candlestick chart",
+        description:
+          "Open, high, low, and close for each period, with volume and a 1D, 1W, 1M, 6M, and 1Y switch.",
+        href: "/docs/candlestick",
+        label: "Candlestick",
       },
       {
         description: "Two to four tickers on one chart, plus key numbers.",

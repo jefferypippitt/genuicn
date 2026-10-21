@@ -8,6 +8,11 @@ const CARD_PAGES = [
     prompt: "What's the weather in New York?",
     title: "Weather",
   },
+  {
+    path: "/docs/candlestick",
+    prompt: "How did NVDA trade this month?",
+    title: "Candlestick",
+  },
   { path: "/docs/crypto", prompt: "How's Bitcoin doing?", title: "Crypto" },
   {
     path: "/docs/flights",

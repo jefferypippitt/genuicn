@@ -9,7 +9,7 @@ import type { ChatRecording } from "@/lib/docs/chat-recording";
 import type { Metadata } from "next";
 
 const DESCRIPTION =
-  "One NBA conference's regular-season table, with each team's record, games behind, home and away records, last ten games, and streak.";
+  "A card that shows the regular-season table of one NBA conference. Each row has the record, games behind, home and away records, last ten games, and streak of one team.";
 
 export const metadata: Metadata = {
   description: DESCRIPTION,
@@ -23,13 +23,13 @@ const STATES = [
   ],
   [
     "Loading.",
-    "The model has finished the card, and the standings request is in flight. A row per team holds the table's height.",
+    "The model has finished the card. The card is waiting for the standings from ESPN. One empty row for each team keeps the card at its full height.",
   ],
   [
     "Ready.",
-    "The table lists the conference's 15 teams in order, with wins, losses, win percentage, games behind, and records against the conference, at home, away, and over the last ten games, then the streak. Hovering a row lights it, on Fluid Functionalism's Table. On a narrow screen the table scrolls sideways.",
+    "The table lists the 15 teams of the conference in order. Each row has the wins, losses, win percentage, and games behind, the records against the conference, at home, away, and over the last ten games, and the streak. The row under the pointer is highlighted. On a narrow screen, the table scrolls sideways.",
   ],
-  ["Error.", "ESPN didn't answer, or sent no table for the conference."],
+  ["Error.", "ESPN did not respond, or ESPN sent no table for the conference."],
 ] as const;
 
 const RUNS = [
@@ -119,14 +119,14 @@ export default function StandingsDocument() {
         />
       </DocSection>
 
-      <DocSection title="Conferences">
+      <DocSection title="Each conference has its own table">
         <ConferenceGallery />
       </DocSection>
 
-      <DocSection title="States">
+      <DocSection title="The card has four states">
         <p>
-          The card moves through four states as the model writes it and the
-          standings arrive.
+          The state depends on how much of the card the model has written and
+          whether the standings have arrived.
         </p>
         <List items={STATES} />
       </DocSection>

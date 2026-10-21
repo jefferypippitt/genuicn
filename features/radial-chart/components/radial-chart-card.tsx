@@ -21,26 +21,10 @@ export interface RadialChartCardProperties {
   readonly topic?: string;
   readonly data?: RadialChartData;
   readonly error?: string;
-  /**
-  Shows when the figures were looked up. Turn it off for saved data, where the time is the save date, not the reader's now.
-  */
-  readonly showAsOf?: boolean;
   readonly className?: string;
 }
 
 const CARD_FRAME = `${SHARED_CARD_FRAME} w-full max-w-md`;
-
-const AS_OF_FORMAT = new Intl.DateTimeFormat("en-US", {
-  day: "numeric",
-  month: "short",
-  // Fixed, so the server render and the browser agree on the date.
-  timeZone: "UTC",
-  year: "numeric",
-});
-
-function formatAsOf(time: number) {
-  return AS_OF_FORMAT.format(time);
-}
 
 function titleCase(value: string) {
   return value
@@ -242,13 +226,7 @@ function fullMark(data: RadialChartData) {
     : `of ${formatRadialValue(radialCeiling(data), data.scale)}`;
 }
 
-const RadialChartReady = ({
-  data,
-  showAsOf,
-}: {
-  readonly data: RadialChartData;
-  readonly showAsOf: boolean;
-}) => {
+const RadialChartReady = ({ data }: { readonly data: RadialChartData }) => {
   const mark = fullMark(data);
   return (
     <div className="flex flex-col gap-3">
@@ -278,11 +256,6 @@ const RadialChartReady = ({
             </>
           ) : null}
         </p>
-        {showAsOf ? (
-          <p className="text-muted-foreground shrink-0 text-xs">
-            As of {formatAsOf(data.asOf)}
-          </p>
-        ) : null}
       </footer>
     </div>
   );
@@ -367,7 +340,6 @@ export const RadialChartCard = ({
   topic,
   data,
   error,
-  showAsOf = true,
   className,
 }: RadialChartCardProperties) => {
   if (state === "error") {
@@ -391,7 +363,7 @@ export const RadialChartCard = ({
       aria-label={summarizeRadialChart(data)}
       className={cn(CARD_FRAME, className)}
     >
-      <RadialChartReady data={data} showAsOf={showAsOf} />
+      <RadialChartReady data={data} />
     </section>
   );
 };

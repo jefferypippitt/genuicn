@@ -374,6 +374,72 @@
       "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   BoardingPass: boardingPassCatalogEntry\n  features/chat/chat-registry.tsx: BoardingPass: ({ props, loading }) => <LiveBoardingPassCard flight={props.flight || undefined} date={props.date} streaming={loading} />\n  features/chat/chat-steps.ts:     BoardingPass: boardingPassLookup\n\nPasses load from /api/flights and check-in from /api/flights/check-in (installed under app/api/flights/). Routes come from adsbdb, no API key. Replace getBooking and getSeatMap in features/flights/flight-booking.ts with your booking system.\n\nThe check-in assistant (features/flights/components/check-in-agent.tsx) is a standalone page component: render <CheckInAgent className=\"flex-1\" /> in a full-height column. Its conversation is a script in features/flights/check-in-conversation.ts; replace demoBookingOf there with a request to your booking system."
     },
     {
+      "name": "candlestick",
+      "type": "registry:block",
+      "title": "Candlestick",
+      "description": "A live candlestick chart card for json-render chats: open, high, low and close per period, volume, a price axis and a 1D/1W/1M/6M/1Y switch, with its API route.",
+      "dependencies": ["zod", "server-only"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "features/candlestick/components/candlestick-card.tsx",
+          "type": "registry:component",
+          "target": "features/candlestick/components/candlestick-card.tsx"
+        },
+        {
+          "path": "features/candlestick/components/live-candlestick-card.tsx",
+          "type": "registry:component",
+          "target": "features/candlestick/components/live-candlestick-card.tsx"
+        },
+        {
+          "path": "features/candlestick/candlestick-catalog.ts",
+          "type": "registry:lib",
+          "target": "features/candlestick/candlestick-catalog.ts"
+        },
+        {
+          "path": "features/candlestick/candlestick-steps.ts",
+          "type": "registry:lib",
+          "target": "features/candlestick/candlestick-steps.ts"
+        },
+        {
+          "path": "features/candlestick/candlestick-requests.ts",
+          "type": "registry:lib",
+          "target": "features/candlestick/candlestick-requests.ts"
+        },
+        {
+          "path": "features/candlestick/candlestick-queries.ts",
+          "type": "registry:lib",
+          "target": "features/candlestick/candlestick-queries.ts"
+        },
+        {
+          "path": "features/candlestick/candlestick-schema.ts",
+          "type": "registry:lib",
+          "target": "features/candlestick/candlestick-schema.ts"
+        },
+        {
+          "path": "app/api/candlestick/route.ts",
+          "type": "registry:page",
+          "target": "app/api/candlestick/route.ts"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "type": "registry:lib",
+          "target": "lib/card-frame.ts"
+        },
+        {
+          "path": "lib/font-weight.ts",
+          "type": "registry:lib",
+          "target": "lib/font-weight.ts"
+        },
+        {
+          "path": "lib/type-scale.ts",
+          "type": "registry:lib",
+          "target": "lib/type-scale.ts"
+        }
+      ],
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   CandlestickCard: candlestickCatalogEntry\n  features/chat/chat-registry.tsx: CandlestickCard: ({ props, loading }) => <LiveCandlestickCard ticker={props.ticker || undefined} range={props.range ?? \"1m\"} streaming={loading} />\n  features/chat/chat-steps.ts:     CandlestickCard: candlestickLookup\n\nCandles load from /api/candlestick (installed at app/api/candlestick/route.ts), backed by Yahoo Finance's public chart endpoint. No API key needed."
+    },
+    {
       "name": "crypto",
       "type": "registry:block",
       "title": "Crypto",

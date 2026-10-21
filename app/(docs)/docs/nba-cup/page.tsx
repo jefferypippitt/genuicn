@@ -9,7 +9,7 @@ import type { ChatRecording } from "@/lib/docs/chat-recording";
 import type { Metadata } from "next";
 
 const DESCRIPTION =
-  "One NBA Cup group's table this season, with each team's games played, wins, losses, points for and against, and point difference.";
+  "A card that shows the table of one NBA Cup group this season. Each row has the games played, wins, losses, points for and against, and point difference of one team.";
 
 export const metadata: Metadata = {
   description: DESCRIPTION,
@@ -23,15 +23,15 @@ const STATES = [
   ],
   [
     "Loading.",
-    "The model has finished the card, and the table request is in flight. A row per team holds the table's height.",
+    "The model has finished the card. The card is waiting for the table from the NBA stats service. One empty row for each team keeps the card at its full height.",
   ],
   [
     "Ready.",
-    "The table lists the group's five teams in the NBA's order, with games played, wins, losses, points scored and allowed, and the difference. Hovering a row lights it, on Fluid Functionalism's Table. On a narrow screen the table scrolls sideways.",
+    "The table lists the five teams of the group in the order that the NBA uses. Each row has the games played, wins, losses, points scored and allowed, and the difference. The row under the pointer is highlighted. On a narrow screen, the table scrolls sideways.",
   ],
   [
     "Error.",
-    "The NBA's stats service didn't answer, or has no table for the group this season yet.",
+    "The NBA stats service did not respond, or it has no table for the group this season yet.",
   ],
 ] as const;
 
@@ -119,14 +119,14 @@ export default function NbaCupDocument() {
         />
       </DocSection>
 
-      <DocSection title="Groups">
+      <DocSection title="Each group has its own table">
         <GroupGallery />
       </DocSection>
 
-      <DocSection title="States">
+      <DocSection title="The card has four states">
         <p>
-          The card moves through four states as the model writes it and the
-          table arrives.
+          The state depends on how much of the card the model has written and
+          whether the table has arrived.
         </p>
         <List items={STATES} />
       </DocSection>

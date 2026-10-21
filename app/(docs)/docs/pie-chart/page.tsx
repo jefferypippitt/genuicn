@@ -8,7 +8,7 @@ import type { ChatRecording } from "@/lib/docs/chat-recording";
 import type { Metadata } from "next";
 
 const DESCRIPTION =
-  "How one whole splits into its parts. The model writes a free-text topic, the card searches online for real public figures using Parallel, and draws a donut, biggest slice first, folding the smallest into Other.";
+  "A card that shows how one whole splits into parts, for any topic. The model writes the topic, the card searches the web for real public figures with Parallel, and then the card draws a donut. The biggest slice comes first, and the smallest slices go into Other.";
 
 export const metadata: Metadata = {
   description: DESCRIPTION,
@@ -58,19 +58,19 @@ export const { registry } = defineRegistry(catalog, {
 const STATES = [
   [
     "Streaming.",
-    "The model is still writing the card, so the topic fills in as it arrives.",
+    "The model is still writing the card. The topic appears as soon as the model writes it.",
   ],
   [
     "Loading.",
-    "The card is researching the web for the whole and each of its parts.",
+    "The model has finished the card. The card is searching the web for the whole and each of its parts.",
   ],
   [
     "Ready.",
-    "A donut with one slice per part, biggest first and the smallest folded into Other, beside a legend with each part's value and share. Hovering a slice or a row shows its share in the middle.",
+    "The card shows a donut with one slice for each part, from biggest to smallest, with the smallest parts in Other. Next to the donut, a legend shows the value and share of each part. Point at a slice or a row to show its share in the middle of the donut.",
   ],
   [
     "Error.",
-    "Fewer than two honest parts were found for the topic, or Parallel / the gateway didn't answer.",
+    "The search found fewer than two reliable parts for the topic, or Parallel or the AI Gateway did not respond.",
   ],
 ] as const;
 
@@ -93,7 +93,7 @@ export default function PieChartPage() {
       description={DESCRIPTION}
       install={{
         card: "pie-chart",
-        note: "Copy one prompt that tells your coding agent how to install the card, turn it on in the chat, and which props the model writes.",
+        note: "Copy one prompt for your coding agent. It says how to install the card, how to turn it on in the chat, and which props the model writes.",
       }}
     >
       <DocSection title="Playground">
@@ -104,10 +104,10 @@ export default function PieChartPage() {
         />
       </DocSection>
 
-      <DocSection title="States">
+      <DocSection title="The card has four states">
         <p>
-          The card has a state for each step, from the model writing it to the
-          figures arriving:
+          The state depends on how much of the card the model has written and
+          whether the search has finished.
         </p>
         <ul className="flex list-disc flex-col gap-1 pl-5">
           {STATES.map(renderState)}
