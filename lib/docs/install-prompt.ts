@@ -100,7 +100,7 @@ Docs: ${origin}/docs/quote`;
 }
 
 function weatherInstallPrompt(origin: string): string {
-  return `Add the Weather card from genuicn to my Next.js app. It's a live weather card (temperature, conditions, high and low, and the next six hours, on an animated sky that matches the time of day and the weather there) that the chat's model can show.
+  return `Add the Weather card from genuicn to my Next.js app. It's a live weather card (temperature, conditions, and high and low, on an animated sky that matches the time of day and the weather there) that the chat's model can show.
 
 ${chatSetup(origin)}
 

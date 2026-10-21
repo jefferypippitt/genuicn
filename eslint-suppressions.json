@@ -535,16 +535,8 @@
       "count": 1
     }
   },
-  "features/weather/weather-queries.ts": {
-    "sonarjs/variable-name": {
-      "count": 1
-    }
-  },
   "features/weather/weather-schema.ts": {
     "complexity": {
-      "count": 1
-    },
-    "unicorn/no-unreadable-new-expression": {
       "count": 1
     },
     "unicorn/prefer-simple-condition-first": {

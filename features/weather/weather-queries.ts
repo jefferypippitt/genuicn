@@ -8,9 +8,6 @@ import type {
   WeatherUnits,
 } from "@/features/weather/weather-schema";
 
-const HOURS_SHOWN = 6;
-const HOUR = 3_600_000;
-
 interface GeocodeResult {
   name: string;
   latitude: number;
@@ -28,12 +25,6 @@ interface Forecast {
     temperature_2m: number;
     weather_code: number;
     is_day: number;
-  };
-  hourly: {
-    time: string[];
-    temperature_2m: number[];
-    weather_code: number[];
-    is_day: number[];
   };
   daily: {
     temperature_2m_max: number[];
@@ -94,8 +85,7 @@ export async function getWeather(
   const parameters = new URLSearchParams({
     current: "temperature_2m,weather_code,is_day",
     daily: "temperature_2m_max,temperature_2m_min,sunrise,sunset",
-    forecast_days: "2",
-    hourly: "temperature_2m,weather_code,is_day",
+    forecast_days: "1",
     latitude: String(place.latitude),
     longitude: String(place.longitude),
     temperature_unit: unit === "f" ? "fahrenheit" : "celsius",
@@ -110,35 +100,17 @@ export async function getWeather(
   }
   const forecast = (await response.json()) as Forecast;
   const offset = forecast.utc_offset_seconds;
-  const { current, hourly, daily } = forecast;
+  const { current, daily } = forecast;
 
   const asOf = toUnix(current.time, offset);
   const isDay = current.is_day === 1;
   const now = describeWeatherCode(current.weather_code, isDay);
-
-  const start = hourly.time.findIndex(
-    (time) => toUnix(time, offset) + HOUR > asOf
-  );
-  const hours = hourly.time
-    .slice(Math.max(start, 0), Math.max(start, 0) + HOURS_SHOWN)
-    .map((time, index_) => {
-      const index = Math.max(start, 0) + index_;
-      const isHourIsDay = hourly.is_day[index] === 1;
-      return {
-        condition: describeWeatherCode(hourly.weather_code[index], isHourIsDay)
-          .condition,
-        isDay: isHourIsDay,
-        temperature: hourly.temperature_2m[index],
-        time: toUnix(time, offset),
-      };
-    });
 
   return {
     asOf,
     condition: now.condition,
     fake: false,
     high: daily.temperature_2m_max[0],
-    hours,
     isDay,
     label: now.label,
     location: place.name,

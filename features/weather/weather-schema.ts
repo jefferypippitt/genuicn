@@ -40,16 +40,6 @@ export const SKY_PHASE_LABEL: Record<SkyPhase, string> = {
   sunset: "Sunset",
 };
 
-export interface WeatherHour {
-  /**
-  Unix time in milliseconds of the hour's start.
-  */
-  time: number;
-  temperature: number;
-  condition: WeatherCondition;
-  isDay: boolean;
-}
-
 export interface WeatherData {
   /**
   The place's name, e.g. "New York".
@@ -78,10 +68,6 @@ export interface WeatherData {
   */
   sunrise: number;
   sunset: number;
-  /**
-  The next hours, starting with the current one.
-  */
-  hours: WeatherHour[];
   /**
   Unix time in milliseconds of the reading.
   */
@@ -179,16 +165,6 @@ export function defaultUnits(countryCode: string | undefined): WeatherUnits {
 
 export function formatTemperature(value: number): string {
   return `${Math.round(value)}°`;
-}
-
-/**
-An hour's label in the place's own time zone, e.g. "3 PM".
-*/
-export function formatHour(time: number, timeZone: string): string {
-  return new Date(time).toLocaleTimeString("en-US", {
-    hour: "numeric",
-    timeZone,
-  });
 }
 
 /** One sentence the model (or a screen reader) can use to describe the

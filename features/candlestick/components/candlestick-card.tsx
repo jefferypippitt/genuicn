@@ -645,23 +645,27 @@ export const CandlestickCard = ({
     if (!(loadRange && shown)) {
       return;
     }
-    const request = ++rangeRequest.current;
+    rangeRequest.current += 1;
+    const request = rangeRequest.current;
     setRangeError(null);
     if (range === shown.range) {
       setPendingRange(null);
       return;
     }
     setPendingRange(range);
+    let next: CandlestickData | null;
     try {
-      const next = await loadRange(shown.ticker, range);
-      if (request !== rangeRequest.current) {
-        return;
-      }
-      setOverride(next);
+      next = await loadRange(shown.ticker, range);
     } catch {
-      if (request !== rangeRequest.current) {
-        return;
-      }
+      next = null;
+    }
+    // A later pick started its own request, so this answer is stale.
+    if (request !== rangeRequest.current) {
+      return;
+    }
+    if (next) {
+      setOverride(next);
+    } else {
       setRangeError("Couldn't load that range.");
     }
     setPendingRange(null);
