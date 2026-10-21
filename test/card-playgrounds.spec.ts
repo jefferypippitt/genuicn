@@ -9,6 +9,11 @@ const CARD_PAGES = [
     title: "Weather",
   },
   {
+    path: "/docs/forecast",
+    prompt: "What's the weather looking like in Austin this weekend?",
+    title: "Forecast",
+  },
+  {
     path: "/docs/candlestick",
     prompt: "How did NVDA trade this month?",
     title: "Candlestick",

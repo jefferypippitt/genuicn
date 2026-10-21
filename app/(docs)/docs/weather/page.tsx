@@ -10,7 +10,7 @@ import type { ChatRecording } from "@/lib/docs/chat-recording";
 import type { Metadata } from "next";
 
 const DESCRIPTION =
-  "A card that shows the temperature, the conditions, and the next six hours. The sky behind them follows the time of day and the weather at that place, so the clouds, haze, stars, and moon change with both.";
+  "A card that shows the temperature, the conditions, and the high and low for today. The sky behind them follows the time of day and the weather at that place, so the clouds, haze, stars, and moon change with both.";
 
 export const metadata: Metadata = {
   description: DESCRIPTION,
@@ -62,7 +62,7 @@ const STATES = [
   ],
   [
     "Ready.",
-    "The card shows the temperature, the conditions, the high and low, and the next six hours. The sky matches the time of day and the weather at that place.",
+    "The card shows the temperature, the conditions, and the high and low for today. The sky matches the time of day and the weather at that place.",
   ],
   [
     "Error.",

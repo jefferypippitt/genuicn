@@ -185,9 +185,15 @@ export const NAV_SECTIONS: NavSection[] = [
     items: [
       {
         description:
-          "Temperature, conditions, and the next six hours, over a sky drawn for the sun and the weather there.",
+          "Temperature, conditions, and today's high and low, over a sky drawn for the sun and the weather there.",
         href: "/docs/weather",
         label: "Weather",
+      },
+      {
+        description:
+          "The next 24 hours or the next 10 days, with the chance of rain and a switch between the two.",
+        href: "/docs/forecast",
+        label: "Forecast",
       },
       {
         description:

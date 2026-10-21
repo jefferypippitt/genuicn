@@ -30,7 +30,7 @@ export interface SunSpec {
   */
   horizon: boolean;
   /**
-  A smaller disc, for a sun between the header and the hours.
+  A smaller disc, for a sun beside the header.
   */
   small: boolean;
   opacity: number;

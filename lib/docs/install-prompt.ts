@@ -100,7 +100,7 @@ Docs: ${origin}/docs/quote`;
 }
 
 function weatherInstallPrompt(origin: string): string {
-  return `Add the Weather card from genuicn to my Next.js app. It's a live weather card (temperature, conditions, high and low, and the next six hours, on an animated sky that matches the time of day and the weather there) that the chat's model can show.
+  return `Add the Weather card from genuicn to my Next.js app. It's a live weather card (temperature, conditions, and high and low, on an animated sky that matches the time of day and the weather there) that the chat's model can show.
 
 ${chatSetup(origin)}
 
@@ -128,6 +128,38 @@ The model only writes the card's props; the card fetches the forecast itself:
 - units: "f" | "c" | null (null means the place's usual units)
 
 Docs: ${origin}/docs/weather`;
+}
+
+function forecastInstallPrompt(origin: string): string {
+  return `Add the Forecast card from genuicn to my Next.js app. It's a live forecast card (the next 24 hours every two hours, or the next 10 days with each day's high, low and chance of rain, and a switch between them) that the chat's model can show.
+
+${chatSetup(origin)}
+
+2. Install the card:
+npx shadcn@latest add ${origin}/r/forecast.json
+It adds features/forecast/, the shared weather files it uses (features/weather/weather-schema.ts, weather-queries.ts and components/weather-icon.tsx), and app/api/forecast/route.ts, which the card loads live forecasts from (Open-Meteo, no API key). Don't edit the API routes.
+
+3. Turn the card on, one entry in each file, next to the CardGroup entry that is already there (keep it: it lets one reply show several cards):
+features/chat/chat-catalog.ts
+  import { forecastCatalogEntry } from "@/features/forecast/forecast-catalog";
+  ForecastCard: forecastCatalogEntry,
+features/chat/chat-registry.tsx
+  import { LiveForecastCard } from "@/features/forecast/components/live-forecast-card";
+  ForecastCard: ({ props, loading }) => (
+    <LiveForecastCard location={props.location || undefined} units={props.units} view={props.view ?? "daily"} streaming={loading} />
+  ),
+features/chat/chat-steps.ts (the reply's thinking steps for this card)
+  import { forecastLookup } from "@/features/forecast/forecast-steps";
+  ForecastCard: forecastLookup,
+
+4. Check it: run the dev server, open /chat and ask "Will it rain in Seattle this afternoon?", then "What's the forecast for Chicago and Denver next week?" for several cards in one reply. People rarely say "forecast": the model picks this card when a question is about weather that has not happened yet (later today, tonight, tomorrow, the weekend, rain chances) and the Weather card, if installed, when it is about the weather now.
+
+The model only writes the card's props; the card fetches the forecast itself:
+- location: string, e.g. "Austin" or "Paris, France"
+- units: "f" | "c" | null (null means the place's usual units)
+- view: "hourly" | "daily" | null (null means daily)
+
+Docs: ${origin}/docs/forecast`;
 }
 
 function flightsInstallPrompt(origin: string): string {
@@ -491,6 +523,7 @@ export const INSTALL_PROMPTS = {
   chat: chatInstallPrompt,
   crypto: cryptoInstallPrompt,
   flights: flightsInstallPrompt,
+  forecast: forecastInstallPrompt,
   "nba-cup": nbaCupInstallPrompt,
   "pie-chart": pieChartInstallPrompt,
   player: playerInstallPrompt,

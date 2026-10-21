@@ -10,6 +10,7 @@ import { BarChartCard } from "@/features/bar-chart/components/bar-chart-card";
 import { CandlestickCard } from "@/features/candlestick/components/candlestick-card";
 import { CryptoCard } from "@/features/crypto/components/crypto-card";
 import { BoardingPassCard } from "@/features/flights/components/boarding-pass-card";
+import { ForecastCard } from "@/features/forecast/components/forecast-card";
 import GalleryQuote from "@/features/home/components/gallery-quote";
 import {
   GALLERY_AREA_CHART,
@@ -17,6 +18,7 @@ import {
   GALLERY_BITCOIN,
   GALLERY_BOARDING_PASS,
   GALLERY_CANDLESTICK,
+  GALLERY_FORECAST,
   GALLERY_PIE_CHART,
   GALLERY_RADAR_CHART,
   GALLERY_RADIAL_CHART,
@@ -76,6 +78,11 @@ const SLIDES: readonly {
     card: <WeatherCard state="ready" data={GALLERY_WEATHER} />,
     href: "/docs/weather",
     label: "Weather",
+  },
+  {
+    card: <ForecastCard state="ready" data={GALLERY_FORECAST} />,
+    href: "/docs/forecast",
+    label: "Forecast",
   },
   {
     card: <BoardingPassCard state="ready" data={GALLERY_BOARDING_PASS} />,

@@ -3,7 +3,6 @@
 import { WeatherIcon } from "@/features/weather/components/weather-icon";
 import { WeatherSky } from "@/features/weather/components/weather-sky";
 import {
-  formatHour,
   formatTemperature,
   skyPhase,
   summarizeWeather,
@@ -28,9 +27,9 @@ export interface WeatherCardProps {
 const CARD_FRAME = "relative isolate w-full max-w-md rounded-2xl p-4";
 
 /**
-How long each hour waits after the one before it to fade in, so the forecast reads left to right.
+The condition icon above the label: large enough to read as the card's second focal point after the temperature.
 */
-const HOUR_STAGGER_MS = 60;
+const WEATHER_ICON_SIZE = 40;
 
 const SCENE = "text-white [text-shadow:0_1px_2px_rgb(0_0_0/0.2)]";
 
@@ -86,53 +85,28 @@ function WeatherReady({
           sunProgress={sunProgress}
         />
       </div>
-      <div className="relative flex flex-col gap-3">
-        <header className="flex items-start justify-between gap-3">
-          <div className="min-w-0">
-            <h3 className="truncate text-[15px] leading-5 font-semibold">
-              {data.location}
-            </h3>
-            <p className="mt-1 font-mono text-5xl leading-none font-light tracking-tighter tabular-nums">
-              {formatTemperature(data.temperature)}
-            </p>
-          </div>
-          <div className="flex shrink-0 flex-col items-end text-right text-[13px] leading-5 font-semibold">
-            <WeatherIcon
-              condition={data.condition}
-              isDay={data.isDay}
-              size={20}
-              className="drop-shadow-sm"
-            />
-            <p className="mt-1.5">{data.label}</p>
-            <p className="font-mono font-medium tabular-nums">
-              H:{formatTemperature(data.high)} L:{formatTemperature(data.low)}
-            </p>
-          </div>
-        </header>
-
-        <ol className="grid grid-cols-6 text-center">
-          {data.hours.map((hour, index) => (
-            <li
-              key={hour.time}
-              className="animate-in fade-in slide-in-from-bottom-1 fill-mode-both flex flex-col items-center gap-1.5 duration-500 ease-out motion-reduce:animate-none"
-              style={{ animationDelay: `${index * HOUR_STAGGER_MS}ms` }}
-            >
-              <span className="text-xs leading-4 font-medium text-white/80">
-                {formatHour(hour.time, data.timeZone)}
-              </span>
-              <WeatherIcon
-                condition={hour.condition}
-                isDay={hour.isDay}
-                size={22}
-                className="drop-shadow-sm"
-              />
-              <span className="font-mono text-[13px] leading-5 font-semibold tabular-nums">
-                {formatTemperature(hour.temperature)}
-              </span>
-            </li>
-          ))}
-        </ol>
-      </div>
+      <header className="relative flex justify-between gap-3">
+        <div className="flex min-w-0 flex-col justify-between">
+          <h3 className="truncate text-[15px] leading-5 font-semibold">
+            {data.location}
+          </h3>
+          <p className="mt-1 font-mono text-5xl leading-none font-light tracking-tighter tabular-nums">
+            {formatTemperature(data.temperature)}
+          </p>
+        </div>
+        <div className="flex shrink-0 flex-col items-center text-center text-[13px] leading-5 font-semibold">
+          <WeatherIcon
+            condition={data.condition}
+            isDay={data.isDay}
+            size={WEATHER_ICON_SIZE}
+            className="drop-shadow-sm"
+          />
+          <p className="mt-1">{data.label}</p>
+          <p className="font-mono font-medium tabular-nums">
+            H:{formatTemperature(data.high)} L:{formatTemperature(data.low)}
+          </p>
+        </div>
+      </header>
     </section>
   );
 }
@@ -201,20 +175,11 @@ export function WeatherCardSkeleton({
             )}
             <div className="bg-foreground/10 mt-1 h-12 w-20 animate-pulse rounded-lg" />
           </div>
-          <div className="flex flex-col items-end gap-1.5">
-            <div className="bg-foreground/10 size-5 animate-pulse rounded-full" />
+          <div className="flex flex-col items-center gap-1">
+            <div className="bg-foreground/10 size-10 animate-pulse rounded-full" />
             <div className="bg-foreground/10 h-4 w-24 animate-pulse rounded" />
             <div className="bg-foreground/10 h-4 w-20 animate-pulse rounded" />
           </div>
-        </div>
-        <div className="grid grid-cols-6">
-          {["a", "b", "c", "d", "e", "f"].map((key) => (
-            <div key={key} className="flex flex-col items-center gap-1.5">
-              <div className="bg-foreground/10 h-4 w-8 animate-pulse rounded" />
-              <div className="bg-foreground/10 size-[22px] animate-pulse rounded-full" />
-              <div className="bg-foreground/10 h-5 w-7 animate-pulse rounded" />
-            </div>
-          ))}
         </div>
       </div>
     </div>

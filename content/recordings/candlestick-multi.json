@@ -115,10 +115,7 @@
                 "value": {
                   "type": "CardGroup",
                   "props": {},
-                  "children": [
-                    "aapl-candles",
-                    "msft-candles"
-                  ]
+                  "children": ["aapl-candles", "msft-candles"]
                 }
               }
             }

@@ -3,6 +3,7 @@ import barChartLargestEconomies from "@/features/home/snapshot/bar-chart-largest
 import candlestickNvda1m from "@/features/home/snapshot/candlestick-nvda-1m.json";
 import cryptoBtcAll from "@/features/home/snapshot/crypto-btc-all.json";
 import flightBa117 from "@/features/home/snapshot/flight-ba117.json";
+import forecastAustin from "@/features/home/snapshot/forecast-austin.json";
 import pieChartUsElectricity from "@/features/home/snapshot/pie-chart-us-electricity.json";
 import quote1d from "@/features/home/snapshot/quote-nvda-1d.json";
 import quote1m from "@/features/home/snapshot/quote-nvda-1m.json";
@@ -17,6 +18,7 @@ import type { BarChartData } from "@/features/bar-chart/bar-chart-schema";
 import type { CandlestickData } from "@/features/candlestick/candlestick-schema";
 import type { CryptoData } from "@/features/crypto/crypto-schema";
 import type { BoardingPassData } from "@/features/flights/flight-schema";
+import type { ForecastData } from "@/features/forecast/forecast-schema";
 import type { PieChartData } from "@/features/pie-chart/pie-chart-schema";
 import type { QuoteData, QuoteRange } from "@/features/quote/quote-schema";
 import type { RadarChartData } from "@/features/radar-chart/radar-chart-schema";
@@ -37,6 +39,11 @@ NVIDIA's daily candles over the past month, from Yahoo Finance.
 export const GALLERY_CANDLESTICK = candlestickNvda1m as CandlestickData;
 
 export const GALLERY_WEATHER = weatherNewYork as WeatherData;
+
+/**
+Austin's next 24 hours and next ten days, from Open-Meteo.
+*/
+export const GALLERY_FORECAST = forecastAustin as ForecastData;
 
 export const GALLERY_BOARDING_PASS = flightBa117 as BoardingPassData;
 

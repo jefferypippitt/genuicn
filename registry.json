@@ -160,7 +160,7 @@
       "name": "weather",
       "type": "registry:block",
       "title": "Weather",
-      "description": "A live weather card for json-render chats: temperature, conditions, high and low, and the next six hours on an animated sky drawn for the time of day (dawn, sunrise, day, golden hour, sunset, dusk, night) and the weather (clouds, fog, rain, snow, storms), with its API route.",
+      "description": "A live weather card for json-render chats: temperature, conditions, and today's high and low on an animated sky drawn for the time of day (dawn, sunrise, day, golden hour, sunset, dusk, night) and the weather (clouds, fog, rain, snow, storms), with its API route.",
       "dependencies": ["zod", "server-only"],
       "registryDependencies": ["utils"],
       "files": [
@@ -231,6 +231,87 @@
         }
       ],
       "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   WeatherCard: weatherCatalogEntry\n  features/chat/chat-registry.tsx: WeatherCard: ({ props, loading }) => <LiveWeatherCard location={props.location || undefined} units={props.units} streaming={loading} />\n\nForecasts load from /api/weather (installed at app/api/weather/route.ts), backed by Open-Meteo. No API key needed."
+    },
+    {
+      "name": "forecast",
+      "type": "registry:block",
+      "title": "Forecast",
+      "description": "A live forecast card for json-render chats: the next 24 hours with the chance of rain, or the next 10 days with each day's high, low and a range bar, and a switch between them, with its API route.",
+      "dependencies": ["zod", "server-only"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "features/forecast/components/forecast-card.tsx",
+          "type": "registry:component",
+          "target": "features/forecast/components/forecast-card.tsx"
+        },
+        {
+          "path": "features/forecast/components/live-forecast-card.tsx",
+          "type": "registry:component",
+          "target": "features/forecast/components/live-forecast-card.tsx"
+        },
+        {
+          "path": "features/forecast/forecast-catalog.ts",
+          "type": "registry:lib",
+          "target": "features/forecast/forecast-catalog.ts"
+        },
+        {
+          "path": "features/forecast/forecast-steps.ts",
+          "type": "registry:lib",
+          "target": "features/forecast/forecast-steps.ts"
+        },
+        {
+          "path": "features/forecast/forecast-requests.ts",
+          "type": "registry:lib",
+          "target": "features/forecast/forecast-requests.ts"
+        },
+        {
+          "path": "features/forecast/forecast-queries.ts",
+          "type": "registry:lib",
+          "target": "features/forecast/forecast-queries.ts"
+        },
+        {
+          "path": "features/forecast/forecast-schema.ts",
+          "type": "registry:lib",
+          "target": "features/forecast/forecast-schema.ts"
+        },
+        {
+          "path": "features/weather/components/weather-icon.tsx",
+          "type": "registry:component",
+          "target": "features/weather/components/weather-icon.tsx"
+        },
+        {
+          "path": "features/weather/weather-queries.ts",
+          "type": "registry:lib",
+          "target": "features/weather/weather-queries.ts"
+        },
+        {
+          "path": "features/weather/weather-schema.ts",
+          "type": "registry:lib",
+          "target": "features/weather/weather-schema.ts"
+        },
+        {
+          "path": "app/api/forecast/route.ts",
+          "type": "registry:page",
+          "target": "app/api/forecast/route.ts"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "type": "registry:lib",
+          "target": "lib/card-frame.ts"
+        },
+        {
+          "path": "lib/font-weight.ts",
+          "type": "registry:lib",
+          "target": "lib/font-weight.ts"
+        },
+        {
+          "path": "lib/type-scale.ts",
+          "type": "registry:lib",
+          "target": "lib/type-scale.ts"
+        }
+      ],
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   ForecastCard: forecastCatalogEntry\n  features/chat/chat-registry.tsx: ForecastCard: ({ props, loading }) => <LiveForecastCard location={props.location || undefined} units={props.units} view={props.view ?? \"daily\"} streaming={loading} />\n  features/chat/chat-steps.ts:     ForecastCard: forecastLookup\n\nForecasts load from /api/forecast (installed at app/api/forecast/route.ts), backed by Open-Meteo. No API key needed."
     },
     {
       "name": "flights",

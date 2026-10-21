@@ -2,7 +2,11 @@ import type { WeatherCondition } from "@/features/weather/weather-schema";
 
 const SUN = "#FFD60A";
 const RAIN = "#64D2FF";
-const CLOUD = "#FFFFFF";
+/**
+Clouds and the moon are white for the Weather card's sky. A card on a plain surface sets --weather-cloud and --weather-moon to darker tones, so they stay visible.
+*/
+const CLOUD = "var(--weather-cloud, #FFFFFF)";
+const MOON = "var(--weather-moon, #F5F3FF)";
 
 const CLOUD_PATH =
   "M9.6 26h13.9a6.25 6.25 0 0 0 .78-12.45A8.25 8.25 0 0 0 8.5 15.1 5.5 5.5 0 0 0 9.6 26Z";
@@ -55,7 +59,7 @@ function Moon({
   return (
     <path
       d={`M${cx + r * 0.35} ${cy - r}A${r} ${r} 0 1 0 ${cx + r} ${cy + r * 0.35} ${r * 0.8} ${r * 0.8} 0 0 1 ${cx + r * 0.35} ${cy - r}Z`}
-      fill="#F5F3FF"
+      style={{ fill: MOON }}
     />
   );
 }
@@ -70,7 +74,7 @@ function Cloud({
   return (
     <path
       d={CLOUD_PATH}
-      fill={CLOUD}
+      style={{ fill: CLOUD }}
       opacity={opacity}
       transform={lift ? `translate(0 ${-lift})` : undefined}
     />
@@ -102,7 +106,7 @@ function Precipitation({
   }
   if (condition === "snow") {
     return (
-      <g fill={CLOUD}>
+      <g style={{ fill: CLOUD }}>
         <circle cx={11} cy={26} r={1.5} />
         <circle cx={16.5} cy={28.5} r={1.5} />
         <circle cx={22} cy={26} r={1.5} />
@@ -114,7 +118,12 @@ function Precipitation({
   }
   if (condition === "fog") {
     return (
-      <g stroke={CLOUD} strokeWidth={2} strokeLinecap="round" opacity={0.85}>
+      <g
+        style={{ stroke: CLOUD }}
+        strokeWidth={2}
+        strokeLinecap="round"
+        opacity={0.85}
+      >
         <line x1={7} y1={25.5} x2={25} y2={25.5} />
         <line x1={10} y1={29.5} x2={22} y2={29.5} />
       </g>

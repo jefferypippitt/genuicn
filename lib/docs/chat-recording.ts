@@ -3,6 +3,7 @@ import { primeCandlestick } from "@/features/candlestick/candlestick-requests";
 import { isCandlestickRange } from "@/features/candlestick/candlestick-schema";
 import { primeCrypto } from "@/features/crypto/crypto-requests";
 import { CRYPTO_RANGES } from "@/features/crypto/crypto-schema";
+import { primeForecast } from "@/features/forecast/forecast-requests";
 import { primeBoardingPass } from "@/features/flights/flight-requests";
 import { primeCupGroup } from "@/features/nba-cup/nba-cup-requests";
 import { parseCupGroup } from "@/features/nba-cup/nba-cup-schema";
@@ -32,6 +33,7 @@ import type { RadarChartData } from "@/features/radar-chart/radar-chart-schema";
 import type { RadialChartData } from "@/features/radial-chart/radial-chart-schema";
 import type { CandlestickData } from "@/features/candlestick/candlestick-schema";
 import type { CryptoData } from "@/features/crypto/crypto-schema";
+import type { ForecastData } from "@/features/forecast/forecast-schema";
 import type { BoardingPassData } from "@/features/flights/flight-schema";
 import type { CupGroupData } from "@/features/nba-cup/nba-cup-schema";
 import type { PlayerData } from "@/features/player/player-schema";
@@ -180,6 +182,32 @@ function didPrimeChart(
   }
 }
 
+/**
+Primes a saved Weather or Forecast answer. Both read one place in optional units.
+*/
+function didPrimePlace(
+  pathname: string,
+  parameters: URLSearchParams,
+  data: unknown
+): boolean {
+  const location = parameters.get("location");
+  if (!location) {
+    return false;
+  }
+  const units = WEATHER_UNITS.find(
+    (value) => value === parameters.get("units")
+  );
+  if (pathname === "/api/weather") {
+    primeWeather(location, units, data as WeatherData);
+    return true;
+  }
+  if (pathname === "/api/forecast") {
+    primeForecast(location, units, data as ForecastData);
+    return true;
+  }
+  return false;
+}
+
 export function primeCardData({ responsesByUrl }: ChatRecording) {
   if (!responsesByUrl) {
     return;
@@ -187,27 +215,24 @@ export function primeCardData({ responsesByUrl }: ChatRecording) {
   const savedResponses = Object.entries(responsesByUrl);
   for (const [requestUrl, data] of savedResponses) {
     const { pathname, searchParams } = new URL(requestUrl, URL_BASE);
-    if (didPrimeChart(pathname, searchParams, data)) {
+    if (
+      didPrimeChart(pathname, searchParams, data) ||
+      didPrimePlace(pathname, searchParams, data)
+    ) {
       continue;
     }
     const ticker = searchParams.get("ticker");
     const range = QUOTE_RANGES.find(
       (value) => value === searchParams.get("range")
     );
-    const location = searchParams.get("location");
     const flight = searchParams.get("flight");
     const date = searchParams.get("date");
     const symbol = searchParams.get("symbol");
     const cryptoRange =
       CRYPTO_RANGES.find((value) => value === searchParams.get("range")) ??
       "24h";
-    const units = WEATHER_UNITS.find(
-      (value) => value === searchParams.get("units")
-    );
     if (pathname === "/api/quote" && ticker && range) {
       primeQuote(ticker, range, data as QuoteData);
-    } else if (pathname === "/api/weather" && location) {
-      primeWeather(location, units, data as WeatherData);
     } else if (pathname === "/api/flights" && flight) {
       primeBoardingPass(flight, date, data as BoardingPassData);
     } else if (pathname === "/api/candlestick" && ticker) {

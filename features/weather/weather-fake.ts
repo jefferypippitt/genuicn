@@ -6,7 +6,6 @@ import type {
   WeatherUnits,
 } from "@/features/weather/weather-schema";
 
-const HOUR = 3_600_000;
 const MINUTE = 60_000;
 
 const PHASE_TIME: Record<
@@ -72,17 +71,6 @@ export function fakeWeather(
     condition ??
     WEATHER_CONDITIONS[Math.floor(random() * WEATHER_CONDITIONS.length)];
   const base = units === "f" ? 48 + random() * 36 : 9 + random() * 20;
-  const step = units === "f" ? 1 : 0.6;
-  const hourStart = Math.floor(asOf / HOUR) * HOUR;
-  const hours = Array.from({ length: 6 }, (_, index) => {
-    const time = hourStart + index * HOUR;
-    return {
-      condition: sky,
-      isDay: isDayAt(time),
-      temperature: base - index * step * (0.5 + random()),
-      time,
-    };
-  });
 
   const isDay = isDayAt(asOf);
   return {
@@ -90,7 +78,6 @@ export function fakeWeather(
     condition: sky,
     fake: true,
     high: base + 2 + random() * 4,
-    hours,
     isDay,
     label: sky === "clear" && isDay ? "Sunny" : LABEL[sky],
     location: name,

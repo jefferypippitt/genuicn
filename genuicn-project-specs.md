@@ -21,7 +21,7 @@ The plan lives in one place, `components/sidebar-app/nav-data.ts`, and the site 
 
 The sidebar shows only items with an `href`, and the roadmap shows only the cards without one. To ship a card, build it, add it to `registry.json`, give it a docs page, and add its `href` in `nav-data.ts`. The sidebar and the roadmap both update from that one change.
 
-Planned additions to shipped cards stay here, since the roadmap lists only new cards. Weather still needs a 10-day forecast, radar and air quality.
+Planned additions to shipped cards stay here, since the roadmap lists only new cards. Weather still needs radar and air quality. The hourly and 10-day forecasts ship as their own Forecast card.
 
 ## Why genuicn beats the competition
 
@@ -56,7 +56,7 @@ Positioning: competitors give you the chat; genuicn gives you what goes inside i
 
 ## Status (Oct 15, 2026)
 
-- **Shipped:** the `chat` foundation block and two cards. `quote` has price, change, trend line, a 1D/1W/1M/1Y switch, live data, and a fake-data version. `weather` has current conditions, the next six hours, and an animated sky for the time of day and the weather, with live data from Open-Meteo and a fake-data version.
+- **Shipped:** the `chat` foundation block and two cards. `quote` has price, change, trend line, a 1D/1W/1M/1Y switch, live data, and a fake-data version. `weather` has current conditions, today's high and low, and an animated sky for the time of day and the weather, with live data from Open-Meteo and a fake-data version.
 - **Site:** Introduction (`/docs`), Installation (`/docs/installation`), Quote (`/docs/quote`) and Weather (`/docs/weather`) with chat playgrounds, and a monthly changelog (`/changelog`) written from `content/changelog/*.md`. The homepage gallery shows the Quote and Weather cards with real data saved on Oct 15, 2026. The sidebar lists only built pages, and `/roadmap` lists the cards planned next.
 
 ## Tech stack
