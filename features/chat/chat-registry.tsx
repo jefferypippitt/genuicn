@@ -5,6 +5,7 @@ import { catalog } from "@/features/chat/chat-catalog";
 import { LiveCandlestickCard } from "@/features/candlestick/components/live-candlestick-card";
 import { CardGroup } from "@/features/chat/components/card-group";
 import { LiveCryptoCard } from "@/features/crypto/components/live-crypto-card";
+import { LiveForecastCard } from "@/features/forecast/components/live-forecast-card";
 import { LiveBoardingPassCard } from "@/features/flights/components/live-boarding-pass-card";
 import LiveNbaCupCard from "@/features/nba-cup/components/live-nba-cup-card";
 import LivePlayerCard from "@/features/player/components/live-player-card";
@@ -57,6 +58,14 @@ export const { registry } = defineRegistry(catalog, {
       <LiveCryptoCard
         symbol={props.symbol || undefined}
         range={props.range ?? "24h"}
+        streaming={loading}
+      />
+    ),
+    ForecastCard: ({ props, loading }) => (
+      <LiveForecastCard
+        location={props.location || undefined}
+        units={props.units}
+        view={props.view ?? "daily"}
         streaming={loading}
       />
     ),

@@ -6,7 +6,7 @@ import {
 } from "ai";
 
 /**
-Everyday questions and the card a person asking each one wants. People rarely name a card ("candlestick"), so these are worded the way people ask, and the model has to route on what the question is about. `card` lists every acceptable answer: a card name, or "text" for a plain reply. `range`, when set, is the range the card should open on.
+Everyday questions and the card a person asking each one wants. People rarely name a card ("candlestick"), so these are worded the way people ask, and the model has to route on what the question is about. `card` lists every acceptable answer: a card name, or "text" for a plain reply. `range` and `view`, when set, are the prop values the card should open on.
 */
 const CASES = [
   // Where a stock stands: the Quote card.
@@ -89,7 +89,55 @@ const CASES = [
     range: "1d",
   },
 
+  // What the weather is like now: the Weather card.
+  { card: ["WeatherCard"], prompt: "What's the weather in Austin?" },
+  { card: ["WeatherCard"], prompt: "Is it raining in Seattle right now?" },
+  { card: ["WeatherCard"], prompt: "how hot is it in phoenix" },
+  { card: ["WeatherCard"], prompt: "Weather in Tokyo, London and New York?" },
+
+  // Weather that hasn't happened yet: the Forecast card.
+  {
+    card: ["ForecastCard"],
+    prompt: "Will it rain in Seattle this afternoon?",
+    view: "hourly",
+  },
+  {
+    card: ["ForecastCard"],
+    prompt: "do I need an umbrella in London tonight",
+    view: "hourly",
+  },
+  {
+    card: ["ForecastCard"],
+    prompt: "When does the rain stop in Portland today?",
+    view: "hourly",
+  },
+  {
+    card: ["ForecastCard"],
+    prompt: "What's the weather looking like in Austin this weekend?",
+    view: "daily",
+  },
+  {
+    card: ["ForecastCard"],
+    prompt: "What should I pack for Denver next week?",
+    view: "daily",
+  },
+  {
+    card: ["ForecastCard"],
+    prompt: "10 day forecast for Chicago",
+    view: "daily",
+  },
+  {
+    card: ["ForecastCard"],
+    prompt: "Is it going to snow in Boston on Friday?",
+    view: "daily",
+  },
+  { card: ["ForecastCard"], prompt: "forecast for miami" },
+
   // Either reading is fair.
+  {
+    card: ["WeatherCard", "ForecastCard"],
+    prompt: "What's the weather like in Paris today?",
+  },
   {
     card: ["CandlestickCard", "text"],
     prompt: "Why did Apple drop on Friday?",
@@ -185,21 +233,38 @@ function shownAs(elements) {
   return names.length === EMPTY ? "text" : names.join("+");
 }
 
+/**
+The props a case can pin, e.g. the range a chart opens on or the view a forecast opens on.
+*/
+const CHECKED_PROPS = ["range", "view"];
+
+/**
+The props the reply set wrong: each one the case pins where some card in the reply has another value.
+*/
+function wrongProperties(item, elements) {
+  return CHECKED_PROPS.filter((name) => item[name] !== undefined).flatMap(
+    (name) => {
+      const values = [
+        ...new Set(elements.map((element) => element.props?.[name] ?? null)),
+      ];
+      const isRight =
+        values.length > EMPTY && values.every((value) => value === item[name]);
+      return isRight
+        ? []
+        : `${name} ${values.join("+") || "none"}, want ${item[name]}`;
+    }
+  );
+}
+
 async function check(item) {
   const elements = await ask(item.prompt);
   const got = shownAs(elements);
-  const ranges = [
-    ...new Set(elements.map((element) => element.props?.range ?? null)),
-  ];
-  const isRightRange =
-    item.range === undefined ||
-    (ranges.length > EMPTY && ranges.every((range) => range === item.range));
+  const misses = wrongProperties(item, elements);
   return {
     ...item,
     got,
-    isPass: item.card.includes(got) && isRightRange,
-    isRightRange,
-    ranges,
+    isPass: item.card.includes(got) && misses.length === EMPTY,
+    misses,
   };
 }
 
@@ -225,9 +290,7 @@ async function checkAll(cases) {
 }
 
 function report(result) {
-  const range = result.isRightRange
-    ? ""
-    : `  range ${result.ranges.join("+") || "none"}, want ${result.range}`;
+  const range = result.misses.map((miss) => `  ${miss}`).join("");
   console.log(
     `${result.isPass ? "PASS" : "MISS"}  ${result.prompt.padEnd(PROMPT_WIDTH)} want ${result.card.join("|").padEnd(CARD_WIDTH)} got ${result.got}${range}`
   );

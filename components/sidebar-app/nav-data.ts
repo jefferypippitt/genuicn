@@ -191,6 +191,12 @@ export const NAV_SECTIONS: NavSection[] = [
       },
       {
         description:
+          "The next 24 hours or the next 10 days, with the chance of rain and a switch between the two.",
+        href: "/docs/forecast",
+        label: "Forecast",
+      },
+      {
+        description:
           "A boarding pass from the flight number, and a travel assistant that books flights and checks you in.",
         href: "/docs/flights",
         label: "Flights",

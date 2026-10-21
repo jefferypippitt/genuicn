@@ -1,5 +1,6 @@
 import { candlestickLookup } from "@/features/candlestick/candlestick-steps";
 import { cryptoLookup } from "@/features/crypto/crypto-steps";
+import { forecastLookup } from "@/features/forecast/forecast-steps";
 import { boardingPassLookup } from "@/features/flights/flight-steps";
 import { nbaCupLookup } from "@/features/nba-cup/nba-cup-steps";
 import { playerLookup } from "@/features/player/player-steps";
@@ -21,6 +22,7 @@ export const lookups: Record<string, CardLookup> = {
   BoardingPass: boardingPassLookup,
   CandlestickCard: candlestickLookup,
   CryptoCard: cryptoLookup,
+  ForecastCard: forecastLookup,
   NbaCupCard: nbaCupLookup,
   PieChartCard: pieChartLookup,
   PlayerCard: playerLookup,

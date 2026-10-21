@@ -21,7 +21,7 @@ The plan lives in one place, `components/sidebar-app/nav-data.ts`, and the site 
 
 The sidebar shows only items with an `href`, and the roadmap shows only the cards without one. To ship a card, build it, add it to `registry.json`, give it a docs page, and add its `href` in `nav-data.ts`. The sidebar and the roadmap both update from that one change.
 
-Planned additions to shipped cards stay here, since the roadmap lists only new cards. Weather still needs an hourly forecast, a 10-day forecast, radar and air quality.
+Planned additions to shipped cards stay here, since the roadmap lists only new cards. Weather still needs radar and air quality. The hourly and 10-day forecasts ship as their own Forecast card.
 
 ## Why genuicn beats the competition
 

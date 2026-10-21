@@ -1,0 +1,699 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "UhjzDtNKp9ntttZP"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 738
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgEXmtbRfXP65q46DnBfh",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 10509,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 2,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 1193
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "CAQSrQsKEAgTGAI4AUIIdGhpbmtpbmcSDAq+VrxT7riCRkhtYxoM6dtfrpfA6lJ42p3GIjDoLoPVM8wIvoQnILPVqdT72B8cHuIpRpe5BPbala0E4FuEON9GbLu6g0XneTDeXxYqygo0sKLP6pBNhkHKZF9JX1PNq0yUt0Ud7jhOSFW/ZlBT8iML7ExePEQ30MXuF4SshFAMHsKNeNBzrOZ0mBg08+OTzO10RNtPh5iwwS9fEaV2BCHfM2Uue2OrPXGQCJ5+pGgDPvy2l4KLzCS7gm3lfkfpCi7NNeTe+OalXmgot41G0xHDQodb1lYZgWhsjlvk92txfyXrZ8CjSIOot3D8UDpPfhkZ3xT1FJWr+H4TeB0019PM09FUdx9sRsxUzHfsj/CO3ubP4VpgRdzeg+pN7KRN0EsLymniIjD5/mvXFXKEbnJAkGZ2PQcSkyQGCvMnX0fyrJGHKPgV4zC9WieicPP/RBniu+bRpKL4YOXuHPur7ShWQIvm5xR31Mfb5TCzap7pkPMmgb6Yx3c3sJGLgk4Npr9/349LtK1bpy3RupxNFpjDzzLu5WkxYz8EWDBfUAuhkpyNUEUWuSe7VE8wmtPH/8DydHrzz9otFoDpvVb0UnwPDJI6poNpr7l6bVUWtDt7ZBeZEBuhZ3D4Y4cFhlU8qxAzbnzlwyb+70QwDBlMLFcCqjCZR9CEF5leKHuM1KaYiOQlhxAdwFhr4C8GVDfSJxgF/iVV4KTjd0cRuZyFDwxLumXbH6QfqrpY1dneaGuMgoPQ9byQEtTQ521mz8rEQt9imn64kTmRAJH4RBZ3zaTj8Dgr2B3yA4X7+pk5LNEvGMltFD37o8fshRsaVEm8zq/1JS5cRdcHmipnOfWUfwo7UO4BtVGX9zAiOfEeynT43ym3Eo40JJqtaAaUWhrKuNm2DBiLHocC0FER0h8dSIIIB/THw9+gR9ofrASS0oMOY2yk9HAPkQHfboMsmeWum8CsUtS72jHsNa6NQiTwn6kEfYhH3niMxeQMdT/e9Q3wGJCI3HCDBr+Uq+epJNaPrc6OrDMsUU32DvldhDaIEMruZzwuar+a3GVi4QYgTjtlt9NBjlQxoBVtyoo6zrdRhornXbtd6+tcNVv9fPNIkRvDrGTmGr5HNDRJUSX7J+caHChReVemrb37M0y6yhQNvoRTHMU6cXV7EDv+Fpm2y53k4W8BrRMmILtcW7aJE3+LDm9NTBl49HxafUGnLv1zHsySNNXxlrAgu4y0FxRiZvDGHzBpU+x+I1s//bBEXB0wuewU9Krlhz8VOBeEOrrxJdkFQK0urHlbt3awiyUfDOBwAfjAfAH04FxRtfxUP7Xf0K2jyo4nNMqXwoGMJP7WGv13TMX7XTDKWjpm8uXkQ4xYn1NSUwW5pTNbEGhJY0joM0S+aHm8S9vwAsqFnf3Bbyv5rgV2KwD/91CtzdwpabK0FQmUuc6Wbixe5HqM2yku7GiKSTShd8cM8IUbVOQSzXd7q+csiVn1iZT7l5xv4GUn6km6YXCVfww/vMhZ9u4V6L2nGKL/Nhjyygk4eKn3DEiRuQ5To0imxsLTw8V+gTYl7LYGDQjDi1n6qJZk3Re3DLChvqVoXrzopb5Io4dVTePoGL32fcVfRdphgM5YsvOJGNYjnFoQ8ycSoR6EAFK3hfEIsnZJlqniYS5vWLar49Khf976qTm48eaF35UK0T1DpjT8s5ANmPjHi9Zegym1eYI+zlo9VuqHCyW8sF4zQ2dHAY//dVWkohbBZp0fsRuELyn8+Na+NtHYkGAXFzLinGOgjWW3qAktXyqq9e0JGPbRgjMtKnJLxj+LlSd56xYy0xKQYChUwWafMxgPEjwz05n24/gZqCyxnAY2u1wdkL7tYAwkCINKo7RHihgyHzzg6NBibRchBG5lXYGl+/aiSg2lWshDyt9LGAE="
+              }
+            }
+          },
+          "wait": 16
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 24
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "group"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/group",
+                "value": {
+                  "type": "CardGroup",
+                  "props": {},
+                  "children": ["chicago", "denver"]
+                }
+              }
+            }
+          },
+          "wait": 126
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/chicago",
+                "value": {
+                  "type": "ForecastCard",
+                  "props": {
+                    "location": "Chicago, IL",
+                    "units": "f",
+                    "view": "daily"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 158
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/denver",
+                "value": {
+                  "type": "ForecastCard",
+                  "props": {
+                    "location": "Denver, CO",
+                    "units": "f",
+                    "view": "daily"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 186
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 3
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "What's the forecast for Chicago and Denver next week?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/forecast?location=Chicago%2C+IL&units=f": {
+      "asOf": 1792546200000,
+      "current": {
+        "condition": "clear",
+        "isDay": false,
+        "label": "Clear",
+        "temperature": 54.4
+      },
+      "days": [
+        {
+          "condition": "cloudy",
+          "high": 64.8,
+          "low": 42.8,
+          "precipitation": 0,
+          "time": 1792472400000
+        },
+        {
+          "condition": "cloudy",
+          "high": 66.2,
+          "low": 43.8,
+          "precipitation": 2,
+          "time": 1792558800000
+        },
+        {
+          "condition": "clear",
+          "high": 66.3,
+          "low": 45,
+          "precipitation": 3,
+          "time": 1792645200000
+        },
+        {
+          "condition": "cloudy",
+          "high": 69.6,
+          "low": 56.6,
+          "precipitation": 0,
+          "time": 1792731600000
+        },
+        {
+          "condition": "cloudy",
+          "high": 71.2,
+          "low": 57.7,
+          "precipitation": 0,
+          "time": 1792818000000
+        },
+        {
+          "condition": "cloudy",
+          "high": 70.1,
+          "low": 59.3,
+          "precipitation": 1,
+          "time": 1792904400000
+        },
+        {
+          "condition": "drizzle",
+          "high": 65.6,
+          "low": 50.3,
+          "precipitation": 9,
+          "time": 1792990800000
+        },
+        {
+          "condition": "drizzle",
+          "high": 50,
+          "low": 47.3,
+          "precipitation": 13,
+          "time": 1793077200000
+        },
+        {
+          "condition": "cloudy",
+          "high": 49.2,
+          "low": 44.5,
+          "precipitation": 6,
+          "time": 1793163600000
+        },
+        {
+          "condition": "cloudy",
+          "high": 54.4,
+          "low": 42.3,
+          "precipitation": 9,
+          "time": 1793250000000
+        }
+      ],
+      "hours": [
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 54.4,
+          "time": 1792544400000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 54,
+          "time": 1792548000000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 53.5,
+          "time": 1792551600000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 52.7,
+          "time": 1792555200000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 51.2,
+          "time": 1792558800000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 49.2,
+          "time": 1792562400000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 48.2,
+          "time": 1792566000000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 47.2,
+          "time": 1792569600000
+        },
+        {
+          "condition": "partly-cloudy",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 46.2,
+          "time": 1792573200000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 45.5,
+          "time": 1792576800000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 45,
+          "time": 1792580400000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 43.8,
+          "time": 1792584000000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 0,
+          "temperature": 44.6,
+          "time": 1792587600000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 0,
+          "temperature": 50.2,
+          "time": 1792591200000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 0,
+          "temperature": 55.7,
+          "time": 1792594800000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 0,
+          "temperature": 60.1,
+          "time": 1792598400000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 0,
+          "temperature": 63.9,
+          "time": 1792602000000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 65.5,
+          "time": 1792605600000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 66.2,
+          "time": 1792609200000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 66.2,
+          "time": 1792612800000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 64.2,
+          "time": 1792616400000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 2,
+          "temperature": 62.3,
+          "time": 1792620000000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 2,
+          "temperature": 58.1,
+          "time": 1792623600000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 2,
+          "temperature": 55.5,
+          "time": 1792627200000
+        }
+      ],
+      "location": "Chicago",
+      "region": "Illinois, United States",
+      "timeZone": "America/Chicago",
+      "units": "f"
+    },
+    "/api/forecast?location=Denver%2C+CO&units=f": {
+      "asOf": 1792546200000,
+      "current": {
+        "condition": "clear",
+        "isDay": false,
+        "label": "Clear",
+        "temperature": 60.9
+      },
+      "days": [
+        {
+          "condition": "cloudy",
+          "high": 72.6,
+          "low": 43.4,
+          "precipitation": 2,
+          "time": 1792476000000
+        },
+        {
+          "condition": "cloudy",
+          "high": 75.8,
+          "low": 46.6,
+          "precipitation": 3,
+          "time": 1792562400000
+        },
+        {
+          "condition": "cloudy",
+          "high": 72.7,
+          "low": 51.1,
+          "precipitation": 5,
+          "time": 1792648800000
+        },
+        {
+          "condition": "cloudy",
+          "high": 78.5,
+          "low": 61.4,
+          "precipitation": 4,
+          "time": 1792735200000
+        },
+        {
+          "condition": "cloudy",
+          "high": 63.9,
+          "low": 52.4,
+          "precipitation": 42,
+          "time": 1792821600000
+        },
+        {
+          "condition": "rain",
+          "high": 51.6,
+          "low": 43.3,
+          "precipitation": 42,
+          "time": 1792908000000
+        },
+        {
+          "condition": "cloudy",
+          "high": 43.8,
+          "low": 40.6,
+          "precipitation": 19,
+          "time": 1792994400000
+        },
+        {
+          "condition": "fog",
+          "high": 53,
+          "low": 38.9,
+          "precipitation": 17,
+          "time": 1793080800000
+        },
+        {
+          "condition": "clear",
+          "high": 54.6,
+          "low": 45.1,
+          "precipitation": 5,
+          "time": 1793167200000
+        },
+        {
+          "condition": "cloudy",
+          "high": 61.2,
+          "low": 42.9,
+          "precipitation": 7,
+          "time": 1793253600000
+        }
+      ],
+      "hours": [
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 63.4,
+          "time": 1792544400000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 59.2,
+          "time": 1792548000000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 56.4,
+          "time": 1792551600000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 55,
+          "time": 1792555200000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 53.5,
+          "time": 1792558800000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 52.3,
+          "time": 1792562400000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 51.1,
+          "time": 1792566000000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 49.8,
+          "time": 1792569600000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 48.9,
+          "time": 1792573200000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 48.8,
+          "time": 1792576800000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 47.7,
+          "time": 1792580400000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 47.1,
+          "time": 1792584000000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 46.6,
+          "time": 1792587600000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": true,
+          "precipitation": 0,
+          "temperature": 47.6,
+          "time": 1792591200000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": true,
+          "precipitation": 0,
+          "temperature": 54.5,
+          "time": 1792594800000
+        },
+        {
+          "condition": "partly-cloudy",
+          "isDay": true,
+          "precipitation": 0,
+          "temperature": 61.1,
+          "time": 1792598400000
+        },
+        {
+          "condition": "partly-cloudy",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 67.5,
+          "time": 1792602000000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 70.1,
+          "time": 1792605600000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 72.6,
+          "time": 1792609200000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": true,
+          "precipitation": 2,
+          "temperature": 74.3,
+          "time": 1792612800000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": true,
+          "precipitation": 2,
+          "temperature": 75.4,
+          "time": 1792616400000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": true,
+          "precipitation": 2,
+          "temperature": 75.8,
+          "time": 1792620000000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": true,
+          "precipitation": 3,
+          "temperature": 74.9,
+          "time": 1792623600000
+        },
+        {
+          "condition": "cloudy",
+          "isDay": true,
+          "precipitation": 2,
+          "temperature": 69.7,
+          "time": 1792627200000
+        }
+      ],
+      "location": "Denver",
+      "region": "Colorado, United States",
+      "timeZone": "America/Denver",
+      "units": "f"
+    }
+  }
+}

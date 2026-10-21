@@ -55,6 +55,20 @@ function topicUrls(route, topic) {
     : [];
 }
 
+/**
+The one URL a place card loads: the Weather card's conditions or the Forecast card's hours and days.
+*/
+function placeUrls(route, location, units) {
+  if (!(typeof location === "string" && location)) {
+    return [];
+  }
+  const parameters = new URLSearchParams({ location });
+  if (units) {
+    parameters.set("units", units);
+  }
+  return [`${route}?${parameters}`];
+}
+
 // Keys are the catalog's component names, so they stay PascalCase.
 /* eslint-disable sonarjs/function-name */
 const CARD_URLS = {
@@ -110,6 +124,8 @@ const CARD_URLS = {
             `/api/crypto?symbol=${encodeURIComponent(symbol)}&range=${range}`
         )
       : [],
+  ForecastCard: ({ location, units }) =>
+    placeUrls("/api/forecast", location, units),
   NbaCupCard: ({ group }) =>
     typeof group === "string" && group
       ? [`/api/nba-cup?group=${encodeURIComponent(group)}`]
@@ -144,16 +160,8 @@ const CARD_URLS = {
     conference === "east" || conference === "west"
       ? [`/api/standings?conference=${conference}`]
       : [],
-  WeatherCard: ({ location, units }) => {
-    if (!(typeof location === "string" && location)) {
-      return [];
-    }
-    const parameters = new URLSearchParams({ location });
-    if (units) {
-      parameters.set("units", units);
-    }
-    return [`/api/weather?${parameters}`];
-  },
+  WeatherCard: ({ location, units }) =>
+    placeUrls("/api/weather", location, units),
   WinProbabilityCard: ({ team, date }) => {
     if (!(typeof team === "string" && team)) {
       return [];

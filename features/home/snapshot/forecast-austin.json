@@ -1,0 +1,255 @@
+{
+  "asOf": 1792546200000,
+  "current": {
+    "condition": "clear",
+    "isDay": false,
+    "label": "Clear",
+    "temperature": 72.4
+  },
+  "days": [
+    {
+      "condition": "clear",
+      "high": 83.9,
+      "low": 56.6,
+      "precipitation": 0,
+      "time": 1792472400000
+    },
+    {
+      "condition": "partly-cloudy",
+      "high": 83.6,
+      "low": 57.1,
+      "precipitation": 0,
+      "time": 1792558800000
+    },
+    {
+      "condition": "cloudy",
+      "high": 85.3,
+      "low": 57.4,
+      "precipitation": 2,
+      "time": 1792645200000
+    },
+    {
+      "condition": "cloudy",
+      "high": 84.2,
+      "low": 67.1,
+      "precipitation": 0,
+      "time": 1792731600000
+    },
+    {
+      "condition": "cloudy",
+      "high": 84.9,
+      "low": 65.7,
+      "precipitation": 0,
+      "time": 1792818000000
+    },
+    {
+      "condition": "cloudy",
+      "high": 81.9,
+      "low": 66.5,
+      "precipitation": 2,
+      "time": 1792904400000
+    },
+    {
+      "condition": "drizzle",
+      "high": 81.2,
+      "low": 63.7,
+      "precipitation": 9,
+      "time": 1792990800000
+    },
+    {
+      "condition": "rain",
+      "high": 73.4,
+      "low": 56.8,
+      "precipitation": 14,
+      "time": 1793077200000
+    },
+    {
+      "condition": "cloudy",
+      "high": 67.7,
+      "low": 55,
+      "precipitation": 7,
+      "time": 1793163600000
+    },
+    {
+      "condition": "cloudy",
+      "high": 60.5,
+      "low": 56.1,
+      "precipitation": 13,
+      "time": 1793250000000
+    }
+  ],
+  "hours": [
+    {
+      "condition": "clear",
+      "isDay": false,
+      "precipitation": 0,
+      "temperature": 74.4,
+      "time": 1792544400000
+    },
+    {
+      "condition": "clear",
+      "isDay": false,
+      "precipitation": 0,
+      "temperature": 70.9,
+      "time": 1792548000000
+    },
+    {
+      "condition": "clear",
+      "isDay": false,
+      "precipitation": 0,
+      "temperature": 68.7,
+      "time": 1792551600000
+    },
+    {
+      "condition": "clear",
+      "isDay": false,
+      "precipitation": 0,
+      "temperature": 66.6,
+      "time": 1792555200000
+    },
+    {
+      "condition": "clear",
+      "isDay": false,
+      "precipitation": 0,
+      "temperature": 64.7,
+      "time": 1792558800000
+    },
+    {
+      "condition": "clear",
+      "isDay": false,
+      "precipitation": 0,
+      "temperature": 63.7,
+      "time": 1792562400000
+    },
+    {
+      "condition": "clear",
+      "isDay": false,
+      "precipitation": 0,
+      "temperature": 62.5,
+      "time": 1792566000000
+    },
+    {
+      "condition": "clear",
+      "isDay": false,
+      "precipitation": 0,
+      "temperature": 61,
+      "time": 1792569600000
+    },
+    {
+      "condition": "partly-cloudy",
+      "isDay": false,
+      "precipitation": 0,
+      "temperature": 59.7,
+      "time": 1792573200000
+    },
+    {
+      "condition": "clear",
+      "isDay": false,
+      "precipitation": 0,
+      "temperature": 58.7,
+      "time": 1792576800000
+    },
+    {
+      "condition": "clear",
+      "isDay": false,
+      "precipitation": 0,
+      "temperature": 58,
+      "time": 1792580400000
+    },
+    {
+      "condition": "clear",
+      "isDay": false,
+      "precipitation": 0,
+      "temperature": 57.4,
+      "time": 1792584000000
+    },
+    {
+      "condition": "clear",
+      "isDay": true,
+      "precipitation": 0,
+      "temperature": 57.1,
+      "time": 1792587600000
+    },
+    {
+      "condition": "clear",
+      "isDay": true,
+      "precipitation": 0,
+      "temperature": 63,
+      "time": 1792591200000
+    },
+    {
+      "condition": "clear",
+      "isDay": true,
+      "precipitation": 0,
+      "temperature": 70,
+      "time": 1792594800000
+    },
+    {
+      "condition": "clear",
+      "isDay": true,
+      "precipitation": 0,
+      "temperature": 75.2,
+      "time": 1792598400000
+    },
+    {
+      "condition": "clear",
+      "isDay": true,
+      "precipitation": 0,
+      "temperature": 78.5,
+      "time": 1792602000000
+    },
+    {
+      "condition": "clear",
+      "isDay": true,
+      "precipitation": 0,
+      "temperature": 81.1,
+      "time": 1792605600000
+    },
+    {
+      "condition": "clear",
+      "isDay": true,
+      "precipitation": 0,
+      "temperature": 82.7,
+      "time": 1792609200000
+    },
+    {
+      "condition": "clear",
+      "isDay": true,
+      "precipitation": 0,
+      "temperature": 83.6,
+      "time": 1792612800000
+    },
+    {
+      "condition": "clear",
+      "isDay": true,
+      "precipitation": 0,
+      "temperature": 83.6,
+      "time": 1792616400000
+    },
+    {
+      "condition": "clear",
+      "isDay": true,
+      "precipitation": 0,
+      "temperature": 82.8,
+      "time": 1792620000000
+    },
+    {
+      "condition": "clear",
+      "isDay": true,
+      "precipitation": 0,
+      "temperature": 81.3,
+      "time": 1792623600000
+    },
+    {
+      "condition": "clear",
+      "isDay": false,
+      "precipitation": 0,
+      "temperature": 76.2,
+      "time": 1792627200000
+    }
+  ],
+  "location": "Austin",
+  "region": "Texas, United States",
+  "timeZone": "America/Chicago",
+  "units": "f"
+}

@@ -8,7 +8,7 @@ import type {
   WeatherUnits,
 } from "@/features/weather/weather-schema";
 
-interface GeocodeResult {
+export interface GeocodeResult {
   name: string;
   latitude: number;
   longitude: number;
@@ -41,7 +41,10 @@ export class LocationNotFoundError extends Error {
   }
 }
 
-async function geocode(location: string): Promise<GeocodeResult> {
+/**
+The place a name means, narrowed by the region or country after a comma ("Paris, Texas").
+*/
+export async function geocode(location: string): Promise<GeocodeResult> {
   const [name, ...rest] = location.split(",").map((part) => part.trim());
   const qualifier = rest.join(" ").toLowerCase();
   const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(name)}&count=10&language=en&format=json`;
@@ -69,7 +72,7 @@ async function geocode(location: string): Promise<GeocodeResult> {
 /**
 Open-Meteo's local times ("2026-10-14T15:00") as Unix milliseconds.
 */
-function toUnix(localTime: string, offsetSeconds: number) {
+export function toUnix(localTime: string, offsetSeconds: number) {
   return Date.parse(`${localTime}Z`) - offsetSeconds * 1000;
 }
 

@@ -3,6 +3,7 @@ import { schema } from "@json-render/react/schema";
 import { candlestickCatalogEntry } from "@/features/candlestick/candlestick-catalog";
 import { cardGroupCatalogEntry } from "@/features/chat/components/card-group";
 import { cryptoCatalogEntry } from "@/features/crypto/crypto-catalog";
+import { forecastCatalogEntry } from "@/features/forecast/forecast-catalog";
 import { boardingPassCatalogEntry } from "@/features/flights/flight-catalog";
 import { nbaCupCatalogEntry } from "@/features/nba-cup/nba-cup-catalog";
 import { playerCatalogEntry } from "@/features/player/player-catalog";
@@ -26,6 +27,7 @@ export const catalog = defineCatalog(schema, {
     CandlestickCard: candlestickCatalogEntry,
     CardGroup: cardGroupCatalogEntry,
     CryptoCard: cryptoCatalogEntry,
+    ForecastCard: forecastCatalogEntry,
     NbaCupCard: nbaCupCatalogEntry,
     PieChartCard: pieChartCatalogEntry,
     PlayerCard: playerCatalogEntry,

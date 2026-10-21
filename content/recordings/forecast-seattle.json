@@ -1,0 +1,369 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "aOMS5BIxhXWwZ9Hv"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 683
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgEXmmwaUUF4aNMMqfndc",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 10507,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 8,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "0"
+          },
+          "wait": 174
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "forecast"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/forecast",
+                "value": {
+                  "type": "ForecastCard",
+                  "props": {
+                    "location": "Seattle, WA",
+                    "units": "f",
+                    "view": "hourly"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 34
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 2
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "Will it rain in Seattle this afternoon?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {
+    "/api/forecast?location=Seattle%2C+WA&units=f": {
+      "asOf": 1792546200000,
+      "current": {
+        "condition": "clear",
+        "isDay": false,
+        "label": "Clear",
+        "temperature": 52.4
+      },
+      "days": [
+        {
+          "condition": "fog",
+          "high": 59.8,
+          "low": 44.4,
+          "precipitation": 1,
+          "time": 1792479600000
+        },
+        {
+          "condition": "cloudy",
+          "high": 62.8,
+          "low": 44.2,
+          "precipitation": 1,
+          "time": 1792566000000
+        },
+        {
+          "condition": "cloudy",
+          "high": 59.3,
+          "low": 43.8,
+          "precipitation": 8,
+          "time": 1792652400000
+        },
+        {
+          "condition": "cloudy",
+          "high": 54.4,
+          "low": 44.7,
+          "precipitation": 3,
+          "time": 1792738800000
+        },
+        {
+          "condition": "cloudy",
+          "high": 56,
+          "low": 41.5,
+          "precipitation": 41,
+          "time": 1792825200000
+        },
+        {
+          "condition": "cloudy",
+          "high": 60,
+          "low": 45.1,
+          "precipitation": 33,
+          "time": 1792911600000
+        },
+        {
+          "condition": "cloudy",
+          "high": 61.1,
+          "low": 45.1,
+          "precipitation": 11,
+          "time": 1792998000000
+        },
+        {
+          "condition": "partly-cloudy",
+          "high": 60.2,
+          "low": 44.7,
+          "precipitation": 17,
+          "time": 1793084400000
+        },
+        {
+          "condition": "clear",
+          "high": 62.4,
+          "low": 46.1,
+          "precipitation": 15,
+          "time": 1793170800000
+        },
+        {
+          "condition": "clear",
+          "high": 64,
+          "low": 42.9,
+          "precipitation": 14,
+          "time": 1793257200000
+        }
+      ],
+      "hours": [
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 0,
+          "temperature": 53.7,
+          "time": 1792544400000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 51.4,
+          "time": 1792548000000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 50.3,
+          "time": 1792551600000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 49.3,
+          "time": 1792555200000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 48.6,
+          "time": 1792558800000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 47.8,
+          "time": 1792562400000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 0,
+          "temperature": 47.3,
+          "time": 1792566000000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 1,
+          "temperature": 47.2,
+          "time": 1792569600000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 1,
+          "temperature": 46.7,
+          "time": 1792573200000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 1,
+          "temperature": 45.9,
+          "time": 1792576800000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 1,
+          "temperature": 45.4,
+          "time": 1792580400000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 1,
+          "temperature": 45.3,
+          "time": 1792584000000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 1,
+          "temperature": 44.8,
+          "time": 1792587600000
+        },
+        {
+          "condition": "clear",
+          "isDay": false,
+          "precipitation": 1,
+          "temperature": 44.6,
+          "time": 1792591200000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 44.2,
+          "time": 1792594800000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 46.5,
+          "time": 1792598400000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 51.7,
+          "time": 1792602000000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 55.4,
+          "time": 1792605600000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 57.4,
+          "time": 1792609200000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 59.6,
+          "time": 1792612800000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 61.9,
+          "time": 1792616400000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 62.8,
+          "time": 1792620000000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 62.1,
+          "time": 1792623600000
+        },
+        {
+          "condition": "clear",
+          "isDay": true,
+          "precipitation": 1,
+          "temperature": 60.1,
+          "time": 1792627200000
+        }
+      ],
+      "location": "Seattle",
+      "region": "Washington, United States",
+      "timeZone": "America/Los_Angeles",
+      "units": "f"
+    }
+  }
+}
