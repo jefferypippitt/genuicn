@@ -1,0 +1,161 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "fI9ZhqPL4kDS0IsE"
+          },
+          "wait": 3
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 758
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgFzksstZgQVGzJC6ALrr",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 10856,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 6,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 1500
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "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"
+              }
+            }
+          },
+          "wait": 13
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 48
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "term"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/term",
+                "value": {
+                  "type": "TerminalCard",
+                  "props": {
+                    "shell": "powershell",
+                    "cwd": "~",
+                    "steps": [
+                      {
+                        "command": "node -v"
+                      },
+                      {
+                        "command": "npm -v"
+                      },
+                      {
+                        "command": "where.exe node"
+                      },
+                      {
+                        "command": "Get-Command node | Select-Object -ExpandProperty Source"
+                      }
+                    ]
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 364
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 5
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "On Windows, how do I see which version of Node I have and where it's installed?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {}
+}

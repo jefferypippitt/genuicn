@@ -20,6 +20,16 @@ const CARD_PAGES = [
   },
   { path: "/docs/crypto", prompt: "How's Bitcoin doing?", title: "Crypto" },
   {
+    path: "/docs/code-block",
+    prompt: "Write a zod schema for a user signup form",
+    title: "Code block",
+  },
+  {
+    path: "/docs/terminal",
+    prompt: "How do I start a new Next.js app with pnpm?",
+    title: "Terminal",
+  },
+  {
     path: "/docs/flights",
     prompt: "Show my boarding pass for BA 117 on November 3, 2026.",
     title: "Flights",

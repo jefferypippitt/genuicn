@@ -1260,6 +1260,68 @@
         "AI_GATEWAY_API_KEY": ""
       },
       "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   RadialChartCard: radialChartCatalogEntry\n  features/chat/chat-registry.tsx: RadialChartCard: ({ props, loading }) => <LiveRadialChartCard topic={props.topic || undefined} streaming={loading} />\n  features/chat/chat-steps.ts:     RadialChartCard: radialChartLookup\n\nFigures load from /api/radial-chart (installed at app/api/radial-chart/route.ts). The route uses Parallel web search + extract (PARALLEL_API_KEY) and your AI Gateway model to measure each item against the same full mark. Keep AI_GATEWAY_API_KEY set (same as chat). Topic is free text from the user's question."
+    },
+    {
+      "name": "code-block",
+      "type": "registry:block",
+      "title": "Code block",
+      "description": "A code block card for json-render chats: the code the model writes, highlighted with Shiki, with the file name, line numbers, called-out lines, a wrap switch and a copy button.",
+      "dependencies": ["zod", "shiki"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "features/code-block/components/code-block-card.tsx",
+          "type": "registry:component",
+          "target": "features/code-block/components/code-block-card.tsx"
+        },
+        {
+          "path": "features/code-block/code-block-catalog.ts",
+          "type": "registry:lib",
+          "target": "features/code-block/code-block-catalog.ts"
+        },
+        {
+          "path": "features/code-block/code-block-highlight.ts",
+          "type": "registry:lib",
+          "target": "features/code-block/code-block-highlight.ts"
+        },
+        {
+          "path": "features/code-block/code-block-schema.ts",
+          "type": "registry:lib",
+          "target": "features/code-block/code-block-schema.ts"
+        },
+        {
+          "path": "lib/card-frame.ts",
+          "type": "registry:lib",
+          "target": "lib/card-frame.ts"
+        }
+      ],
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   CodeBlockCard: codeBlockCatalogEntry\n  features/chat/chat-registry.tsx: CodeBlockCard: ({ props, loading }) => <CodeBlockCard code={props.code} language={props.language} filename={props.filename} highlight={props.highlight} streaming={loading} />\n\nThe model writes the code, so there is no API route and no API key."
+    },
+    {
+      "name": "terminal",
+      "type": "registry:block",
+      "title": "Terminal",
+      "description": "A terminal window card for json-render chats: the commands the model tells the user to run, in order, each with a copy button, and what a command prints when it helps.",
+      "dependencies": ["zod"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "features/terminal/components/terminal-card.tsx",
+          "type": "registry:component",
+          "target": "features/terminal/components/terminal-card.tsx"
+        },
+        {
+          "path": "features/terminal/terminal-catalog.ts",
+          "type": "registry:lib",
+          "target": "features/terminal/terminal-catalog.ts"
+        },
+        {
+          "path": "features/terminal/terminal-schema.ts",
+          "type": "registry:lib",
+          "target": "features/terminal/terminal-schema.ts"
+        }
+      ],
+      "docs": "Turn the card on in the chat (one line in each file, see the comments in them):\n\n  features/chat/chat-catalog.ts:   TerminalCard: terminalCatalogEntry\n  features/chat/chat-registry.tsx: TerminalCard: ({ props, loading }) => <TerminalCard steps={props.steps} shell={props.shell} cwd={props.cwd} streaming={loading} />\n\nThe model writes the commands, so there is no API route and no API key."
     }
   ]
 }

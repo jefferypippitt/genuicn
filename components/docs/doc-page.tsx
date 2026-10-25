@@ -18,6 +18,7 @@ export const DocPage = ({
   description,
   href,
   install,
+  actions,
   children,
 }: {
   readonly title: string;
@@ -28,6 +29,8 @@ export const DocPage = ({
     readonly card: InstallCard;
     readonly title?: string;
   };
+  // Calls to action under the description, like the gallery's links.
+  readonly actions?: ReactNode;
   readonly children?: ReactNode;
 }) => {
   const { type } = useSize();
@@ -44,6 +47,11 @@ export const DocPage = ({
           {href ? <PageArrows href={href} /> : null}
         </div>
         <p className={cn(type.body, "text-muted-foreground")}>{description}</p>
+        {actions ? (
+          <div className="mt-2 flex flex-wrap items-center gap-2">
+            {actions}
+          </div>
+        ) : null}
       </header>
       {install ? (
         <div className="flex items-center justify-between gap-4">

@@ -227,18 +227,51 @@ export const NAV_SECTIONS: NavSection[] = [
         description: "A title card with where to stream it.",
         label: "Movie & TV",
       },
+    ],
+    kind: "cards",
+    label: "Everyday & travel",
+  },
+  {
+    items: [
       {
-        description: "A repository's stars, open issues, and latest release.",
-        label: "GitHub repo",
+        description:
+          "Code the model writes, highlighted for its language, with line numbers and a copy button.",
+        href: "/docs/code-block",
+        label: "Code block",
       },
       {
         description:
-          "A package's latest version, weekly downloads, and install size.",
+          "Commands to run and what they print, in a terminal window, with a copy button on each command.",
+        href: "/docs/terminal",
+        label: "Terminal",
+      },
+      {
+        description: "A change to a file, with the lines added and removed.",
+        label: "Diff",
+      },
+      {
+        description:
+          "A project's folders and files, with the ones a change touches marked.",
+        label: "File tree",
+      },
+      {
+        description:
+          "An error and its stack trace, with the failing line and a likely fix.",
+        label: "Stack trace",
+      },
+      {
+        description:
+          "An HTTP request and its response: method, URL, status, headers, and body.",
+        label: "API request",
+      },
+      {
+        description:
+          "A package's version, size, and install command, the way npm view prints them.",
         label: "npm package",
       },
     ],
     kind: "cards",
-    label: "Everyday & travel",
+    label: "Code",
   },
   {
     items: [

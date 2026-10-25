@@ -1,0 +1,242 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "a6blHFJmx3a5MBCq"
+          },
+          "wait": 4
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 708
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgFzm8ZRvPPobtkHbRWR1",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 10850,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 8,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 1500
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "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"
+              }
+            }
+          },
+          "wait": 11
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 56
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "main"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/main",
+                "value": {
+                  "type": "CardGroup",
+                  "props": {},
+                  "children": [
+                    "install",
+                    "vite-config",
+                    "css-file",
+                    "main-import"
+                  ]
+                }
+              }
+            }
+          },
+          "wait": 203
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/install",
+                "value": {
+                  "type": "TerminalCard",
+                  "props": {
+                    "cwd": "your-vite-react-app",
+                    "shell": "bash",
+                    "steps": [
+                      {
+                        "command": "npm install tailwindcss @tailwindcss/vite"
+                      }
+                    ]
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 397
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/vite-config",
+                "value": {
+                  "type": "CodeBlockCard",
+                  "props": {
+                    "filename": "vite.config.js",
+                    "language": "javascript",
+                    "code": "import { defineConfig } from 'vite'\nimport react from '@vitejs/plugin-react'\nimport tailwindcss from '@tailwindcss/vite'\n\nexport default defineConfig({\n  plugins: [react(), tailwindcss()],\n})"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 367
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/css-file",
+                "value": {
+                  "type": "CodeBlockCard",
+                  "props": {
+                    "filename": "src/index.css",
+                    "language": "css",
+                    "code": "@import \"tailwindcss\";"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 220
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/main-import",
+                "value": {
+                  "type": "CodeBlockCard",
+                  "props": {
+                    "filename": "src/main.jsx",
+                    "language": "javascript",
+                    "code": "import './index.css'",
+                    "highlight": [1]
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 238
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 10
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "Add Tailwind CSS to my Vite React app"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {}
+}

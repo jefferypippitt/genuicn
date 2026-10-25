@@ -1,0 +1,148 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "wCqg06kOmqKJkbR8"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 742
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgFzjfyzV8ugeozjabjr2",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 10856,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 2,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 1167
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "CAQSoAoKEAgTGAI4AUIIdGhpbmtpbmcSDDw8rk0GBjFCKuqRzhoMBj42Wyz5Bclpj+iuIjCpYATCpEdE3jvY7xfu3iZFczDlahTIqXmh3evHVSlf4oPZf5yC95Q4AyZasViuXg8qvQnCKEXpfzE0y32Sbn389bgbnAOJ9MH6fW9MpWIyLUJSrLTG59MBvQTtvJZSNYr9F26f/TSJe/u6+dBzndHHnCOZOHQz9iA1P4pDuo4TsfvzpiTQELf+2fIPe2qVFA9VNPZ2qAGsajUMF5M1SSZqIbaUn01+kKlWwqunwCt+s1L9qsawBRfXX/tuU/A75cYgKuItVhV0Ol6rDGb3ZDHOw2y6bKjjOEyZk7ML05uZ+RYhlV/pRrohzrvqlAxkcveUR2WaRbmynQ/4yepi/P5dWk/UymnpU6M12YNSUx86uax/r/k6zULWqXa7p/3UoadU7RCWQ09Fso+a/FV07w3UP6NzBLop5dZaSsiTzt3k+t5nptUs43YeXXinKVHL6ccrkvDECVvgSwBQ0contQkI6569+QD72mydo/J8hCG8PbvM06s5351iOUYI96W0XG5UHR+FIRf9ApJDy4Ixsc70IohKXqh+gox26POq3kiD0/mpAgUrkibYDW82SqXsAusPvFeWptYdApnz3F1+MLCZa6bqKfjfQpjnCkwqNGIBo7lkUNOr3Il07YmMJW50Efnla8SJMMyfObXXubEFrlNnZMrHpkzwt7Vq1ft/C6f+qZbTjYyX/mF7W9wXCxL2VPjWa3gjh/OKMa4H9WPoSPh4EcXP16+ZiAu5nRnoBcWJMqmyVWeN+loVu4F9g9ExP+LplTGBStZvtO25KbCdSqRqTdyJQu7yYQWG7e4PdeBpIwtGE0URQT324Yc+PzDlbMibyqFRGjN/uGABgv3J7ZzyUBw4pGe82IzAj71XFvUEmPt2XMQ3xqD0eMO3wZPfC/10FHw2+RI+uVxqbd7TViCJnU88nMQxgX9qgIzRtxT/Xn6Lig9rlC/yE3sUU4v6aFBOrMbHdpvdKgtzWu4CUXj5Bs+cmzsdZg7J6NXmcWu93Kslp9DHppdI7eBiulwbDBBgCEQGYeRD1Q5+l+ygJj+u8ETHAXZbKM07nUlxxIoVEpmMehj9eQHQYyrdG0yGaUYHrjXXjiM5trrdTOkaXSGNRQNw4GTBYnwOzBu/71qFr8mLkSBwLPgEcFj7zA0H61PtzNCPR2sZShVHaoT8tRlgPNrgnc/fYYAF+bH1PPhB97hZFcRFfkcSJyOr3JKV8a6LlwzJM7Pm4j3aK9YGJ8MpvZ6c+w8lweEsofoHs5HjLb8VN5MpPs6gRLnsQXB4T1QzeGWLdQuzYdm+NiWGYxhhTlVAOUNEHLBVjM+I00XCEwT7JxyDd/2LU0tPl8OIhYl2zWb6IpYsXwzhhRk4++N2m45LU+rtKLQnUsVAJ9x+oNm5j43L4/iyWlJ8J8hBa612HQTsTnk1Xync+sTEkFyFMpgEweUooREzp7nxo2Sp2HE4wZ8K3DkQZMqDfkb2hvaiY1wYDuFTy7KQ3O7hgMnON6quKq1jP4NQ+llO3+9rM55wxEMPmM8qDNpuIHgiuGV8PN2fw+tBudaXOfqW3oGHxT0ZDl6aTZi6X8PFcrzasrlzpI0dlpj3qXrH9mtcsXl6IiLVaTnWjMUCXrs966nW5LWqv+lRG4Jh5/3olk3Bi/7TGcQXfPmIRKziTjrDlUwbgHzbo5SRj3y8SmilMzbBGAE="
+              }
+            }
+          },
+          "wait": 16
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 62
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "hello"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/hello",
+                "value": {
+                  "type": "CodeBlockCard",
+                  "props": {
+                    "language": "python",
+                    "filename": "hello.py",
+                    "code": "print(\"Hello, world!\")"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 705
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 3
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "Show me a hello world in Python"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {}
+}

@@ -3,7 +3,7 @@
 function chatSetup(origin: string) {
   return `1. If the project doesn't have the genuicn chat yet (no features/chat/chat-catalog.ts), install it once:
 npx shadcn@latest add ${origin}/r/chat.json --overwrite
-It adds a json-render chat (Vercel AI SDK, Fluid Functionalism UI) with app/api/chat/route.ts, a /chat page, and features/chat/chat-catalog.ts, features/chat/chat-registry.tsx and features/chat/chat-steps.ts where cards are turned on. Each reply shows Fluid Functionalism's ThinkingSteps (understanding the question, looking up each card's data with linked sources, done), then folds them away and shows the cards as the final answer. --overwrite lets it replace stock shadcn files of the same name (button.tsx, tooltip.tsx); check those first if they were customized. It adds AI_GATEWAY_API_KEY to .env.local: ask me for the key (Vercel dashboard > AI Gateway > API Keys) instead of inventing one.`;
+It adds a json-render chat (Vercel AI SDK, Fluid Functionalism UI) with app/api/chat/route.ts, a /chat page, and features/chat/chat-catalog.ts, features/chat/chat-registry.tsx and features/chat/chat-steps.ts where cards are turned on. Each reply shows Fluid Functionalism's ThinkingSteps (looking up each card's data with linked sources, done; or just writing it, done, for a card with nothing to look up like a code block or a terminal), then folds them away and shows the cards as the final answer. --overwrite lets it replace stock shadcn files of the same name (button.tsx, tooltip.tsx); check those first if they were customized. It adds AI_GATEWAY_API_KEY to .env.local: ask me for the key (Vercel dashboard > AI Gateway > API Keys) instead of inventing one.`;
 }
 
 function candlestickInstallPrompt(origin: string): string {
@@ -502,6 +502,67 @@ The model only writes the card's props; the card fetches the numbers itself:
 Docs: ${origin}/docs/radial-chart`;
 }
 
+function codeBlockInstallPrompt(origin: string): string {
+  return `Add the Code block card from genuicn to my Next.js app. It's a code block card (the code the model writes, highlighted for its language with Shiki, with line numbers, called-out lines and a copy button) that the chat's model can show.
+
+${chatSetup(origin)}
+
+2. Install the card:
+npx shadcn@latest add ${origin}/r/code-block.json
+It adds features/code-block/. The model writes the code, so there is no API route and no API key.
+
+3. Turn the card on, one entry in each file, next to the CardGroup entry that is already there (keep it: it lets one reply show several cards):
+features/chat/chat-catalog.ts
+  import { codeBlockCatalogEntry } from "@/features/code-block/code-block-catalog";
+  CodeBlockCard: codeBlockCatalogEntry,
+features/chat/chat-registry.tsx
+  import CodeBlockCard from "@/features/code-block/components/code-block-card";
+  CodeBlockCard: ({ props, loading }) => (
+    <CodeBlockCard code={props.code} language={props.language} filename={props.filename} highlight={props.highlight} streaming={loading} />
+  ),
+The card has no thinking steps, so it needs no entry in features/chat/chat-steps.ts.
+
+4. Check it: run the dev server, open /chat and ask "Write a zod schema for a user signup form".
+
+The model writes these props:
+- code: string, the code itself, with no Markdown fences
+- language: string, e.g. "tsx", "python" or "yaml"
+- filename: string | null, e.g. "app/page.tsx"
+- highlight: number[] | null, line numbers to call out
+
+Docs: ${origin}/docs/code-block`;
+}
+
+function terminalInstallPrompt(origin: string): string {
+  return `Add the Terminal card from genuicn to my Next.js app. It's a terminal window card (the commands the model tells the user to run, in order, each with a copy button, and what a command prints when it helps) that the chat's model can show.
+
+${chatSetup(origin)}
+
+2. Install the card:
+npx shadcn@latest add ${origin}/r/terminal.json
+It adds features/terminal/. The model writes the commands, so there is no API route and no API key.
+
+3. Turn the card on, one entry in each file, next to the CardGroup entry that is already there (keep it: it lets one reply show several cards):
+features/chat/chat-catalog.ts
+  import { terminalCatalogEntry } from "@/features/terminal/terminal-catalog";
+  TerminalCard: terminalCatalogEntry,
+features/chat/chat-registry.tsx
+  import TerminalCard from "@/features/terminal/components/terminal-card";
+  TerminalCard: ({ props, loading }) => (
+    <TerminalCard steps={props.steps} shell={props.shell} cwd={props.cwd} streaming={loading} />
+  ),
+The card has no thinking steps, so it needs no entry in features/chat/chat-steps.ts.
+
+4. Check it: run the dev server, open /chat and ask "How do I start a new Next.js app with pnpm?". Install the Code block card too, and a question like "Add Tailwind to my Vite app" gets the commands in a terminal and the file changes in code blocks.
+
+The model writes these props:
+- steps: { command: string, output: string | null }[], in the order to run them
+- shell: "bash" | "zsh" | "fish" | "powershell" | null (null means zsh)
+- cwd: string | null, the directory in the prompt, e.g. "~/my-app"
+
+Docs: ${origin}/docs/terminal`;
+}
+
 function chatInstallPrompt(origin: string): string {
   return `Set up the genuicn chat in my Next.js app: a json-render chat where the model shows live cards (stock quotes and more) instead of plain text.
 
@@ -521,6 +582,7 @@ export const INSTALL_PROMPTS = {
   "bar-chart": barChartInstallPrompt,
   candlestick: candlestickInstallPrompt,
   chat: chatInstallPrompt,
+  "code-block": codeBlockInstallPrompt,
   crypto: cryptoInstallPrompt,
   flights: flightsInstallPrompt,
   forecast: forecastInstallPrompt,
@@ -532,6 +594,7 @@ export const INSTALL_PROMPTS = {
   "radial-chart": radialChartInstallPrompt,
   scoreboard: scoreboardInstallPrompt,
   standings: standingsInstallPrompt,
+  terminal: terminalInstallPrompt,
   weather: weatherInstallPrompt,
   "win-probability": winProbabilityInstallPrompt,
 } satisfies Record<string, (origin: string) => string>;

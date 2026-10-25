@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useState } from "react";
 import {
   ThinkingStep,
   ThinkingStepDetails,
@@ -69,6 +69,15 @@ function cardsIn(spec: Spec | null): Card[] {
     }
   }
   return cards;
+}
+
+/**
+Whether the reply has a card that looks its data up, known from the card's type alone so it holds before the props stream in.
+*/
+function hasLookupCard(spec: Spec | null): boolean {
+  return Object.values(spec?.elements ?? {}).some((element) =>
+    Object.hasOwn(lookups, element.type)
+  );
 }
 
 function areSameCards(left: readonly Card[], right: readonly Card[]): boolean {
@@ -165,21 +174,48 @@ function sourceLabel(count: number, verb: "Read" | "Explored"): string {
   return `${verb} ${count} ${noun}`;
 }
 
+/**
+Fluid's minimal steps for cards with nothing to look up (a code block, a terminal): two dots, "Writing the code" → Done.
+*/
+function writeSteps(written: string, isWritten: boolean, isDone: boolean) {
+  return [
+    {
+      done: isWritten,
+      icon: "dot",
+      key: "write",
+      label: isWritten ? `Wrote the ${written}` : `Writing the ${written}`,
+    },
+    {
+      done: isDone,
+      icon: "dot",
+      key: "done",
+      label: "Done",
+    },
+  ] satisfies Step[];
+}
+
 function buildSteps({
   isResearching,
   isSearched,
   isRead,
+  isWritten,
   isDone,
   cards,
   sources,
+  written,
 }: {
   isResearching: boolean;
   isSearched: boolean;
   isRead: boolean;
+  isWritten: boolean;
   isDone: boolean;
   cards: readonly Card[];
   sources: readonly Source[];
+  written: string | null;
 }): Step[] {
+  if (!isResearching && written) {
+    return writeSteps(written, isWritten, isDone);
+  }
   if (!isResearching) {
     if (!isDone) {
       return [];
@@ -237,7 +273,31 @@ function stepStatus(active: number, index: number): StepStatus {
 }
 
 /**
-Basic ThinkingSteps: Searched → Read N sources → Done.
+What a card with nothing to look up has the model write, for the minimal steps: "Writing the code", "Wrote the commands and code".
+*/
+const WRITTEN: Record<string, string> = {
+  CodeBlockCard: "code",
+  TerminalCard: "commands",
+};
+
+/**
+What the cards are, e.g. "commands and code"; null until a card's type has streamed in (the spec can hold only its CardGroup at first). Null too when a card looks its data up: it gets its own steps, even before its subject has streamed in.
+*/
+function writtenOf(spec: Spec | null): string | null {
+  if (hasLookupCard(spec)) {
+    return null;
+  }
+  const types = new Set(
+    Object.values(spec?.elements ?? {}).map((element) => element.type)
+  );
+  const nouns = [...types].flatMap((type) =>
+    Object.hasOwn(WRITTEN, type) ? [WRITTEN[type]] : []
+  );
+  return nouns.length > 0 ? listOf(nouns) : null;
+}
+
+/**
+One flow for every reply: Thinking → steps → Done, then the steps fold into "Worked for Ns" and the cards show. Only the steps differ: a card that looks its data up gets Looking up → Read N sources → Done; a code block or terminal gets the minimal Writing → Done.
 Card stays last — onFinish runs only after Done.
 */
 export function ReplySteps({
@@ -277,8 +337,7 @@ export function ReplySteps({
   const isRead = canMarkRead && (!isResearching || hasBeatElapsed);
   const isDone = isWritten && isSearched && isRead;
 
-  const onFinishReference = useRef(onFinish);
-  onFinishReference.current = onFinish;
+  const finishReply = useEffectEvent(onFinish);
   useEffect(() => {
     // Read once Done lands, so the hold before the fold isn't counted.
     const doneAt = performance.now();
@@ -291,7 +350,7 @@ export function ReplySteps({
     }, DONE_HOLD_MS);
     const finish = setTimeout(() => {
       if (isDone) {
-        onFinishReference.current();
+        finishReply();
       }
     }, DONE_HOLD_MS + FOLD_MS);
     return () => {
@@ -325,7 +384,9 @@ export function ReplySteps({
     isRead,
     isResearching,
     isSearched,
+    isWritten,
     sources,
+    written: writtenOf(spec),
   });
   const active = steps.findIndex((step) => !step.done);
   const lastShown = active === -1 ? steps.length - 1 : active;

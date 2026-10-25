@@ -1,0 +1,156 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "9R3gMxZ0za41h3vr"
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 736
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgFzk8M1SFrsL34TGsH7j",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 10850,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 8,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 898
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "CAQSvAkKEAgTGAI4AUIIdGhpbmtpbmcSDBldBeGLFpRFf9BQ3RoMQns+7NdyB8wDeaegIjD0peYH/g7WC0P6ahSFHesQKuSu7zI2rX6jmI/V4wU3FkkTMf+L30tmdMhwrTfQpFwq2Qi2grxkZ27u6A6ov7gS4KL3q+SAEaK2RohtlqgKTExsWOqBPuM/jDOtEEi9GyHS+HFh2AZq6mUAun6Za/83KGDrYDXsxHAc5eVg9Yz431rRMMLoUjlpOXcW2n6w1mm6jGjM10Rz/PTYQZ9A9yn253w7wQVyn0YCDj3xTj4Dt0AyNP5o8cBmawyis8lfq+7uKh82UPUD+dPrksaf2q7TdYAGjPaB9TCCLRC+c0ls+Fg7/wtsAxyUGYPdEJjX1EXVpSA1AknGN7oDA8vUUvndIkWv7Jy2dOpkwqwZfDgkqOJYohpGUj8DjzWGXp5mk6tFqFWAcT1NKcRsPlKF8t2W+8HHVTv7lmdx/QvgnjBzrTu+eVjhUntJuGOtrpMvmudgV/9tzKr2F4QtX/SjYgO1hdjQCE4v1vEHojUBoor7aRTrByc2lUB+wvuNcJAvCy8cv5vExZU4Li5ENR6xr2yY7QPsfaFZ6a1HK+3hhi0fJnydnE5tLHjdhLIkxyks4X4KqvmZFsFOpVdVEY/XIuWoqcSgnz3uaQPp2V9TBfu0n6l3StZRGyKO22OfAE1ZZDgv3S+u5rWtv76QFHfU2TBuZHorC0vN1JnCi0XFdK3aDixr3VEqAATKW4+XfDjrEhNeWMD1VeufSFlPOohfcNUZC+n8q4ZLNHzJdT/axVHnizWiR1m3n1K6MIdlI8/Fz8nxcHOquJI16CsqTMisp+wvd3L58qYVybnrAV/PU25OWAqXsXLlppFmTdukoVxQx6uOxHFfHM3rHVkbiI+Bkvudohje4Ev2Y3lxuvTvPpGMEqAWRCLsl7cq42jHRjkcUyg/N28YpGc/G6O1VipZGDRzHP+HoYf3bCnQE7m6H5bkWYZkSZQzxNlEDr8D21xRVf4ymwIYDzjfk8XqQq2HXlzN6yIGE8o8HEE9CAbDGcyvcPNmPWWh3AU9/Q0ke+5UTjP+BMtgdHyvMjxsNzSokW/GAf70JiI63qlAmELlu4cbbq8qdib4h1XA0gj2PWxqt3rMZvVGFxdgALgg5Ggv8P/EAYE/OTjhi2PA6tCXpUWWEDsULhVd1N8f3rEX4vdrzKR4UJUDTuSlVrNUEI/Y4Zik2J7PCOYqgwFGxkDyM9ZOv+cks3y3wRX/kA72xLIRB/U3A8iK1LppGwdTcc7RzBbB/KoffCusm2Ro6IL5eZAYCZqLP5A/gLnPImTOTor4eCoiRvlqIUoS+E8V4kuJo22blQ1GX3/7WWaIsKAzTzsYSKs57MV3ksFEGRhZ5sJbf0O/dP/2W4hUx5OokBh14FOJeGLqeELur0rtDjBQX5q9iIQ0o0EdLzCTx8hcfWTbcqmA236GyZG4Ej1GMRsDBZVtLDMErnVDvq+XiXBK6kVmmvC3Tt1HWnCG/6IkHT4lnkNGZg927687W6TsamYrveesDXoOA0dvf3heGlndQsSCb7O0VSwuujUPyy613JBEEag8jpknqIEHZ/7tIIoYAQ=="
+              }
+            }
+          },
+          "wait": 12
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 59
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "undo-commit"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/undo-commit",
+                "value": {
+                  "type": "TerminalCard",
+                  "props": {
+                    "shell": "bash",
+                    "steps": [
+                      {
+                        "command": "git reset --soft HEAD~1",
+                        "output": ""
+                      },
+                      {
+                        "command": "git status",
+                        "output": ""
+                      }
+                    ]
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 329
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 4
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "How do I undo my last git commit but keep the changes?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {}
+}

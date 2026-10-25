@@ -3,6 +3,7 @@
 import { defineRegistry } from "@json-render/react";
 import { catalog } from "@/features/chat/chat-catalog";
 import { LiveCandlestickCard } from "@/features/candlestick/components/live-candlestick-card";
+import CodeBlockCard from "@/features/code-block/components/code-block-card";
 import { CardGroup } from "@/features/chat/components/card-group";
 import { LiveCryptoCard } from "@/features/crypto/components/live-crypto-card";
 import { LiveForecastCard } from "@/features/forecast/components/live-forecast-card";
@@ -18,6 +19,7 @@ import { LiveRadarChartCard } from "@/features/radar-chart/components/live-radar
 import { LiveRadialChartCard } from "@/features/radial-chart/components/live-radial-chart-card";
 import LiveStandingsCard from "@/features/standings/components/live-standings-card";
 import LiveWinProbabilityCard from "@/features/win-probability/components/live-win-probability-card";
+import TerminalCard from "@/features/terminal/components/terminal-card";
 import { LiveWeatherCard } from "@/features/weather/components/live-weather-card";
 
 export const { registry } = defineRegistry(catalog, {
@@ -54,6 +56,15 @@ export const { registry } = defineRegistry(catalog, {
       />
     ),
     CardGroup: ({ children }) => <CardGroup>{children}</CardGroup>,
+    CodeBlockCard: ({ props, loading }) => (
+      <CodeBlockCard
+        code={props.code}
+        language={props.language}
+        filename={props.filename}
+        highlight={props.highlight}
+        streaming={loading}
+      />
+    ),
     CryptoCard: ({ props, loading }) => (
       <LiveCryptoCard
         symbol={props.symbol || undefined}
@@ -107,6 +118,14 @@ export const { registry } = defineRegistry(catalog, {
     StandingsCard: ({ props, loading }) => (
       <LiveStandingsCard
         conference={props.conference || undefined}
+        streaming={loading}
+      />
+    ),
+    TerminalCard: ({ props, loading }) => (
+      <TerminalCard
+        steps={props.steps}
+        shell={props.shell}
+        cwd={props.cwd}
         streaming={loading}
       />
     ),

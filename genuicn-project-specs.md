@@ -17,7 +17,7 @@ Each card is a complete unit you install with one shadcn CLI command:
 
 ## Card catalog
 
-The plan lives in one place, `components/sidebar-app/nav-data.ts`, and the site renders it at `/roadmap`. That file lists every card by topic (Finance, Sports, Everyday & travel, Charts) with a one-line description. Shipped cards have an `href`.
+The plan lives in one place, `components/sidebar-app/nav-data.ts`, and the site renders it at `/roadmap`. That file lists every card by topic (Finance, Sports, Everyday & travel, Charts, Code) with a one-line description. Shipped cards have an `href`.
 
 The sidebar shows only items with an `href`, and the roadmap shows only the cards without one. To ship a card, build it, add it to `registry.json`, give it a docs page, and add its `href` in `nav-data.ts`. The sidebar and the roadmap both update from that one change.
 

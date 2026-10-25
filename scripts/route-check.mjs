@@ -133,6 +133,21 @@ const CASES = [
   },
   { card: ["ForecastCard"], prompt: "forecast for miami" },
 
+  // Code to read or paste, and commands to run: the Code block and Terminal cards.
+  {
+    card: ["CodeBlockCard"],
+    prompt: "Write a zod schema for a user signup form",
+  },
+  {
+    card: ["CodeBlockCard"],
+    prompt: "regex for validating an email in python",
+  },
+  {
+    card: ["TerminalCard"],
+    prompt: "How do I start a new Next.js app with pnpm?",
+  },
+  { card: ["TerminalCard"], prompt: "how do i undo my last git commit" },
+
   // Either reading is fair.
   {
     card: ["WeatherCard", "ForecastCard"],

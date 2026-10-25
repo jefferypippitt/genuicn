@@ -1,6 +1,7 @@
 import { defineCatalog } from "@json-render/core";
 import { schema } from "@json-render/react/schema";
 import { candlestickCatalogEntry } from "@/features/candlestick/candlestick-catalog";
+import { codeBlockCatalogEntry } from "@/features/code-block/code-block-catalog";
 import { cardGroupCatalogEntry } from "@/features/chat/components/card-group";
 import { cryptoCatalogEntry } from "@/features/crypto/crypto-catalog";
 import { forecastCatalogEntry } from "@/features/forecast/forecast-catalog";
@@ -16,6 +17,7 @@ import { radarChartCatalogEntry } from "@/features/radar-chart/radar-chart-catal
 import { radialChartCatalogEntry } from "@/features/radial-chart/radial-chart-catalog";
 import { standingsCatalogEntry } from "@/features/standings/standings-catalog";
 import { winProbabilityCatalogEntry } from "@/features/win-probability/win-probability-catalog";
+import { terminalCatalogEntry } from "@/features/terminal/terminal-catalog";
 import { weatherCatalogEntry } from "@/features/weather/weather-catalog";
 
 export const catalog = defineCatalog(schema, {
@@ -26,6 +28,7 @@ export const catalog = defineCatalog(schema, {
     BoardingPass: boardingPassCatalogEntry,
     CandlestickCard: candlestickCatalogEntry,
     CardGroup: cardGroupCatalogEntry,
+    CodeBlockCard: codeBlockCatalogEntry,
     CryptoCard: cryptoCatalogEntry,
     ForecastCard: forecastCatalogEntry,
     NbaCupCard: nbaCupCatalogEntry,
@@ -36,6 +39,7 @@ export const catalog = defineCatalog(schema, {
     RadialChartCard: radialChartCatalogEntry,
     ScoreboardCard: scoreboardCatalogEntry,
     StandingsCard: standingsCatalogEntry,
+    TerminalCard: terminalCatalogEntry,
     WeatherCard: weatherCatalogEntry,
     WinProbabilityCard: winProbabilityCatalogEntry,
   },

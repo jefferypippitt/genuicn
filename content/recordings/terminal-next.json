@@ -1,0 +1,157 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "7JE7CSTIxifJxnAg"
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 792
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgFzjuTMvgkVax3D3Q3rT",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 10850,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 8,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 1500
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "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"
+              }
+            }
+          },
+          "wait": 14
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 79
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "terminal"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/terminal",
+                "value": {
+                  "type": "TerminalCard",
+                  "props": {
+                    "shell": "bash",
+                    "steps": [
+                      {
+                        "command": "pnpm create next-app@latest my-app"
+                      },
+                      {
+                        "command": "cd my-app"
+                      },
+                      {
+                        "command": "pnpm dev"
+                      }
+                    ]
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 256
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 2
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "How do I start a new Next.js app with pnpm?"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {}
+}

@@ -24,6 +24,10 @@ import type { QuoteData, QuoteRange } from "@/features/quote/quote-schema";
 import type { RadarChartData } from "@/features/radar-chart/radar-chart-schema";
 import type { RadialChartData } from "@/features/radial-chart/radial-chart-schema";
 import type { ScoreboardData } from "@/features/scoreboard/scoreboard-schema";
+import type {
+  TerminalShell,
+  TerminalStep,
+} from "@/features/terminal/terminal-schema";
 import type { WeatherData } from "@/features/weather/weather-schema";
 
 export const GALLERY_QUOTES: Record<QuoteRange, QuoteData> = {
@@ -79,3 +83,35 @@ California's major reservoirs as a percent of capacity, from the state's CDEC.
 */
 export const GALLERY_RADIAL_CHART =
   radialChartCaliforniaReservoirs as RadialChartData;
+
+/**
+A short signup schema in zod. The model writes the code, so the slide's props are written here instead of saved from a service.
+*/
+export const GALLERY_CODE = {
+  code: `import { z } from "zod";
+
+export const signupSchema = z.object({
+  email: z.email("Enter a valid email address"),
+  password: z.string().min(8, "At least 8 characters"),
+  acceptTerms: z.literal(true),
+});
+
+export type SignupForm = z.infer<typeof signupSchema>;`,
+  filename: "signup-schema.ts",
+  language: "typescript",
+} as const;
+
+/**
+Starting a Next.js app with pnpm, and what the dev server prints once it is up.
+*/
+export const GALLERY_TERMINAL = {
+  shell: "zsh",
+  steps: [
+    { command: "pnpm create next-app@latest my-app --yes" },
+    { command: "cd my-app" },
+    {
+      command: "pnpm dev",
+      output: "▲ Next.js 16\n- Local: http://localhost:3000\n✓ Ready in 1.2s",
+    },
+  ],
+} as const satisfies { shell: TerminalShell; steps: readonly TerminalStep[] };

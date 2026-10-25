@@ -3,6 +3,7 @@
 import { useState, useSyncExternalStore } from "react";
 // eslint-disable-next-line react-doctor/use-lazy-motion -- the app imports motion directly everywhere, so LazyMotion here would save nothing
 import { motion } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
@@ -168,7 +169,18 @@ export const AppSidebar = ({
         <SidebarHeader>
           <SidebarWorkspaceHeader
             name="genuicn"
-            tile={<WorkspaceTile>g</WorkspaceTile>}
+            tile={
+              <WorkspaceTile className="overflow-hidden">
+                {/* The name sits right beside the mark, so the image adds nothing for a screen reader. */}
+                <Image
+                  src="/android-chrome-192x192.png"
+                  alt=""
+                  width={20}
+                  height={20}
+                  className="size-full"
+                />
+              </WorkspaceTile>
+            }
           />
           <SidebarSearchTrigger />
         </SidebarHeader>

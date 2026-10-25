@@ -1,4 +1,5 @@
 import { DocPage } from "@/components/docs/doc-page";
+import GalleryActions from "@/features/home/components/gallery-actions";
 import GalleryCarousel from "@/features/home/components/gallery-carousel";
 
 export default function HomePage() {
@@ -7,6 +8,7 @@ export default function HomePage() {
       title="Generative UI cards for your chatbot"
       description="Give your chatbot something to show for itself. Live cards, ready to drop in."
       href="/"
+      actions={<GalleryActions />}
     >
       <GalleryCarousel />
     </DocPage>

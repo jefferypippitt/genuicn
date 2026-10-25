@@ -1,0 +1,148 @@
+{
+  "turns": [
+    {
+      "chunks": [
+        {
+          "chunk": {
+            "type": "start",
+            "messageId": "kda5nJCrKcd266iH"
+          },
+          "wait": 4
+        },
+        {
+          "chunk": {
+            "type": "start-step"
+          },
+          "wait": 1067
+        },
+        {
+          "chunk": {
+            "type": "custom",
+            "kind": "anthropic.message_start",
+            "providerMetadata": {
+              "anthropic": {
+                "id": "msg_011CgFziwenpZupcN7EbjeXA",
+                "model": "claude-haiku-5-5",
+                "usage": {
+                  "input_tokens": 10846,
+                  "cache_creation_input_tokens": 0,
+                  "cache_read_input_tokens": 0,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 0
+                  },
+                  "output_tokens": 4,
+                  "service_tier": "standard",
+                  "inference_geo": "global",
+                  "speed": "standard"
+                }
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-start",
+            "id": "0"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": ""
+          },
+          "wait": 1500
+        },
+        {
+          "chunk": {
+            "type": "reasoning-delta",
+            "id": "0",
+            "delta": "",
+            "providerMetadata": {
+              "anthropic": {
+                "signature": "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"
+              }
+            }
+          },
+          "wait": 11
+        },
+        {
+          "chunk": {
+            "type": "reasoning-end",
+            "id": "0"
+          },
+          "wait": 1
+        },
+        {
+          "chunk": {
+            "type": "text-start",
+            "id": "1"
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "text-end",
+            "id": "1"
+          },
+          "wait": 48
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/root",
+                "value": "signup-code"
+              }
+            }
+          },
+          "wait": 0
+        },
+        {
+          "chunk": {
+            "type": "data-spec",
+            "data": {
+              "type": "patch",
+              "patch": {
+                "op": "add",
+                "path": "/elements/signup-code",
+                "value": {
+                  "type": "CodeBlockCard",
+                  "props": {
+                    "language": "typescript",
+                    "filename": "signup-schema.ts",
+                    "code": "import { z } from 'zod';\n\nconst passwordSchema = z\n  .string()\n  .min(8, 'Password must be at least 8 characters')\n  .regex(/[A-Z]/, 'Password must contain an uppercase letter')\n  .regex(/[a-z]/, 'Password must contain a lowercase letter')\n  .regex(/[0-9]/, 'Password must contain a number');\n\nexport const signupSchema = z\n  .object({\n    username: z\n      .string()\n      .trim()\n      .min(3, 'Username must be at least 3 characters')\n      .max(20, 'Username must be at most 20 characters')\n      .regex(/^[a-zA-Z0-9_]+$/, 'Only letters, numbers and underscores'),\n    email: z\n      .string()\n      .trim()\n      .email('Enter a valid email address'),\n    password: passwordSchema,\n    confirmPassword: z.string(),\n    acceptTerms: z.boolean().refine((val) => val === true, {\n      message: 'You must accept the terms',\n    }),\n  })\n  .refine((data) => data.password === data.confirmPassword, {\n    message: 'Passwords do not match',\n    path: ['confirmPassword'],\n  });\n\nexport type SignupForm = z.infer<typeof signupSchema>;"
+                  },
+                  "children": []
+                }
+              }
+            }
+          },
+          "wait": 1467
+        },
+        {
+          "chunk": {
+            "type": "finish-step"
+          },
+          "wait": 5
+        },
+        {
+          "chunk": {
+            "type": "finish",
+            "finishReason": "stop"
+          },
+          "wait": 0
+        }
+      ],
+      "prompt": "Write a zod schema for a user signup form"
+    }
+  ],
+  "version": 1,
+  "responsesByUrl": {}
+}

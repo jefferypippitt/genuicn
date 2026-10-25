@@ -8,6 +8,7 @@ import { CarouselDots } from "@/components/ui/carousel-dots";
 import { AreaChartCard } from "@/features/area-chart/components/area-chart-card";
 import { BarChartCard } from "@/features/bar-chart/components/bar-chart-card";
 import { CandlestickCard } from "@/features/candlestick/components/candlestick-card";
+import CodeBlockCard from "@/features/code-block/components/code-block-card";
 import { CryptoCard } from "@/features/crypto/components/crypto-card";
 import { BoardingPassCard } from "@/features/flights/components/boarding-pass-card";
 import { ForecastCard } from "@/features/forecast/components/forecast-card";
@@ -18,17 +19,20 @@ import {
   GALLERY_BITCOIN,
   GALLERY_BOARDING_PASS,
   GALLERY_CANDLESTICK,
+  GALLERY_CODE,
   GALLERY_FORECAST,
   GALLERY_PIE_CHART,
   GALLERY_RADAR_CHART,
   GALLERY_RADIAL_CHART,
   GALLERY_SCOREBOARD,
+  GALLERY_TERMINAL,
   GALLERY_WEATHER,
 } from "@/features/home/gallery-snapshot";
 import { PieChartCard } from "@/features/pie-chart/components/pie-chart-card";
 import { RadarChartCard } from "@/features/radar-chart/components/radar-chart-card";
 import { RadialChartCard } from "@/features/radial-chart/components/radial-chart-card";
 import ScoreboardCard from "@/features/scoreboard/components/scoreboard-card";
+import TerminalCard from "@/features/terminal/components/terminal-card";
 import { WeatherCard } from "@/features/weather/components/weather-card";
 import { spring } from "@/lib/springs";
 import { cn } from "@/lib/utils";
@@ -40,6 +44,7 @@ How long each card stays up before the next: long enough to read one.
 const SLIDE_MS = 5000;
 
 const SLIDE_WIDTH = {
+  code: "max-w-xl",
   scoreboard: "max-w-[500px]",
   ticket: "max-w-2xl",
   tile: "max-w-md",
@@ -80,7 +85,7 @@ const SLIDES: readonly {
     label: "Weather",
   },
   {
-    card: <ForecastCard state="ready" data={GALLERY_FORECAST} />,
+    card: <ForecastCard state="ready" data={GALLERY_FORECAST} view="hourly" />,
     href: "/docs/forecast",
     label: "Forecast",
   },
@@ -89,6 +94,18 @@ const SLIDES: readonly {
     href: "/docs/flights",
     label: "Flights",
     width: "ticket",
+  },
+  {
+    card: <CodeBlockCard {...GALLERY_CODE} />,
+    href: "/docs/code-block",
+    label: "Code block",
+    width: "code",
+  },
+  {
+    card: <TerminalCard {...GALLERY_TERMINAL} />,
+    href: "/docs/terminal",
+    label: "Terminal",
+    width: "code",
   },
   {
     card: <AreaChartCard state="ready" data={GALLERY_AREA_CHART} />,

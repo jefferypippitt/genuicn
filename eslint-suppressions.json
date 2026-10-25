@@ -71,7 +71,7 @@
   },
   "app/layout.tsx": {
     "sort-keys": {
-      "count": 2
+      "count": 1
     }
   },
   "components/changelog/changelog-view.tsx": {
@@ -339,12 +339,6 @@
     },
     "promise/prefer-await-to-then": {
       "count": 2
-    },
-    "react-doctor/no-ref-current-in-render": {
-      "count": 1
-    },
-    "react-hooks/refs": {
-      "count": 1
     },
     "react/hook-use-state": {
       "count": 1
