@@ -2,6 +2,7 @@ import { Geist_Mono, Inter } from "next/font/google";
 import { Providers } from "@/components/providers";
 import { SiteShell } from "@/components/site-shell";
 import { latestNewHrefs } from "@/lib/changelog/load";
+import { SITE_URL } from "@/lib/site-url";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -14,13 +15,6 @@ const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 const DESCRIPTION =
   "Generative UI cards for your chatbot, installed with the shadcn CLI.";
-
-/**
-The site's address for the share image's absolute URL: Vercel sets the production domain at build time, and local builds use localhost.
-*/
-const SITE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : "http://localhost:3000";
 
 const SHARE_IMAGE = {
   alt: "genuicn",

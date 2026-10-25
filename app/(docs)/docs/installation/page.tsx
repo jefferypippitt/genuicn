@@ -47,6 +47,41 @@ const CHAT_FILES: readonly (readonly [string, ReactNode])[] = [
   ["features/chat/chat-steps.ts", "lists the thinking steps for each card."],
 ];
 
+const CREDITED_SOURCES: readonly (readonly [string, string])[] = [
+  [
+    "Weather and Forecast",
+    "use Open-Meteo. Its free API is for non-commercial use only. The data is under CC BY 4.0, so credit Open-Meteo with a link to open-meteo.com.",
+  ],
+  [
+    "Crypto",
+    "uses CoinGecko and Kraken. CoinGecko's free plan asks you to credit CoinGecko with a link.",
+  ],
+  [
+    "Area chart",
+    "uses World Bank data, which is under CC BY 4.0. Credit the World Bank.",
+  ],
+];
+
+const UNOFFICIAL_SOURCES: readonly (readonly [string, string])[] = [
+  ["Quote and Candlestick", "use Yahoo Finance."],
+  ["Scoreboard, Standings, Player, and Win probability", "use ESPN."],
+  ["NBA Cup", "uses NBA Stats."],
+];
+
+function renderSource([cards, detail]: readonly [string, string]) {
+  return (
+    <li key={cards}>
+      <span
+        className="text-foreground"
+        style={{ fontVariationSettings: fontWeights.semibold }}
+      >
+        {cards}
+      </span>{" "}
+      {detail}
+    </li>
+  );
+}
+
 function renderChatFile([name, detail]: (typeof CHAT_FILES)[number]) {
   return (
     <li key={name}>
@@ -158,6 +193,31 @@ export default function InstallationPage() {
             BotID
           </a>
           . On other hosts, add a rate limit.
+        </p>
+      </DocSection>
+
+      <DocDivider />
+
+      <DocSection title="Check the terms of each data source">
+        <p className="text-muted-foreground">
+          Each card fetches its data from a free public service. Some of these
+          services ask for credit:
+        </p>
+        <ul className="text-muted-foreground flex list-disc flex-col gap-1 pl-5">
+          {CREDITED_SOURCES.map(renderSource)}
+        </ul>
+        <p className="text-muted-foreground">
+          These cards call endpoints that have no public API:
+        </p>
+        <ul className="text-muted-foreground flex list-disc flex-col gap-1 pl-5">
+          {UNOFFICIAL_SOURCES.map(renderSource)}
+        </ul>
+        <p className="text-muted-foreground">
+          These endpoints can change or block requests without notice, and their
+          terms may not allow this use. For a production app, replace the fetch
+          in the card&apos;s <code className="font-mono">-queries.ts</code> file
+          with a licensed data provider. Team, airline, and company logos belong
+          to their owners.
         </p>
       </DocSection>
     </DocPage>

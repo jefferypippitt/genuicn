@@ -1,8 +1,18 @@
 # genuicn
 
-genuicn is a shadcn registry of generative UI cards that render inside a chatbot. The chat uses [json-render](https://github.com/vercel-labs/json-render), so the model writes a small spec that names a card and its props, and the card fetches its own live data. Quote, a live stock quote card, is the first one. The other cards in the docs sidebar are planned.
+genuicn is a shadcn registry of generative UI cards that render inside a chatbot. The chat uses [json-render](https://github.com/vercel-labs/json-render), so the model writes a small spec that names a card and its props, and the card fetches its own live data.
 
-To add the chat and cards to your own Next.js app, follow the Installation page at `/docs/installation`.
+These cards are ready to install:
+
+- **Finance:** Quote, Candlestick, and Crypto.
+- **Sports:** Scoreboard, Standings, NBA Cup, Player, and Win probability.
+- **Everyday and travel:** Weather, Forecast, and Flights.
+- **Code:** Code block and Terminal.
+- **Charts:** Area, Bar, Pie, Radar, and Radial.
+
+The other cards in the docs sidebar are planned. To add the chat and cards to your own Next.js app, follow the Installation page at `/docs/installation`.
+
+Some cards call services that ask for credit, and some call endpoints that have no public API. The Installation page lists which cards these are. Check each service's terms before you ship.
 
 ## Running this site
 
@@ -25,3 +35,7 @@ To try `/api/chat` locally, copy `.env.example` to `.env.local` and add an `AI_G
 - `pnpm check` and `pnpm fix` run Ultracite.
 
 The changelog lives in `content/changelog/`, one file per month. The format is in `content/changelog/README.md`.
+
+## License
+
+[MIT](LICENSE)
